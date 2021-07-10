@@ -4,6 +4,7 @@
 alternative titles
 - generic properties, a bottom up approach
 - an interval- and/or order-based point of view
+- an ordered tree is just another un-ordered tree
 - ordered trees are fictional, they do not exist
 - a tag soup ain't no (fucking) node tree
 - no more than 4 types of properties are possible
