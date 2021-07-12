@@ -7,20 +7,20 @@
 
 In regards to statement S2 one special case can be pointed out:
 
-If a document has one and only one heading, then the section of that heading
-is in general understood to contain all of the nodes that are below the
-section's heading. That is because there is no further explicit definition
-embedded into the document that could force the section to end prematurely.
+If a document has one and only one heading, then the section of that heading is
+in general understood to contain all of the nodes that are below the section's
+heading. That is because there is no further explicit definition embedded into
+the document that forces the section to end before the end of its default scope
+is reached.
 
-- (S3) By default, the section of a heading includes all of the nodes
+- **S3** - By default, the section of a heading includes all of the nodes
   that are below/beneath the section's heading.
 
-S3 can therefore be understood to clarify S2 in that particular case.
-In addition to that, S3 can be said to define **the default scope**
-of a section.
+S3 can therefore be understood to clarify S2 in regards to that particular
+case. As such, S3 can be said to define **the default scope** of a section.
 
-Note that S3 is just as clear as S1 since all-of the corresponding nodes
-are by default included. Because of that, the heading's section seems to
+Note that S3 is just as clear as S1 since all-of the corresponding nodes are
+by default included. In that particular case, the heading's section seems to
 be unrestricted (i.e. no "if", no "but" and no "maybe").
 
 Note that the above/below node order has, at this point, no strict formal
@@ -29,12 +29,25 @@ implementations need to be able to determine if a node is below/beneath
 a particular heading.
 
 <!-- ======================================================================= -->
-## special case: no heading at all
+## the issue with statement-2 (S2)
 
-The following question can be asked in regards to S1: To which section do the
-nodes above the very first heading of a document belong? Put differently, to
-which section do the nodes of a document belong, if there is no heading at all?
+Despite being able to provide a clear definition for the scope of a section,
+and in regrads to one-heading-only, the main issue remains: It is inherently
+difficult to clarify S2 if a document contains more than one heading.
 
-TODO
-- introduce the universal section
-- different types of sectioning nodes
+However, and based on the use of headings and the general characteristics of
+the sections they declare, some clarification is possible:
+
+- **S4** - The nodes below a heading count towards a heading's section up to
+  and including the section's last node. Below that last node, no node is a
+  node of the heading's section.
+
+As can be seen, further clarification tends to be verbose and is as such more
+difficult to understand. In addition to that, S4 is still not clear since it
+provides no definition for the last node of a section. S4 simply assumes that
+"one just knows" how to identify a section's last node. As a consequence,
+implementations are expected to do the same in regards to closing a section
+(i.e. "just know"). That however won't work since implementations need clear
+instructions.
+
+Obviously, S4 is still just not good enough.

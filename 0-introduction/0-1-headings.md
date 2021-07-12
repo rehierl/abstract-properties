@@ -27,8 +27,8 @@ And here is where it begins: The only means an author has to state which nodes
 are grouped into a section is by the placement of a heading. The order that is
 in general agreed upon can be expressed by the following two statements:
 
-- (S1) **The nodes above/before a heading do not belong to its section.**
-- (S2) The nodes **below/after** a heading may or may not belong to its section.
+- **S1** - **The nodes above/before a heading do not belong to its section.**
+- **S2** - The nodes **below/after** a heading may or may not belong to its section.
 
 S1 is obviously a clear instruction since none of the nodes above a heading
 belong to its section. In contrary to that, S2 is not as clear since it does
@@ -110,9 +110,10 @@ Note that parent node `p` is "clearly" above heading `h`, which would suggest
 that the answer of the first question is, at least in regards to node `p`,
 simple and straight forward.
 
-Since there does not seem to be a simple mapping of the "above" node order onto
-the node order of a document tree (or vice versa), one can assume that Mathematics
-(in particular "Order Theory") must be used in order to answer the above questions.
-That is, to answer these kind of questions orders of nodes need to be transformed,
-compared and combined. In other words, even though inaccurate simplifications are
-in general possible, there is no direct simple answer.
+Since there does not seem to be a simple mapping of the "above" node order
+onto the node order of a document tree (or vice versa), one can assume that
+Mathematics (in particular "Order Theory") must be used in order to answer
+the above questions. That is, to answer these kind of questions orders of
+nodes need to be transformed, compared and combined. In other words, even
+though inaccurate simplifications are in general possible, there is no direct
+simple answer.
