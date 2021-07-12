@@ -14,16 +14,18 @@ as an intermediate goal
 
 # todo
 
-clear vs. unclear definitions
-- point out the core issue/problem with unclear instructions
-  i.e. all-of or none-of vs. some-of - use venn diagrams
-
 generic properties
 - introduce the generic concept of properties
   before moving on to graph theory
 
+introduce the term "type-x descendants"?
+- instead of "the descendants in the node order of the un-ordered tree"
+
+<!-- ======================================================================= -->
+# repository: node-tree-outliner
+
 found the h1-h3-issue/fragment
 - in node-tree-outliner / about
 
-introduce the term "type-x descendants"?
-- instead of "the descendants in the node order of the un-ordered tree"
+<!-- ======================================================================= -->
+# repository: ordered-trees

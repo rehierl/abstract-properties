@@ -32,22 +32,20 @@ a particular heading.
 ## the issue with statement-2 (S2)
 
 Despite being able to provide a clear definition for the scope of a section,
-and in regrads to one-heading-only, the main issue remains: It is inherently
-difficult to clarify S2 if a document contains more than one heading.
+and in regrads to one-heading-only, the main issue remains: It is difficult
+to clarify S2 if a document contains more than one heading.
 
 However, and based on the use of headings and the general characteristics of
 the sections they declare, some clarification is possible:
 
 - **S4** - The nodes below a heading count towards a heading's section up to
-  and including the section's last node. Below that last node, no node is a
-  node of the heading's section.
+  and including the section's last node. Below that last node, no node count
+  towards the heading's section.
 
 As can be seen, further clarification tends to be verbose and is as such more
-difficult to understand. In addition to that, S4 is still not clear since it
-provides no definition for the last node of a section. S4 simply assumes that
-"one just knows" how to identify a section's last node. As a consequence,
-implementations are expected to do the same in regards to closing a section
-(i.e. "just know"). That however won't work since implementations need clear
-instructions.
+difficult to clearly understand. In addition to that, S4 is still not clear
+since it provides no definition for the last node of a section. S4 simply
+assumes that "one just knows" how to identify a section's last node. That
+however won't work since implementations need precise instructions.
 
 Obviously, S4 is still just not good enough.
