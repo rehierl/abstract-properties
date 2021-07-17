@@ -8,6 +8,6 @@ remarks
 extended
 - intervalls require an underlying order
 - induced subtrees can be described as intervalls
-- i.e. intervalls over partial orders
+- here, intervalls over partial rather than total orders
 - the scope of a property can still be described
   as an interval over the underlying node order

@@ -11,11 +11,11 @@ alternative titles
 - lists - no more than 2 types of properties are possible
 - the ha-div-ha issue, an inconsistentcy of scopes
 
-science
+science is ..
 - some say science is to see what others see, and to think of something new
-- the issue here is however not with "something new", since the knowledge
-  required in order to develop a consistent alternative (to html's outline
-  algorithm) is already known
+- the issue here is however not with "something new", since the fundamental
+  knowledge required in order to develop a consistent design (to html's
+  outline algorithm) is already known
 - this ain't quantum physics, and it ain't rocket science
 - this is about simple sets of elements (aka. scopes)
 - hence, the following statement seems to be more appropriate:
@@ -43,8 +43,10 @@ based on all of that ...
 - the resulting node orders allow to define types of scopes,
   which in turn allow to define types of properties
 - only 4 types of properties are possible
+- the big issue is with inconsistent scopes
 - only 3 types make sense in the context of a tag-based syntax
-- the bit issue therefore is with inconsistent scopes
+- the big issue is with the general awareness of partial orders,
+  or more accurately .. the lack of it .. i.e. in general unaware
 
 this is as serious as it can get
 - this is an issue of significant importance
@@ -59,7 +61,7 @@ this is as serious as it can get
   this concerns every single human being with or without
   disabilities, including all the future generations
 - this is about our ability to use partial orders to our advantage
-- this is about our general awareness of (partial node) orders
+- this is about the general awareness of (partial node) orders
 - this is about the responsibility of experts, and because of that ..
 - this is about the responsibility of the scientific community
 - so yes, this is about the evolution of the human race,

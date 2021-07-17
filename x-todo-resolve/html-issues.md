@@ -1,7 +1,11 @@
 
-- some sort of conclusion/epilog
-- a summary of core/fundamental aspects
+- this repository is about the concept of generic
+  properties and as such a purely theoretical discussion
+- a summary/discussion of core/fundamental aspects
   in regards to html's core issues
+- extract into its own repository since this is
+  almost guaranteed to grow ways past the scope
+  of this repository
 
 # the tag-based syntax
 
