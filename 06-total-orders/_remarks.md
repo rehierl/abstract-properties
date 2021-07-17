@@ -8,6 +8,7 @@ family of scopes
 -> family of scopes
 
 remarks
+- define "ordered sequence"
 - nodes/vertices within the scope of multiple properties
 - properties of similar "kind"
 - the relationships between the scopes of these properties

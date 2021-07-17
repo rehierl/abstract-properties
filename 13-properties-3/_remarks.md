@@ -10,7 +10,8 @@ introduce the term "type-x descendants"?
 - instead of "the descendants in the the un-ordered tree"
 - a descendant in regards to the type-x node order
 
-a sub-system of the type system for total orders
+the general pattern of defining scopes
+- also applies to total orders
 - type-0 - no edges have been added
 - type-1 - the edges of the order
 - the resulting order is total

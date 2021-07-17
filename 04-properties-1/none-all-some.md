@@ -4,7 +4,17 @@
 clear vs. unclear definitions
 - point out the core issue/problem with unclear instructions
   i.e. all-of or none-of vs. some-of
-- use venn diagrams
+
+the some-but-not-all qualifier
+- using venn diagrams it is easy to recognize overlapping sets
+- it is however anything but easy to provide clear definitions
+  for overlapping sets/scopes
+- after all, how does one clearly (unambiguously, efficiently)
+  define that "some, but not all" are included
+- how can a definition allow implementations to distinguish
+  between "included" and "not included"?
+- as it turns out, an end-tag does provide a clear definition
+  for the some-but-not-all qualifier
 
 point out that it is in general inherently difficult to define overlapping sets
 of elements (i.e. a "some, but not all" qualifier) - one can't in general draw

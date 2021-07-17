@@ -9,11 +9,8 @@ remarks
 - add the pre-order edges to the tree order of the ordered tree
 - this will result in the pre-order trace of nodes
 - referred to as a (linear) extension of the tree order
-- the document order is the doctree's pre-order trace of nodes
+- explain the inner structure of the pre-order trace
 
 remarks
-- explain the inner structure of the pre-order trace
-- explain the enter/exit order
-- each node corresponds with its start-tag, nothing else
-- visiting a node corresponds with processing its start-tag only
-- an end-tag marks the end of a scope, nothing more
+- do not use this in regards to the tag-based syntax (!)
+- this must be done in ... 10-epilog-issues

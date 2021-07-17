@@ -3,23 +3,25 @@
 
 alternative titles
 - generic properties, a bottom up approach
-- an order-based point of view (intervalls)
+- an order-/intervall-based point of view
 - an ordered tree is just another un-ordered tree
 - ordered trees are fictional, they do not exist
 - a tag soup ain't no (fucking) node tree
-- no more than 4 types of properties are possible
-- the hx-div-hy issue, an inconsistentcy of scopes
+- trees - no more than 4 types of properties are possible
+- lists - no more than 2 types of properties are possible
+- the ha-div-ha issue, an inconsistentcy of scopes
 
 science
 - some say science is to see what others see, and to think of something new
 - the issue here is however not with "something new", since the knowledge
-  required in order to develop a consistent alternative is already known
+  required in order to develop a consistent alternative (to html's outline
+  algorithm) is already known
 - this ain't quantum physics, and it ain't rocket science
 - this is about simple sets of elements (aka. scopes)
 - hence, the following statement seems to be more appropriate:
 - science is to see what others see, and to accept it for what it is
 
-a painful experience
+a wasteful/painful experience
 - based on what i have learned from analyzing the w3c's outline algorithm,
   which resulted in having to learn about its several issues and therefore
   learning about what not to do.
@@ -46,15 +48,18 @@ based on all of that ...
 
 this is as serious as it can get
 - this is an issue of significant importance
-- the tag-based syntax is an application of a system of properties
-- so no, this isn't just about html/xml/..
+- the tag-based syntax is an application of an abstract system
+  of generic properties, which itself is an application of
+  partial orders (order theory)
+- this isn't just about html/xml/..
+- this isn't just about the tag-based syntax
 - this is about the evolution of our ability to write, an
   ability that is critical to the evolution of the human race
 - so no, this does not just concern those with disabilities,
   this concerns every single human being with or without
   disabilities, including all the future generations
 - this is about our ability to use partial orders to our advantage
-- this is about our general awareness of node orders
+- this is about our general awareness of (partial node) orders
 - this is about the responsibility of experts, and because of that ..
 - this is about the responsibility of the scientific community
 - so yes, this is about the evolution of the human race,
