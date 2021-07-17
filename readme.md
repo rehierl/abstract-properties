@@ -1,9 +1,9 @@
 
-- key aspects of what is to follow
+- bullet points on what is to follow
 
 alternative titles
 - generic properties, a bottom up approach
-- an interval- and/or order-based point of view
+- an order-based point of view (intervalls)
 - an ordered tree is just another un-ordered tree
 - ordered trees are fictional, they do not exist
 - a tag soup ain't no (fucking) node tree
