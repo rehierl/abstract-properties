@@ -3,6 +3,7 @@
 
 alternative titles
 - generic properties, a bottom up approach
+- partial orders are anything but (purely) theoretical
 - an order-/intervall-based point of view
 - an ordered tree is just another un-ordered tree
 - ordered trees are fictional, they do not exist

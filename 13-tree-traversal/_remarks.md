@@ -12,5 +12,12 @@ remarks
 - explain the inner structure of the pre-order trace
 
 remarks
-- do not use this in regards to the tag-based syntax (!)
-- this must be done in ... 10-epilog-issues
+- this is on a subtle level super critical (!)
+- the tags mislead to believe that a node
+  corresponds with its tags and all the
+  descendant nodes within
+- it does not (!)
+
+remarks
+- in pre-order is dominant
+- child orders are sub-orders
