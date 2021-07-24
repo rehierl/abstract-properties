@@ -49,7 +49,12 @@ based on all of that ...
 - the big issue is with the general awareness of partial orders,
   or more accurately .. the lack of it .. i.e. in general unaware
 
-this is as serious as it can get
+this is from a developer for developers
+- true mathematicians will have to live with some "cringe"
+- be lenient in regards to explanations
+- be strict in regards to fundamental considerations
+
+this is still as serious as it can get
 - this is an issue of significant importance
 - the tag-based syntax is an application of an abstract system
   of generic properties, which itself is an application of
