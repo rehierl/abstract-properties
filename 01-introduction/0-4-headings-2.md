@@ -28,7 +28,7 @@ Such a formal definition is however still required since implementations need
 to be able to determine if a node is below a particular heading.
 
 <!-- ======================================================================= -->
-## the general issue with statement-2 (S2)
+## the issue with statement-2 (S2)
 
 Despite being able to provide a clear definition for the default scope of a
 section, the main issue remains: It is difficult to clarify S2 if a document
