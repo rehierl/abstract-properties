@@ -41,7 +41,7 @@ or not.
 traceOf(ms) begin
   s = ()
   for c in ms begin
-    s.append(c.value)
+    s.add(c.value)
   end
   return s
 end
@@ -123,35 +123,57 @@ number of distinct elements it contains.
 ## contains, element-of
 
 A multiset is said to contain a value/element, if there are one or more
-components in it that hold the corresponding value.
+components in it that have the corresponding value as their element.
 
 * `(v in ms), (v element-of ms) := (#(ms,v) > 0)`
 
+Note that multiset `ms` in the expression `(v in ms)` can be seen as a type of
+values (aka. domain). That is, `(v in ms)` can also be understood to state that
+`v` must be a value within the specified type.
+
 <!-- ======================================================================= -->
-## remove
+## removeOnce
 
 ```
-remove(ms, v) begin
+removeOnce(ms, v) begin
   for c in ms begin
     if(c.value == v) then
       //- remove compontent c from ms
-      return
+      return //- the difference
     end
   end
 end
 ```
 
-Note that the removal of an element from a multiset will always reduce the
-multiset's cardinality by one and will always reduce the multiplicity of
-that value by one.
+If the multiplicity of an element is to be reduced by one, then the operation
+needs to cancel the removal after the removal of the first occurrence it finds.
+
+Note that the effect of remove() and removeOnce() is identical if the element
+specified has an initial multiplicity of 1.
+
+<!-- ======================================================================= -->
+## remove, removeAll
+
+```
+remove(ms, v) begin
+  n = multiplicityOf(ms, v)
+  for i=1 to n begin
+    removeOnce(ms, v)
+  end
+end
+```
+
+The removal of an element from a multiset will always reduce the multiset's
+cardinality by the multiplicity of the element. That is, all occurrences of
+the specified value will be removed from the multiset.
+
+* `removeAll(ms, v) := remove(ms, v)`
 
 <!-- ======================================================================= -->
 ## one-of
 
 In regards to a multiset that consists one component only, it is helpful to
-have an easy means to refer to the single element it holds. One must however
-keep in mind that this operator will randomly pick an element out of the given
-multiset, if it contains more than one component.
+have an easy means to refer to the single element it holds.
 
 ```
 oneOf(ms) begin
@@ -164,8 +186,13 @@ end
 
 * `oneOf(ms)` := returns a random element in `ms`
 
+Note that this operator will randomly pick an element out of the given multiset,
+if it contains more than one component. It can in general not be used to refer
+to any particular element contained within a multiset that has more than one
+component.
+
 <!-- ======================================================================= -->
-## set-of, elements-in
+## set-of, elements-in, E()
 
 In case of undetermined complex values it helps to have an operator that
 allows to form a multiset based on the distinct elements within the complex
@@ -185,6 +212,6 @@ elementsIn(ms) begin
 end
 ```
 
-* `E(ms), SE(ms), setOf(ms) := elementsIn(ms)`
+* `E(ms), setOf(ms) := elementsIn(ms)`
 * e.g. `( #E(ms) <= #(ms) )` is always true
 * e.g. `( #E(ms) == #(ms) )` may be true

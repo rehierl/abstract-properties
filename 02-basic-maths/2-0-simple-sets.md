@@ -65,7 +65,7 @@ implementations may have no other choice but to throw an error.
 traceOf(ms) begin
   s = ()
   for c in ms begin
-    s.append(c.value)
+    s.add(c.value)
   end
   return s
 end
@@ -119,7 +119,7 @@ Note that a subset `s` can be formed from an set `t` by removing elements
 be referred to as **the removal-based prespective**.
 
 <!-- ======================================================================= -->
-## equal, strict/proper-subset-of
+## equal, unequal, distinct
 
 If all the elements in set `s` are elements in `t` and vice versa, then both
 hold the exact same elements. Based on that, both sets are considered to be
@@ -127,10 +127,14 @@ hold the exact same elements. Based on that, both sets are considered to be
 another. Based on that, distinct sets differ in one or more elements.
 
 * `(s == t), (s equal-to t) := (s subset-of t) and (t subset-of s)`
+* `(s != t), (s unequal-to t), (s distinct-from/to t) := not (s == t)`
 * `(s == t) -> (#s == #t)`
 
-In contrary to that, subset `s` is considered to be **a strict subset** of set
-`t`, if `t` has one or more additional elements that are no elements in `s`.
+<!-- ======================================================================= -->
+## strict/proper-subset-of
+
+Subset `s` is considered to be **a strict subset** of set `t`, if `t` has one
+or more additional elements that are no elements in `s`.
 
 * `(s strict-subset-of t) := (s subset-of t) and (s != t)`
 * `(s strict-subset-of t) -> (#s < #t)`
@@ -151,10 +155,10 @@ cardinality) to a superset. Conversely, a superset is considered to be
 Based on the above, and since the overall focus will be on distinct sets of
 elements, the subset-of operator can be understood to denote the relationship
 between two sets of elements. That is, two sets are said to be **related** if
-one set is a subset to the other. Otherwise, both sets are said to be
+one set is a subset of/to the other. Otherwise, both sets are said to be
 **unrelated** with each other.
 
-* `(s related-to t) := (s subset-fo t) or (t subset-of s)` if `(s != t)`
+* `(s related-to t) := (s subset-of t) or (t subset-of s)`
 
 Note that the related-to operator is based upon a clear defintion. That is,
 **all-of** the elements of one set must also be elements of the other set.
