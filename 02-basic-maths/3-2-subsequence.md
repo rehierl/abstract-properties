@@ -12,8 +12,8 @@ u = (          d, e, f, g            ) - subsequence, substring
 * sequence `u` is a subsequence and a substring of `s`
 * substring `u` represents an exact pattern in `s`, subsequence `t` does not
 
-In mathematics, sequence `t` is a subsequence of the source sequence `s`, if
-it was formed/derived from `s` by the removal of zero or more components, while
+In mathematics, sequence `t` is a subsequence of the source sequence `s`, if it
+can be formed/derived from `s` by the removal of zero or more components, while
 maintaining the relative order between the remaining components. If `t` is a
 subsequence to `s`, then `s` may also be described as the **super-sequence**
 of `t`.
@@ -26,13 +26,14 @@ sequence is a subsequence to itself (**none-of** the elements removed).
 
 Note that, if a sequence is formed by removing one or more elements in between
 the 1st and last element of the resulting sequence, then that sequence is said
-to have **a gap**. In addition to that, if `n` elements have been removed between
-two elements that are now adjacent (i.e. next to each other) in the subsequence,
-then that subsequence can be described as having **a gap of size n**.
+to have **a gap**. In addition to that, if `n` elements have been removed from
+in between two elements that are now adjacent (i.e. next to each other) in the
+subsequence, then that subsequence can be described as having **a gap of size n**.
 
 Note that, as a matter of clarity, a substring can be described as
-**a subsequence of consecutive elements**. Obviously, the word "consecutive" is
-understood to be in regards to the remaining elements within the supersequence.
+**a subsequence of consecutive elements**. Here, the word "consecutive" is to
+be understood in regards to the elements within the supersequence and to point
+out that no element was removed from in between the remaining elements.
 
 <!-- ======================================================================= -->
 ## strict/proper-subsequence-of
