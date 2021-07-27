@@ -9,13 +9,61 @@ s := (.., x, .., e, .., y, ..)
      presequent     subsequent
 ```
 
-With each sequence comes a notion of "sequence", a notion of "order". That is
-because when focussing on an element `e` at a specific index, one can determine
-all the other elements (e.g. `x`) that appear before element `e`. Likewise, one
-can determine all the elements (e.g. `y`) that appear after element `e`.
+With each sequence comes a notion of "order". That is because when focussing
+on an element `e` at a specific index, one can determine all the other elements
+(e.g. `x`) that appear before the element. Likewise, one can determine all the
+elements (e.g. `y`) that appear after it.
 
 * `(x presequent-to e) := (idx(x) < idx(e))`
 * `(y subsequent-to e) := (idx(y) > idx(e))`
+
+Since the elements within a sequence are treated as abstract values, the
+**less-than operator (<)** and the **greater-than operator (>)** have no real
+semantical meaning since "less than" and "greater than" is in general only
+understood in the context of values that can be understood to have some numeric
+"weight". However, in the context of "unknown" abstract values both operators
+can be understood to be redefined as follows:
+
+* `(a < b) := (a presequent-to b)`
+* `(a > b) := (a subsequent-to b)`
+
+Defined as such, presequent-to and subsequent-to can be described as the
+**default/generic semantics** of both operators.
+
+<!-- ======================================================================= -->
+## comparable
+
+Two elements within the same ordered sequence are said to be comparable under
+the presequent/subsequent operator (i.e. `<` or `>`) since one can always
+determine if one is presequent or subsequent to the other. In contrary to that,
+if both elements are not within the same ordered sequence, then both elements
+are said to be incomparable with/to each other.
+
+* `(a comparable-to b) := (a < b) or (a > b)`
+* `(a incomparable-to b) := not (a comparable-to b)`
+
+The catch - There are no incomparable elements within an ordered sequence.
+
+<!-- ======================================================================= -->
+## next-presequent (<<), next-subsequent (>>)
+
+An element may be described as being next presequent/subsequent to another, if
+both elements are next to each other. Conversely, an element may be described
+as being loosely presequent/subsequent, if there are one or more other elements
+in between.
+
+* `(x >> y), (x next-subsequent-to y) := (idx(x) == idx(y)+1)`
+* `(x << y), (x next-presequent-to y) := (idx(x) == idx(y)-1)`
+
+Note that, if both elements are next to each other, then both elements can be
+referred to as being **covered by** each other (i.e. covered by a close "buddy"
+so to speak).
+
+* `(a covered-by b) := (a << b) or (a >> b)`
+
+Note that, if `(a << b)` is true, then `a` is in general more naturally referred
+to as **the next previous element** in regards to `b`. Likewise, `b` can more
+naturally be referred to as **the next subsequent element** in regards to `a`.
 
 <!-- ======================================================================= -->
 ## issues with presequent/subsequent
@@ -62,35 +110,3 @@ That is, `x` appears to be presequent and subsequent to the same element `e`.
 Suffice to state that the relationships between the elements are inherently
 unclear under the presequent/subsequent operators, if multiple occurrences
 are allowed.
-
-<!-- ======================================================================= -->
-## reduce
-
-```
-reduce(s) begin
-   t = ()
-   for c in s begin
-     if (c.value in E(s)) then
-       //- ignore
-     else
-       t.append(c.value)
-     end if
-   end
-   return t
-end
-```
-
-Each sequence can be reduced such that only the very first occurrence of each
-element is retained. That is, every other occurence of an element is dropped.
-
-* `s := (e1, e2, e3, e2, e1)`
-* `t := reduce(s) = (e1, e2, e3)`
-* `(#t == #E(s))` is true
-
-Note that, from a less strict perspective, the reduce() operation can still
-be understood to return a subsequence `t` to the source sequence `s`.
-
-With this operation in mind, one can detect potential problems by simply
-comparing the length values of the source sequence with the reduced sequence.
-
-* there is a potential issues if `(#reduce(s) < #s)` turns out to be true

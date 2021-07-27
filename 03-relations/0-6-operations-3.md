@@ -1,5 +1,15 @@
 
 <!-- ======================================================================= -->
+## reflexive closure/extension - RC(R)
+
+The reflexive closure `S` is formed from relation `R` by adding all of those
+loops that are still missing.
+
+* `S := RC(R) := R + { (a,a) | (a in D) }`
+
+Note that `S` is then guaranteed to be reflexive.
+
+<!-- ======================================================================= -->
 ## transitive closure/extension - TC(R)
 
 Note that, as in graph theory, one can in principle define **paths of vertices**
@@ -27,16 +37,6 @@ repeated until no more edges can be added.
 In some sense, the transitive closure of a relation allows to answer if a
 vertex can be reached from an initial vertex by traversing over existing
 edges. That is, while respecting the direction/orientation of these edges!
-
-<!-- ======================================================================= -->
-## reflexive closure/extension - RC(R)
-
-The reflexive closure `S` is formed from relation `R` by adding all missing
-loops.
-
-* `S := RC(R) := R + { (a,a) | (a in D) }`
-
-Note that `S` is then guaranteed to be reflexive.
 
 <!-- ======================================================================= -->
 ## reflexive transitive closure - RTC(R)
@@ -79,7 +79,7 @@ does not break the relation's connectivity. Because of that, no disconnected
 vertices will be formed.
 
 <!-- ======================================================================= -->
-## reflexive transitive recution - RTR(R)
+## reflexive transitive reduction - RTR(R)
 
 If a relation `R` is to be "reduced" under reflexivity and transitivity, then
 one should first from the reflexive reduction.

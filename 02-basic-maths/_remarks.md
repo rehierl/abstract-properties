@@ -8,13 +8,7 @@
 - note - standard and non-standard definitions
 
 remarks
-- an operation to turn any sequence to an ordered sequence:
-  keep first occurences, remove any subsequent repetitions
-- based on the "order" in the source sequence
-- which has precedence? the first occurrence, the last?
-
-remarks
-- note the inherent similarties between operators defined
+- note the inherent similarties between the operators defined
   based upon sets and sequences - i.e. subset-of, substring-of
 
 remarks

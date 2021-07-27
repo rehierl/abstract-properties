@@ -38,56 +38,38 @@ out that each of these sequences are understood to define total orders of
 elements. As such, ordered sequences can be understood to be closely related
 to ordered sets of elements. (see - **order theory**).
 
-<!-- ======================================================================= -->
-## pre-sequent (<), sub-sequent (>)
-
-* `s := ( .., x, .., y, ..)`
-
-If element `y` appears after element `x` in the ordered sequence `s`, then `y`
-is said to be subsequent to `x`. Conversely, `x` is said to be presequent to
-`y` in regards to `s`.
-
-* `(x subsequent-to y) := (idx(s,x) > idx(s,y))` for `(x,y in s)`
-* `(x presequent-to y) := (y subsequent-to x)`
-
-Since the elements within a sequence are treated as abstract values, the
-**less-than operator (`<`)** and the **greater-than operator (`>`)** have
-no real semantical meaning since "less than" and "greater than" is in general
-only understood in the context of numeric values. However, in the context of
-"unknown" abstract values both operators can be understood to be redefined as
-follows:
-
-* `(a < b) := (a presequent-to b)`
-* `(a > b) := (a subsequent-to b)`
-
-Defined as such, presequent-to and subsequent-to can be described as the
-**default/generic semantics** of both operators.
-
-Note that an element may be described as being strictly presequent/subsequent
-(i.e. <</>>) to another, if both elements are next to each other. Conversely,
-an element may be described as being loosely presequent/subsequent, if there
-are one or more other elements in between.
-
-* `(a << b) := (i == j-1)` if `(s(i) == a) and (s(j) == b)`
-* `(a >> b) := (i == j+1)` if `(s(i) == a) and (s(j) == b)`
-
-Note that if both elements are next to each other, then both elements can be
-said to be **covered by** each other (i.e. covered by a "buddy" so to speak).
-
-* `(a covered-by b) := (a << b) or (a >> b)`
-
-Note that, if `(a << b)` is true, then `a` is in general referred to as
-**the next previous element** in regards to `b`. Likewise, `b` is in general
-referred to as **the next subsequent element** in regards to `a`.
+Note that, similar to describing a set as a "simple set" or an "ordered set",
+a sequence that does not disallow repeated occurrences (i.e. elements may appear
+more than once), may be described as **a simple sequence**.
 
 <!-- ======================================================================= -->
-## comparable
+## reduce - R(s)
 
-Two elements within the same ordered sequence are said to be comparable under
-the corresponding comparison operator (i.e. < or >) since one can always
-determine if one is presequent or subsequent to the other. In contrary to that,
-if both elements are not within the same ordered sequence, then both elements
-are said to be incomparable with/to each other.
+```
+reduce(s) begin
+   t = ()
+   for c in s begin
+     if (c.value in E(s)) then
+       //- ignore
+     else
+       t.append(c.value)
+     end if
+   end
+   return t
+end
+```
 
-* `(a comparable-to b) := (a < b) or (a > b)`
-* `(a incomparable-to b) := not (a comparable-to b)`
+Any sequence can be reduced such that only the very first occurrence of each
+element is retained. That is, every other occurence of an element is dropped.
+
+* `s := (e1, e2, e3, e2, e1)`
+* `R(s) := reduce(s) = (e1, e2, e3)`
+* `(#s == #E(s))` is not true
+* `(#R(s) == #E(s))` is true
+
+Note that, the reduce() operation can still be understood
+to return a subsequence `t` to the source sequence `s`.
+
+With this operation in mind, one can detect potential issues by comparing the
+length values of the source sequence with the reduced sequence; i.e. there is
+a potential issue if `(#reduce(s) < #s)` is true.

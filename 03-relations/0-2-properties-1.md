@@ -89,12 +89,19 @@ miscellaneous
 clarification
 
 * all three edges are required
+* bRa, cRb, cRa may also exist
 
 **quasi-transitive**
 
 * if (aRb & !bRa & bRc & !cRb), then also (aRc & !cRa)
-* R is not required to be a-symmetric
+* not required to be a-symmetric
 * not quite transitive
+
+unclear
+
+* due to !bRa, !cRb, !cRa
+* seems more strict than "transitive"
+* then why "quasi"?
 
 <!-- ======================================================================= -->
 ## endo-relations, loops

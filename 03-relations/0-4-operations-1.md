@@ -26,9 +26,9 @@ endpoints need to be removed explicitly.
 <!-- ======================================================================= -->
 ## restriction - R(T)
 
-A relation `S` is said to be a restriction of a known relation `R`, if its set
-of vertices `T` is a (strict) subset to the set of vertices `D` in `R`, and if
-`S` contains all the edges from `R` whose endpoints are in `T`.
+A relation `S` is said to be a restriction of relation `R`, if its set of
+vertices `T` is a (strict) subset to the set of vertices `D` in `R`, and
+if `S` contains all the edges from `R` whose endpoints are both in `T`.
 
 * `S := R(T) := { (a,b) | aRb and (a,b in T) }`
 
@@ -49,18 +49,18 @@ Note that this operation can be understood to be similar to the **subset-of**
 operator in the context of sets of elements such that simple sets of elements
 have no further information that could be added.
 
-As such, a restriction can be described to form **an induced sub-relation**
-based on a pre-determined subset of vertices. Hence, one could speak of an
-induced sub-relation `R[v]`, if the subset of vertices were defined based on
-a given single vertex - i.e. in terms of all those vertices that can be reached
-from that initial vertex.
+As such, a restriction can be said to form **an induced sub-relation** based
+on a pre-determined subset of vertices. Hence, one could speak of an induced
+sub-relation `R[v]`, if the subset of vertices were defined based on a given
+single vertex - i.e. in terms of all those vertices that can be reached from
+that initial vertex.
 
 <!-- ======================================================================= -->
 ## sub-relation
 
 Note that no direct counterpart to the subset-of operator will be provided
 at this point. The reason is that specialized relations (such as trees and
-order relations) should provide a specialized definition.
+order relations) should provide specialized definitions.
 
 - TODO - It is at this point too unclear, if these specialized definitions
 are similar to some extend, or differ substantially in some specific way.
