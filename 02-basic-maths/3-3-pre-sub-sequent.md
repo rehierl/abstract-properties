@@ -31,20 +31,6 @@ Defined as such, presequent-to and subsequent-to can be described as the
 **default/generic semantics** of both operators.
 
 <!-- ======================================================================= -->
-## comparable
-
-Two elements within the same ordered sequence are said to be comparable under
-the presequent/subsequent operator (i.e. `<` or `>`) since one can always
-determine if one is presequent or subsequent to the other. In contrary to that,
-if both elements are not within the same ordered sequence, then both elements
-are said to be incomparable with/to each other.
-
-* `(a comparable-to b) := (a < b) or (a > b)`
-* `(a incomparable-to b) := not (a comparable-to b)`
-
-The catch - There are no incomparable elements within an ordered sequence.
-
-<!-- ======================================================================= -->
 ## next-presequent (<<), next-subsequent (>>)
 
 An element may be described as being next presequent/subsequent to another, if
@@ -66,6 +52,20 @@ to as **the next previous element** in regards to `b`. Likewise, `b` can more
 naturally be referred to as **the next subsequent element** in regards to `a`.
 
 <!-- ======================================================================= -->
+## comparable
+
+Two elements within the same ordered sequence are said to be comparable under
+the presequent/subsequent operator (i.e. `<` or `>`) since one can always
+determine if one is presequent or subsequent to the other. In contrary to that,
+if both elements are not within the same ordered sequence, then both elements
+are said to be incomparable with/to each other.
+
+* `(a comparable-to b) := (a < b) or (a > b)`
+* `(a incomparable-to b) := not (a comparable-to b)`
+
+The catch - There are no incomparable elements within an ordered sequence.
+
+<!-- ======================================================================= -->
 ## issues with presequent/subsequent
 
 The issue with these "notions" is however, if the elements within a sequence
@@ -81,8 +81,8 @@ idx(e)=   i             j
 Given this pattern, and in regards to `e` at index `i`, `e` also appears at
 index `j` and therefore "subsequent to itself". Likewise, and in regards to
 `e` at index `j`, `e` also appears at index `i` and therefore "presequent to
-itself". From looking at the given sequence, and while keeping the correspoing
-source-index in mind, both of these descriptions do make sense.
+itself". From looking at the sequence, and while keeping the corresponding
+source-index in mind, both of these descriptions do make sense to some extent.
 
 However, if boiled down to the boolean expressions, the context required to
 make sense of these is lost since one no longer knows which index is referred

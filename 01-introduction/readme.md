@@ -3,10 +3,10 @@ By the placement of a heading content is grouped into the heading's section.
 Because of that, structural relationships are used to express which nodes
 belong to a section, and which ones don't.
 
-At this point one can however only clearly state that no node above a heading
-belongs to the heading's section. Even though a section is in general assumed
-to consist of consecutive nodes (i.e. no gaps), no such clear statement can
-be made about where or when a section does end.
+At this point one can only clearly state that no node above a heading belongs
+to the heading's section. Even though a section is in general assumed to consist
+of consecutive nodes (i.e. no gaps), no such clear statement can be made about
+where or when a section does end.
 
 A document that has one heading only, combined with the general agreement that
 the section of such a heading includes all the nodes that are beneath it, does
