@@ -3,10 +3,16 @@ visualize a section
 - by underlining the nodes the section contains
 - increase "visibility" by drawing boxes around the nodes
 
+a matter of perspective
+- the scope of a node is forwards-oriented
+- i.e. the propagation of a property along the edges
+- the context of a node is backwards-oriented
+- introduce "context" just briefly - not in depth - later
+
 underlining nodes
 - corresponds with a subset
 - understood to define a subset
-- an output tape of a touring machine
+- an output tape of a turing machine
 
 generic properties
 - introduce the basic concept of generic properties
@@ -30,6 +36,14 @@ at that point
 
 relationships between scopes
 - shared across multiple nodes
+
+turing machines
+- the idea of turing machine that pops up on a regular basis
+- the core concept of a multi-tape/track machine
+- section properties written to additional tapes
+- hence, this "image" can be used to imagine
+  the relationships between multiple sections/properties
+- hence, in principle a future issue
 
 # from the ordered-trees repository
 

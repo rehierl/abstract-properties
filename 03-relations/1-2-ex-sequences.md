@@ -151,3 +151,54 @@ As a consequence, and except for special purposes (which are not part of this
 discussion), repeating elements will by default not be allowed. That is, the
 **default case** of sequences in the context of this discussion is that of
 **ordered sequences of nodes**.
+
+<!-- ======================================================================= -->
+## visual variations
+
+```
+- s := (a, b, c, d, e)
+- (a next-presequent-to b)
+==========================
+a - b - c - d - e ->
+```
+
+Recall that the overall focus of this discussion is on ordered sequences of
+nodes. Also, the orientation of the arrows is by default from left-to-right.
+Because of that, the arrow heads can in general be omitted if one keeps in
+mind that all the arrows are always directed from left-to-right. An optional
+trailing (`->`) can be used to make the default orientation more clear.
+
+```
+- s := (n1, n2, n3, n4, n5, n6)
+- (n1 next-presequent-to n2)
+==========================
+n1 n2 n3 n4 n5 n6
+```
+
+Sometimes however, even the reduction to simple lines might still cause too
+much visual clutter. In such a case, even these lines may be omitted, if the
+element references (i.e. (a), (b), ...) are sufficiently distinct such that
+one can easily tell them apart. If need be, additional spaces can be used to
+help with that aspect.
+
+```
+- s := (a, b, c, d, e)
+==========================
+a, b, c, d, e
+```
+
+Alternatively, one can separate the element references from each other using
+separator charachters (e.g. comma (,) or semikolon (;)) instead of actual
+arrows. Hence, there isn't much of a visual difference between a path graph
+and an actual sequence of elements, which is why a semantical expression can
+be omitted.
+
+```
+(some descriptive title)
+=============================
+... n3 n4 ... x ... n5 n6 ...
+```
+
+In regards to shifting ones focus to specific parts within a squence, or if
+only certain patterns are relevant within a sequence, elements that are to be
+ignored can be omitted entirely in various different ways.
