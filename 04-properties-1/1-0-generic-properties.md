@@ -1,4 +1,5 @@
 
+<!-- ======================================================================= -->
 # An introduction to generic properties
 
 <!-- ======================================================================= -->
@@ -6,22 +7,22 @@
 
 Describing the following concept of properties as "generic" is intended to
 reduce confusion. That is because the description of a characteristic as a
-"property" has, depending on a given context, different meaning.
+"property" has, depending on a given context, various different meanings.
 
-For example, the overall structure of the connections between vertices (e.g. as
+For example, the overall structure of the connections between vertices (e.g.
 acyclic) can be described as a property of the corresponding relation (i.e. a
 graph property). Likewise, the concrete feature or characteristic of an object
 (e.g. its weight) is in general also described as a "property".
 
 In contrary to that, the use of the term "property" as described below abstracts
 the general process of marking all the elements (e.g. with some color) that will
-be affected by an operation. As such, these kind of properties can be understood
-as being purely abstract in nature.
+be affected by an operation. As such, the type of properties as described below
+can be understood as being purely abstract in nature.
 
-However, and since these properties can be understood to correspond with scopes,
-they can in general be used to define concrete object properties and the scopes
-of operations. Based on that, one could also speak of **generic scopes** or of
-**types of scopes** rather than of "generic properties".
+However, and since these kind of properties can be understood to correspond with
+scopes, they can in general be used to define concrete object properties and the
+scopes of operations. Based on that, one could also speak of **generic scopes**
+or of **types of scopes** rather than of "generic properties".
 
 <!-- ======================================================================= -->
 ## scopes of operations
@@ -45,8 +46,8 @@ of information that is being displayed. In general, these kind of operations
 are implemented based on hiding and re-displaying the nodes within a section.
 
 At the very core of any operation is however the ability to reliably determine
-if a given node is within a specific section. Because of that, clear definitions
-of which nodes are affected by some sectioning node must be provided.
+if a given node is within a particular section. Because of that, a clear
+definition of which nodes are affected by a sectioning node must be provided.
 
 Once such definitions are available, an implementation can then determine all
 the nodes within a section and execute some operation on them. Based on that,
@@ -60,12 +61,12 @@ both be understood to denote some "area of effect (aoe)" and can as such be
 understood to refer to all of those nodes that are whithin that group.
 
 <!-- ======================================================================= -->
-## the all-of, none-of, some-of quantifiers
+## the all-of, none-of, some-of qualifiers
 
 Critical to the definition of an operation is therefore a clear and unambiguous
 definition of its scope. After all, an operation is in general required to have
 predictable results. That is, an operation is expected to produce results that
-can be relied upon, results that can be taken advantage of.
+can be relied upon such that they can be taken advantage of.
 
 In most of the cases an operation is not intended to affect all of the nodes
 within a document (i.e. **all-of**). Similar to that, an operation that does
@@ -74,26 +75,26 @@ an operation would then have no effect at all. Because of that, an operation
 will in general affect "some, but not all" of the nodes within a document (i.e.
 **some-of**).
 
-Obviously, the all-of and none-of quantifiers are easy to define in the context
+Obviously, the all-of and none-of qualifiers are easy to define in the context
 of a well known set of nodes, such as the set of nodes of a document. That is
 because neither the document's structure, nor its contents are relevant to these
-quantifiers: It is "either all in ex-or none at all".
+qualifiers: It is "either all in, ex-or none at all".
 
 It is just as obvious that each operation must have some well known point of
 origin. After all, if an operation has to be performed, it first needs to be
 declared within a given context (such as a document). One can therefore assume
 that the scope of each operation has a well known starting point, which leaves
-only one question open: At which point does a scope end that is not supposed
-to include all of the other nodes?
+one remaining question: At which point does its scope end, assumed that the
+operation is not supposed to affect all of the other nodes?
 
 Based on that, the difficult part is on providing unambiguous defintions for
-the some-of quantifier since it relies upon additional bits of information. But
-how does one define which nodes to include, and which ones to ignore, based on
-an abstract concept of "a document" that is purely theoretical in the context
-of a definition?
+the some-of qualifier since it relies upon additional bits of information to
+explain which nodes to include, and which ones to ignore. But how does one
+define "include these, but not the others", based on an abstract concept of
+"a document" that is purely theoretical in the context of a definition?
 
 The only means a definition has in that regards are the **formal rules** any
 document is expected/required to follow. Because of that, all definitions must
-be based upon these rules, which is why these rules must be known to those who
-make the defitions and to those who use them. As such, these formal rules can
-be understood **as a language that is used to communicate definitions**.
+be based upon these rules. Consequently, these rules must be known to those who
+make the defitions and known to those who use them. As such, these formal rules
+can be understood **as a language that is used to communicate definitions**.
