@@ -1,5 +1,9 @@
 
-# mid-/long-term
+defintions in regards to properties
+- these are introductory/preliminary
+- TODO - will have to eventually
+  provide formal definitions
+- e.g. in terms of a final summary
 
 relationships between scopes
 - shared across multiple nodes
@@ -11,13 +15,12 @@ turing machines
 - this "image" can be used to imagine the relationships
   between multiple sections/properties
 
-# from the ordered-trees repository
-
+from the ordered-trees repository
 - a goal-driven approach, not a bottom-up approach
 - the stream-based perspective does not really apply
   since a property applies to all the nodes that are
   subsequent to its defining node
 - that was the old approach - based on some-of
-- the old approach did jump too far
+- the old approach did jump too far too fast
 - immediately jumped to multiple/shared properties
 - failed to take one small step at a time

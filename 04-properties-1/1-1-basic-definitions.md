@@ -2,10 +2,14 @@
 <!-- ======================================================================= -->
 # Generic properties
 
+Note that the following definitions are meant to be introductory. That is,
+they provide an initial rough terminology. The definitions will be fleshed
+out based on the observable interactions between properties and node orders.
+
 ```
-- n1 - n2 - n3 - n4 - d - n6 - n7 - n8 - n9 ->
-           <----------|----------->
-          context   current    scope
+n1 -> n2 -> n3 -> n4 -> d -> n6 -> n7 -> n8 -> n9
+             <----------|----------->
+           context   current    scope
 ```
 
 A **defining node** `d` is such that it is understood to declare/introduce a
@@ -22,6 +26,9 @@ declares are understood to apply to the defining node itself, and to **all-of**
 those nodes that are subsequent to it (i.e. `[d,*)`). Based on that, the nodes
 to which a property applies are said to be within the **scope** of the defining
 node and all of the properties it declares.
+
+* `d(p) := d`
+* `s(d), s(p) := [d(p),*)`
 
 Any of the nodes that are presequent to the defining node `d` of a property
 may themselves be defining nodes such that the defining node `d` is within
@@ -46,6 +53,15 @@ presequent/subsequent can be said to have similar orientation.
 
 <!-- ======================================================================= -->
 ## remarks
+
+Note that, although that obvious from the definition, the concept of generic
+properties is closely related to intervals. Put differently, generic properties
+can be understood as an application that is based upon one particular type of
+intervals: those that are unrestricted to the right hand side (i.e. `[x,*)`).
+
+Note that generic properties, as an application of "Order Theory", represent
+a low-level layer of abstraction. As such generic properties can be said to
+represent the foundation of a bottom-up approach.
 
 Note that the **fluid dynamics** of a river, which is flowing down a hill (e.g.
 a waterfall), seems to be a decent analogy. Just as water is forced by gravity
