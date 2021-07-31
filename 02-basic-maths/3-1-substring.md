@@ -17,8 +17,8 @@ concatenate(s, t) begin
 end
 ```
 
-While the subset-of operation is most natural ("most natural" as in "obvious"
-or "most used") in regards to simple sets, that isn't the case in regards to
+While the subset-of operation is most natural (read "most natural" as in
+"most used") in regards to simple sets, that isn't the case in regards to
 sequences and their subsequence-of operation. More "natural" in regards to
 sequences is the concatenation based operation.
 
@@ -27,32 +27,32 @@ sequences is the concatenation based operation.
 <!-- ======================================================================= -->
 ## substring-of, prefix, infix, suffix
 
-A sequence `t` can be described as a substring in regards to a sequence `x`,
-if `x` can be formed via the concatenation of three sequences. Because of that,
-`x` can be described as a **super-string** to sequence `t`.
+A sequence `t` can be described as a substring in regards to a sequence
+`x`, if `x` can be formed via the concatenation of three sequences.
+Because of that, `x` can be described as a **super-string** to sequence `t`.
 
 * `substring-of(x, t) := (x == (s × t × u))`
 
-Note that any of these sequences may be the empty sequence (`()` or `Ø`). In
-addition to that, `s` may be referred to as a prefix, `t` as an infix and `u`
-as a suffix to the super-string `x`.
+Note that any of these sequences may be the empty (i.e. `()` or `Ø`).
+In addition to that, `s` may be referred to as a **prefix**, `t` as an
+**infix** and `u` as a **suffix** to `x`.
 
-Note that any sequence is a substring to itself. Furthermore, prefix `s` and
-suffix `u` are also substrings to the super-string `x`.
+Note that any sequence is a substring to itself. Furthermore, prefix `s`
+and suffix `u` are also substrings to `x`.
 
 Note that, the substring-of() operator can also be understood from
-**the removal-based perspective**. That is, sequence `t` is a substring to
-sequence `x`, if `t` can be formed by removing a prefix and/or suffix from
-sequence `x`.
+**a removal-based perspective**. That is, sequence `t` is a substring to
+sequence `x`, if `t` can be formed by removing some prefix `s` and/or some
+suffix `u` from sequence `x`.
 
-Note that is at this point non-relevant if the super-string contains the pattern
-of the sub-string more than once. The substring's "multiplicity" in regards to
-its super-string may be greater than one. That is, the substring may have more
-than one offset in the super-string.
+Note that it is at this point non-relevant if the super-string contains the
+pattern of a sub-string more than once. The substring's "multiplicity" in
+regards to its super-string may be greater than one. That is, a substring may
+have more than one offset within a given super-string.
 
-Similar to simple sets, the equal() operator can also be defined based upon the
-concatenation operation. That is, two sequences are considered to be equal, if
-both are substrings to each other.
+Similar to simple sets, the equal() operator can also be defined based upon
+concatenation. That is, two sequences are considered equal, if both are
+substrings to each other.
 
 * `(s == t) := (s substring-of t) and (t substring-of s)`
 

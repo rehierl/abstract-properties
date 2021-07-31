@@ -9,10 +9,10 @@ s := (.., x, .., e, .., y, ..)
      presequent     subsequent
 ```
 
-With each sequence comes a notion of "order". That is because when focussing
-on an element `e` at a specific index, one can determine all the other elements
-(e.g. `x`) that appear before the element. Likewise, one can determine all the
-elements (e.g. `y`) that appear after it.
+With each sequence a notion of "order" is associated. That is because when
+focussing on an element `e` at a specific index, one can determine all the
+other elements that appear before (e.g. `x`) or after (e.g. `y`) the gvien
+element.
 
 * `(x presequent-to e) := (idx(x) < idx(e))`
 * `(y subsequent-to e) := (idx(y) > idx(e))`
@@ -20,9 +20,9 @@ elements (e.g. `y`) that appear after it.
 Since the elements within a sequence are treated as abstract values, the
 **less-than operator (<)** and the **greater-than operator (>)** have no real
 semantical meaning since "less than" and "greater than" is in general only
-understood in the context of values that can be understood to have some numeric
+understood in the context of values that can be said to have some numeric
 "weight". However, in the context of "unknown" abstract values both operators
-can be understood to be redefined as follows:
+can be understood to be defined as follows:
 
 * `(a < b) := (a presequent-to b)`
 * `(a > b) := (a subsequent-to b)`
@@ -52,18 +52,34 @@ to as **the next previous element** in regards to `b`. Likewise, `b` can more
 naturally be referred to as **the next subsequent element** in regards to `a`.
 
 <!-- ======================================================================= -->
-## comparable
+## sequent, in-sequent
 
-Two elements within the same ordered sequence are said to be comparable under
-the presequent/subsequent operator (i.e. `<` or `>`) since one can always
-determine if one is presequent or subsequent to the other. In contrary to that,
-if both elements are not within the same ordered sequence, then both elements
-are said to be incomparable with/to each other.
+Two elements within a sequence can be described as being **sequent** to each
+other. That is because, based on the underlying **index order**, one can
+always determine if one element is presequent or subsequent to the other.
 
-* `(a comparable-to b) := (a < b) or (a > b)`
-* `(a incomparable-to b) := not (a comparable-to b)`
+* `(a sequent-to b) := (a presequent-to b) or (a subsequent-to b)`
 
-The catch - There are no incomparable elements within an ordered sequence.
+Based on that, one can describe two elements of a sequence as being
+**in-sequent** to each other, if both are not sequent to each other.
+
+* `(a insequent-to b) := not (a sequent-to b)`
+
+Note that two elements, which are not elements of the same sequence, are
+insequent to each other since one can not determine if they are sequent
+to each other. Based on that, one can describe two such elements as being
+"not in sequence". Consequently, "sequent" allows to tell if two elements
+are **in sequence**.
+
+Note that two elements, which are insequent to each other, can also be said
+as being **in-comparable** with each other, which is an order-based term
+(see - order theory). Hence, "sequent" and "in sequence" can be understood
+as being synonymous to **comparable**.
+
+Note that two elements within the same sequence are always "in sequence".
+That is, one can always tell which element is presequent to the other. In
+contrary to that, partial orders may contain element that are incomparable
+with each other (thus the description as "partial").
 
 <!-- ======================================================================= -->
 ## issues with presequent/subsequent

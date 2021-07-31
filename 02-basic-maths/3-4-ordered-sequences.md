@@ -67,9 +67,9 @@ element is retained. That is, every other occurence of an element is dropped.
 * `(#s == #E(s))` is not true
 * `(#R(s) == #E(s))` is true
 
-Note that, the reduce() operation can still be understood
-to return a subsequence `t` to the source sequence `s`.
+Note that the reduce() operation is understood to return a subsequence to the
+source sequence.
 
-With this operation in mind, one can detect potential issues by comparing the
-length values of the source sequence with the reduced sequence; i.e. there is
-a potential issue if `(#reduce(s) < #s)` is true.
+With that operation in mind, one can detect potential issues by comparing the
+length values of the source sequence with the length value of its reduced
+sequence; i.e. there is a potential issue if `(#reduce(s) < #s)` is true.

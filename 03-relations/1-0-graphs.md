@@ -74,12 +74,12 @@ in mind.
 ## splitting
 
 ```
-horizontal    horizontal    vertical      vertical
-(explicit)    (implicit)    (implicit)    (reduced)
-==========    ==========    ==========    =========
- a -|-> b      a -|- b         a             a
-    |-> c         |- c         |           -----
-                             -----         b   c
+horizontal    horizontal    vertical      vertical      vertical
+(explicit)    (implicit)    (implicit)    (implicit)    (reduced)
+==========    ==========    ==========    ==========    =========
+ a -|-> b      a -|- b         a              a             a
+    |-> c         |- c         |             / \          -----
+                             -----          b   c         b   c
                              |   |
                              b   c
 ```

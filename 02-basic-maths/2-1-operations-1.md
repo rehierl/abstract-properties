@@ -89,8 +89,7 @@ in `s` are dropped that are also elements in `t`.
 * `(A \ B) := { x | (x in A) and (x !in B) }`
 
 Note that this operation will return a clone of `s`, if both sets are disjoint.
-As such, the set difference operation can be understood to have **no effect**
-in regards to two disjoint sets since no element will be removed from `s`.
+In such a case the set difference operation can be said to have **no effect**.
 
 * `(s == (s \ t))` if `(s disjoint-to t)`
 
@@ -102,15 +101,15 @@ the set difference will be empty if `s` is a subset to `t`.
 <!-- ======================================================================= -->
 ## characteristic subset (css)
 
-Since all the elements within the set difference `(s \ t)` are distinct from
-all the other elements in `t`, and as such unique to `s`  in regards to `t`,
-the set difference `(s \ t)` will also be referred to as the
-**characteristic subset** `css(s)` of set `s` in regards to set `t`.
+Note that all the elements within a set difference `(s \ t)` are distinct from
+all the other elements in `t`. Put differently, the elements within a set
+difference distiguish `s` from `t`, which is why they can be described as being
+unique to `s`. Based on that, the set difference `(s \ t)` may also be referred
+to as the **characteristic subset** `css(s)` of `s` in regards to `t`.
 
-* `css(s, t) := (s \ t)`
+* `css(s), css(s, t) := (s \ t)`
 
-Note that the set difference is in general also known as a
-**relative complement**.
+Note that the set difference is in general also known as a **relative complement**.
 
 <!-- ======================================================================= -->
 ## overlap
@@ -121,7 +120,7 @@ elements in common and, on top of that, each of both sets contain elements the
 other set does not have. Because of that, overlapping sets are neither disjoint
 nor related.
 
-* `(s overlaps t) := ((s & t) != Ø ) and ((s \ t) != Ø) and ((t \ s) != Ø)`
+* `(s overlaps t) := ((s & t) != Ø ) and (css(s) != Ø) and (css(t) != Ø)`
 
 Note the qualifier **some-of** in regards to those elements that are shared.
 That is, overlapping sets have some, but not all of their elements in common.

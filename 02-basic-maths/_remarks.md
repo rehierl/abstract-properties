@@ -7,9 +7,6 @@
   and to communicate a certain style of notation
 - note - standard and non-standard definitions
 
-similarties between the operators
+point out the similarties between the operators
 - defined based upon sets and sequences
 - i.e. subset-of, substring-of
-
-tuples / Kuratowski's definition
-- same/similar in thought?

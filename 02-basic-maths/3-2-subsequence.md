@@ -18,22 +18,22 @@ maintaining the relative order between the remaining components. If `t` is a
 subsequence to `s`, then `s` may also be described as the **super-sequence**
 of `t`.
 
-Note that this is also **a removal-based definition**.
+Note that this is **a removal-based definition**.
 
 Note that the empty sequence `Ø` (**all-of** the elements removed) is a
 subsequence to any sequence, including itself. Furthermore, any non-empty
 sequence is a subsequence to itself (**none-of** the elements removed).
 
 Note that, if a sequence is formed by removing one or more elements in between
-the 1st and last element of the resulting sequence, then that sequence is said
-to have **a gap**. In addition to that, if `n` elements have been removed from
-in between two elements that are now adjacent (i.e. next to each other) in the
-subsequence, then that subsequence can be described as having **a gap of size n**.
+the 1st and last element of the resulting subsequence, then that subsequence is
+said to have **a gap**. In addition to that, if `n` elements have been removed
+from in between two elements that are adjacent (i.e. next to each other) in the
+subsequence, then that subsequence can be said to have **a gap of size n**.
 
 Note that, as a matter of clarity, a substring can be described as
 **a subsequence of consecutive elements**. Here, the word "consecutive" is to
-be understood in regards to the elements within the supersequence and to point
-out that no element was removed from in between the remaining elements.
+be understood in regards to the elements within the supersequence and thus to
+point out that the subsequence has no gaps.
 
 <!-- ======================================================================= -->
 ## strict/proper-subsequence-of
