@@ -30,3 +30,11 @@ intervals (3)
   not quite - if "nested" applies to all, then total
   hierarchy of (possibly nested) intervals, then partial
   must be the default
+
+Note that each interval can be understood to correspond with an ordered subset
+of elements. Because of that, any scope can be understood to correspond with
+**an ordered (sub)set of nodes**.
+
+Note that each an interval of the form `[a,*]` can be understood to correspond
+with a **suffix** in regards to the underlying node order. Likewise, an interval
+of the form `[*,b]` can be described as a **prefix**.

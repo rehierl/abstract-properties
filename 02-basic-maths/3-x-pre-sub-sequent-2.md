@@ -2,17 +2,18 @@
 Note that, at the time of writing, it is unclear if the following definitions
 (in regards to ordered sequences of nodes) will be of any use.
 
-* Kept in regards to past discussions.
+* Kept in regards to past content.
 * Kept in regards to communicate a certain way of thinking.
-* May be modfied or even dropped at some point in the future.
+* May be modfied or even dropped at some point.
 
 Note that "presequent" is dual to "subsequent". Because of that, the following
 definitions will be reduced to one case only. The other case can be thought of
 as being defined accordingly.
 
 Note also, that (in here only) the word "subsequence" is used as a synonym for
-"substring". This in regards to the overall focus on substrings rather than on
-less strict and more general subsequences.
+"substring" (a past point of view that is no longer supported). This in regards
+to the overall focus on substrings rather than on less strict and more general
+definition.
 
 <!-- ======================================================================= -->
 ## sequences subsequent to a node

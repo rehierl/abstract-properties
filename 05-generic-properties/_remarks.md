@@ -6,9 +6,8 @@ subsequent to a heading (i.e. "some of") will eventually be clearly defined
 based upon well defined suborders (i.e. "all of (those)") that are embedded
 into a document order.
 
-introductory/preliminary
-- TODO - will have to eventually
-  provide formal definitions
+a mere introduction to generic properties
+- will have to eventually provide formal definitions
 - e.g. in terms of a final summary
 
 relationships between scopes

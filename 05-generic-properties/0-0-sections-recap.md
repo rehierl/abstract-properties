@@ -7,9 +7,9 @@ it is essential to recall the fundamental aspects involved:
 
 (*) A document consists of distinct nodes such that each document has a first
 and a last node. As such, each document has a well defined order (aka. the
-document order) over its nodes. Because of that, each node within a document
-has a unique index associated with it, which is why a document can be described
-as an ordered sequence of nodes.
+document order) over its nodes. Because of that, each node has a unique index
+associated with it, which is why a document can be described as an ordered
+sequence of nodes.
 
 (*) Each heading is classified as a sectioning node and is said to declare
 (aka. introduce) a new section. Because of that, a heading and its section
@@ -24,8 +24,8 @@ the section it declares. Note that this rule is clear since **none** of the
 corresponding nodes are nodes within the heading's section.
 
 (S2) The nodes below of (or subsequent-to) a heading may or may not belong to
-its section. Note that this rule is as such unclear since **some**, but not all
-of the corresponding nodes are within the heading's section.
+its section. Note that this rule is unclear since **some**, but not all of the
+corresponding nodes are within the heading's section.
 
 (S3) By default, the section of a heading includes all of the nodes that are
 subsequent to it. That is, if the document has no further heading. Note that
@@ -39,13 +39,13 @@ such, consists of consecutive nodes (i.e. no gaps).
 (*) The stream-based perspective of a section is such that a section object
 is created with each new section and marked as "open for associations" as soon
 as the section's sectioning node is reached. In addition to that, and once an
-implementation has reached past the end of the section, the corresponding
-section object is marked as being "closed".
+implementation has reached past the end of a section, the corresponding section
+object is marked as being "closed".
 
-(*) A section is in general considered to contain it sectioning node since this
-effectively guarantees that no section will ever be truly empty. In addition to
-that, each section (as a set of nodes) is guaranteed to be distinct to every
-other section since each sectioning node is defined to always declare one
-section only. Because of that, a sectioning node is the very first node within
-the section it declares. If need be, one can classify the nodes of a section as
+(*) A section is considered to contain its sectioning node since this effectively
+guarantees that no section will ever be truly empty. In addition to that, each
+section (as a set of nodes) is guaranteed to be distinct to every other section
+since each sectioning node is defined to always declare one section only. Based
+on that, a sectioning node is considered to be the very first node within the
+section it declares. If need be, one can classify the nodes of a section as
 "control nodes" and as "content nodes".
