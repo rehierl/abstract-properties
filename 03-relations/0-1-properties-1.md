@@ -6,15 +6,16 @@ Since relations are in widespread use throughout Mathematics (e.g. to describe
 functions, ordered sets, node trees), many properties have been defined in
 order to describe the characteristics of the graph of a relation. Because of
 that, the following will only mention those that appear to be of some use to
-the overall discussion.
+the discussion, or that can be understood to provide more insight on those
+that can be considered relevant.
 
 Note that, as a matter of clarity, the following definitions are kept in terms
 of bullet points. Detailed explanations on specific properties may follow.
 
-Note that, even though the definitions are abstract and difficult to understand
-to most, the following definitions can be described as providing a foundation
-for the overall discussion. Luckily, only few are essential in the context of
-this discussion: e.g. transitive, reflexive, irreflexive, a-symmetric
+Note that, even though the definitions are abstract and difficult to understand,
+the following definitions can be described as providing a foundation for the
+overall discussion. Luckily, only few are essential in the context of this
+discussion: e.g. transitive, reflexive, irreflexive, a-symmetric
 
 Note that properties may be associated with a quoted "memory hook". These are
 not overly accurate, but should help to memorize the gist of the corresponding
@@ -185,7 +186,6 @@ clarification
 * any connex relation is reflexive
 * any node is related to every other node, including itself
 * has no disconnected nodes
-* possibly more than one component
 
 **semi-connex**
 

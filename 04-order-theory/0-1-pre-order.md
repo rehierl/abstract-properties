@@ -76,8 +76,10 @@ of edges `aRb` and `bRc`.
 
 Note that `aRc` can be understood as an edge that represents a path over the
 edges `aRb` and `bRc`. As such, `aRc` connects the endpoints of the path over
-that pair of edges. In that regards, a transitive relation can be described as
-being **complete** since no further edge can be derived from existing the ones
+that pair of edges. Based on that, a transitive relation can be described as
+a relation that has an edge for each and every path that can be formed over
+its edges. In that regards, a transitive relation can be described as being
+**complete** since no further edge can be derived from existing the ones
 that is still missing.
 
 Note that the lower-than order `P := (N,<)` over the set of natural numers is

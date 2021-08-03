@@ -42,14 +42,15 @@ be reflexive or irreflexive.
 
 * anti-symmetric := if `aRb` and `bRa`, then `(a == b)` must be true
 
-Note that the above terms focus the **orientation** of a graph/relation.
-That is, a graph is considered **undirected** (i.e. symmetric), if any edge
-represents a pair of directed edges. In contrary to that, a graph is considered
-**directed** (i.e. a-symmetric or anti-symmetric), if any edge represents one
-directed edge only.
+Note that the above terms focus on the **orientation** of a graph/relation.
+That is, a relation can be considered **undirected** (i.e. symmetric), if any
+"edge" represents a pair of directed edges. In contrary to that, a graph is
+considered **directed** or **(strictly) oriented** (i.e. a-symmetric or
+anti-symmetric), if any "edge" represents one directed edge only.
 
-Note that any such relation may have **several source vertices**
-(i.e. root nodes, e.g. forests of trees).
+Note that any such relation may have **several source vertices** (i.e. "root
+nodes" or "points of entry"). Also, such an order relation may still consist
+of **several connected components** (e.g. "a forest of trees").
 
 <!-- ======================================================================= -->
 ## superset-of, strict-superset-of
@@ -116,4 +117,4 @@ a subset and a superset to another set.
 
 Consequently, an order that is defined based upon the (strict-) subset-of
 comparison operator, or an order that corresponds with such an order, can
-not have any cycles and is as such acyclic.
+not have any cycles and is therefore acyclic.

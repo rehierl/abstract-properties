@@ -33,9 +33,19 @@ Based on that, the elements in sequence `s` can be described as being
 * `chi(×Di), R(×Di) := (×Di) -> boolean`
 * where `×Di` is meant to represent `D1,..,DN`
 
-A relation can be described as **finitary**, if it contains a finite amount
-of domains. In addition to that, a relation is said to be **binary**, if the
+A relation can be described as **finitary**, if it contains a finite amount of
+domains. In addition to that, a relation is said to be **binary**, if the
 relation has exactly two domains.
+
+A relation can be described as **finite**, if the sum of all cardinalities
+over all of its sets is finite. That is, the total number of elements within
+its domaints and the number of edges in its graph is finite. A relation can
+be described as **infinite**, if either the number of elements in its domains,
+or the number of edges in its graph is infinite.
+
+Note that the focus of this discussion is in general on sets of elements each
+of which has a limited amount of elements. Because of that, infinite relations
+are non-relevant to this discussion.
 
 <!-- ======================================================================= -->
 ## endo-relations
@@ -48,8 +58,21 @@ are the same), is in general referred to as an **endo-relation**.
 All the sequences in `G` are 2-element sequences and will therefore be referred
 to as (directed) **edges**. As such, the vertices of an edge will be referred
 to as its **endpoints** with the 1st endpoint being the **source** and the 2nd
-endpoint as being the **sink** vertext. Based on that, an edge can be understood
-to lead from its source vertex to its sink vertex.
+endpoint as being the **sink** vertex of that edge. Based on that, an edge can
+be understood to lead from its source vertex to its sink vertex.
+
+A vertex that is a source vertex to one or more edges, but no sink vertex to
+any edge, will be referred to as a **source vertex** to the relation. Likewise,
+a vertex that is a sink vertex to one or more edges, but no source vertex to any
+edge, will be referred to as a **sink vertex** to the relation. Any other vertex
+that is an endpoint to one or mor edges may be referred to as an **inner vertex**
+to the relation.
+
+Note that a vertex that has a loop is understood to have an outgoing and an
+icoming edge. Based on that, a vertex that has a loop is neither a source nor
+a sink vertex. Consequently, a vertex that has a loop is an inner vertex.
+
+* loop (edge) := `aRa` for some `(a in V)`
 
 In addition to the above, the following syntactic "shortcuts" will be used:
 

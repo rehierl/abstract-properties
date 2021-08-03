@@ -1,5 +1,2 @@
 
-- a basic introduction to mathematical relations
-
-TODO
-- ...
+- a recap on (mathematical) relations

@@ -2,9 +2,9 @@
 <!-- ======================================================================= -->
 ## partial/linear extension
 
-Since following visualization has no edges at all, it can be said to denote
-a **degenerated order**. That is, the order relation consists of a set of
-vertices and an empty set of edges (i.e. `R := (V,{})`).
+Since the visualization R0 has no edges at all, it can be said to denote
+a **degenerated order**. That is, the underlying order relation consists
+of a set of vertices and an empty set of edges (i.e. `R := (V,{})`).
 
 ```
 R0 := (a presequent-to b)    =>    R6 := (a presequent-to b)
@@ -32,17 +32,17 @@ a -|-> b -|-> c
 ```
 
 In contrary to R0, R1 contains fewer vertices that are still incomparable.
-Because of that, the addition of a set of edges that results in fewer
-incomparable vertices can be described as **a partial extension**.
+Because of that, the addition of a set of edges that results in a new poset
+that has fewer incomparable vertices can be described as **a partial extension**.
 
 Based on that, R1 can be described as a partial extension to R0,
 just as R5 is a partial extension to R1 and even R0.
 
-If after the addition of even more edges the resulting order has no more
-incomparable vertices left, the order extension can be described as
-**a linear extension**.
+If after the addition of even more edges the resulting order is total, and
+as such has no more incomparable vertices left, the order extension can be
+described as **a total/linear extension**.
 
-Similar to before, R6 can be described as a linear extension to R5,
+Similar as before, R6 can be described as a linear extension to R5,
 and even to R1 and R0.
 
 <!-- ======================================================================= -->
@@ -61,9 +61,9 @@ a -|-> b -|-> c -->|
 ```
 
 However, the visual representation as a graph-based relation, that is based
-upon the transitive reduction of an order relation, would no longer have the
-edge `bRd`. That is because `bRd` can now be considered the transitive edge
-that can be formed from the edges `bRc` and `cRd`.
+upon the transitive reduction of an order relation, would loose the edge `bRd`.
+That is because `bRd` can now be considered a transitive edge that can be
+formed from the edges `bRc` and `cRd`.
 
 ```
 R3 := (a presequent-to b)
@@ -74,8 +74,8 @@ a -|-> b -|-> c -> d
 ```
 
 Note that the edge `bRd` is however still an edge in the underlying order
-relation. It simply is no longer an edge in the visual transitive reduction
-that is being visualized.
+relation. It simply is no longer an edge in transitive reduction that is
+being visualized.
 
 <!-- ======================================================================= -->
 
@@ -91,9 +91,8 @@ a -|-> b -> c -> d -> e
 
 <!-- ======================================================================= -->
 
-If one now adds the edge `bRf` to the updated relation, one would end up
-with the following representation that has the same amount of incomparable
-vertices.
+If one now adds the edge `bRf`, one would end up with the following
+representation that has the same amount of incomparable vertices.
 
 ```
 R5 := (a presequent-to b)

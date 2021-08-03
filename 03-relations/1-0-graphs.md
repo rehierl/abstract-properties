@@ -104,7 +104,7 @@ a -|-> b -> c -|-> d
 * `E := { (a,b), (a,d), (b,c), (c,d) }`
 
 As shown above, vertical lines may also be used to rejoin (merge) several
-arrows that end with the same node.
+arrows that end in the same node.
 
 ```
 (less clear)            (more clear)
