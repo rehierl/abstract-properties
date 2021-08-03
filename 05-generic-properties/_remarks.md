@@ -10,6 +10,11 @@ a mere introduction to generic properties
 - will have to eventually provide formal definitions
 - e.g. in terms of a final summary
 
+hereditary properties
+- a definition by choice
+- hidden is hereditary
+- the section of a heading is not
+
 relationships between scopes
 - shared across multiple nodes
 

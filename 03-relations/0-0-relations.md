@@ -3,18 +3,18 @@
 # relations
 
 A relation `R` is a sequence of one or more sets of elements of length `N+1`.
-The first `N` sets are used as sets of abstract values (aka. **domains** or
-**sets of vertices**). In contrary to that, the last set (aka. **graph**) can
-be understood to define connections over the elements in the domains.
+The first `N` sets are used to denote sets of abstract values (aka. **domains**
+or **sets of vertices**). In contrary to that, the last set (aka. **graph**)
+can be understood to define connections over the elements within the domains.
 
 * `R := (D1,..,DN,G)` where `(N in [1,*])`
 * and `(G subset-of (D1 × .. × DN))`
 
 Note that the graph `G` of relation `R` is understood to consist of flat
 sequences of elements (i.e. not the strict cartesian product). And since
-these elements are no sets of elements, all the sequences in `G` can be
-understood to be **directed**. Based on that, any relation can be described
-as being directed.
+these sequences of elements are no sets of elements, all the sequences in
+`G` can be understood to be **directed**. Based on that, any relation can
+be described as being directed.
 
 Note that a relation can itself be seen as an abstract value. That however is
 not the focus of this discussion since the intention is not to use multiple
@@ -24,8 +24,8 @@ That is, a relation needs to be seen as the formal description of a "thing".
 
 Each relation can be understood to be accompanied by (or associated with)
 a **characteristic function** `R(s)` which allows to determine if a given
-sequence over the domains is connected unter the graph of a relation. That
-is, `R(s)` returns true for some `s` iff `G` contains `s` as an element.
+sequence over the domains is connected in the relation's graph. That is,
+`R(s)` returns true for some `s`, iff `G` contains `s` as an element.
 Based on that, the elements in sequence `s` can be described as being
 **(strictly) connected**.
 
@@ -48,7 +48,8 @@ are the same), is in general referred to as an **endo-relation**.
 All the sequences in `G` are 2-element sequences and will therefore be referred
 to as (directed) **edges**. As such, the vertices of an edge will be referred
 to as its **endpoints** with the 1st endpoint being the **source** and the 2nd
-endpoint as being the **sink** vertext.
+endpoint as being the **sink** vertext. Based on that, an edge can be understood
+to lead from its source vertex to its sink vertex.
 
 In addition to the above, the following syntactic "shortcuts" will be used:
 
@@ -57,19 +58,19 @@ In addition to the above, the following syntactic "shortcuts" will be used:
 * `aRb := ((a,b) in G)`
 * `!aRb := ((a,b) not in G)`
 
-Note that, as with any other relation, all the vertices within the sequences
-in `G` are required to be elements within the corresponding domain. However,
-not every element within a domain is also required to be a vertex/endpoint
+Note that, as with any other relation, each of the vertices in all of the
+sequences in `G` are required to be elements within the corresponding domain.
+However, not every element within a domain is also required to be an endpoint
 in such a sequence. Such a vertex can be described as being **disconnected**,
-or as being **unrelated**.
+or as being **unrelated** (to another vertex).
 
 Note that, since the overall focus in the context of this discussion is on
-"related things", disconnected vertices will be **silently dropped**. Based
+"related things", disconnected vertices will be **silently ignored**. Based
 on that, the domain of a mathematical relation can be understood as a mere
 consequence of the corresponding set of edges. After all, a domain is still
-required to contain both endpoints of all the edges.
+required to contain both of the endpoints of each edge.
 
-Note that, based on the focus of the edges of an endo-relation, a relation
+Note that, based on the focus of the edges in an endo-relation, a relation
 can in essence be thought of as being reduced to its set of edges. Based on
-that, operations over relations can be defined similar to those over sets
-of elements.
+that, operations over relations can be defined similar to those over simple
+sets of elements.

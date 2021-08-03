@@ -136,7 +136,7 @@ clarification
 
 **quasi-reflexive**
 
-* "related, no loops"
+* "related, some loops"
 * if aRb, then aRa and bRb
 * not quite reflexive
 

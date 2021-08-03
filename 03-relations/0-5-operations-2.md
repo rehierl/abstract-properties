@@ -9,8 +9,9 @@ elements.
 * `X := (Y,Z)` where `Y := (D + T)` and `Z := (G + U)`
 
 However, since the overall focus in the context of this discussion is on
-"related things", disconnected vertices will be **silently dropped**. Based
-on that, the union of two endo-relations can be loosely defined as follows:
+"things" that are, one way or another, related with each other, disconnected
+vertices will be **silently ignored/dropped**. Based on that, the union of
+two endo-relations can be loosely defined as follows:
 
 * `(R + S) := { (a,b) : aRb or aSb }`
 
@@ -29,7 +30,7 @@ are common to both relations.
 <!-- ======================================================================= -->
 ## disjoint
 
-Two (endo-)relations can be described as being disjoint, if the correspondings
+Two (endo-)relations can be described as being disjoint, if the corresponding
 sets of edges are disjoint.
 
 * `(R disjoint-to S) := (G disjoint-to U)`
@@ -39,7 +40,7 @@ Note that `aRb` and `bSa` may still be true.
 <!-- ======================================================================= -->
 ## difference (\, sub)
 
-The difference operation removes all the edges in `S` from `R`.
+The difference operation removes all of the edges in `S` from `R`.
 
 * `(R \ S) := { (a,b) : aRb and !aSb }`
 

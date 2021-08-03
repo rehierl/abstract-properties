@@ -3,7 +3,7 @@
 # graphs
 
 The following is a barebone introduction to graph-based visualizations,
-intended to allow to read/understand the visualization of a relation.
+intended to allow to read/understand the visualization of relations.
 
 A (directed) graph `G := (V,E)` is an endo-relation that consists of a set of
 vertices/nodes `V` and a set of 2-element sequences as its set of edges `E`.
