@@ -2,36 +2,39 @@
 <!-- ======================================================================= -->
 # total order
 
-A ordered set `P := (V,R)` which is a (simple) partial order and, in addition
+An ordered set `P := (V,R)` which is a (simple) partial order and, in addition
 to that also **connex** can be described as an ordered set that is associated
 with a **(simple) total order** relation. Based on that, the ordered
 set can itself be described as a (simple) total order, or as a
 **(simple) toset** (i.e. a (simple) totally ordered set).
 
-* a (simple) total order is a connex simple partial order
+* any (simple) total order is a connex simple partial order
 
-A ordered set `P := (V,R)` which is a strict partial order and, in addition
+An ordered set `P := (V,R)` which is a strict partial order and, in addition
 to that also **trichotomous** can be described as an ordered set that is
 associated with a **strict total order** relation. Based on that,
 the ordered set can itself be described as a strict total order, or as a
 **strict toset** (i.e. a strict totally ordered set).
 
-* a strict total order is a connex strict partial order
-* a strict total order is a trichotomous partial order
+* any strict total order is a connex strict partial order
+* any strict total order is a trichotomous partial order
+
+Note that any total order is, as a specialized partial order, **acyclic**.
 
 <!-- ======================================================================= -->
 ## remarks
 
-* Any total order consists of one connected component.
-* Any total order has one and only one source vertex.
-* Any total order has one and only one sink vertex.
-* Any total order is acyclic (i.e. no cycles at all).
+Any non-empty total order has ..
+
+* one and only one connected component.
+* one and only one source vertex.
+* one and only one sink vertex.
 
 Note that, since any total order has one and only one source vertex, and since
-a total order is required to directional/oriented, the transitive reduction of
-any total order is a path graph. Because of that, and since a path graph is
-considered "linear" (as in one continuous line), any total order can be
-described as a **linear order**, or simply as a **loset**.
+a total order is required to be directional/oriented, the transitive reduction
+of any total order can be visualized as a path graph. Because of that, and
+since a path graph is considered "linear" (as in one continuous line), any
+total order can be described as a **linear order**, or simply as a **loset**.
 
 <!-- ======================================================================= -->
 ## connex, trichotomous
@@ -45,6 +48,11 @@ Note that any connex order relation is reflexive. Also any vertex is connected
 to every other vertex. (Recall that an order relation is required to be
 transitive). Put differently, a connex order relation has no disconnected
 vertices.
+
+Note that "and/or" in the definition of "connex", and in the context of a
+(simple) total order, is in effect an "ex-or". After all, even a (simple)
+total order is still required to be a (simple) partial order, which is why
+"and" does not apply in regards to total orders.
 
 A **semi-connex** order relation is such that, for any pair of *distinct*
 vertices `(a,b in V)` either the edge `aRb` and/or the edge `bRa` does exist.
@@ -70,9 +78,10 @@ Other than that, each vertex is still required to be connected.
 s := (1, 2, 3, 4, 5, 6)
 ```
 
-Given the above (ordered) sequence of natural numbers, a toset `P := (S,<=)` can
-be formed, if the oder operator is defined based upon the lower-than-or-equal
-comparison operation between numbers:
+Given the above (ordered) sequence of natural numbers (or ordinal numbers
+such as index numbers), a toset `P := (S,<=)` can be formed, if the oder
+operator is defined based upon the lower-than-or-equal comparison operation
+between numbers:
 
 ```
 1° -> 2° -> 3° -> 4° -> 5° -> 6°
@@ -88,18 +97,3 @@ numbers:
 
 Note that the definition of the above operators build upon the values of the
 natural numbers, not on the index-order that is defined by the sequence.
-
-<!-- ======================================================================= -->
-## cyclic, acyclic
-
-Recall that any strict/irreflexive preorder is acyclic. In contrary to that,
-a simple preorder may contain one or more cycles.
-
-Since a total order, simple or strict, is now required to have no pairs of
-"flipped" edges, cycles are effectively required to not exist. That is because
-the transitivity would otherwise result in such pairs of "flipped" edges.
-
-Consequently, **any total order is acyclic**.
-
-Note that a cycle graph (i.e. a path graph whose endpoints are connected with
-each other), be it directed or not, does not represent a total order.

@@ -39,13 +39,13 @@ left-unique   right-unique   left-total   right-total
  b               d
 ```
 
-**left-unique, injective**
+**left-unique, injective, one-to-one**
 
 * if aRc and bRc, then (a == b)
 * there is no `c` such that aRc and bRc for (a != b)
 * no two distinct elements have the same outcome
 
-**right-unique, functional**
+**right-unique**
 
 * if aRc and aRd, then (c == d)
 * there is no `a` such that aRc and aRd for (c != d)
@@ -63,9 +63,10 @@ left-unique   right-unique   left-total   right-total
 
 combinations of uniqueness and totality
 
-* **(overall) unique, one-to-one** := left-unique and right-unique
+* **one-to-one** := left-unique and right-unique
 * **total** := left-total and right-total
-* **bijective** := unique and total
+* **bijective** := one-to-one and total
+* **one-to-one correspondence** := bijective
 
 <!-- ======================================================================= -->
 ## endo-relations

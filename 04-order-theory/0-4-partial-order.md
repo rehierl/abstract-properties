@@ -8,7 +8,7 @@ associated with a **(simple) partial order** relation. Based on that, the
 ordered set can itself be described as a (simple) partial order, or simply
 as a **(simple) poset** (i.e. a (simple) partially ordered set).
 
-* a (simple) partial order is an anti-symmetric pre-order
+* any (simple) partial order is an anti-symmetric pre-order
 
 An ordered set `P := (V,R)` which is a strict preorder and, in addition
 to that also **anti-symmetric** can be described as a set of elements that
@@ -16,8 +16,16 @@ is associated with a **strict partial order** relation. Based on that, the
 ordered set can itself be described as a **strict poset** (i.e. a strict
 partially ordered set).
 
-* a strict partial order is an anti-symmetric strict pre-order
-* a strict partial order is an a-symmetric (strict) pre-order
+* any strict partial order is an anti-symmetric strict pre-order
+* any strict partial order is an a-symmetric (strict) pre-order
+
+Note that any partial order is **acyclic**. That is because the order's
+transitivity would otherwise force the existence of one or more pairs of
+"flipped" edges, which are not allowed in any partial order.
+
+Note that any partial order **may have one or more source vertices** (aka.
+"root nodes" or "points of entry"). Also, any partial order relation may
+consist of **one or more connected components** (e.g. "a forest of trees").
 
 <!-- ======================================================================= -->
 ## symmetric, a-symmetric, anti-symmetric
@@ -31,32 +39,28 @@ in a symmetric order relation.
 An order relation that has no such "flipped" counterpart for any of its edges,
 is said to be **a-symmetric**. Note that loops are not allowed in an a-symmetric
 order relation. That is, an a-symmetric order relation is also irreflexive and
-as such "strict".
+can as such be described as "strict".
 
 * a-symmetric := if `aRb`, then `!bRa`
 
-An order relation that allows "flipped" counterparts for an edge in only in
+An order relation that allows "flipped" counterparts for an edge only in
 regards to the same vertex, is said to be **anti-symmetric**. Note that loops
 are allowed, but not required. That is, an anti-symmetric order relation may
 be reflexive or irreflexive.
 
 * anti-symmetric := if `aRb` and `bRa`, then `(a == b)` must be true
 
-Note that the above terms focus on the **orientation** of a graph/relation.
-That is, a relation can be considered **undirected** (i.e. symmetric), if any
-"edge" represents a pair of directed edges. In contrary to that, a graph is
-considered **directed** or **(strictly) oriented** (i.e. a-symmetric or
+Note that the above terms focus on the **orientation** of a graph/relation. That
+is, a relation can be considered **undirected** (i.e. symmetric), if each "edge"
+represents a pair of "flipped" directed edges. In contrary to that, a relation
+can be considered **directed** or **(strictly) oriented** (i.e. a-symmetric or
 anti-symmetric), if any "edge" represents one directed edge only.
 
-Note that any such relation may have **several source vertices** (i.e. "root
-nodes" or "points of entry"). Also, such an order relation may still consist
-of **several connected components** (e.g. "a forest of trees").
-
 <!-- ======================================================================= -->
-## superset-of, strict-superset-of
+## superset/subset-of
 
 ```
-S := {
+V := {
   { 1, 2, 3, 4, 5, 6 }, //- s1
   {    2, 3, 4       }, //- s2
   {       3, 4       }, //- s3
@@ -65,8 +69,8 @@ S := {
 }
 ```
 
-Given the above family of sets, a poset `P := (S,<=)` can be formed, if the
-oder operator is defined based upon the superset-of comparison operation (i.e.
+Given the above family of sets `V`, a poset `P := (V,<=)` can be formed, if the
+oder operator is defined based upon the superset-of comparison operator (i.e.
 `(a <= b) := (a superset-of b)`). The transitive reduction of that poset can
 be visualized as follows:
 
@@ -83,7 +87,7 @@ and `s5` under the `superset-of` order operator. In contrary to that, each
 set in the above family of sets is connected with itself since each set is
 a subset and therefore also a superset to itself.
 
-Given the above family of sets, a strict poset `P := (S,<)` can be formed,
+Given the above family of sets `V`, a strict poset `P := (V,<)` can be formed,
 if the oder operator is defined based upon the strict-superset-of comparison
 operation (i.e. `(a <= b) := (a strict-superset-of b)`). This strict poset
 can be visualized as follows:
@@ -96,25 +100,3 @@ s1 -|-> s2 -|-> s3
 
 Note that there are no reflexive edges since no set is a strict/proper subset
 and therefore also no strict/proper superset to itself.
-
-<!-- ======================================================================= -->
-## superset/subset-of vs. cyclic/acyclic
-
-Except for loops, an order relation that is defined based upon the subset-of
-or the superset-of comparison operator is **inherently acyclic**.
-
-For such a relation to have a cycle (note - of two or more sets), a set `a`
-would have to be a subset to another set `b` (note - both are distinct), which
-is why `(a subset-of b)` and `(#a < #b)` is then true.
-
-However, in order to establish a cycle, `a` would also have to be a superset
-to `b`. This can however never be true since `a` would then also need to have
-one or more elements in addition to those in `b`.
-
-The resulting conflict is therefore that a set can not have fewer and, at the
-same time, more elements than another set. Because of that, a set can not be
-a subset and a superset to another set.
-
-Consequently, an order that is defined based upon the (strict-) subset-of
-comparison operator, or an order that corresponds with such an order, can
-not have any cycles and is therefore acyclic.

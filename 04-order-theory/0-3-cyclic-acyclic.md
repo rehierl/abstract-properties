@@ -32,8 +32,11 @@ a --> b --> c
 |<----|<----|
 ```
 
-Since the modified relation is still not transitive, one would have to continue
-to add even more edges:
+Note that the edges `bRc` and `cRb` can be loosely described as
+**a pair of flipped edges**.
+
+Since the modified relation is still not transitive,
+one would have to continue to add even more edges:
 
 * `aRa` since `aRb` and `bRa` both exist
 * `bRb` since `bRa` and `aRb` both exist
@@ -54,8 +57,8 @@ preorder has therefore no cycles.
 
 In contrary to that, a simple preorder, may contain one or more cycles of two
 or more distinct vertices (while ignoring loops). Put differently, a simple
-preorder may be cyclic.
+preorder may still contain cycles (see - symmetric).
 
-Note that a cyclic preorder is not required to have a pair of edges `aRb` and
-`bRa` for each pair of connected vertices. That is, a cyclic preorder is neither
+Note that a cyclic preorder is not required to have a pair of "flipped" edges
+for each pair of connected vertices. That is, a cyclic preorder is neither
 required to be symmetric nor anti-symmetric.

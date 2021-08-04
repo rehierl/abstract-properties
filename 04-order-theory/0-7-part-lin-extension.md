@@ -42,6 +42,11 @@ If after the addition of even more edges the resulting order is total, and
 as such has no more incomparable vertices left, the order extension can be
 described as **a total/linear extension**.
 
+Note that an **order extension** must be **order-preserving**. That is, one
+can not arbitrarily add any edges since the edges being added must not be
+in conflict with any of the existing edges. That is, an edge can not be added
+if it would result in a cycle.
+
 Similar as before, R6 can be described as a linear extension to R5,
 and even to R1 and R0.
 
