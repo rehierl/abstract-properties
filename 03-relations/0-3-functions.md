@@ -44,7 +44,7 @@ is said to be **bijective**.  As such, it can be referred to as
 
 Any bijective function `(f: A -> B)` has an inverse function `(g: B -> A)`
 such that `(g(y) == x)` iff `(f(x) == y)`. A function that has an inverse
-can be described as **invertible**.
+can be described as **invertible** or **reversible**.
 
 Loosely described, the inverse `g` reverses the outcome of `f`.
 

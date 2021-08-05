@@ -1,92 +1,65 @@
 
-<!-- ======================================================================= -->
-## reflexive closure/extension - RC(R)
-
-The reflexive closure `S` is formed from relation `R` by adding all of those
-loops that are still missing.
-
-* `S := RC(R) := R + { (a,a) | (a in D) }`
-
-Note that `S` is then guaranteed to be reflexive.
+Note that the overall discussion does not seem to build upon the following
+discussion - i.e. the following could be removed at some point in the future.
 
 <!-- ======================================================================= -->
-## transitive closure/extension - TC(R)
+## union (+, or, add)
 
-Note that, as in graph theory, one can in principle define **paths of vertices**
-using the edges of a relation. Based on that, `aPb` can be understood to be
-true, if a path can be formed over the edges of the corresponding relation
-such that `a` is a source, and `b` a sink to that path.
+A union of (endo-)relations is formed by merging the corresponding sets of
+elements.
 
-Relation `S := (T,U)` is the transitive closure, or the transitive extension
-of relation `R := (D,G)`, if `S` contains `R` and also one edge `(a,b)` for
-each path `aPb` that can be formed over the edges of `R`.
+* `R := (D,G)`, `S := (T,U)`
+* `X := (Y,Z)` where `Y := (D + T)` and `Z := (G + U)`
 
-* `S := TC(R)`
+However, since the overall focus in the context of this discussion is on
+"things" that are, one way or another, related with each other, disconnected
+vertices will be **silently ignored/dropped**. Based on that, the union of
+two endo-relations can be loosely defined as follows:
 
-Note that `S` is then guaranteed to be transitive. (Hence the name).
+* `(R + S) := { (a,b) : aRb or aSb }`
 
-In the context of transitivity, an edge `(a,b)` can be said to be **missing**
-(in regards to a given set of edges `G`), if a path `aPb` can be formed such
-that `((a,b) in G)` is not true.
-
-In order to form the transitive closure `S` of relation `R` one first creates
-`S` as a clone of `R`. After that, one adds all the missing edges `aSc` based
-on the pair of existing edges `aSb` and `bSc`. The latter step is iteratively
-repeated until no more edges can be added.
-
-In some sense, the transitive closure of a relation allows to answer if a
-vertex can be reached from an initial vertex by traversing over existing
-edges. That is, while respecting the direction/orientation of these edges!
+Note that with this simplification, an implicit operation is associated. That
+is, first the resulting set of edges is formed, then all the endpoints of
+these edges are used to create the set of vertices of the resulting relation.
 
 <!-- ======================================================================= -->
-## reflexive transitive closure - RTC(R)
+## intersection (&, and)
 
-If a relation `R` is to be "closed" under reflexivity and transitivity, then
-one should first form the transitive closure.
+The intersection of two relations is formed by holding on to the edges that
+are common to both relations.
 
-* `S := RTC(R) := RC(TC(R)) := (RC ¤ TC)(R)`
-* note - (¤) denotes a functional composition
-
-One aspect is that the transitive closure will potentially add one new edge
-for each vertex. Because of that, a subsequent transitive closure would then
-have to also test these additional edges. Hence, a matter of computational
-complexity.
-
-Note that, as a precursor to order theory, a non-strict order relation is
-reflexive and transitive. That is, in order to form an order relation based
-on a given relation, one needs to form the reflexive transitive closure from
-that relation.
+* `(R & S) := { (a,b) : aRb and aSb }`
 
 <!-- ======================================================================= -->
-## reflexive reduction - RR(R)
+## disjoint
 
-The reflexive reduction `S` is formed from a relation `R` by removing all the
-edges that being in a vertex and end in the same vertex.
+Two (endo-)relations can be described as being disjoint, if the corresponding
+sets of edges are disjoint.
 
-* `S := RR(R) := R \ { (a,a) | (a in D) }`
+* `(R disjoint-to S) := (G disjoint-to U)`
 
-<!-- ======================================================================= -->
-## transitive reduction - TR(R)
-
-As with the above transitive closure, the transitive reduction `S` of a relation
-`R` can be understood to be formed based upon an iterative process: First, `S`
-needs to be created as the clone of the source realtion `R`. Then, each edge
-`aSb` is removed if there is a pair of edges such that `aSx` and `xSb` is true.
-
-Note that a vertex, which is the endpoint of one or more edges, remains to be
-the endpoint of one or more edges. That is because the transitive reduction
-does not break the relation's connectivity. Because of that, no disconnected
-vertices will be formed.
+Note that `aRb` and `bSa` may still be true.
 
 <!-- ======================================================================= -->
-## reflexive transitive reduction - RTR(R)
+## difference (\, sub)
 
-If a relation `R` is to be "reduced" under reflexivity and transitivity, then
-one should first from the reflexive reduction.
+The difference operation removes all of the edges in `S` from `R`.
 
-* `S := RTR(R) := TR(RR(R)) := (TR ¤ RR)(R)`
-* note - (¤) denotes a functional composition
+* `(R \ S) := { (a,b) : aRb and !aSb }`
 
-Since a reflexive relation has one loop per vertex, an initial transitive
-reduction would also have to test these additional edges. Hence, and as before,
-the suggested processing order is a matter of computational complexity.
+<!-- ======================================================================= -->
+## overlap
+
+Two relations can be said to overlap each other, if the corresponding sets of
+edges overlap each other.
+
+* `(R overlaps S) := (G overlaps U)`
+* `(R overlaps S) := ((G & U) != Ø) and ((G \ U) != Ø) and ((U \ G) != Ø)`
+
+<!-- ======================================================================= -->
+## symmetric difference (^, xor, ex-or)
+
+The symmetric difference between two relations is formed by removing the
+intersection from the union over both relations.
+
+* `(R ^ S) := (R + S) \ (R & S)`

@@ -1,4 +1,7 @@
 
+<!-- ======================================================================= -->
+# intervals over posets
+
 a generalized perspective on intervals
 - point out that an interval defines
   a subset of elements
