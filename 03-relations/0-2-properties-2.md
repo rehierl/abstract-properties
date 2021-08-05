@@ -79,19 +79,17 @@ a |               | c
 
 right-euclidean, euclidean
 
-* if aRc and aRd, then also cRd - and also dRc (?)
-* note - aRa and aRb -> aRb - and also bRa
-* note - aRb (and aRb) -> bRb
-* e.g. "equality"
+* if aRc and aRd, then also cRd (or dRc ?)
+* note - aRa and aRb -> bRa
 
 left-euclidean
 
-* if aRc and bRc, then also aRb - and also bRa (?)
-* note - aRa and bRa -> aRb - and also bRa
-* note - aRb (and aRb) -> aRa
+* if aRc and bRc, then also aRb (or bRa ?)
+* note - aRa and bRa -> aRb
 
 remarks
 
-* right-euclidean, reflexive => symmetric => equivalence
+* the requirements must apply everywhere
+* right-euclidean, reflexive => equivalence
 * left-euclidean, reflexive => equivalence
-* quasi-transitive if right/left-euclidean
+* so a downward-total order is left-euclidean?

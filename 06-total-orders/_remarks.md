@@ -15,18 +15,21 @@ remarks
 - a path graph can be derived from an "ordered sequence"
 - which explains why a sequence can be visualized as a path
 - the sequence can be recreated the same way
-- an ordered sequence is a sequence paired with a total order
-
-extended
-- intervalls require an underlying order
-- introduce the intervall-based perspective
-
-remark
-- each ordered set is defined based upon one order operator only
-- i.e. `<` ex-or `<=`
 
 remark
 - it appears to be quite difficult to point out
   the issue with something that doesn't seem to make sense
 - after all, if it could be clearly described,
   it wouldn't be much of an issue ..
+
+<!-- ======================================================================= -->
+
+intervals
+- "hierarchy of nested intervals/sets" - somehow redundant
+  not quite - if "nested" applies to all, then total
+  hierarchy of (possibly nested) intervals, then partial
+  must be the default
+
+Note that each interval can be understood to correspond with an ordered subset
+of elements. Because of that, any scope can be understood to correspond with
+an ordered (sub)set of nodes. - even though a scope is no family of sets.

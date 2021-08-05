@@ -16,19 +16,18 @@ to have its own unique natural number.
 Based on that, the characters of a character set (e.g. "ASCII", "UTF-8") can
 be understood to be ordered "alphabetically" in ascending order according to
 the values of their codepoints. Consequently, a character set can be described
-as an ordered sequence of distinct symbols.
+as an ordered sequence of (distinct) symbols.
 
-Due to the above, and since each character has a unique codepoint, and as
-such a unique index associated with it, the character-based interval `i3`
-can be understood to be associated with an index order. Because of that, the
-character-based interval can be uderstood to correspond with the index-based
-interval `i5`.
+Due to the above, and since each symbol has a unique index associated with it
+(i.e. its codepoint), the character-based interval `i4` can be understood to
+be associated with an index order. Because of that, the character-based interval
+can be uderstood to correspond with the index-based interval `i5`.
 
 * `(i4 := [c,f]) <=> (i5 := [99,102])` - in ASCII
 
 One can therefore determine all the other characters that are in between the
-endpoints of interval `i4`. That is, all of those characters are included
-whose codepoints are withinin the range that is specified by `i5`.
+endpoints of the ascii-based interval `i4`. That is, all of those characters
+are included whose codepoints are withinin the range that is specified by `i5`.
 
 Note that isomorphic orders are required. That is the bijection between the set
 of characters/symbols and the index order (i.e. the order over all codepoints)
@@ -40,35 +39,34 @@ must be known and order-preserving.
 ## intervals over simple sequences
 
 Since any sequence is associated with an index order over its components,
-index-based intervals can be used in the context of any known sequence of
-elements. However, since an interval over an index order (strictly speaking)
-only defines set of index values, there needs to be a mapping between the
-set of index values an index-based interval defines, and the squence of
-elements.
+index-based intervals can be used in the context of any known sequence. However,
+since an interval over an index order (strictly speaking) only defines a set of
+index values, there needs to be a mapping between the set of index values an
+index-based interval defines, and the source squence of elements.
 
 * `s := (a, b, c, a, e)`
 * `s[x]` is defined for `(x in [1,#s])`
 * `i6 := [2, 4] => { 2, 3, 4 }`
 
 Because of that, a sequence of index values must be formed first such that
-it holds all the index values in the specified interval, in ascending order.
+it holds all the index values in the specified interval in ascending order.
 Then, and only then can each index within that ordered sequence of intervals
-be replaced by the symbol within the source sequence at the specified index.
+be replaced by the symbol at the specified index whithin the source sequence.
 
 * `( i6 := [2,4] ) => ( t := (2,3,4) ) => ( u := (b,c,a) )`
 
 Note that the entire mapping needs to be understood to be defined in terms of
-an operation/function over a given sequence and a pair of index values. That
-operation must also be understood to be defined to return a **substring**
-within the given range of index values:
+an operation/function over a given sequence and its index order. That operation
+must also be understood to be defined to return a **substring** within the given
+range of index values:
 
 * `op(s,2,4) -> (b,c,a)`
 * `s[a,b], s(a,b) := op(s,a,b)`
 
 Note that, defined as above, both of the endpoints of the specified interval
 are by definition included. It is therefore not possible to exclude any of
-the endpoints. This definition is however sufficient in the context of this
-discussion.
+the endpoints. (This definition is however sufficient in the overall context
+of this discussion).
 
 <!-- ======================================================================= -->
 ## induced substrings
@@ -137,4 +135,4 @@ Note that a programming language does in general allow to specify substrings
 via an offset and a length value. Such a specification does however still
 translate to an index-based interval.
 
-* `s[offset,length] => s[offset,(offset+length-1)]`
+* `s[offset,length] <=> s[offset,(offset+length-1)]`

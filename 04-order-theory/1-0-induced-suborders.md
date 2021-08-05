@@ -52,9 +52,9 @@ That is, the resulting suborder can be described is being induced by a set of
 those vertices that need to remain in the suborder. Similar to induced subtrees,
 this definition can be specialized as follows:
 
-* `R[v] := R[v,*] := R[T]`
+* `R[v] := R[T]`
 * where `T := { x | (v <= x) for (x,v in D) }`
-* and `(v <= x) := (v presequent-to x) or (x == v)`
+* and `(v <= x) := (v presequent-to x) or (x equal-to v)`
 
 Recall that "presequent-to" denotes the default/generic sequence-based semantics
 of an edge in regards to the source order. Also, each order relation is required
