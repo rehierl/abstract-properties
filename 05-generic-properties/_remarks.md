@@ -1,36 +1,24 @@
 
-- defintions in regards to properties
-
-Note that the unclear statement (S2) in regards to those nodes that are
-subsequent to a heading (i.e. "some of") will eventually be clearly defined
-based upon well defined suborders (i.e. "all of (those)") that are embedded
-into a document order.
+- defintions in regards to (generic) properties
 
 a mere introduction to generic properties
 - will have to eventually provide formal definitions
-- e.g. in terms of a final summary
+- e.g. in the context of a final summary
+
+missing
+- some-of as a composed quantifier
+- i.e. an interval-based point of view
+
+## beyond introductory
 
 hereditary properties
 - a definition by choice
 - hidden is hereditary
-- the section of a heading is not
-
-relationships between scopes
-- shared across multiple nodes
+- the section of a heading is not necessarily
 
 turing machines
 - the idea of a turing machine pops up on a regular basis
 - the core concept of a multi-tape/track machine
 - section properties written to additional tapes
-- this "image" can be used to imagine the relationships
-  between multiple sections/properties
-
-from the ordered-trees repository
-- a goal-driven approach, not a bottom-up approach
-- the stream-based perspective does not really apply
-  since a property applies to all the nodes that are
-  subsequent to its defining node
-- that was the old approach - based on some-of
-- the old approach did jump too far too fast
-- immediately jumped to multiple/shared properties
-- failed to take one small step at a time
+- this "image" can be used to "visualize" the relationships
+  between multiple/shared sections/properties

@@ -20,12 +20,13 @@ they declare.
 (S1) No node above of a heading belongs to the section it declares. That is,
 if the document order is layed out vertically, in a top-to-bottom fashion. Put
 differently, no node presequent to a heading in the document order belongs to
-the section it declares. Note that this rule is clear since **none** of the
+the section it declares. That is, if the document order is layed out horizontally,
+in a left-to-right fashion. Note that this rule is clear since **none** of the
 corresponding nodes are nodes within the heading's section.
 
-(S2) The nodes below of (or subsequent-to) a heading may or may not belong to
-its section. Note that this rule is unclear since **some**, but not all of the
-corresponding nodes are within the heading's section.
+(S2) The nodes below of or subsequent to a heading may or may not belong to
+its section. Note that this rule is unclear since **some**, but not all of
+the corresponding nodes are within the heading's section.
 
 (S3) By default, the section of a heading includes all of the nodes that are
 subsequent to it. That is, if the document has no further heading. Note that
@@ -42,10 +43,10 @@ as the section's sectioning node is reached. In addition to that, and once an
 implementation has reached past the end of a section, the corresponding section
 object is marked as being "closed".
 
-(*) A section is considered to contain its sectioning node since this effectively
-guarantees that no section will ever be truly empty. In addition to that, each
-section (as a set of nodes) is guaranteed to be distinct to every other section
-since each sectioning node is defined to always declare one section only. Based
-on that, a sectioning node is considered to be the very first node within the
-section it declares. If need be, one can classify the nodes of a section as
-"control nodes" and as "content nodes".
+(*) A section is considered to contain its sectioning node since. That is
+because this effectively guarantees that no section will ever be truly empty.
+In addition to that, each section (as a set of nodes) is guaranteed to be
+distinct to every other section since each sectioning node is defined to always
+declare one section only. Based on that, a sectioning node is considered to be
+the very first node within the section it declares. If need be, one can classify
+the nodes of a section as "control nodes" and as "content nodes".

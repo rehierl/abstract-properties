@@ -55,8 +55,8 @@ have an effect on "some, but not all" of the nodes within a document (i.e.
 
 Obviously, the all-of and none-of quantifiers are easy to define in the context
 of a well known set of nodes, such as the nodes of a document. That is because
-neither the document's structure, nor its contents are relevant to these
-quantifiers: It is "either all in, ex-or none at all".
+neither the document's structure, nor its contents are relevant to them:
+It is "either all in, ex-or none at all".
 
 <!-- ======================================================================= -->
 
@@ -86,36 +86,31 @@ Because of that, the scope of an operation can only be a subset of those nodes
 that are subsequent to the operation's defining node.
 
 Note that this observation has no effect on the none-of quantifier. However,
-in regards to the all-of and some-of quantifiers, this can be understood as a
-restriction which results from having to visit the nodes of a document in a
+in regards to the all-of and some-of quantifiers, this can be understood as
+a restriction that results from having to visit the nodes of a document in a
 particular order.
 
 <!-- ======================================================================= -->
 
 ```
 - document/visit order --- d ----------- l ------------->
-                           |- some-of ----------------->|
+|- none-of --------------->|- some-of ----------------->|
                            |- all-of --->|- none-of --->|
 ```
 
 In addition to the above, and if neither none-of nor all-of those nodes that
 can possibly be affected by an operation are to be included within a scope,
 one can assume that the scope may only extend over the first few nodes that
-are subsequent to the defining node. That is, the operation's scope can be
+are subsequent to a defining node. That is, the operation's scope can be
 assumed to begin with the defining node `d` up to and including to some last
 node `l`. Based on that, a scope can be assumed to contain all-of the nodes
-within the range `[d,l]`, but none-of the nodes within the range `(l,*)`.
-
-Note that this does suggest that the some-of qunatifier can be defined in
-terms of the all-of and/or none-of quantifiers.
+within a certain range `[d,l]`, but none-of the nodes after that.
 
 This leaves one remaining question unanswered: At what point does the scope
 of an operation end, assumed that the operation is not supposed to affect
 all-of the nodes that are subsequent to a defining node?
 
-<!-- ======================================================================= -->
-
-Based on the above, the difficult part is on providing unambiguous defintions
+Due to the above, the difficult part is on providing unambiguous defintions
 for the some-of quantifier since it requires additional bits of information
 that make it clear which nodes to include, and which ones to ignore. But how
 does one actually define "include these, but not the others", based on an
