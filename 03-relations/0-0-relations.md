@@ -22,8 +22,8 @@ relations as the (e.g.) elements of a simple set. In the context of this
 discussion, mathematical relations will be **treated as an abstract concept**.
 That is, a relation needs to be seen as the formal description of a "thing".
 
-Each relation can be understood to be accompanied by (or associated with)
-a **characteristic function** `R(s)` which allows to determine if a given
+Each relation can be understood to be accompanied by, or to be associated
+with a **characteristic function** `R(s)` that allows to determine if a
 sequence over the domains is connected in the relation's graph. That is,
 `R(s)` returns true for some `s`, iff `G` contains `s` as an element.
 Based on that, the elements in sequence `s` can be described as being
@@ -51,49 +51,59 @@ are non-relevant to this discussion.
 ## endo-relations
 
 A relation that can be described as binary and homogenous (i.e. both domains
-are the same), is in general referred to as an **endo-relation**.
+are the same), can be described as an **endo-relation**. In addition to that,
+the elements within the domain of an endo-relation will be referred to as
+**vertices** and, based on that, the domain `D` as a set of vertices `V`.
 
-* `R := (D,D,G)` where `(G subset-of P(D×D))`
+* `R := (V,G) := (V,V,G)` where `(G subset-of P(V×V))`
 
-All the sequences in `G` are 2-element sequences and will therefore be referred
-to as (directed) **edges**. As such, the vertices of an edge will be referred
-to as its **endpoints** with the 1st endpoint being the **source** and the 2nd
-endpoint as being the **sink** vertex of that edge. Based on that, an edge can
-be understood to lead from its source vertex to its sink vertex.
+Note that, due overall focus on node trees, graph theoretical terms may in
+general be used in the context of endo-relations.
+
+The following syntactic "shortcuts" will be used:
+
+* `(s in R) := (s in G)`
+* `aRb := ((a,b) in G)`
+* `!aRb := ((a,b) not in G)`
+
+Note that the expression `aRb` is defined to denote a boolean value that is
+true, if the corresponding edge is an element in `G` (i.e. `((a,b) in G)`).
+However, the expression `aRb` may also be used to denote the corresponding
+edge (i.e. `(a,b)`) itself.
+
+All the sequences in `G` are 2-element sequences and will as such be referred
+to as **edges**. Furthermore, the vertices of an edge will be referred to as
+**endpoints** with the 1st endpoint being the **source** and the 2nd endpoint
+as being the **sink** vertex of that edge. Furthermore, The source of an edge
+can be described as a source to its sink vertex. Conversely, the sink of an
+edge can be described as a sink to its source vertex.
+
+Note that not every vertex is in general required to be the endpoint of an
+edge. Such a vertex can be described as being **disconnected**, or as being
+**unrelated** (to another vertex). However, since the overall discussion is
+on connected "things", disconnected vertices will in general be ignored.
+
+Note that an edge is in general assumed to have distinct vertices as its
+endpoints. In cases where the endpoints are the same, an edge may be referred
+to as **a loop (edge)**,  or as **a reflexive edge** (i.e. `aRa`). This in
+regards to reflexive order relations.
+
+Since each edge has a source and a sink vertex, any edge can be said to lead
+from its source to its sink vertex. As such, an edge can be described as being
+oriented. Because of that, an endo-relation can be understood to support
+**a notion of orientation**, or **a notion of direction**.
 
 A vertex that is a source vertex to one or more edges, but no sink vertex to
 any edge, will be referred to as a **source vertex** to the relation. Likewise,
 a vertex that is a sink vertex to one or more edges, but no source vertex to any
 edge, will be referred to as a **sink vertex** to the relation. Any other vertex
-that is an endpoint to one or mor edges may be referred to as an **inner vertex**
+that is an endpoint to one or more edges may be referred to as an **inner vertex**
 to the relation.
 
-Note that a vertex that has a loop is understood to have an outgoing and an
-icoming edge. Based on that, a vertex that has a loop is neither a source nor
-a sink vertex. Consequently, a vertex that has a loop is an inner vertex.
-
-* loop (edge) := `aRa` for some `(a in V)`
-
-In addition to the above, the following syntactic "shortcuts" will be used:
-
-* `R := (D,G) := (D,D,G)`
-* `(s in R) := (s in G)`
-* `aRb := ((a,b) in G)`
-* `!aRb := ((a,b) not in G)`
-
-Note that, as with any other relation, each of the vertices in all of the
-sequences in `G` are required to be elements within the corresponding domain.
-However, not every element within a domain is also required to be an endpoint
-in such a sequence. Such a vertex can be described as being **disconnected**,
-or as being **unrelated** (to another vertex).
-
-Note that, since the overall focus in the context of this discussion is on
-"related things", disconnected vertices will be **silently ignored**. Based
-on that, the domain of a mathematical relation can be understood as a mere
-consequence of the corresponding set of edges. After all, a domain is still
-required to contain both of the endpoints of each edge.
-
-Note that, based on the focus of the edges in an endo-relation, a relation
-can in essence be thought of as being reduced to its set of edges. Based on
-that, operations over relations can be defined similar to those over simple
-sets of elements.
+Any edge to which a vertex is a source, may be described as **an outgoing edge**.
+Conversely, any edge to which a vertex is a sink may be described as an
+**incoming edge**. A vertex that has a loop can therefore be understood to have
+an outgoing and an incoming edge. A vertex that has a loop is therefore neither
+a source nor a sink vertex to the endo-relation. Consequently, a vertex that
+has a loop will be treated as an inner vertex if loops can not be ignored in
+a given context.

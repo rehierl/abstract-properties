@@ -1,4 +1,7 @@
 
+continue with ..
+- total orders from generic properties
+
 ordered sequence
 -> family of scopes
 -> total order

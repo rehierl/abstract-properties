@@ -1,6 +1,17 @@
 
 Note that the overall discussion does not seem to build upon the following
-discussion - i.e. the following could be removed at some point in the future.
+definitions - i.e. the following could be removed at some point in the future.
+
+Since the overall focus in the context of this discussion is on "related things",
+disconnected vertices will be **silently ignored**. Based on that, the domain of
+a relation can be understood as a consequence of the corresponding set of edges.
+After all, a domain is still required to contain both of the endpoints of all
+the edges in an endo-relation.
+
+Note that, based on the focus of the edges in an endo-relation, a relation
+can in essence be thought of as being reduced to its set of edges. Based on
+that, operations over relations can be defined similar to those over simple
+sets of elements.
 
 <!-- ======================================================================= -->
 ## union (+, or, add)
@@ -8,14 +19,7 @@ discussion - i.e. the following could be removed at some point in the future.
 A union of (endo-)relations is formed by merging the corresponding sets of
 elements.
 
-* `R := (D,G)`, `S := (T,U)`
-* `X := (Y,Z)` where `Y := (D + T)` and `Z := (G + U)`
-
-However, since the overall focus in the context of this discussion is on
-"things" that are, one way or another, related with each other, disconnected
-vertices will be **silently ignored/dropped**. Based on that, the union of
-two endo-relations can be loosely defined as follows:
-
+* `R := (V,G)`, `S := (T,U)`
 * `(R + S) := { (a,b) : aRb or aSb }`
 
 Note that with this simplification, an implicit operation is associated. That

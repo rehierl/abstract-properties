@@ -2,13 +2,17 @@
 <!-- ======================================================================= -->
 # Visualizing scopes
 
-As shown below, the scope of a property can be visualized by simply underlining
-all of the nodes in its scope:
+As shown below, the scope of a property can be visualized by underlining all of
+the nodes in its scope.
 
 ```
 a - b - c - d - e ->
        ============= p
 ```
+
+Note that it is difficult to underline no node at all. This aspect is therefore
+another reason to count the defining node of a property towards the scopes of
+the properties it declares.
 
 Assuming that node `c` is understood to define property `p` (i.e. its defining
 node `d(p)`), then the scope `s(p)` of `p` can be understood to contain all of

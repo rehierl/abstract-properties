@@ -17,29 +17,30 @@ some property `p`. The property a defining node declares can be understood
 to represent a unique characteristic of some sort.
 
 Note - Imagine that the property declared is some color that is intended to
-to be used to "mark" all the nodes within the property's scope.
+to be used to "mark" all of the nodes within the property's scope.
 
 In contrary to sectioning nodes and sections, each defining node may declare
-one or more properties. However, each property is still assocated with one and
+one or more properties. However, each property is still associated with one and
 only one defining node. Because of that, **a one-to-many relationship (1:n)**
 exists between the defining nodes and the properties they declare.
 
 Once the defining node of a property has been reached (by an implementation),
 the properties it declares are understood to apply to the defining node, and
 by default to **all-of** those nodes that are subsequent to it. Because of
-that, the **scope** of a property contains all the nodes that are subsequent
+that, the **scope** of a property contains all of the nodes that are subsequent
 to its defining node (i.e. `[d,*]`), in regards to the underlying node order.
+Based on that, a property can be said to be **shared across all of the nodes**
+in its scope.
 
 * `d(p) := d`
-* `scope(d), s(d), s(p) := [d,*]`
+* `scope(p), s(p) := [d,*]`
 
 Any of the nodes that are presequent to the defining node `d` of a property
-may themselves be defining nodes such that the defining node `d` is within the
-scopes of these nodes and therefore within the scopes of the properties they
-declare. Based on that, the defining nodes that are presequent to the defining
-node `d`, including the defining node `d` itself (i.e. `[*,d]`) are understood
-to form the **context** of the defining node `d` and all of the properties it
-declares.
+may themselves be defining nodes such that the defining node `d` is within
+the scopes of these properties. Based on that, the defining nodes that are
+presequent to the defining node `d`, including the defining node `d` itself
+(i.e. `[*,d]`) are understood to form the **context** of the defining node
+`d` and all of the properties it declares.
 
 Due to the above **a scope is forwards oriented**. That is, a property can be
 said to emanate from its defining node and to be propagated to all the nodes
