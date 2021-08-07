@@ -50,9 +50,6 @@ binary predicate, one can use the order operator to define an endo-relation
 that are considered to be "in order". Based on that, an order operator can
 in general be used to define an order relation.
 
-* `G := { (a,b) | (a × b) is true }`
-* alternatively `aRb := (a × b)`
-
 Conversely, one can use an endo-relation `S := (V,G)` to define the operator
 of an ordered set. That is, the operator is understood to return true, iff `S`
 has an edge for a specific pair of vertices. The relation used to define an

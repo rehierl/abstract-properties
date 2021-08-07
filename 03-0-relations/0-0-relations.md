@@ -55,7 +55,7 @@ are the same), can be described as an **endo-relation**. In addition to that,
 the elements within the domain of an endo-relation will be referred to as
 **vertices** and, based on that, the domain `D` as a set of vertices `V`.
 
-* `R := (V,G) := (V,V,G)` where `(G subset-of P(V×V))`
+* `R := (V,G) := (V,V,G)` such that `(G subset-of P(V×V))`
 
 Note that, due overall focus on node trees, graph theoretical terms may in
 general be used in the context of endo-relations.
