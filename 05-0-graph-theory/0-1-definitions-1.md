@@ -141,3 +141,14 @@ as the number of edges in it.
 
 * `order(G) := #V`
 * `size(G) := #E`
+
+<!-- ======================================================================= -->
+## isomorphic
+
+Two graphs are **isomorphic** (to each other), if an isomorphism exists that
+maps one graph onto the other.
+
+Note that two isomorphic graphs may have different semantics. Because of that,
+and in the context of this discussion, "isomorphic" is understood in the sense
+of "both graphs have isomorphic structure", whereas "equal" is understood in
+the sense of "both represent the exact same graph".

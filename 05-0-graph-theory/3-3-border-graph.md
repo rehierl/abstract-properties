@@ -2,8 +2,6 @@
 <!-- ======================================================================= -->
 # border graph
 
-* (/see/ "border edge" in "node trees")
-
 The union `T` of the difference graph `(G \ S)` with the subtracted graph `S`
 may be, but does not have to be equal to `G`. That is due to the implicit
 removal of incident edges.
@@ -12,8 +10,10 @@ removal of incident edges.
 * `(T subgraph-of G)` is however always true
 * `(T proper-subgraph-of G)` is not necessarily true
 
-Recall that `S` in `(G \ S)` is expected to be a subgraph of `G`
-(i.e. `(G & S) == S`).
+Recall that `S` is expected to be a subgraph of `G` (i.e. `(G & S) == S`).
+
+Note that the intention behind the definition of border graphs is to allow to
+describe how a subgraph is embedded into its super-graph.
 
 <!-- ======================================================================= -->
 ## inner border graph (IBG)
@@ -25,9 +25,9 @@ the vertex-set `V(S)`. These additional edges however do not exist, if `S` is
 equal to that induced subgraph (i.e. if `(S == G[V(S)])`), which is because all
 those edges are then also edges in `S`.
 
+* `S <=!=> G[V(S)]`
 * `(S subgraph-of G) <-> (S subgraph-of G[V(S)])`
 * `(S subgraph-of G) =!> (S proper-subgraph-of G[V(S)])`
-* `S <=!=> G[V(S)]`
 
 The **inner border graph** `IBG(G,S)` can be defined as follows:
 
@@ -39,8 +39,8 @@ That is, the inner border graph `IBG` is a subgraph of `G` such that all the
 endpoints of its edges are vertices in `S`. In addition to that, each edge in
 `IBG` is an edge in `G`, but not an edge in `S`. Finally, the vertex-set of
 `IBG` is the union of all the endpoints of its edges. That is, the vertex-set
-of `IBG` is the result of its set of edges (i.e. `(IBG(G,S) == G[E])`) and as
-such does not contain any disconnected vertices.
+of `IBG` is a consequence of its set of edges (i.e. `(IBG(G,S) == G[E])`) and
+as such does not contain any disconnected vertices.
 
 * given `G` and `S` such that `(IBG != Ø)`
 * `(E(IBG) subset-of E(G))` and `(E(IBG) disjoint-to E(S))`
@@ -68,8 +68,8 @@ super-graph and its sub-graph.
 
 The second aspect of `(G <=!=> T)` is that `G` may contain edges that connect
 `(G \ S)` with `G[V(S)]`. However, such edges do not exist, if `G[V(S)]` is
-equal to the union of maximal components in `G`, which is because components
-are not connected with each other.
+equal to a component in `G`, which is because the components of a graph are
+not connected with each other.
 
 The **outer border graph** `OBG(G,S)` can be defined as follows:
 
@@ -88,7 +88,7 @@ Note that an outer border graph `OBG` has two subgraphs: One restricted to all
 those edges that point inwards from `(G \ S)` to `S` (i.e. `Ei`, aka. `OBGi`),
 and one restricted to all those edges that point outwards from `S` to `(G \ S)`
 (i.e. `Eo`, aka. `OBGo`). Consequently, these two subgraphs have disjoint sets
-of edges, but not necessarily disjoint sets of vertices.
+of edges, but not necessarily also disjoint sets of vertices.
 
 * `OBG == (OBGi + OBGo)`
 
@@ -138,13 +138,12 @@ Given two arbitrary non-empty graphs `S := (T,U)` and `G := (V,E)`, then ...
 * `Ø` - always empty
 * `?` - not necessarily empty
 
-Note that `S` in (3), (4) and (5) is also unequal to `G` as otherwise case
+Note that `S` in (3), (4) and (5) is also unequal to `G` since otherwise case
 (2) would apply. Hence, `S` is in both cases a proper subgraph of `G`.
 
-Note that both graphs in case (6) are distinct from one another since they
-could otherwise not overlap each other. Also, both outer graphs in that case
-are not necessarily empty since both graphs may have a single disconnected
-vertex that is no vertex in the other graph.
+Note that both outer graphs in case (6) are not necessarily empty since both
+graphs may have a single disconnected vertex each that is no vertex in the
+other graph.
 
 <!-- ======================================================================= -->
 ## border graph (BG)
@@ -181,7 +180,7 @@ super-graph G         sub-graph S
         |-> 4            |-> 4
 ```
 
-* where `*` in `3*` denotes a reflexive edge (i.e. `(3,3)`)
+* where `*` in `3*` denotes the reflexive edge (i.e. `(3,3)`)
 * G: `V(G) := {1,2,3,4}` and `E(G) := {(1,2),(2,3),(2,4),(3,3)}`
 * S: `V(S) := {2,3,4}` and `E(S) := {(2,3),(2,4)}`
 

@@ -3,12 +3,9 @@
 # Relationships between graphs
 
 ```
-         |--> disjoint-to  |--> equal-to
-(S ? G) -|                 |
-         |--> intersects --|--> subgraph-of
-            (coupled-with) |    (related-to)
-                           |
-                           |--> overlaps
+(S ? G) -|--> intersects --|--> subgraph-of --|--> proper-subgraph-of
+         |                 |                  |
+         |--> disjoint-to  |--> overlaps      |--> equal-to
 ```
 
 The following operators are largely equal/similar to the set-based operators.

@@ -28,31 +28,10 @@ a (directed) path may also be referred to as "a path over a graph",
 or as "a path over the relation of a graph".
 
 <!-- ======================================================================= -->
-## the length of a path
-
-Given a path `p := (v1,..,vk)`, its length `#p` can be defined as below.
-
-A hop/pair/edge-based view: `#p := (k-1)`
-
-* `#p` is the number of consecutive pairs in `p`
-* as such, `#p` will be referred to as the edge-length of `p`
-
-A vertex-based view: `#p := k` (default)
-
-* as such, `#p` is the number of components in `p`
-* as such, `#p` will be referred to as the vertex-length of `p`
-
-Note that the default point of view is on the vertex-length of a path. As such
-`#p` corresponds with the cardinality of the path's sequence of vertices.
-
-Note that a path may in general have any (even infinite) length. However, in
-the context of this discussion, all paths are assumed to have finite length.
-
-<!-- ======================================================================= -->
 ## direction/orientation
 
-( Note that the intention of the following subsection must be understood to
-be in regards to consistently oriented semantics. )
+( Note that the intention of this subsection is in regards
+consistently oriented semantics. )
 
 With each edge `(e in E)` in a graph `G := (V,E)`, a statement (i.e. meaning,
 aka. semantics) is associated. Since the vertices of an edge are understood
@@ -130,15 +109,6 @@ Note that a finite graph, that has loops and/or cycles, allows to form an
 infinite number of paths. That is, the graph's set of paths `P` has infinitely
 many elements. The set of paths `P` therefore has finite size, if and only
 if the corresponding graph is acyclic.
-
-<!-- ======================================================================= -->
-## in, contains
-
-A sequence of vertices can be understood to represent a (valid) path `p` over
-graph `G`, if `p` is an element of the graph's set of paths `P`. In such a case,
-graph `G` is understood to contain path `p`.
-
-* `(p in P), (p in G)` := `p` is a path over the edges in `G`
 
 <!-- ======================================================================= -->
 ## p(a,b)

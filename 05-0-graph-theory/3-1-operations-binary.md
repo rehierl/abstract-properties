@@ -37,53 +37,68 @@ Based on that, two graphs that are unequal can be described as being
 <!-- ======================================================================= -->
 ## disjoint, coupled, overlap
 
-Given two (simple) sets `A` and `B`, the following definitions apply:
+Similar to simple sets of elements, two graphs `S := (T,U)` and `G := (V,E)`
+are said to be **disjoint** (from one another), if both have neither vertices
+nor edges in common:
 
-* `(A disjoint-to B) := ((A & B) == {})`
-* `(A coupled-with B) := not (A disjoint-to B)`
+* `(S disjoint-to G) := (T disjoint-to V) and (U disjoint-to E)`
 
-Two graphs `S := (T,U)` and `G := (V,E)` are said to be **disjoint**
-(from one another), if both have neither vertices nor edges in common:
+Graph `S` can be described to **intersect** graph `G`, if both are not disjoint.
+As such, both graphs can be understood to be **coupled** (with each other) via
+the elements they share:
 
-* `(S disjoint-to G)`, if `(T disjoint-to V)` and `(U disjoint-to E)`
-* `(S disjoint-to G) <-> (G disjoint-to S)`
+* `(S intersects G), (S coupled-with G) := not (S disjoint-to G)`
 
-Two graphs `S` and `G` are said to be **coupled** (with each other),
-if both have one or more vertices (and/or edges) in common:
-
-* `(S coupled-with G) := not (S disjoint-to G)`
-* `(S coupled-with G) <-> (G coupled-with S)`
-
-Like the common elements in coupled simple sets of elements, the above common
-vertices and/or edges act as a "link" between both graphs. These links can be
-understood to bind both graphs together, which is why two such graphs can be
-said to be "connected" or "coupled" by some "point of contact".
+Like the common elements in coupled simple sets of elements, common vertices
+and/or edges act as a "link" between both graphs. These links can be understood
+to bind both graphs together, which is why two such graphs can be said to be
+"connected" or "coupled" by some "point of contact".
 
 Two graphs `S` and `G` are said to **overlap** (each other), if both are coupled
 with each other, and if both have one or more vertices and/or edges the other
 graph does not have.
 
 * `(S overlaps G) := (S coupled-with G) and (S unrelated-to G)`
-* `(S overlaps G) <-> (G overlaps S)`
 
 <!-- ======================================================================= -->
-## remarks on - disjoint, coupled, overlap
+## intersecting graphs
 
-Note that both endpoints of an edge `(e in E)` in a graph `G := (V,E)` must
-be elements in the graph's set of vertices `V` (i.e. `(E(e) subset-of V)`).
-If that would not be the case, then `G` would not even satisfy the definition
-of a graph.
+In general, if graphs `S := (T,U)` and `G := (V,E)` have an edge in common,
+then both graphs must also share both of the endpoints of that edge. Because
+of that, two graphs that have intersecting sets of edges also have intersecting
+sets of vertices. However, two graphs that have intersecting sets of vertices,
+do not necessarily also have intersecting sets of edges since all of the shared
+vertices may be disconnected.
 
-Two coupled graphs `S := (T,U)` and `G := (V,E)` always have coupled sets of
-vertices. That is because the endpoints of a common edge are also elements
-in both sets of vertices `T` and `V`. The converse is however not necessarily
-true. That is, two graphs that are coupled via coupled sets of vertices, do
-not necessarily also have coupled sets of edges (e.g. both graphs may be
-coupled via isolated vertices).
+* `(U intersects E) -> (T intersects V)`
 
-* `(U coupled-with E) -> (T coupled-with V)`
-* `(S coupled-with G) <-> (T coupled-with V)`
-* (`S` and `G` may still have edges in common)
+If `(U subset-of E)` is true (i.e. all the edges in `U` are edges in `E`),
+then a vertex `(v in T)` may still exist that is no vertex in `V`. Vertex `v`
+must however be disconnected since an edge incident to `v` would then have to
+be an edge in `E`, which in turn would require `v` to also be a vertex in `V`.
+Because of that, `(U subset-of E)` does not imply that `(T subset-of V)` is
+also true.
+
+Likewise, if `(T subset-of V)` is true, then an edge in `U` may still exist
+that is no edge in `E`. Because of that, `(T subset-of V)` does not imply
+that `(U subset-of V)` is also true.
+
+Put differently, if `(U subset-of E)` is true, then both graphs may still have
+overlapping sets of vertices. Likewise, if `(T subset-of V)` is true, then both
+graphs may still have overlapping sets of edges. That is, both graphs need to
+have further characteristics for both pairs of sets to be related in some way.
+
+* `(U subset-of E) <=!=> (T subset-of V)`
+
+If `(U subset-of E)` is true, in addition to `S` having no disconnected vertex,
+then `(T subset-of V)` is also true. That is because every vertex in `T` then
+is an endpoint to one or more edges in `U` and as such also a vertex in `V`.
+(Note however that `G` may still have disconnected vertices). In contrary to
+that, if `(T subset-of V)` is true in addition to `S` having no disconnected
+vertices, then `(U subset-of E)` is still not necessarily true. That is because
+`U` may still have an edge not in `E`.
+
+* `(U subset-of E) -> (T subset-of V)`
 
 Note that an empty subgraph `S` of a graph `G` is disjoint to its supergraph,
 regardless of whether the supergraph is itself empty or not.

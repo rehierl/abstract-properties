@@ -3,15 +3,14 @@
 # miscellaneous definitions
 
 <!-- ======================================================================= -->
-## isomorphic
+## in, contains
 
-Two graphs are **isomorphic** (to each other), if an isomorphism exists that
-maps one graph onto the other.
+A sequence of vertices can be understood to represent a (valid) path `p` over
+graph `G`, if `p` is an element of the graph's set of paths `P`. In such a case,
+graph `G` is understood to contain path `p`.
 
-Note that two isomorphic graphs may have different semantics. Because of that,
-and in the context of this discussion, "isomorphic" is understood in the sense
-of "both graphs have isomorphic structure", whereas "equal" is understood in
-the sense of "both represent the exact same graph".
+* `(p in P), (p in G)` := `p` is a path over the edges in `G`
+* `(G contains p) := (p in G)`
 
 <!-- ======================================================================= -->
 ## aPb
@@ -36,9 +35,49 @@ Note that edge-based terms can be used in the context of a path:
 * `a` and `b` are both endpoints of `p`
 * `a` is a source vertext to `p`
 * `b` is a sink vertex to `p`
-* `a` and `b` are connected over `p`
 * `p` begins in `a` and ends in `b`
 * `p` has `a` as its source and `b` as its sink vertex
+
+<!-- ======================================================================= -->
+## connected, disconnected
+
+A vertex can be described as being **connected**, if it is an endpoint to one
+or more edges. Conversely, a vertex can be described as being **disconnected**
+or **isolated**, if is no endpoint to any edge.
+
+* `(is-connected v) := (v in VI) or (v in VO)`
+* `(is-disconnected v), (is-isolated v) := not (is-connected)`
+
+Two vertices in a graph can be described as being **connected with** each other,
+if a path can be formed that has both vertices as its endpoints.
+
+* `(a connected-with b) := aPb and/or bPa`
+
+Note that different levels of connectivity can be defined based on whether the
+corresponding path is a path over the directed graph, or a path over the graph's
+underlying undriected graph. The focus of this discussion in that regards is on
+vertices that are not disconnected.
+
+<!-- ======================================================================= -->
+## the length of a path
+
+Given a path `p := (v1,..,vk)`, its length `#p` can be defined as below.
+
+A hop/pair/edge-based view: `#p := (k-1)`
+
+* `#p` is the number of consecutive pairs in `p`
+* as such, `#p` will be referred to as the edge-length of `p`
+
+A vertex-based view: `#p := k` (default)
+
+* as such, `#p` is the number of components in `p`
+* as such, `#p` will be referred to as the vertex-length of `p`
+
+Note that the default point of view is on the vertex-length of a path. As such
+`#p` corresponds with the cardinality of the path's sequence of vertices.
+
+Note that a path may in general have any (even infinite) length. However, in
+the context of this discussion, all paths are assumed to have finite length.
 
 <!-- ======================================================================= -->
 ## distance between vertices
@@ -48,15 +87,6 @@ the edge-length of the shortest possible path `(p in p(a,b))` over the set of
 paths in the underlying undirected graph `UG`.
 
 Note that a directed path does not necessarily have to exist.
-
-<!-- ======================================================================= -->
-## connectivity
-
-A graph `G := (V,E)` can be described as being **connected**, if any pair of
-distinct vertices are connected. That is, a path `(p in P)` exists for any
-pair of vertices `(a,b in V)` such that `(aPb and/or bPa)` is true.
-
-Note that a connected graph consists of one **component** only.
 
 <!-- ======================================================================= -->
 ## cyclic vs. acyclic
@@ -78,19 +108,3 @@ in it more than once.
 * `G` is cyclic, if `P` contains a cyclic path
 
 Note that an acyclic graph is also loop-less.
-
-<!-- ======================================================================= -->
-## orientation
-
-Given an undirected graph `UG` an orientation (graph) `G` can be formed, if
-each undirected edge is associated with a direction. Put differently, each
-undirected edge is replaced by a directed edge. As such, the term "orientation"
-refers to a directed graph that was formed based upon an undirected graph.
-
-Note that not every directed graph is an orientation of its underlying
-undirected graph (i.e. each directed edge is replaced with an undirected
-edge). That is because the directed graph may have pairs of "flipped" edges.
-
-Note that, due to the above definition, and in order to avoid unnecessary
-confusion, one should not speak of the orientation of a directed graph (in
-regards to the orientation of its edges).

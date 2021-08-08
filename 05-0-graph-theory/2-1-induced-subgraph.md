@@ -6,34 +6,14 @@ There are two methods that can be used to form an induced subgraph: (V) based
 on a given subset of vertices, and (E) based on a given subset of edges.
 
 <!-- ======================================================================= -->
-## induced-subgraph-of
-
-Given two graphs `S := (T,U)` and `G := (V,E)`,
-an **induced-subgraph-of** operator can be defined:
-
-* `(S induced-subgraph-of G)` is true, if ...
-* (1) `(S subgraph-of G)` is true
-* (2.1) `(U == { (e in E) | (E(e) subset-of T) })` is true
-* (2.2) `(T == { (v in V) | (v endpoint-of e) for some (e in U) })` is true
-
-An **induced-proper/strict-subgraph-of** operator can be defined:
-
-* `(S induced-proper-subgraph-of G)` is true, if ...
-* (3) `(S induced-subgraph-of G)` is true
-* (4) `(S != G)` is true
-
-Note that only condition (2.1) or (2.2) needs to be satisfied. However, if the
-vertex set `T` does not contain any disconnected vertices, then both conditions
-may be satisfied at the same time. Despite that, `S` may not be connected.
-
-<!-- ======================================================================= -->
 ## induced subgraph (V)
 
 By default, an **induced subgraph** `S := G[X] := (T,U)` is formed from another
 graph `G := (V,E)` by removing some of its vertices. In addition to that, the
 subset of edges `U` is formed from the set of edge `E` by removing all of those
 edges that have one of their endpoints not in `T` (i.e. the implicit removal of
-incident edges).
+incident edges). As such, the induced subgraph `S` may be described as being
+**induced by a subset of vertices**.
 
 * `(T subset-of V)` where `T := (V & X)`
 * `U := { (e in E) | (E(e) subset-of T) }`
@@ -45,7 +25,7 @@ vertices `T`.
 
 Note that **the term "induced"** can therefore be understood as: The resulting
 graph is formed based on a given set of vertices and based on a rule that allows
-to uniquely determine the edges in the induced subgraph.
+to uniquely determine all the edges in the induced subgraph.
 
 <!-- ======================================================================= -->
 ## induced subgraph (E)

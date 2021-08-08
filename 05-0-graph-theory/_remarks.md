@@ -1,6 +1,9 @@
 
 - a recap on graph theory / node trees
 
+graph property
+- should probably have an explanation
+
 bipartite graph
 - V is a union of two disjoint subsets
 - bends the rules of an endo-relation
@@ -14,3 +17,7 @@ graph theory seems to treat vertices and edges
   as being mostly independent from one another
 - i.e. vertices may be (almost) arbitrarily connected
 - i.e. there is (some) degree of freedom in choosing the edges
+
+define "coupled sets"
+- related and overlapping sets are coupled
+- i.e. a common "feature"

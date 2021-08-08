@@ -31,3 +31,34 @@ can be formed such that `((x,y) in E)` if `xAy`. That is, for each arc
 with one edge only, then the directed graph may be described to as an
 **orientation** of the undirected graph. In contrary to "UG(G)", an undirected
 graph may in general have several distinct orientations.
+
+<!-- ======================================================================= -->
+## components
+
+A graph `G := (V,E)` can be described as being **connected**, any pair of
+vertices are connected with each other in the graph's underlying undirected
+graph. That is, an undirected path `(p in UP)` exists for any pair of vertices
+`(a,b in V)` such that `aUPb` is true.
+
+A graph that is connected consists one **component** only.
+
+Note that a graph that has no disconnected vertex is not necessarily connected
+since such a graph may consist of more than one component. However, such a
+graph can not have any trivial component (i.e. every component in it has two
+or more vertices).
+
+<!-- ======================================================================= -->
+## orientation
+
+Given an undirected graph `UG` an orientation (graph) `G` can be formed, if
+each undirected edge is associated with a direction. Put differently, each
+undirected edge is replaced by a directed edge. As such, the term "orientation"
+refers to a directed graph that was formed based upon an undirected graph.
+
+Note that not every directed graph is an orientation of its underlying
+undirected graph (i.e. each directed edge is replaced with an undirected
+edge). That is because the directed graph may have pairs of "flipped" edges.
+
+Note that, due to the above definition, and in order to avoid unnecessary
+confusion, one should not speak of the orientation of a directed graph (in
+regards to the orientation of its edges).
