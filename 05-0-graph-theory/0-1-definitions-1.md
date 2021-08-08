@@ -9,7 +9,7 @@ a set of vertices `V` and a set of edges `E` such that ..
 * `E` is the possibly empty set of directed edges
 * `V` and `E` are both finite sets of elements
 * `(E(e) subset-of V)` for each `(e in E)`
-* `(E subset of (V × V))`
+* `(E subset of V×V)`
 
 A graph `G := (V,E)` is referred to as ...
 
@@ -20,8 +20,9 @@ A graph `G := (V,E)` is referred to as ...
 * **G is oriented**, if `xEy` then `!yEx` (i.e. one direction only)
 * **symmetric**, if `xEy` then also `yEx` for all `(x,y in V)`
 
-The following can be said about the vertices of any edge `((x,y) in E)`:
+The following can be said about the vertices of any edge `(e in E)`:
 
+* `e := (x -> y) := (x,y)`
 * `x` and `y` are both endpoints of `e`
 * `x` and `y` are adjacent to each other
 * `x` is covered by `y`, and `y` is covered by `x`
@@ -79,8 +80,7 @@ in the context of multiple graphs:
 <!-- ======================================================================= -->
 ## (sub)sets of vertices
 
-As a matter of simplification, the following sets of vertices can be assumed
-to be defined as follows:
+As a matter of simplification, the following sets of vertices can be assumed:
 
 * `VI := { (v in V) | xEv for some (x in V) }`
 * `VI` is the set of vertices that have an incoming edge
@@ -106,19 +106,19 @@ In regards to the overal graph, the following subsets can be defined:
 * `INT` is the set of internal vertices
 
 <!-- ======================================================================= -->
-## helper functions
+## (helper) functions
 
 Similar to the above subsets, a function `(src: V -> P(V))` can be defined which
 returns the set of those vertices to which the input vertex `v` is a sink. Put
 differently, `src(v)` returns all those vertices that are a source vertex to `v`.
 
-* `src(v) := { x | xEv }`
+* `src(v) := { (x in V) | xEv }`
 
 Likewise, a function `(snk: V -> P(V))` can be defined which returns a set of
 vertices to which the input vertex `v` is a source. Put differently, `snk(v)`
 returns all those vertices that are a sink vertex to `v`.
 
-* `snk(v) := { x | vEx }`
+* `snk(v) := { (x in V) | vEx }`
 
 Based on these functions, the following definitions can be provided:
 

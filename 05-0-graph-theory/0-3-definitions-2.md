@@ -56,7 +56,7 @@ A graph `G := (V,E)` can be described as being **connected**, if any pair of
 distinct vertices are connected. That is, a path `(p in P)` exists for any
 pair of vertices `(a,b in V)` such that `(aPb and/or bPa)` is true.
 
-Note that a connected graph consists of one component only.
+Note that a connected graph consists of one **component** only.
 
 <!-- ======================================================================= -->
 ## cyclic vs. acyclic

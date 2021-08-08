@@ -33,12 +33,12 @@ If such a graph would have to be conversed according to the above definition,
 then, without any further change, the graph's initial semantics could not
 apply to its converse:
 
-* `((c,p) in G°)` => `(e[1] parent-of e[2])` => `(c parent-of p)` (error)
+* `((c,p) in G°)` => `(e[1] parent-of e[2])` => `(c parent-of p)` => error
 * note - semantics have an implicit, index-based vertex-to-argument mapping
 
 Obviously, the converse operation also needs to adjust the semantics of the
 initial graph `G`. That is because the order of arguments in the semantical
-expression `sem(G)` is broken in `G°`.
+expression `sem(G)` is otherwise broken in `G°`.
 
 * `((c,p) in G°)` => `(e[2] parent-of e[1])` => `(p parent-of c)` (ok)
 * note - `sem(e)` is now oriented against `dir(e)` (not quite ok)
@@ -63,7 +63,7 @@ A converse/antonymous graph needs converse/antonymous semantics.
 <!-- ======================================================================= -->
 ## remarks
 
-The following is a short list of pairs of general converse semantics:
+The following is a short list of pairs of converse semantics:
 
 * super-ordinate-to <=> sub-ordinate-to
 * more-significant-than <=> less-significant-than

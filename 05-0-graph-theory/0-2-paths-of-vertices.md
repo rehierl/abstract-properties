@@ -3,8 +3,8 @@
 # paths of vertices
 
 Note that, in the context of this discussion, and unless specified otherwise,
-all paths are assumed/expected to be uni-directional and oriented according
-to the edges of a graph.
+all paths are required to be uni-directional and oriented according to the
+edges of a graph.
 
 <!-- ======================================================================= -->
 ## paths over a graph
@@ -95,11 +95,7 @@ Hence, if such paths are allowed, then `c` and `s` are connected via a path
 The following is an inductive definition of **the set of all possible paths**
 `P` that can be formed based on the edges of a graph `G := (V,E)`:
 
-(0) `P0 := { () }`
-
-That is, `P0` only contains the empty path `p := ()` (i.e. vertex-length 0).
-
-(1) `P1 := { (a × b) | (a in P0), (v in V) }`
+(1) `P1 := { (v in V) }`
 
 That is, `P1` only contains all trivial paths `p := (v)` (i.e. `(#p == 1)`).
 
@@ -115,8 +111,8 @@ That is, the next set of paths `Pi` for `(i > 1)` is formed from the previous
 set of paths `P(i-1)` by concatenating all those vertices `b` to each path `a`
 in `P(i-1)`, if there is an edge `( (a[#a],b) in E )`.
 
-* `P := P0 + P1 + ... + P(i-1) + Pi` for `(i in [0,*])`
-* `P := (union-of Pi)` for all `(i in [0,*])`
+* `P := P1 + ... + P(i-1) + Pi` for `(i in [1,*])`
+* `P := (union-of Pi)` for all `(i in [1,*])`
 * note - `(E subset-of P)` since `(E == P2)`
 
 Based on the above, each graph `G` can be understood to be associated with the

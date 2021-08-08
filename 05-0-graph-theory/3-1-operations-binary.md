@@ -8,6 +8,11 @@ in order to produce a result:
 * two graphs `S := (T,U)` and `X := (Y,Z)` are used to create some result
 * e.g. a new graph `op(G,H) -> (V',E')`
 
+Note that both graph arguments are implicitly expected to be graphs of the same
+sort. That is, the smantics of both graphs are expected to be the same. Because
+of that, operations may only be applicable after the execution of semantical
+conversions.
+
 <!-- ======================================================================= -->
 ## equal, unequal, distinct
 
