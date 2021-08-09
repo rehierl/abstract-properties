@@ -56,9 +56,10 @@ no edge begins and ends in the same node.
 * each edge is an ordered pair of distinct nodes
 * `xEy` may be true iff `(x != y)`
 
-Note that any node tree, as defined above, can be described as an
-**arborescence**. That is, any tree in the context of this dicsussion
-is such a directed acyclic graph (dag).
+Note that such a node tree can be described as an **arborescence**. That is,
+any tree in the context of this dicsussion is considered to be defined as
+an arborescence - a directed acyclic graph (dag) that has a unique rooted
+path for each node in it.
 
 <!-- ======================================================================= -->
 ## (sub)sets of nodes
