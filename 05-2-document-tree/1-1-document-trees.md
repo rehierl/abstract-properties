@@ -19,6 +19,19 @@ search trees (e.g. AVL trees), which are used as searchable collections of
 elements that have no particular placement associated with them.
 
 <!-- ======================================================================= -->
+## tree order
+
+Note that the node order of a tree is commonly referred to as **the tree order**
+of some known tree and used to denote the top-down order between the nodes in
+it (i.e. descendants are subsequent to ancestors). Because of that, this
+description is more or less one that that focuses on the visual representation
+of a tree, and not so much on the underlying partial order.
+
+Also, the description of "tree order" seems a bit misleading since the
+corresponding order is no order of trees, but an order of nodes. That is,
+referring to some "tree order" is like referring to "an ordered set of trees".
+
+<!-- ======================================================================= -->
 ## unordered document tree
 
 One can refer to the abstract endo-relation of a document tree as
@@ -26,6 +39,9 @@ One can refer to the abstract endo-relation of a document tree as
 it has no child order. As such, this description can also be used to refer
 to the node order of the (unordered) node tree that is associated with a
 document tree.
+
+Note that the description as "unordered document tree" in regards to the
+document tree's node order is synonymous to "tree order".
 
 <!-- ======================================================================= -->
 ## ordered document tree
@@ -48,19 +64,6 @@ required. Because of that, this distinction can and should be used to denote
 whether or not the child order has been embedded into the corresponding node
 tree/order. With that in mine, one can see the modified description to provide
 the means to be more clear.
-
-<!-- ======================================================================= -->
-## "tree order" - meh (!)
-
-Note that the node order of a tree is commonly referred to as **a tree order**,
-or as "the tree order" of some known tree and used to denote the top-down order
-between the nodes in it (i.e. descendants are subsequent to ancestors). Because
-of that, this description is more or less one that that focuses on the visual
-representation of a tree, and not so much on the underlying partial order.
-
-Also, the description of "tree order" seems misleading since the corresponding
-order is no order of trees, but an order of nodes. That is, referring to some
-"tree order" is like referring to "an ordered set of trees".
 
 <!-- ======================================================================= -->
 ## "ordered tree" vs. "unordered" tree - meh (!)

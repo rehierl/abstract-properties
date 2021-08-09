@@ -33,6 +33,17 @@ Note that, defined as such, an ordered tree does not include the concept of
 "child order". However, one can describe a document tree as an ordered tree
 that has a child order associated with it.
 
+Note that, defined as such, the nodes of a tree can be understood to implement
+the concept of components as introduced with multisets. With that in mind,
+**the nodes of a tree are abstract containers of elements**. The difference
+in regards to the components of a sequence is therefore that there is no total
+(index) order defined over these components, but a partial order. In the context
+of an ordered tree, that node order is, similar to the index-order in an ordered
+sequence, understood to carry over to the elements each node contains. Based
+on that, node trees can be understood to define yet another **type fo container**.
+Consequently, and with "sets of elements" and "sequences of elements" in mind,
+node trees can and should be perceived as **trees of elements**.
+
 <!-- ======================================================================= -->
 ## simple/unordered tree
 

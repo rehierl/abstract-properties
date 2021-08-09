@@ -71,3 +71,18 @@ Note however that it depends on a given context, if that order is considered
 relevant or not. Put differently, if a tree that has no child order associated
 with is read from memory, then the child order used to serialize the tree can
 and sometimes even must be discarded.
+
+<!-- ======================================================================= -->
+## implicit vs. explicit child order
+
+In cases where a child order is defined based upon dedicated child nodes (such
+as in binary trees), or based upon a plane tree (such as a document tree),
+the corresponding child order can be described as being **explicit**.
+
+If, in contrary to that, the child order is a mere consequence of our inability
+to truly read/write trees that have no such child order, then the corresponding
+child order can be described as being **implicit** or **temporary**.
+
+Note that the latter includes those orders that result from randomly iterating
+over the child nodes of a tree that has no such child order. That is because
+such a temporary order must be understood to have no further meaning.

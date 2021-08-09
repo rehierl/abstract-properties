@@ -1,9 +1,9 @@
 
-# complex values
+# container types
 
-Complex values are formed by grouping components without providing external
-access to these components. With no further definition, the components within
-a complex value may hold elements/values of any kind.
+Containers (aka. complex values) are formed by grouping components without
+providing external access to these components. With no further definition,
+the components within a complex value may hold elements/values of any kind.
 
 * `complex := < id:(atomic|complex)* >`
 

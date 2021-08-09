@@ -1,7 +1,7 @@
 
+proof-of-concept - poc
 - this is about the concept of generic properties
   and as such a purely theoretical discussion
-- possible proof-of-concept (poc) implementations
 
 a tag soup ain't no (fucking) node tree
 - could use a proof-of-concept implementation
