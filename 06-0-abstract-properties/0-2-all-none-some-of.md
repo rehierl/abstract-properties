@@ -47,11 +47,10 @@ can be relied upon - and based on that, results that can be taken advantage of.
 ```
 
 In most cases an operation is not intended to affect all of the nodes within a
-document (i.e. **all-of**). Similar to that, an operation that does not affect
-any node at all, is of not much use (i.e. **none-of**), since such an operation
-would then have no effect at all. Because of that, an operation will in general
-have an effect on "some, but not all" of the nodes within a document (i.e.
-**some-of**).
+document (**all-of**). Similar to that, an operation that does not affect any
+node at all, is of not much use (**none-of**), since such an operation would
+then have no effect at all. Because of that, an operation will in general have
+an effect on "some, but not all" of the nodes within a document (**some-of**).
 
 Obviously, the all-of and none-of quantifiers are easy to define in the context
 of a well known set of nodes, such as the nodes of a document. That is because
@@ -62,16 +61,16 @@ It is "either all in, ex-or none at all".
 
 ```
 - document/visit order --- d --------------------------->
-|- d is unknown --------->||- d is known -------------->|
+|- d is un-known -------->||- d is known -------------->|
                            |- max scope possible ------>|
 ```
 
 The difficulty is therefore to provide a clear definition of the some-of
 quantifier. However, one can assume that there is a known total order defined
-over the nodes of a document. That is because all implementations must be
-required to visit the nodes of a document in the exact same order. One would
-otherwise end up with implementations that return different results for the
-same document. Obviously, that would be an undesirable outcome.
+over the nodes of a document. That is because all implementations must visit
+the nodes of a document in the exact same order. One would otherwise end up
+with implementations that return different results for the same document.
+Needless to state, that kind of outcome must be avoided.
 
 It is just as obvious, that each operation must have some well known point of
 origin. After all, if an operation has to be performed, it first needs to be
@@ -98,13 +97,13 @@ particular order.
                            |- all-of --->|- none-of --->|
 ```
 
-In addition to the above, and if neither none-of nor all-of those nodes that
+In addition to the above, and if neither none-of nor all-of the nodes that
 can possibly be affected by an operation are to be included within a scope,
-one can assume that the scope may only extend over the first few nodes that
-are subsequent to a defining node. That is, the operation's scope can be
-assumed to begin with the defining node `d` up to and including to some last
-node `l`. Based on that, a scope can be assumed to contain all-of the nodes
-within a certain range `[d,l]`, but none-of the nodes after that.
+one can assume that the scope may only extend over the first few nodes. That
+is, the operation's scope can be assumed to begin with the defining node `d`
+up to and including to some last node `l`. Based on that, a scope can be
+assumed to contain all-of the nodes within a certain range `[d,l]`, but
+none-of the nodes after that.
 
 This leaves one remaining question unanswered: At what point does the scope
 of an operation end, assumed that the operation is not supposed to affect
@@ -119,6 +118,6 @@ of a definition?
 
 The only means a definition has in that regards are the **formal rules** any
 document is expected to follow. Because of that, all definitions must be based
-upon such rules. These rules must therefore be known to those who develop the
-defitions and to those who use them. These formal rules can therefore be
-described **as a language that is used to communicate definitions**.
+upon such rules. These rules must therefore be known to those who develop a
+design and to those who use it. These formal rules can therefore be described
+**as a language that is used to communicate a design** and its definitions.

@@ -3,6 +3,11 @@
 
 graph property
 - should probably have an explanation
+- describes the general characteristic of a graph
+- e.g. each node has a unique rooted path
+
+hereditary (graph) properties
+- applies to any subgraph
 
 bipartite graph
 - V is a union of two disjoint subsets
