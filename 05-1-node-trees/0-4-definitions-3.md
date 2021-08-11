@@ -63,7 +63,7 @@ of the other.
 
 Two distinct nodes `x` and `y` can be said to be **disjoint** to/from each
 another, if both nodes are not coupled with each other. Because of that,
-two disjoint nodes have no descendant in common.
+two disjoint nodes have no descendant in common (e.g. siblings).
 
 * `(x disjoint-to y) := not (x coupled-with y)`
 * `(x disjoint-to y) <-> (IN(x) disjoint-to IN(y))`

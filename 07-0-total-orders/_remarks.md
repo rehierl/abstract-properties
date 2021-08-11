@@ -1,4 +1,17 @@
 
+our ability write
+- https://www.youtube.com/watch?v=YbgnlkJPga4
+- in caves all around the world
+- paintings from animals and simple hand stencils
+- some paintings are 17 to 40-thousand years old
+- we have been developing our ability to write
+  for tens of thousands of years - if not more
+
+note
+- sequence <-> path
+- path <-> order
+- then category theory
+
 <!-- ======================================================================= -->
 # total orders derived from abstract properties
 

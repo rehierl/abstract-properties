@@ -2,8 +2,8 @@
 <!-- ======================================================================= -->
 # document tree
 
-A node tree that is used to hold content of some sort,
-will be described as **a document tree**.
+A node tree that is used to hold content of some sort, will be described
+as **a document tree** (or simply as **doctree**).
 
 That is because the nodes within a document tree are not mainly used to represent
 globally unique elements such as numeric values. Instead, each node within a
