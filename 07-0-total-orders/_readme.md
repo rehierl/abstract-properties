@@ -25,6 +25,11 @@ one can conclude that the existence of the isomorphism between `p` and `Q` is
 significant isomorphisms and skip those that are less important to the overall
 discussion.
 
+Note that this chapter is excessive in the amount of transformations that are
+being described, and intentionally inaccurate in regards to many explanations.
+Because of that, this chapter is intended to introduce basic concepts of what
+will be clarified in regards to partial orders.
+
 <!-- ======================================================================= -->
 ## order of scopes <=> path graph, node order
 
@@ -54,5 +59,5 @@ conclude, that each path graph (of distinct nodes) `s` is **isomorphic**
 to a containment order `P` and also to an actual node order `Q`.
 
 As a consequence of that, any path graph is isomorphic to an actual node order.
-Because of that, each path graph can be seen as the visual representation of an
-actual node order.
+Because of that, each path graph can be seen as the visual representation of
+an actual node order.

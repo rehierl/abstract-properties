@@ -1,4 +1,5 @@
 
+- continue here ..
 - category theory to bind it all together
 - "one ring to rule them all"
 
