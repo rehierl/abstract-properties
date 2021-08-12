@@ -22,9 +22,9 @@ denoted component and/or the value it holds.
 * `(v1 == 21)` is true
 
 Note that there is by default **no order of any kind** defined upon the
-components of a complex value. That is, a complex value has by default no first,
-no last and no n-th component. The inherent order of elements specified by the
-syntactic definition of a particular complex value must therefore be ignored.
+components of a complex value. That is, a complex value has by default no first
+and no last component. The inherent order of elements specified by a syntactic
+definition must therefore be ignored.
 
 * `cy := < 21, < true, false >, 21, 'd', "abc" >`
 * `cx` and `cy` both define the same complex value
@@ -32,6 +32,7 @@ syntactic definition of a particular complex value must therefore be ignored.
 A complex value may be described as being **homogenous** or **typed**, if the
 elements it may hold must have certain characteristics. That is, a complex
 value may be restricted to only hold (e.g.) number values, boolean values.
+
 Based on that, the term "homogenous" can be understood to describe that all
 its elements belong to a certain type/domain without naming the actual type
 itself. In contrary to that, a complex value that has no such restriction may
@@ -44,13 +45,14 @@ A complex value may be described as **flat**, if all of its elements are atomic
 values. In contrary to that, a complex value may be described as **nested**, if
 it contains other complex values. Obviously, further restrictions may apply such
 that a multiset may contain only complex values. In order to allow for further
-claraifications, one may speak of "strictly nested" and of "mixed" multisets.
+clarifications, one may speak of "strictly nested" and of "mixed" multisets.
 
 * `m1` and `m2` are both flat
 * `m3 := < < 'a' >, 1, 2, 3, ... >` is nested/mixed
 
 One may speak of **nesting levels**. In addition to that, one may refer to the
 **nesting depth** (i.e. the maximum "depth") of a nested multiset. With that in
-mind, multiset `m4` can be said to have a nesting level of 3.
+mind, multiset `m4` can be said to have a nesting level of 3 and a nesting depth
+of 2.
 
 * `m4 := < 1, < 2, < 3 >, 4 >, 5 >`

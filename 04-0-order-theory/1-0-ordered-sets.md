@@ -2,8 +2,8 @@
 <!-- ======================================================================= -->
 # ordered sets
 
-An ordered set (of elements) `P := (V,×)` is **a set of vertices** `V` that is
-paired with **an order operator** `×`. As such, an ordered set is no simple
+An ordered set (of elements) `P := (V,×)` is **a set of vertices** `V` that
+is paired with **an order operator** `×`. As such, an ordered set is no simple
 set, but a complex value/type.
 
 The order operator `×`, with which an ordered set is associated, can be

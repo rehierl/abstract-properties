@@ -8,4 +8,9 @@
 - how does one describe what is "new"
 - with words that are defined for things that are not new?
 - by using the words we do know and by that redefine their meaning
-- so at first - it won't work without confusing others
+
+overall
+
+- this isn't about "reading between the lines"
+- this is about learning how to see structure in a lot of noise
+- it won't work without causing any confusion

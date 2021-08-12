@@ -1,7 +1,7 @@
 
 A graph `G := (V,E)` is defined as an endo-relation that consists of a set of
-vertices `V` and a set of (directed) eges `E`. As such, and like an ordered set,
-a graph is a complex value/type.
+vertices `V` and a set of (directed) eges `E`. As such, and like an ordered
+set, a graph is a complex value/type.
 
 * `G := (V,E)` such that `(E subset-of (V × V))`
 

@@ -2,11 +2,11 @@
 # abstract values
 
 In the context of this dicussion, the smallest indivisible units are bits of
-information which will be referred to as **(abstract) values**, **objects**,
-**vertices** or **nodes**. Each such value may refer to an entity that is
-simple or complex in nature. The exact nature of such a value is however not
-relevant to this discussion. Based on that, these kind of abstract values
-will be referred to as **atomic/primitive values**.
+information which will be referred to as **(abstract) values**, **elements**,
+**objects**, **vertices** or **nodes**. Each such value may refer to an entity
+that is simple or complex in nature. The exact nature of such a value is however
+not relevant to this discussion. Based on that, these kind of abstract values
+can be treated as **(primitive/atomic/indivisible) entities**.
 
 Similar to the above concept is our decimal numeral system, which uses symbols
 such as the decimal digits (0 to 9), a decimal mark (.) and the minus sign (-).
@@ -14,30 +14,31 @@ These symbols are used to compose numerals, each of which represents a unique
 abstract numeric value. That is, we use complex systems like numerals to
 represent abstract values we can't seem to grasp as an entire unit.
 
-* e.g. The string of symbols "2.0" represents the abstract numeric value 2.
+* e.g. the string of symbols "2.0" represents the abstract numeric value 2
 
 Note that the purpose of this concept of abstract values is to move past
 thinking in terms of specific values; such as numbers or words. The reason
 is that these are commonly associated with a "natrual order" of some sort
-(e.g. ordered by numeric value, ordered alphabetically).
+(e.g. ordered by their numeric value, ordered alphabetically).
 
 Each abstract value is considered unique and therefore distinct to every other
 value. Furthermore, the amount of values is considered to be **finite**. That
 is, and in the context of this discussion, the universal set of abstract values
-is, although very large, considered to be **countable**. Because of that, each
-value can be understood to be associated with a unique natural number (i.e. an
-identifier, in short an **id**). As such, atomic values are considered
-identifiable by their numeric id. The numeric id of a value will therefore be
-used simlar to numerals, as the representative of the corresponding value.
+is (although large) considered to be **countable**.
 
-In order to refer to a particular abstract value of a given set of values, a
+Because of that, each value can be understood to be associated with a unique
+natural number (i.e. an identifier, in short an **id**). As such, atomic values
+are considered identifiable by their numeric id. The numeric id of a value will
+therefore be used simlar to numerals, as the representative of the corresponding
+abstract value.
+
+In order to refer to a particular abstract value in a given set of values, a
 value's id will be prefixed with a letter/character (e.g. `v`) that is common
-to all the values in the corresponding set of values (e.g. `v3` or `v:3`);
-which should help to avoid any confusion with actual number values.
+to all the values in that set of values (e.g. `v3` or `v:3`); which should help
+to avoid any confusion with actual number values.
 
-* The value `v3` refers to the value that is associated with id `3`.
-* e.g. The value `v3` refers to the abstract number `123`.
-* `(v3 == v3)` is always true
+* e.g. the value `v3` refers to the value that is associated with id `3`
+* e.g. the value `v3` refers to the abstract number `123`
 
 Note that, even though the relationship between a value and its id must in
 general be considered **random**, the numeric ids themselves can still be
