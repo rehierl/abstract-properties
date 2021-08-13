@@ -4,13 +4,14 @@
 
 Any node tree `T := (N,E)` is defined to have a simple set of nodes `N` and a
 simple set of edges `E`. Also, any parent node `p` in a tree can be said to be
-associated with a simple set of child nodes `c(p)`.
+associated with a simple set of child nodes `c(p)` that can be dreived from
+the tree's set of edges `E`.
 
-Defined as such, node trees do not support the notion of an order over the child
-nodes of its parent nodes. That is because the endo-relation of a node tree does
-not provide the means to define such a child order. Consequently, each child node
-appears to be equally relevant to its parent node since there is no means to tell
-which child node is first and which is last.
+Defined as such, node trees do not support the notion of an order over child
+nodes. That is because the endo-relation of a node tree does not provide the
+means to define such a child order. Consequently, each child node appears to
+be equally relevant to its parent node since there is no means to tell which
+child node is first and which is last.
 
 <!-- ======================================================================= -->
 ## binary trees

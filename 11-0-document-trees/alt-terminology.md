@@ -1,7 +1,4 @@
 
-- the issue with "ordered tree"
-- a tree has no child order - ever
-- in that regards, "ordered tree" makes no sense
 - we describe sets that have an order associated with
   them, as "ordered sets of elements"
   i.e. an order over all the elements within that set,

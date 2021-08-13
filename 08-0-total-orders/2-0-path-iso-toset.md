@@ -32,18 +32,18 @@ One can easily form an explicit node order `Q := (N,<)` from a given path graph
 * `(a < b) := (p := [a,..,b] in P over s) and (#p > 1)`
 
 That is, the set of vertices in `Q` is equal to the set of nodes in `s`. In
-addition to that, two nodes are connected in `Q` if, and only if a path of
-vertex length 2 or more can be formed between both nodes.
+addition to that, two nodes are connected in `Q` iff a path of node length
+2 or more can be formed between both nodes.
 
 Formed as such, the following applies ..
 
 * `Q` has no pair of distinct incomparable nodes
-* (<) is directional - a path graph is a digraph
-* `Q` is trichotomous - all nodes in `s` are nodes in `rp(l)`
+* `<` is directional - a path graph is a digraph
 * `Q` is transitive - based on paths over `s`
+* `Q` is trichotomous - all nodes in `s` are nodes in `rp(l)`
 
-One can therefore conclude, that the node order `Q` is
-**a strict total order** of nodes.
+One can therefore conclude, that the node order
+`Q` is **a strict total order** of nodes.
 
 <!-- ======================================================================= -->
 ## node order => path graph

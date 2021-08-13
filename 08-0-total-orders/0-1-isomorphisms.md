@@ -3,14 +3,15 @@ The isomorphisms described in this chapter are
 visualized below as two-headed arrows (`<->`).
 
 ```
-s <-> p <-> P <-> Q
+s <-> p <-> Q <-> P <-> S
       |<--------->|
 ```
 
-* `s` - an ordered sequence
-* `p` - a path graph of (distinct) nodes
-* `P` - a total order of scopes
-* `Q` - a total order of nodes
+* `s` - ordered sequences
+* `p` - path graphs of (distinct) nodes
+* `Q` - total orders of nodes
+* `P` - total orders of scopes
+* `S` - families of scopes
 
 Note that, since `p` is isomorphic to `P`, and since `P` is isomorphic to `Q`,
 one can conclude that the existence of the isomorphism between `p` and `Q` is

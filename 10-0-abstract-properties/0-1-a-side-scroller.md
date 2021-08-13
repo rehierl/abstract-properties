@@ -17,8 +17,8 @@ l1 |====|===(ground level)==|===|=====|=== (width)
 
 (N)arrator: Imagine a side scroller with a flat world such that it has width
 and height, but no depth. The width is split up into cells of uniform size
-`w`. Also imagine that the protagonist `P` can only hop from the cell he is
-currently on, onto the next subsequent cell.
+`w`. Also imagine that the protagonist `P` can only hop from his current cell
+onto the next subsequent cell.
 
 ```
 (height)

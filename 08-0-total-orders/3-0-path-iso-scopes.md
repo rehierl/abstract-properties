@@ -51,3 +51,11 @@ one can determine, that the newly formed graph `s*` is equal to `s`.
 Consequently, any path graph can be said to be **isomorphic** to a strict total
 containment order. That is, a containment order can be formed from the path
 graph, which can then be used to recreate the initial path graph.
+
+<!-- ======================================================================= -->
+# order of scopes <=> family of scopes
+
+As should be obvious by now, each strict total containment order `P`, as formed
+above corresponds with a (total) family of scopes just as the set of natural
+numbers can be used to form a total order of natural numbers using the default
+order operator for natural numbers.
