@@ -2,7 +2,7 @@
 <!-- ======================================================================= -->
 # node tree <=> order of scopes
 
-Give a node tree `T := (N,E)` ..
+Given a node tree `T := (N,E)` ..
 
 ```
 (a next-presequent-to b)
@@ -15,17 +15,17 @@ n1 --|-> n2 --|-> n4
 based on the concept of abstract properties.
 
 ```
-s(p1) := { n1, n2, n4, n5, n3 } =: s1 = E(T)
-s(p2) := {     n2, n4, n5     } =: s2
-s(p4) := {         n4         } =: s4
-s(p5) := {             n5     } =: s5
-s(p3) := {                 n3 } =: s3
+s1 := s(p1) := { n1, n2, n4, n5, n3 } = E(T)
+s2 := s(p2) := {     n2, n4, n5     } = [ni,*]
+s3 := s(p4) := {         n4         }
+s4 := s(p5) := {             n5     }
+s5 := s(p3) := {                 n3 }
 ```
 
 * `S := { si | (si = [ni,*]) such that (i in [1,#V(T)]) }`
 
 Based on `S` **a strict partial containment order of scopes** `P` can be formed,
-which can also be described as **a scope order**, or as **an order of scopes**.
+which may also be described as **a scope order**, or as **an order of scopes**.
 
 * `P := (S,<)` such that
 * `(a < b) := (a proper-superset-of b)`
@@ -45,7 +45,7 @@ One can therefore form a graph `G := (S,E)` as the transitive reduction of
 the order relation of `P`. A node tree `T*` can then be formed, if each scope
 `si` in `G` is replaced by its **characteristic element ce(si)**, while also
 updating all the edges in `G` according to each replacement. Based on that,
-one can determine, that the newly node tree `T*` is equal to `T`.
+one can determine, that the newly formed node tree `T*` is equal to `T`.
 
 * `T* := (N,E)` such that
 * `N := { ce(si) | (si in S) }`
@@ -54,7 +54,7 @@ one can determine, that the newly node tree `T*` is equal to `T`.
 
 Consequently, any node tree can be said to be **isomorphic** to a strict
 partial containment order. That is, a containment order can be formed from
-the node tree, which can then be used to recreate the initial node tree.
+the initial node tree, which can then be used to recreate that node tree.
 
 <!-- ======================================================================= -->
 ## remarks
@@ -76,6 +76,6 @@ each induced subtree in `T`.
 Note that one can not simply underline the set of nodes in the scopes of an
 arbitrary induced subtree. That is because there is no total order over the
 nodes in tree `T`. Because of that, drawing lines under the visualization
-of a tree is ambiguous. However, since the sets of nodes of the induced
-subtrees are **either disjoint ex-or related**, one can still draw boxes
-(as shown above) around the nodes in the scope of a property.
+of a tree is in general ambiguous. However, since the sets of nodes of the
+induced subtrees are **either disjoint ex-or related**, one can still draw
+boxes around the nodes in the scope of a property.

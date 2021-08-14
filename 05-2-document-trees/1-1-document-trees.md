@@ -5,14 +5,15 @@
 A node tree that is used to hold content of some sort, will be described
 as **a document tree** (or simply as **doctree**).
 
-That is because the nodes within a document tree are not mainly used to represent
-globally unique elements such as numeric values. Instead, each node within a
-document tree is used to hold a specific portion of some content.
+That is because the nodes within a document tree are not used to represent
+elements (e.g. numeric values) that can be considered globally unique. Instead,
+each node in a document tree is used to hold a specific portion of some content.
 
-Despite that, one can describe each portion of content as unique to the overall
-content since it can always be associated with its placement within the content,
-regardless of the actual portion of content each node holds. Due to the placement
-of each node, a document tree is in general associated with a child order.
+Despite that, one can describe each portion of content as unique to the content
+since it can always be associated with its placement in that content, regardless
+of the actual portion of content each node holds. Because of the placement of
+each node in such a tree, a document tree is in general associated with a child
+order.
 
 Defined as such, a document tree is distinct from other trees such as binary
 search trees (e.g. AVL trees), which are used as searchable collections of
@@ -21,15 +22,17 @@ elements that have no particular placement associated with them.
 <!-- ======================================================================= -->
 ## tree order
 
-Note that the node order of a tree is commonly referred to as **the tree order**
-of some known tree and used to denote the top-down order between the nodes in
-it (i.e. descendants are subsequent to ancestors). Because of that, this
-description is more or less one that that focuses on the visual representation
-of a tree, and not so much on the underlying partial order.
+The node order of a tree is commonly referred to as **the tree order** of some
+known tree and used to denote the top-down order between the nodes in it (i.e.
+descendants are subsequent to ancestors). Because of that, this description is
+more or less one that that focuses on the visual representation of a tree, and
+not so much on the underlying partial order.
 
-Also, the description of "tree order" seems a bit misleading since the
-corresponding order is no order of trees, but an order of nodes. That is,
-referring to some "tree order" is like referring to "an ordered set of trees".
+Also, the description of "tree order" seems misleading since the corresponding
+order is no order of trees, but an order of nodes. That is, referring to some
+"tree order" is like referring to "an ordered set of trees". Because of that,
+it seems better to not use that description, but to use descriptions such as
+"the tree's **node order**" instead.
 
 <!-- ======================================================================= -->
 ## unordered document tree

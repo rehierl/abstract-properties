@@ -2,9 +2,9 @@
 <!-- ======================================================================= -->
 # total orders
 
-This chapter describes transformations that transform one type of construct `ci`
-into another construct `cj` such that the formed construct `cj` can be reversed
-back into `ci`. Because of that, `ci` can be said to be **isomorphic** to `cj`.
+This chapter describes transformations that transform one construct `ci` into
+another construct `cj` such that the formed construct `cj` can be reversed back
+into `ci`. Because of that, `ci` can be said to be **isomorphic** to `cj`.
 
 <!-- ======================================================================= -->
 ## isomorphisms
@@ -20,11 +20,11 @@ s <-> p <-> Q <-> P <-> S
 * `p` - path graphs of (distinct) nodes
 * `Q` - total orders of nodes
 * `P` - total orders of scopes
-* `S` - families of scopes
+* `S` - (total) families of scopes
 
-Note that, since `p` is isomorphic to `P`, and since `P` is isomorphic to `Q`,
-one can conclude that the existence of the isomorphism between `p` and `Q` is
-**a matter of consequence**. Because of that, future discussions will focus on
+Note that, since `p` is isomorphic to `Q`, and since `Q` is isomorphic to `P`,
+one can conclude that the existence of the isomorphism between `p` and `P` is
+**a matter of consequence**. Because of that, future discussions may focus on
 significant isomorphisms and skip those that are less important to the overall
 discussion.
 

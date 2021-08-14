@@ -53,14 +53,14 @@ the scope `si` of each property `pi` as an element. As such, set `S` can be
 described as **a family of scopes**.
 
 ```
-s     :=   n1 - n2 - n3 - n4 - n5 - n6 ->
+s :=   n1 - n2 - n3 - n4 - n5 - n6 ->
 ------------------------------------------
-s(p1) := { n1,  n2,  n3,  n4,  n5,  n6 } =: s1 = E(s)
-s(p2) := {      n2,  n3,  n4,  n5,  n6 } =: s2
-s(p3) := {           n3,  n4,  n5,  n6 } =: s3
-s(p4) := {                n4,  n5,  n6 } =: s4
-s(p5) := {                     n5,  n6 } =: s5
-s(p6) := {                          n6 } =: si = [ni,*]
+s1 := s(p1) := { n1,  n2,  n3,  n4,  n5,  n6 } = E(s)
+s2 := s(p2) := {      n2,  n3,  n4,  n5,  n6 } = [ni,*]
+s3 := s(p3) := {           n3,  n4,  n5,  n6 }
+s4 := s(p4) := {                n4,  n5,  n6 }
+s5 := s(p5) := {                     n5,  n6 }
+s6 := s(p6) := {                          n6 }
 ```
 
 * `S := { s1, s2, s3, s4, s5, s6 }` where
@@ -71,21 +71,21 @@ One can then define a containment order `P` using the family of scopes `S`.
 * `P := (V,<)` such that `(V := S)` and
 * `(a < b) := (a proper-superset-of b)`
 
-Based on the above, the set of vertices `V(P)` is such that any pair of
-distinct scopes is related. That is, one scope is a superset to the other.
+Based on the above, the set of vertices `V(P)` is such that any pair of distinct
+scopes is **properly related**. That is, one scope is a superset to the other.
 
 * `(si related-to sj)` is true
 * for any `(i,j in [1,#V])` and `(i != j)`
 
-Consequently, any two scopes within the containment order is comparable under
-the order operator. The containment order has therefore
+Consequently, any two scopes in the containment order is comparable
+under the order operator. The containment order therefore has
 **no pair of incomparable (distinct) vertices**.
 
 Furthermore, the oder operator is such that one can tell for any pair of distinct
 scopes which is super-ordinate to the other. That is, as far as distinct scopes
 are concerned, **the order operator is directional**. As such, the operator can
 be understood to point from a super-ordinate entity (i.e. in terms of the number
-of elements within a scope) towards a sub-ordinate entity.
+of elements within a scope) towards an entity that is sub-ordinate to it.
 
 * `(a < b) <=> (a super-ordinate-to b)`
 
@@ -94,8 +94,8 @@ each pair of distinct scopes. The order relation is therefore **trichotomous**.
 
 Finally, if a set `a` has a proper subset `b` (A), and if that set has itself
 a proper subset `c` (B), then set `c` is also a proper subset of superset `a`
-(C). Because of that, the above containment order is also **transitive** and
-as such an actual ordered set of elements.
+(C). Because of that, the above containment order is **transitive** and as
+such an actual ordered set of elements.
 
 * `A := (a proper-superset-of b)`
 * `B := (b proper-superset-of c)`

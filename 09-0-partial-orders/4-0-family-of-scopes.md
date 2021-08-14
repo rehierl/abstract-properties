@@ -3,17 +3,14 @@
 # a family of scopes
 
 It should be obvious at this point, that not any family of sets corresponds
-with a total order of elements and also with an ordered sequence.
+with a partial order of elements and also with a node tree.
 
 ```
-S  := { s1, s2, s3, s4, s5, s6 }
---------------------------------
-s1 := { n1, n2, n3, n4, n5, n6 }
-s2 := {     n2, n3, n4, n5, n6 }
-s3 := {         n3, n4, n5, n6 }
-s4 := {             n4, n5, n6 }
-s5 := {                 n5, n6 }
-s6 := {                     n6 }
+s1 := s(p1) := { n1, n2, n4, n5, n3 } = E(T)
+s2 := s(p2) := {     n2, n4, n5     } = [ni,*]
+s3 := s(p4) := {         n4         }
+s4 := s(p5) := {             n5     }
+s5 := s(p3) := {                 n3 }
 ```
 
 <!-- ======================================================================= -->
@@ -50,7 +47,7 @@ that, any characteristic subset can be **normalized** to one element only.
 <!-- ======================================================================= -->
 ## requirements
 
-For an arbitrary family of sets of elements `S` to correspond with a toset,
+For an arbitrary family of sets of elements `S` to correspond with a poset,
 the following requirements must be met:
 
 (**1**) Since the intention of such a family of sets is to ultimately form an
@@ -59,15 +56,18 @@ order of elements, any set must be required to be non-empty. That is because
 contain at least the element it is supposed to represent.
 
 (**2**) Any pair of distinct sets `si` and `sj` in `S` must be such that
-both sets are **related** under the proper-superset-of comparison operator.
+both sets are **either disjoint ex-or related** (in short **DI ex-or RE**)
+under the proper-superset-of comparison operator.
 
-Note that, since all sets are required to be non-empty, and since all pairs
-of sets are required to be related, one can conclude that every set in `S`
-has a non-empty characteristic subset `css(si)`.
+Note that, even though all sets are required to be non-empty, and since all
+pairs of sets are required to be DI ex-or RE, *one can not conclude* that
+every set in `S` has a non-empty characteristic subset `css(si)`. That is
+because a set `si` may still exist that is the union of pairwise disjoint
+subsets.
 
-* `(#css(si) > 0)` for any `(si in S)`
+* `(#css(si) == 0)` may be true for some `(si in S)`
 
-(**3**) Even though it is not a necessity, each set in `S` is expected to
+(**3**) Since characteristic subsets may be empty, each set is required to
 have one and only one characteristic element. That is, all characteristic
 subsets are expected to be 1-element subsets.
 
@@ -80,5 +80,5 @@ corresponding set `si`.
 * `ce(si)` is defined for all `(si in S)`
 
 Any family of sets that satisfies all of the above requirements can be referred
-to as **a (total) family of scopes**. As such, each family of scopes is
-**isomorphic** to a strict total order of characteristic elements.
+to as **a (partial) family of scopes**. As such, each family of scopes is
+**isomorphic** to a strict partial order of characteristic elements.

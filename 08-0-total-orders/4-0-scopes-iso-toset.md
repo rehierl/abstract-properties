@@ -2,12 +2,12 @@
 <!-- ======================================================================= -->
 # order of scopes <=> order of nodes
 
-Given a total containment order of scopes `P := (S,<)`, which was formed from
-a path graph `s`, ..
+Given a total containment order of scopes `P := (S,<)`,
+which was formed from a path graph `s`, ..
 
 * `P := (S,<)` such that
 * `S := { s1, s2, s3, s4, s5, s6 }`
-* `(si < sj) := (si superset-of sj)`
+* `(si < sj) := (si proper-superset-of sj)`
 
 one can derive a strict total order of nodes `Q := (N,<)` by replacing each
 scope in `P` with its characteristic element `ce(si)`.
@@ -17,7 +17,7 @@ scope in `P` with its characteristic element `ce(si)`.
 * `(ce(si) < ce(sj)) := ((si,sj) in P)`
 
 From this node order `Q` one can recreate `P` by replacing each node `ni` in `Q`
-by a set of nodes that contains all those nodes which are equal or subsequent
+by a set of nodes that contains all those nodes that are equal or subsequent
 to `ni` in `Q`.
 
 * `P* := (S,<)` such that
@@ -35,9 +35,8 @@ Consequently, any such containment order of scopes can be said to be
 ## order of scopes => order of nodes
 
 ```
-S := { s1, s2, s3, s4, s5, s6 }
-aEb := (a superset-of b)
---------------------------------------
+aEb := (a proper-superset-of b)
+-------------------------------------
 s1 := { n1,  n2,  n3,  n4,  n5,  n6 }
 s2 := {      n2,  n3,  n4,  n5,  n6 }
 s3 := {           n3,  n4,  n5,  n6 }
@@ -46,20 +45,20 @@ s5 := {                     n5,  n6 }
 s6 := {                          n6 }
 ```
 
-Each set `si` contains a subset of elements that are no elements in any of the
-proper subsets of `si`. As such, these subsets can be said to distinguish `si`
-from its subsets. Because of that, the subset of these unique elements can be
-referred to as **the characteristic subset css(si)** of `si`.
+Each set `si` contains a subset of elements that are no elements in any of
+the proper subsets of `si`. As such, these subsets can be said to distinguish
+`si` from its subsets. Because of that, such a subset can be referred to
+as **the characteristic subset css(si)** of `si`.
 
 * `css(si) := si \ { (nj in sj) | (sj proper-subset-of si) }`
 
-Since each element in `css(si)` is unique to `si` in regards to all the
-subsets `sj` of `si` in `S`, each element can be referred to as
-**a characteristic element** of `si`.
+Since each element in `css(si)` is unique to `si` in regards to all its
+subsets `sj`, each element in `css(si)` can be referred to
+as **a characteristic element** of `si`.
 
-As can be seen above, each characteristic subset `css(si)` consists of one
-and only one characteristic element. Each such element can therefore be
-referred to as **the characteristic element ce(si)** of `si`.
+As can be seen above, each `css(si)` consists of only one such element.
+Each such element can therefore be referred to as
+**the characteristic element ce(si)** of `si`.
 
 * `ce(si) := oneOf(css(si))`, iff `(#css(si) == 1)`
 
@@ -73,20 +72,20 @@ Since one only replaces each scope `si` by its chracteristic element `ce(si)`,
 and since one only updates the order operator according to that replacement,
 the new order `Q` preserves all other characteristics of `P`.
 
-* `Q` is **a strict total order** of nodes
 * `Q` is order preserving
+* `Q` is **a strict total order** of nodes
 
 <!-- ======================================================================= -->
 ## order of nodes => order of scopes
 
-Similar as before, the order of nodes `Q := (N,<)` can be used to recreate an
+Similar as before, the order of nodes `Q := (N,<)` can be used to create an
 order of scopes `P* := (S,<)` by replacing each node `ni` in `Q` with a set of
-nodes that contains all those nodes which are equal or subsequent to `ni` in `Q`.
+nodes that contains all those nodes that are equal or subsequent to `ni` in `Q`.
 
 * `P* := (S,<)` such that
 * `S := { s(ni) | (ni in N) }`
 * `(s(ni) < s(nj)) := ((ni,nj) in Q)`
 * where `s(ni) := [ni,*]` - i.e. intervals over Q
 
-Due to how `Q` and `P*` were constructed,
+Due to how `Q` and `P*` were formed
 one can conclude that `P*` is equal to `P`.

@@ -1,7 +1,7 @@
 
-- build upon the introduction of generic properties
+- build upon the introduction of abstract properties
   in the context of ordered sequences (total orders)
-- point out the concept of generic properties
+- point out the concept of abstract properties
   in the context of node trees (partial orders)
 
 order theory
@@ -13,10 +13,3 @@ some-of as a composed quantifier
 - some-of := all-of, but none-of
 - an interval-based point of view
 - some-of := (a,*) \ (b,*)
-
-extended
-- intervalls require an underlying order
-- induced subtrees can be described as intervalls
-- here, intervalls over partial rather than total orders
-- the scope of a property can still be described
-  as an interval over the underlying node order

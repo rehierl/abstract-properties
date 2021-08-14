@@ -12,20 +12,18 @@ s := n1 -> n2 -> n3 -> n4 -> n5 -> n6`
 based on the concept of abstract properties.
 
 ```
-s     :=   n1 - n2 - n3 - n4 - n5 - n6 ->
-------------------------------------------
-s(p1) := { n1,  n2,  n3,  n4,  n5,  n6 } =: s1 = E(s)
-s(p2) := {      n2,  n3,  n4,  n5,  n6 } =: s2
-s(p3) := {           n3,  n4,  n5,  n6 } =: s3
-s(p4) := {                n4,  n5,  n6 } =: s4
-s(p5) := {                     n5,  n6 } =: s5
-s(p6) := {                          n6 } =: si = [ni,*]
+s1 := s(p1) := { n1,  n2,  n3,  n4,  n5,  n6 } = E(s)
+s2 := s(p2) := {      n2,  n3,  n4,  n5,  n6 } = [ni,*]
+s3 := s(p3) := {           n3,  n4,  n5,  n6 }
+s4 := s(p4) := {                n4,  n5,  n6 }
+s5 := s(p5) := {                     n5,  n6 }
+s6 := s(p6) := {                          n6 }
 ```
 
 * `S := { si | (si := [ni,*]) where (i in [1,#V(s)]) }`
 
 Based on `S` **a strict total containment order of scopes** `P` can be formed,
-which can also be described as **a scope order**, or as **an order of scopes**.
+which may also be described as **a scope order**, or as **an order of scopes**.
 
 * `P := (S,<)` such that
 * `(a < b) := (a proper-superset-of b)`
@@ -52,8 +50,8 @@ one can determine, that the newly formed graph `s*` is equal to `s`.
 * note - `(s* == s)` is true
 
 Consequently, any path graph can be said to be **isomorphic** to a strict total
-containment order. That is, a containment order can be formed from the path
-graph, which can then be used to recreate the initial path graph.
+containment order. That is, a containment order can be formed from the initial
+path graph, which can then be used to recreate that path graph.
 
 <!-- ======================================================================= -->
 ## remarks
@@ -65,3 +63,9 @@ vertices from `P`, or attach the corresponding order operator to `S`.
 Note that this is simlar to how we see the set of natural numbers `Nat`. That
 is, even though we perceive Nat as a simple set of elements, we intuitively
 associate a natural order with it.
+
+Note that, since a path graph is a node tree, the scope `s(p1)` of property `p1`
+is equal to the set of nodes in the **induced subtree** `T[n1]`. Generalized,
+the scope `s(pi)` of property `pi` is equal to the set of nodes in the induced
+subtree `T[ni]`. Because of that, the family of scopes `S` is a set that
+contains the set of nodes of each induced subtree in `T`.

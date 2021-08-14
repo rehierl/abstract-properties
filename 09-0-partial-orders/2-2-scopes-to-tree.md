@@ -3,7 +3,7 @@
 ## order of scopes => node tree
 
 The transitive reduction of the order relation `R` of the containment order
-`P := (S,<)`, which was formed from the initial node tree `T` as described
+`P := (S,<)`, which was formed from an initial node tree `T` as described
 before, can be visualized as a graph of nodes and edges `G := (S,E)`.
 
 ```
@@ -29,11 +29,11 @@ the vertices `V(G)` still need to be replaced such that the resulting graph
 `T*` is equal to the intial node tree `T`.
 
 ```
-s(p1) := { n1, n2, n4, n5, n3 } =: s1 = E(T)
-s(p2) := {     n2, n4, n5     } =: s2
-s(p4) := {         n4         } =: s4
-s(p5) := {             n5     } =: s5
-s(p3) := {                 n3 } =: s3
+s1 := s(p1) := { n1, n2, n4, n5, n3 } = E(T)
+s2 := s(p2) := {     n2, n4, n5     } = [ni,*]
+s3 := s(p4) := {         n4         }
+s4 := s(p5) := {             n5     }
+s5 := s(p3) := {                 n3 }
 ```
 
 Based on the elements in each scope `(si in S)` one can (once again) observe
@@ -48,8 +48,8 @@ elements that are unique to the corresponding superset `si` in regards to all
 of its subsets `sj`. Because of that, each such subset will be referred to
 as **the characteristic subset css(si)** of `si`.
 
-Since each element in `css(si)` is unique to `si` in regards to all the
-subsets `sj` of `si` in `S`, each element in `css(si)` can be referred to
+Since each element in `css(si)` is unique to `si` in regards to all its
+subsets `sj`, each element in `css(si)` can be referred to
 as **a characteristic element** of `si`.
 
 As can be seen above, each `css(si)` consists of only one such element.
@@ -58,7 +58,7 @@ Each such element can therefore be referred to as
 
 * `ce(si) := oneOf(css(si))`, iff `(#css(si) == 1)`
 
-Based on that, a mapping `(f: si -> ce(si))` can be defined that allows to
+Based on that, a mapping `(f: si -> ce(si))` can be defined which allows to
 replace each scope `si` by its characteristic element `ce(si)`.
 
 This mapping can then be applied on `G := (S,E)` in order to derive a new
