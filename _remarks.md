@@ -4,4 +4,5 @@ the overall intention is to communicate ..
 - my current level of understanding
 - my non-standard definitions
 - the conclusions i derive from my understanding
+- the overall aspects involved
 - all of that - to enable others to proof me wrong

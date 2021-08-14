@@ -4,7 +4,9 @@
 
 Given a non-empty path graph `s := (N,E)` ..
 
-* `s := n1 -> n2 -> n3 -> n4 -> n5 -> n6`
+```
+s := n1 -> n2 -> n3 -> n4 -> n5 -> n6`
+```
 
 **a family of scopes** `S` can be formed
 based on the concept of abstract properties.
@@ -22,18 +24,19 @@ s(p6) := {                          n6 } =: si = [ni,*]
 
 * `S := { si | (si := [ni,*]) where (i in [1,#V(s)]) }`
 
-Based on `S` **a strict total containment order** `P` of scopes can be formed.
+Based on `S` **a strict total containment order of scopes** `P` can be formed,
+which can also be described as **a scope order**, or as **an order of scopes**.
 
 * `P := (S,<)` such that
-* `(a < b) := (a superset-of b)`
+* `(a < b) := (a proper-superset-of b)`
 
 Like any other ordered set, the containment order can be visualized as a graph.
 As can be seen below, the graph of such an order is itself **a path graph** such
 that each node `si` in it is a scope `[ni,*]` over the intial path graph `s`.
 
 ```
-(a superset-of b)
-================================
+sem(P) := (a proper-superset-of b)
+==================================
 s1 -> s2 -> s3 -> s4 -> s5 -> s6
 ```
 
@@ -53,9 +56,12 @@ containment order. That is, a containment order can be formed from the path
 graph, which can then be used to recreate the initial path graph.
 
 <!-- ======================================================================= -->
-# order of scopes <=> family of scopes
+## remarks
 
-As should be obvious by now, each strict total containment order `P`, as formed
-above corresponds with a (total) family of scopes just as the set of natural
-numbers can be used to form a total order of natural numbers using the default
-order operator for natural numbers.
+Note that each strict total containment order `P`, as formed above, corresponds
+with a (total) family of scopes. One only has to either extract the set of
+vertices from `P`, or attach the corresponding order operator to `S`.
+
+Note that this is simlar to how we see the set of natural numbers `Nat`. That
+is, even though we perceive Nat as a simple set of elements, we intuitively
+associate a natural order with it.

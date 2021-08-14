@@ -5,9 +5,9 @@
 Given a non-empty path graph `s := (N,E)`, **a family of scopes** `S` can be
 formed based on the concept of abstract properties. That family of scopes can
 then be used to form a strict total containment order `P := (S,<)` using the
-"strict-superset-of" operator as the order operator (<).
+"strict-superset-of" operator as the order operator.
 
-Recall that with any digraph one can always assume the default edge-based
+Recall that with any digraph, one can always assume the default edge-based
 "next-presequent-to" semantics.
 
 ```
@@ -26,8 +26,8 @@ n1 - n2 - n3 - n4 - n5 - n6 ->|
 -p1----------------------------
 ```
 
-Likewise, one can then assume that `n2` declares another property `p2`
-such that `d(p2) = n2` and `s(p2) = [n2,*] = {n2,..,n6}`.
+Likewise, one can then assume that `n2` declares another property `p2` such
+that `d(p2) = n2` and `s(p2) = [n2,*] = {n2,..,n6}`.
 
 ```
 n1 - n2 - n3 - n4 - n5 - n6 ->|
@@ -48,7 +48,7 @@ n1 - n2 - n3 - n4 - n5 - n6 ->|
                          -p6---
 ```
 
-Based on the above properties, one can define a set `S` such that it contains
+Based on these properties, one can define a set `S` such that it contains
 the scope `si` of each property `pi` as an element. As such, set `S` can be
 described as **a family of scopes**.
 
@@ -69,12 +69,13 @@ s(p6) := {                          n6 } =: si = [ni,*]
 One can then define a containment order `P` using the family of scopes `S`.
 
 * `P := (V,<)` such that `(V := S)` and
-* `(a < b) := (a superset-of b)`
+* `(a < b) := (a proper-superset-of b)`
 
-Based on the above, the set of vertices `V` is such that each pair of distinct
-scopes is related. That is, one scope is a superset to the other.
+Based on the above, the set of vertices `V(P)` is such that any pair of
+distinct scopes is related. That is, one scope is a superset to the other.
 
-* `(si related-to sj)` for any `(i,j in [1,#V]`
+* `(si related-to sj)` is true
+* for any `(i,j in [1,#V])` and `(i != j)`
 
 Consequently, any two scopes within the containment order is comparable under
 the order operator. The containment order has therefore
@@ -88,8 +89,8 @@ of elements within a scope) towards a sub-ordinate entity.
 
 * `(a < b) <=> (a super-ordinate-to b)`
 
-Consequently, the underlying order relation has one and only one edge for each
-pair of distinct scopes. The order relation is therefore **trichotomous**.
+Consequently, the underlying order relation of `P` has one and only one edge for
+each pair of distinct scopes. The order relation is therefore **trichotomous**.
 
 Finally, if a set `a` has a proper subset `b` (A), and if that set has itself
 a proper subset `c` (B), then set `c` is also a proper subset of superset `a`
