@@ -16,13 +16,15 @@ l1 |============|=| (width)
    | c1 - c2 - c3 |
 ```
 
-For example, given the side scroller, and assuming that the properties that
-are defined by each cell all are **properties of the same kind**, one can
-simply **count** the number of those properties with which each cell is
+For example, assuming a side scroller world, and assuming that the properties
+that are defined by each cell all are **properties of the same kind**, one
+can simply **count** the number of those properties with which each cell is
 associated. Based on that, cell `c3` can be said to be associated with `3`
 such properties.
 
-Note that one doesn't usually count things that have nothing in common.
+Note that the counting of such properties seems intuitively possible, which is
+why this can be understood as a pointer to "types of properties". After all,
+one doesn't usually count things that have nothing in common.
 
 ```
 (height)     (cursor)
@@ -35,7 +37,7 @@ l1 |============|=| (width)
 
 Based on the above, one can imagine **a Turing machine** that has the ordered
 sequence of cells as an input tape, and an output tape to which it can write
-the number of those properties with which the corresponding cell is associated.
+the number of those properties with which each cell is associated.
 
 At this point one can recall that each path graph is a tree, and that each node
 in it has **a node level**. With that in mind, one can conclude that the number

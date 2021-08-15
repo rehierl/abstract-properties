@@ -3,12 +3,6 @@ build upon the use of abstract properties
 - in the context of ordered sequences (total orders)
 - in the context of node trees (partial orders)
 
-a chapter on families of scopes
-- i.e. a set-based point of view
-- to flesh out its definition
-- to proof certain aspects
-- to provide order-based definitions
-
 <!-- ======================================================================= -->
 ## first
 
@@ -34,15 +28,6 @@ some-of as a composed quantifier
 
 <!-- ======================================================================= -->
 ## meta/other
-
-a general partial order
-- may have multiple roots -> forest
-
-order theory
-- an order-based point of view
-- order-based definitions for
-  well-known path/tree-based definitions
-- least/greatest/...
 
 rooted paths
 - a different system of order
