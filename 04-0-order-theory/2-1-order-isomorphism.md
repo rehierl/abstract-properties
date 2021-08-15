@@ -4,7 +4,7 @@
 
 An order isomorphism is a bijective function `(f: P -> Q)` that maps one order
 `P := (V,<)` onto another order `Q := (W,<)` such that the process can be
-reversed. That is, an inverse process `f°` can be defined.
+reversed. That is, an inverse process `f°` can be defined such that.
 
 * `(f°(f(P)) == P)`
 

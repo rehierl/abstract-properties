@@ -13,6 +13,9 @@ s4 := s(p5) := {             n5     }
 s5 := s(p3) := {                 n3 }
 ```
 
+Note that the following content must be understood as an introduction to the
+concept of "families of scopes". More details on that topic will follow.
+
 <!-- ======================================================================= -->
 ## css(si), ce(si)
 
@@ -47,38 +50,54 @@ that, any characteristic subset can be **normalized** to one element only.
 <!-- ======================================================================= -->
 ## requirements
 
-For an arbitrary family of sets of elements `S` to correspond with a poset,
-the following requirements must be met:
+For an arbitrary family of sets `S` to correspond with a poset,
+all of the following requirements must be met:
 
-(**1**) Since the intention of such a family of sets is to ultimately form an
-order of elements, any set must be required to be non-empty. That is because
-(1) the empty set is a subset to every other set, and (2) each set needs to
-contain at least the element it is supposed to represent.
+(**0**) `S` must be non-empty.
 
-(**2**) Any pair of distinct sets `si` and `sj` in `S` must be such that
-both sets are **either disjoint ex-or related** (in short **DI ex-or RE**)
-under the proper-superset-of comparison operator.
+(**1**) Since such a set of sets must allow to form an order of elements, each
+set in it must be required to be **non-empty**. That is because (1) the empty
+set is a subset to every other set, and (2) each set needs to contain at least
+the element it is supposed to represent.
+
+(**2**) Any pair of distinct sets `si` and `sj` in `S` must be such that both
+sets are **either disjoint ex-or related** (in short **DI ex-or RE**) under
+the proper-superset-of comparison operator.
 
 Note that, even though all sets are required to be non-empty, and since all
 pairs of sets are required to be DI ex-or RE, *one can not conclude* that
 every set in `S` has a non-empty characteristic subset `css(si)`. That is
-because a set `si` may still exist that is the union of pairwise disjoint
-subsets.
+because a set `si` may still exist that is equal to the union of pairwise
+disjoint subsets.
 
-* `(#css(si) == 0)` may be true for some `(si in S)`
+* `(#css(si) == 0)` could be true for some `(si in S)`
 
-(**3**) Since characteristic subsets may be empty, each set is required to
-have one and only one characteristic element. That is, all characteristic
-subsets are expected to be 1-element subsets.
+(**3**) Since characteristic subsets may still exist that could be empty, each
+set must be required to have one and only one characteristic element. That is,
+all characteristic subsets are required to be 1-element subsets.
 
 * `(#css(si) == 1)` is required
 
-Since each `css(si)` has one element only, one can determine the `ce(si)` of
-each set in `S`. Because of that, one can use these elements to represent the
-corresponding set `si`.
+Since each `css(si)` is now required to have one and only one element, one can
+determine the `ce(si)` of each set `si` in `S`. Because of that, one can use
+these elements as an identifier of the corresponding set.
 
-* `ce(si)` is defined for all `(si in S)`
+* `ce(si)` is required to be defined for all `(si in S)`
 
-Any family of sets that satisfies all of the above requirements can be referred
+Any family of sets that satisfies the above requirements can be referred
 to as **a (partial) family of scopes**. As such, each family of scopes is
 **isomorphic** to a strict partial order of characteristic elements.
+
+(**4, optional**) A family of scopes may be required to have a "root" set `si`
+such that every other set `sj` is a subset to it. If that requirement is met
+in addition to the above requirements, then the family corresponds with
+**a single node tree**. Otherwise, the family of scopes corresponds with
+**a forest of node trees**.
+
+A set `si` in a family of sets `S` may be described as **a root set**,
+if it is no subset to another set `sj` in `S`.
+
+Note that, defined as such, a root set corresponds with the order-based
+defintion of a minimal element: "is no subset" is equivalent to "is not greater
+than". Based on that, a family of sets is required to have a least element, if
+it is to correspond with a single node tree.

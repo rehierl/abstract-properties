@@ -15,8 +15,8 @@ A partial order that is also downward-total can be described as
 to generalize the concept of a tree by requiring a certain characteristic.
 
 Note that, even though the description as "a prefix order" is based upon the
-prefixes of a string, the elements in that order are not necessarily actual
-sequences/strings.
+prefixes of a string, the elements in that order are in principle not required
+to be actual sequences/strings.
 
 Note that the rooted path of a tree can be seen as some sort of prefix. However,
 and in the context of a tree, that point of view does not cover the definition

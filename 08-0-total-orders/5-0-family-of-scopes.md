@@ -16,6 +16,9 @@ s5 := {                 n5, n6 }
 s6 := {                     n6 }
 ```
 
+Note that the following content must be understood as an introduction to the
+concept of "families of scopes". More details on that topic will follow.
+
 <!-- ======================================================================= -->
 ## css(si), ce(si)
 
@@ -50,16 +53,18 @@ that, any characteristic subset can be **normalized** to one element only.
 <!-- ======================================================================= -->
 ## requirements
 
-For an arbitrary family of sets of elements `S` to correspond with a toset,
-the following requirements must be met:
+For an arbitrary family of sets `S` to correspond with a toset,
+all of the following requirements must be met:
 
-(**1**) Since the intention of such a family of sets is to ultimately form an
-order of elements, any set must be required to be non-empty. That is because
-(1) the empty set is a subset to every other set, and (2) each set needs to
-contain at least the element it is supposed to represent.
+(**0**) `S` must be non-empty.
 
-(**2**) Any pair of distinct sets `si` and `sj` in `S` must be such that
-both sets are **related** under the proper-superset-of comparison operator.
+(**1**) Since such a set of sets must allow to form an order of elements, each
+set in it must be required to be **non-empty**. That is because (1) the empty
+set is a subset to every other set, and (2) each set needs to contain at least
+the element it is supposed to represent.
+
+(**2**) Any pair of distinct sets `si` and `sj` in `S` must be such that both
+sets are **related** under the proper-superset-of comparison operator.
 
 Note that, since all sets are required to be non-empty, and since all pairs
 of sets are required to be related, one can conclude that every set in `S`
@@ -67,18 +72,18 @@ has a non-empty characteristic subset `css(si)`.
 
 * `(#css(si) > 0)` for any `(si in S)`
 
-(**3**) Even though it is not a necessity, each set in `S` is expected to
-have one and only one characteristic element. That is, all characteristic
+(**3**) Even though it is not strictly necessary, each set in `S` is required
+to have one and only one characteristic element. That is, all characteristic
 subsets are expected to be 1-element subsets.
 
 * `(#css(si) == 1)` is required
 
 Since each `css(si)` has one element only, one can determine the `ce(si)` of
-each set in `S`. Because of that, one can use these elements to represent the
-corresponding set `si`.
+each set in `S`. Because of that, one can use these elements as an identifier
+of the corresponding set.
 
-* `ce(si)` is defined for all `(si in S)`
+* `ce(si)` is required to be defined for all `(si in S)`
 
-Any family of sets that satisfies all of the above requirements can be referred
+Any family of sets that satisfies the above requirements can be referred
 to as **a (total) family of scopes**. As such, each family of scopes is
 **isomorphic** to a strict total order of characteristic elements.
