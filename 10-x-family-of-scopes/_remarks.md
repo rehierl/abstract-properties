@@ -5,6 +5,11 @@ a chapter on families of scopes
 - to proof certain aspects
 - to provide order-based definitions
 
+order of rooted paths
+- could result in a depth-based encoding
+- equivalent to family of scopes?
+- a prefix order ?
+
 order theory
 - an order-based point of view
 - order-based definitions for

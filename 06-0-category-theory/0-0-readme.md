@@ -3,13 +3,13 @@
 
 Note that the content in this chapter reflects my level of understanding of
 Category Theory (CT). At this point, that understanding can unfortunately only
-be summarized as a simple general impression. The following will barely scratch
-the surface of CT. Because of that, the following must be taken with a grain of
-salt .. a lot of salt.
+be summarized as some general first impression. The following content will thus
+barely scratch the surface of CT. Because of that, the following must be taken
+with a grain of salt .. a lot of salt.
 
 Note that, despite my lack of understanding of CT, the visualizations used in
-CT allow to provide visual summaries of transformation processes (as discussed
-shortly) from one class of objects to another class of objects. The focus of
+CT allow to provide visual summaries of transformation processes (as introduced
+below) from one class of objects to another class of objects. The focus of
 this chapter is therefore to provide an introduction to these visualizations.
 
 <!-- ======================================================================= -->

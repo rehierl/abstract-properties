@@ -13,11 +13,13 @@ elements:    v1 v2
 * `s := ( 1, 2, 2, 'a', false, ... )`
 
 Like a simple set, a sequence (aka. **tuple**) of elements is a specialized
-multiset. In contrary to that, a sequence is such that a total order is
-associated with the components it contains. That is, each component must be
-understood to be associated with a numeric id, which is taken from the set
-of natural numbers (i.e. `(id in [1,*])`) and unique in regards to the
-corresponding sequence (i.e. not "globally" unqiue).
+multiset such that a total order is associated with the components it contains.
+That is, a (simple) sequence can be described as a group of components which
+is paired with an order relation.
+
+Each component in a sequence can be understood to be associated with a numeric
+id, which is taken from the set of natural numbers (i.e. `(id in [1,*])`) and
+unique in regards to the corresponding sequence (i.e. not "globally" unqiue).
 
 Note that, without any further definition, a sequence may in general hold values
 of any kind. Also, distinct components may hold the same value/element.
