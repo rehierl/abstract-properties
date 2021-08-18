@@ -3,8 +3,13 @@ a chapter on families of scopes
 - a set-/order-based point of view
 - see - axiomatic set theory (AST)
 
-remarks
+proof (NT <-> FS)
 - alternative definitions for graph-based terms
-  e.g. least/greatest, ...
-- to flesh out the definition
-- proof (NT <-> FS)
+  possible - e.g. least/greatest, ...
+- flesh out some definitions
+
+disjoint eq. incomparable
+- if "disjoint" is the only valid alternative
+  to "related", then yes - equivalent
+- note - disjoint has no orientation
+- i.e. disjoint will drop information
