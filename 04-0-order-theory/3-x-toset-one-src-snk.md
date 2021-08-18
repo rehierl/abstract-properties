@@ -11,13 +11,15 @@ Assumed that a total order had two source vertices (i.e. two vertices with
 no incoming edge at all) `(a,b in V)`, then the transitive closure could not
 establish an edge between these two vertices, since none can also be a sink.
 That is, neither the edge `aRb`, nor the edge `bRa` could exist. As such, the
-order relation could neither be connex nor trichotomous.
+order relation could neither be connex nor trichotomous because both vertices
+are then incomparable.
 
 Assumed that a total order had two sink vertices (i.e. two vertices with no
 outgoing edge at all) `(a,b in V)`, then the transitive closure could not
 establish an edge between these two vertices, since none can also be a source.
 That is, neither the edge `aRb` nor the edge `bRa` could exist. As such, the
-order relation could neither be connex nor trichotomous.
+order relation could neither be connex nor trichotomous because both vertices
+are then incomparable.
 
 Due to the above, an order relation can not be total if it has more than one
 source and/or sink vertex. That is because it would then contain two or more
@@ -37,12 +39,12 @@ Assumed that a total order relation had a source vertex, then the relation's
 connex/trichotomous characteristic would force it to be a source vertex to
 every other vertex. That is, any other vertex is then required to be directly
 connected to it as a source vertex in the order relation. Based on that there
-seems to be no conflict, which is why a total order relation may still have a
-single source vertex.
+seems to be no conflict, which is why a total order relation may have a single
+source vertex.
 
-Analogous to that, a total order relation may still have a single sink vertex.
-That is because such a vertex can still be connected as a sink to every other
-vertex in the order relation.
+Analogous to that, a total order relation may have a single sink vertex. That
+is because such a vertex can still be connected as a sink to every other vertex
+in the order relation.
 
 <!-- ======================================================================= -->
 ## no source/sink?
@@ -100,7 +102,7 @@ current inner vertex.
 Loosely described, one is therefore guaranteed to end up with a source vertex,
 even though the initial assumption was such that there is no overall source
 at all. Based on an analogous initial assumption, one can derive an analogous
-conclusion.
+conflict in regards to "no sink vertex".
 
 * assumption - no sink vertex
 * each vertex must be a source to one or more other vertices

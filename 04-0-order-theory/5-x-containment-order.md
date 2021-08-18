@@ -13,11 +13,11 @@ comparison operator) can be described as **a containment order**.
 Except for possible loops, a containment order is **inherently acyclic**.
 
 For such a relation to have a cycle (note - of two or more sets), some set `a`
-would have to be a subset to another set `b` (note - both are distinct), which
-is why `(a subset-of b)` and `(#a < #b)` is then true.
+would have to be a subset to another set `b` (note - both are non-empty and
+distinct), which is why `(a subset-of b)` and `(#a < #b)` is then true.
 
-However, in order to establish a cycle, `a` would then also have to be a
-superset to `b`. This can however never be true since `a` would then also
+However, in order to establish a cycle, `b` would then also have to be a
+subset to `a`. This can however never be true since `a` would then also
 need to have one or more elements in addition to those elements in `b`.
 
 The resulting conflict is therefore that a set can not have fewer and, at the
@@ -31,7 +31,7 @@ cycles and is therefore "inherently" acyclic.
 <!-- ======================================================================= -->
 ## poset <-> containment order
 
-Since a proper containment order is oriented and may have elements that are
+Since a containment order is oriented and may have elements that are
 incomparable with each other (i.e. disjoint sets, overlapping sets), any
 containment order is **a partial order**. However, depending on the specific
 characteristics (i.e. all sets are related), the order relation of a porper
@@ -40,7 +40,7 @@ containment order **may still be total**.
 Given a poset `P := (V,<=)`, a proper containment order `S := (T,<=)`
 can be formed as follows.
 
-* each vertex `a` in `P` is a set of vertices `s` in `S` such that
+* each vertex `(s in T)` is a subset of vertices in `P(V)` such that
 * `s := { b | (a <= b) }`
 * i.e. `a` and every other vertex subsequent to it in `P`
 * `(s <= t) := (s superset-of t)` for `(s,t in T)`
