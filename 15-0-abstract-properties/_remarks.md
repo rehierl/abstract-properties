@@ -1,5 +1,5 @@
 
-remarks
+# abstract properties (3)
 - define "types of scopes"
 
 introduce the term "type x scope of node y"

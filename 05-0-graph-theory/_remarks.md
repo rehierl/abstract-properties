@@ -1,4 +1,5 @@
 
+# graph theory
 - a recap on graph theory / node trees
 
 graph property

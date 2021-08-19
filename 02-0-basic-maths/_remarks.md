@@ -1,4 +1,5 @@
 
+# basic maths
 - a quick recap on basic mathematical definitions
 - e.g. groups/multisets, (simple) sets, sequences
 - the focus is on those mathematical concepts

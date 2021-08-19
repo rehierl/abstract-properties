@@ -1,5 +1,6 @@
 
-obviously not any traces
+# family of traces
+- obviously not any traces
 - a family of pre-order traces
 - possibly also - family of post-order traces
 - after all, there is some duality

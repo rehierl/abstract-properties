@@ -11,3 +11,16 @@ coin "structurally dependent"
 - then "structurally independent"
 - then an order relation based on that ?!?
 - in regards to (div) containers
+
+computer languages ?!?
+- using the for-each loop, randomize the iteration
+  over node trees that have no child order
+- would require node tree types that are
+  integrated into a programming language
+- can be circumvented by custom tree types
+- randomization adds computational complexity
+- so debug mode only - removed in release
+- will push programmers to pay more attention
+  to which and if a tree has a child order
+- i.e. be more aware of that aspect
+- i.e. be more aware of what the true node order is

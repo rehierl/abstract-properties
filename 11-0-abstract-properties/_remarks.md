@@ -1,4 +1,6 @@
 
+# abstract properties (2)
+
 build upon the use of abstract properties
 - in the context of ordered sequences (total orders)
 - in the context of node trees (partial orders)

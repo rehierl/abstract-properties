@@ -1,4 +1,6 @@
 
+# family of trees
+
 proof (NT <-> induced subtrees)
 a tree corresponds with a hierarchy of sets
 - here - a tree corresponds with a hierarchy of trees

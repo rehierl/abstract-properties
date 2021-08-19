@@ -1,4 +1,6 @@
 
+# tree traversal
+
 topological sorting
 - requires to be order-preserving?
 

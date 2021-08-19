@@ -1,5 +1,5 @@
 
-remarks
+# document trees
 - reiterate the issue with "child order"
 - thus far not embedded into any tree
 - explicitly add the child order of an ordered tree to its tree order

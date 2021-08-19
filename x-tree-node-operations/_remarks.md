@@ -1,4 +1,5 @@
 
+# node trees / operations
 - the definition of operation as an application of generic properties
 - i.e. in regards to defining the scope of an operation
 - builds upon the definition of scopes - i.e. "scope x of node y"

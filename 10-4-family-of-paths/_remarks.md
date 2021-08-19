@@ -1,6 +1,7 @@
 
+# family of paths
 - obviously not any paths
-- a family of rooted paths
+- a family of rooted paths - rpaths
 
 a chapter on families of rooted paths
 - a set-/order-based point of view

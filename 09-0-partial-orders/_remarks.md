@@ -1,7 +1,7 @@
 
-remarks
-- intended to formalize the notion of "hierarchy of scopes"
-- aka. "scope order"
+# partial orders
+- formalizes the notion of "hierarchy"
+- aka. "family of scopes", "scope order"
 
 rooted paths
 - since each tree must have one and only one root
