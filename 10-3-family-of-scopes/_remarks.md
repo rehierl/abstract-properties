@@ -5,5 +5,4 @@
 - see - axiomatic set theory (AST)
 
 todo
-- setup-t3-partial
 - proof (NT <-> FS)
