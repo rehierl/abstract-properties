@@ -73,6 +73,27 @@ distinct types of relationships between two non-empty distinct (i.e. non-equal)
 sets possible: Both are either disjoint (DI), (strictly) related (RE), or both
 sets overlap each other (OV).
 
+<!-- ======================================================================= -->
+## summary
+
+Since the "related" case can be understood to cover the "equal" case, the latter
+does not have to be distinguished separately. Because of that, the cases for the
+empty set and two non-empty sets can be summarized as follows, while using Ø to
+to represent the empty set, and A and B to represent two non-empty set which
+may or may not be distinct.
+
+```
+     \ set-2 |           |
+set-1 \      | Ø         | B
+-------------------------------------------
+ Ø           | DI and RE | DI and RE
+-------------------------------------------
+ A           | DI and RE | DI xor RE xor OV
+```
+
+As can be seen, two non-empty sets can be disjoint (DI), related (RE), or both
+sets overlap (OV) each other - in short **DI ex-or RE ex-or OV**.
+
 Note that, since the relationship between overlapping sets remains unclear,
 the overall focus of this discussion will be on cases 4, 6 and 7. That is,
 two non-empty distinct sets/sections will either be disjoint ex-or (strictly)
