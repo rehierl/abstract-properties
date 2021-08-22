@@ -15,7 +15,7 @@ The level/depth of a node can be defined as follows:
 
 The height of a node/tree can be defined as follows:
 
-* `height(n) := max({ #p-1 | p:=(n,..,l) for (l in LN) })`
+* `height(n) := max({ (#p-1) | p:=(n,..,l) for (l in LN) })`
 * `height(n)` is the edge-length of the longest path that
   connects node `n` with a leaf in the corresponding tree
 * `height(T) := height(r)` - the height of a tree

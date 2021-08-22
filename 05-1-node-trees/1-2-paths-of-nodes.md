@@ -49,7 +49,7 @@ node can be a node in a path more than once. Consequently, ..
 * each path `(p in P)` is an **ordered sequence of nodes**
 
 <!-- ======================================================================= -->
-## rp(n) - always one path only
+## rp(n) - unique rooted paths
 
 Since each tree is required to have one root `r` node only, `rp(n)` can be
 understood to the return the set of all paths that begin in `r` and end in `n`.
@@ -63,13 +63,13 @@ That is because ..
 * any tree consists of a single connected component
 * each edge `(e in E)` is oriented away from the root
 * a tree has no loops and no cycles
-* one and only one path `rp(n)` can be formed for each `(n in N)`
+* one and only one path `rp(n)` can be formed
 
 Consequently, `(#RP == #N)` is true for any node tree.
-Because of that, `(#rp(n) == 1)` is true for any `(n in N)`.
+Because of that, `(#rp(n) == 1)` is true for all `(n in N)`.
 
 Based on that, `rp(n)` can be understood to be redefined to return
-the **(unique) rooted path of node** `n`.
+**the (unique) rooted path of node** `n`.
 
 * `rp(n) := p := (r,..,n)` for `(p in TD)`
 * `rPn` is true for any `(n in N)`
@@ -79,7 +79,7 @@ the **(unique) rooted path of node** `n`.
 ## p(a,b) - no more than one path
 
 Since each node `(b in N)` has one and only one rooted path, it can be connected
-with node `(a in N)` if, and only if `a` is a node in `rp(b)`. Consequently, no
+with node `(a in N)` if and only if `a` is a node in `rp(b)`. Consequently, no
 more than one path can exist in `TD` that connects node `a` with node `b`.
 
 * `#p(a,b) in [0,1]` is true for any pair of nodes `(a,b in N)`
@@ -87,7 +87,18 @@ more than one path can exist in `TD` that connects node `a` with node `b`.
 * `(p(a,b) suffix-of rp(b))` if `aPb`
 
 Based on that, `p(a,b)` can be understood to be redefined to return
-the **(unique) path between both nodes** `a` and `b`.
+**the (unique) path between both nodes** `a` and `b`.
 
 * `p(a,b) := p := (a,..,b)` for `(p in TD)`
 * note - `nPn` is considered a valid path
+
+<!-- ======================================================================= -->
+## filesystem-based notation
+
+Note that there are several, less formal notations possible that can be used
+to denote the rooted path of a node, and also the path between two nodes. The
+notation that may be used here is:
+
+* `/r` - the rooted path of root node `r`
+* `/r/../n` - the rooted path of a non-root node `n`
+* `a/../b` - the path between non-root nodes `a` and `b`

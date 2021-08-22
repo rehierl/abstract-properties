@@ -42,8 +42,9 @@ In regards to the overall setup, the following subsets can be defined:
 <!-- ======================================================================= -->
 ## roots, leafs (of S/s)
 
-A **root set** is such that it is no subset to another set.
-Conversely, a **leaf set** is such that it is no superset to another set.
+A **root set** is such that (except for the universal set `U`) it is no subset
+to another set. Conversely, a **leaf set** is such that it is no superset to
+another set.
 
 * `RS := { r | (r !in SI) }`
 * `RS` is the set of all root sets
@@ -55,6 +56,14 @@ Conversely, a **leaf set** is such that it is no superset to another set.
 Note that a root set may or may not be a source set. Likewise, a leaf set may
 or may not be a sink set. That is because root sets and leaf sets may both be
 disconnected. A disconnected set may thus be considered a root and a leaf.
+
+Note that any partial setup (T1) always has **one or more root sets**. That is
+because (1) a setup that has only a single set, has that set as its only root.
+Furthermore, (2) the addition of a new set to the setup, in such a way that it
+still satisfies all requirements, will (2.1) add a new root (if that new set
+is disjoint to all pre-existing sets), (2.2) turn one or more root sets into
+non-root sets (if these root sets are subsets to the new set), or (2.3) add
+the new set as a new descendant to a pre-existing root.
 
 <!-- ======================================================================= -->
 ## ancestors, descendants (of S/s)
@@ -68,6 +77,10 @@ A **descendant set** `d` is such that it is a subset to another set `s`.
 As such, `d` may also be described as **a descendant set of** `s`.
 
 * `(d descendant-of s) := (d subset-of s) and (d != s)`
+
+Note that no set is an ancestor set and no descendant set to itself (i.e.
+no loops and no cycles). Likewise, disjoint sets are neither ancestors nor
+descendants to each other.
 
 subsets of sets
 
@@ -120,12 +133,14 @@ if `p` is the parent set of `c`.
 
 * `c(p) := { c | (p(c) == p) }`
 * `(c child-of p) := (c in c(p))`
+* `(#c(p) >= 0)` is true
 
 A descendant set `l` of set `p` is **a leaf set of** `p`,
-if `l` is a leaf set.
+if `l` is no ancestor set to another set.
 
 * `l(p) := { l | (l in D(p)) and (l in LS) }`
 * `(l leaf-of s) := (l in D(p))`
+* `(#l(p) >= #c(p))` is true
 
 Note that a set has either no parent at all (i.e. a root), or no more than one
 parent set (i.e. a child). However, another set may still exist that has the
