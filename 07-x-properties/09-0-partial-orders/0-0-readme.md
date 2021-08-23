@@ -1,6 +1,6 @@
 
-<!-- ======================================================================= -->
 # partial orders
+- isomorphic partial orders
 
 This chapter describes transformations that transform one construct `ci` into
 another construct `cj` such that the formed construct `cj` can be reversed back

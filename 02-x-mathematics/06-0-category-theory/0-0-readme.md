@@ -1,5 +1,6 @@
 
 # category theory (CT)
+- an introduction to category theory
 
 Note that the content in this chapter reflects my level of understanding of
 Category Theory (CT). At this point, that understanding can unfortunately only

@@ -1,4 +1,6 @@
 
+# introduction
+
 By the placement of a heading content is grouped into the heading's section.
 Because of that, structural relationships are used to express which nodes
 belong to a section, and which ones don't.

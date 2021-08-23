@@ -1,5 +1,6 @@
 
 # set theory (ST)
+- an introduction to set theory
 
 Note that this chapter is similar to the chapter on Category theory (CT). It
 mainly serves as a pointer to a particular area of Mathematics (i.e. ST), which

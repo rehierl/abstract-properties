@@ -1,10 +1,10 @@
 
-<!-- ======================================================================= -->
 # total orders
+- isomorphic total orders
 
-This chapter describes transformations that transform one construct `ci` into
-another construct `cj` such that the formed construct `cj` can be reversed back
-into `ci`. Because of that, `ci` can be said to be **isomorphic** to `cj`.
+This chapter describes transformations that morph one construct `ci` into another
+construct `cj` such that the formed construct `cj` can be reversed back into `ci`.
+Because of that, `ci` can be said to be **isomorphic** to `cj`.
 
 <!-- ======================================================================= -->
 ## isomorphisms

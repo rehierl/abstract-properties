@@ -1,4 +1,7 @@
 
+# node trees (NT)
+- node trees, specialized graphs
+
 Like any other graph, a node tree T := (N,E) is an endo-relation that has
 edges (E) which connect its nodes (N). In addition to that, a node tree is
 such that the following requirements are met:

@@ -1,4 +1,8 @@
 
+# order theory (OT)
+- an overview of order theory
+- no in-depth knowledge required
+
 in contraty to graph theory, order theory seems to focus on vertices
 - the edges are a consequence of the order operator
 - an edge exists for each pair of vertices

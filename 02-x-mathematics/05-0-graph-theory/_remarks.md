@@ -1,6 +1,5 @@
 
-# graph theory
-- a recap on graph theory / node trees
+# graph theory (GT)
 
 graph property
 - should probably have an explanation

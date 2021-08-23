@@ -1,4 +1,7 @@
 
+# document trees
+- how to deal with "child order"
+
 There are some **fundamental differences** between (pure) mathematics and
 computer science one should always be aware of:
 

@@ -1,4 +1,7 @@
 
+# graph theory (GT)
+- an overview of graph theory
+
 A graph `G := (V,E)` is defined as an endo-relation that consists of a set of
 vertices `V` and a set of (directed) eges `E`. As such, and like an ordered
 set, a graph is a complex value/type.
