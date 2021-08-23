@@ -57,8 +57,8 @@ preorder has therefore no cycles.
 
 In contrary to that, a simple preorder, may contain one or more cycles of two
 or more distinct vertices (while ignoring loops). Put differently, a simple
-preorder may still contain cycles (see - symmetric).
+preorder may have cycles (see - symmetric).
 
 Note that a cyclic preorder is not required to have a pair of "flipped" edges
-for each pair of connected vertices. That is, a cyclic preorder is neither
+for all pairs of connected vertices. That is, a cyclic preorder is neither
 required to be symmetric nor anti-symmetric.

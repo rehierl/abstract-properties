@@ -1,18 +1,14 @@
 
-# setups of sets
+<!-- ======================================================================= -->
+# partial order (poset)
 
-- setup-t3-partial
+* a preorder - (reflexive +) transitive
+* a poset - a anti-/a-symmetric preorder
 
-superset-of
-- issue with multiple sources
-- more than one ce
+that is ..
 
-subset-of
-- issue with multipe sinks?
-- more than once ce?
-
-di ex-or re
-- seems to disallow multiple roots
+* no cycles allowed
+* no other restriction
 
 <!-- ======================================================================= -->
 ## the transitive reduction of a poset

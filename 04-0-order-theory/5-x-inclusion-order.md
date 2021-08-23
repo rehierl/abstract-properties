@@ -1,11 +1,17 @@
 
 <!-- ======================================================================= -->
-## containment order
+## containment/inclusion order
 
 An order that is defined based upon a family of sets (i.e. a set whose elements
 are themselves sets of elements), and whose order relation is defined based
 upon the containment of subsets (i.e. based upon the subset-of or superset-of
-comparison operator) can be described as **a containment order**.
+comparison operator) can be described as **a containment order**, or as
+**an inclusion order**.
+
+Note that there is no restriction in regards to the relationships between
+those sets that are unrelated under superset-/subset-of. That is, the set
+of vertices in the order relation of a containment/inclusion order
+**may have pairs of disjoint and pairs of overlapping sets**.
 
 <!-- ======================================================================= -->
 ## containment order vs. cyclic/acyclic
@@ -34,23 +40,23 @@ cycles and is therefore "inherently" acyclic.
 Since a containment order is oriented and may have elements that are
 incomparable with each other (i.e. disjoint sets, overlapping sets), any
 containment order is **a partial order**. However, depending on the specific
-characteristics (i.e. all sets are related), the order relation of a porper
+characteristics (i.e. all sets are related), the order relation of a proper
 containment order **may still be total**.
 
 Given a poset `P := (V,<=)`, a proper containment order `S := (T,<=)`
 can be formed as follows.
 
 * each vertex `(s in T)` is a subset of vertices in `P(V)` such that
-* `s := { b | (a <= b) }`
-* i.e. `a` and every other vertex subsequent to it in `P`
-* `(s <= t) := (s superset-of t)` for `(s,t in T)`
+* `s := { b | (b <= a) }` for `(a in V)`
+* i.e. `a` and every other vertex presequent to it in `P`
+* `(s <= t) := (s subset-of t)` for `(s,t in T)`
 
 Note that transitivity will ensure that this mapping is order-preserving. Also,
 subsequent discussions will proof that this process can be reversed. That is,
 the resulting containment order (aka. an order over a family of scopes) can be
 used to reliably re-create the initial/source poset.
 
-As a consequence, **any poset corresponds with a containment order**.
+As a consequence, **any poset is isomorphic to a containment order**.
 
 Based on that, any order that is order-isomorphic to a containment order,
 can itself be (loosely) described as a containment order. If need be, one can

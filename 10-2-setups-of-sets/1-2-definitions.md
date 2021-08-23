@@ -6,8 +6,8 @@ The following will define graph-/hierarchy-based terms in regards to a
 hypothetical setup `S` - a consistent setup (T1).
 
 Note that the following definitions assume the **superset-of** operator as the
-basis of the related-to operator. That is, a root set must be considered to
-contain all of its subsets (i.e. most significant).
+basis of the related-to operator. That is, a root/source set must be considered
+to contain all of its subsets (i.e. most significant).
 
 * `(A related-to B) := (A superset-of B) or (B superset-of A)`
 

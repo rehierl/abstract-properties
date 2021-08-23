@@ -10,7 +10,7 @@ if and only if the following requirements are met:
 
 Note that, as can be seen below, R2 can be rephrased as follows:
 
-* (R2) Any two sets in `S` are required to either be disjoint ex-or related.
+* (R2*) Any two sets in `S` must either be disjoint ex-or related.
 
 Note that, since two sets in a partial setup are either disjoint ex-or related
 (i.e. **DI ex-or RE**) requirement R2 guarantees that two sets in a partial

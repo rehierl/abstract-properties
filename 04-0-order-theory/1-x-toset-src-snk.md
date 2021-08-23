@@ -1,5 +1,43 @@
 
 <!-- ======================================================================= -->
+# total order (toset)
+
+* a preorder - (reflexive +) transitive
+* a poset - a anti-/a-symmetric preorder
+* a toset - a connex/trichotomous poset
+
+that is ..
+
+* no cycles allowed
+* one edge for any pair of vertices
+
+conclusions ..
+
+* if more than two vertices, then ..
+* must have one and only one source vertex
+* must have one and only one sink vertex
+
+<!-- ======================================================================= -->
+## the transitive reduction of a toset
+
+The trantsitive reduction of a total order relation must correspond with a
+path graph. That is because otherwise the transitive closure could not
+establish an edge between any pair of vertices.
+
+Also, a root is required since otherwise one would end up with a cycle graph,
+which does not correspond with a total order since each all vertices would
+then be presequent and subsequent to each other.
+
+No non-root vertex can have more than one incoming edge since the source
+vertices of these edges would then be incomparable (i.e. #ideg=1). Dual
+to that, no non-leaf vertex can have more than one outgoing edge since
+the sink vertices of these edges would then be incomparable (i.e. #odeg=1).
+
+* must be a path graph - to connect all vertices
+* each non-source must have (#ideg == 1)
+* each non-sink must have (#odeg == 1)
+
+<!-- ======================================================================= -->
 ## more than one source and/or sink vertex?
 
 Recall that a total order is defined as a specialized partial order that has
@@ -28,23 +66,6 @@ vertices that are incomparable. Consequently, any total order relation has ..
 * **one and only one connected component**
 * **no more than one source vertex**
 * **no more than one sink vertex**
-
-<!-- ======================================================================= -->
-## one source/sink?
-
-The remaining question is therefore, if a total order is required to even have
-a sink and/or a source vertex?
-
-Assumed that a total order relation had a source vertex, then the relation's
-connex/trichotomous characteristic would force it to be a source vertex to
-every other vertex. That is, any other vertex is then required to be directly
-connected to it as a source vertex in the order relation. Based on that there
-seems to be no conflict, which is why a total order relation may have a single
-source vertex.
-
-Analogous to that, a total order relation may have a single sink vertex. That
-is because such a vertex can still be connected as a sink to every other vertex
-in the order relation.
 
 <!-- ======================================================================= -->
 ## no source/sink?

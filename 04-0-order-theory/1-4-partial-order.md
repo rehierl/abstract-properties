@@ -89,8 +89,8 @@ a subset and therefore also a superset to itself.
 
 Given the above family of sets `V`, a strict poset `P := (V,<)` can be formed,
 if the oder operator is defined based upon the strict-superset-of comparison
-operation (i.e. `(a <= b) := (a strict-superset-of b)`). This strict poset
-can be visualized as follows:
+operation (i.e. `(a < b) := (a strict-superset-of b)`). This strict poset can
+be visualized as follows:
 
 ```
 s1 -|-> s2 -|-> s3

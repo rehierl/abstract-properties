@@ -2,20 +2,6 @@
 <!-- ======================================================================= -->
 # (Simple) setups of sets
 
-Since the empty set has characteristics that are unique to it, and "in conflict"
-with those of non-empty sets, the empty set can not be allowed as an element in
-a setup of sets.
-
-Note that the "in conflict" description refers to the following aspect:
-"The empty set is disjoint and related to every other set, including itself",
-compared to "Each non-empty set is coupled with and related to itself". Because
-of that, and if the empty set were allowed, one could not simply conclude:
-"If two sets are disjoint, then both sets are related." - One would therefore
-always have to distinguish between empty and non-empty sets.
-
-<!-- ======================================================================= -->
-## a (simple) setup of sets
-
 A set of sets will be referred to as **a (simple) setup of sets** `S`,
 if and only if no set in it is empty.
 
@@ -54,7 +40,7 @@ definition however seemed to make explanations needlessly verbose and thus
 more difficult to understand.
 
 <!-- ======================================================================= -->
-# options for refinment
+## options for refinment
 
 Recall that two non-empty sets can either be disjoint (DI), related (RE), or
 both sets overlap each other (OV) - in short **DI ex-or RE ex-or OV**.
@@ -89,3 +75,19 @@ Note that, if only one alternative relationship is allowed, then one can
 conclude that a pair of unrelated sets must be a pair of disjoint/overlapping
 sets. If there is no such restriction defined, then such a conclusion can not
 be made.
+
+<!-- ======================================================================= -->
+## remarks
+
+Since the empty set has characteristics that are unique to it, and "in conflict"
+with those of non-empty sets, **the empty set is as an element not allowed**.
+
+Note that the "in conflict" description refers to the following aspect:
+"The empty set is disjoint and related to every other set, including itself",
+compared to "Each non-empty set is coupled with and related to itself". Because
+of that, and if the empty set were allowed, one could not simply conclude:
+"If two sets are disjoint, then both sets are related." - One would therefore
+always have to distinguish between empty and non-empty sets.
+
+Note that, except for the exclusion of the empty set, a simple setup is in
+essence the vertex set of a **containment/inclusion order**.
