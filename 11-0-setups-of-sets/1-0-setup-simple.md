@@ -5,8 +5,8 @@
 A set of sets will be referred to as **a (simple) setup of sets** `S`,
 if and only if no set in it is empty.
 
-* `S` is in general expected to be non-empty
-* `(#s > 0)` - is required to be true for all `(s in S)`
+* (R0) `S` is in general expected to be non-empty
+* (R1) `(#s > 0)` - is required to be true for all `(s in S)`
 
 Note that, since a setup is not defined as a multiset, each set in `S` is
 distinct to every other set in it. Furthermore, each set in a setup may in

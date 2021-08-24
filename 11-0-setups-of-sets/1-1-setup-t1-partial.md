@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-## Strict/Proper setup (T1)
+# Strict/Proper setup (T1)
 
 A set of sets `S` will be referred to as **a proper setup (of type-1)**,
 if and only if the following requirements are met:

@@ -60,10 +60,13 @@ disconnected. A disconnected set may thus be considered a root and a leaf.
 Note that any partial setup (T1) always has **one or more root sets**. That is
 because (1) a setup that has only a single set, has that set as its only root.
 Furthermore, (2) the addition of a new set to the setup, in such a way that it
-still satisfies all requirements, will (2.1) add a new root (if that new set
-is disjoint to all pre-existing sets), (2.2) turn one or more root sets into
-non-root sets (if these root sets are subsets to the new set), or (2.3) add
-the new set as a new descendant to a pre-existing root.
+still satisfies all the requirements, will (2.1) add a new root (if that new
+set is disjoint to all pre-existing sets), (2.2) turn one or more root sets
+into non-root sets (if these root sets are subsets to the new set), or (2.3)
+add the new set as a new descendant to a pre-existing root.
+
+A **rooted setup** is such that it has **one and only one root set**.
+That is, the set of root sets contains one set only (i.e. `(#RS == 1)`).
 
 <!-- ======================================================================= -->
 ## ancestors, descendants (of S/s)

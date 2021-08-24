@@ -1,6 +1,10 @@
 
 # setups of sets (2)
 
+point out that ..
+- a partial order is more than what meets the eye
+- thus far aligned to one case - superset + di-xor-re
+
 setup-t3-partial
 - since each tree must have one and only one root
 - rps are either related ex-or overlap each other
@@ -13,9 +17,6 @@ superset-of
 subset-of
 - issue with multipe sinks?
 - more than once ce?
-
-di ex-or re
-- seems to disallow multiple roots
 
 <!-- ======================================================================= -->
 ## the transitive reduction of a poset

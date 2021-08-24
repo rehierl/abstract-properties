@@ -14,7 +14,7 @@ css-of-ce(ce,S) begin
 end
 ```
 
-Note that, since sets `(U == CE(S))` is true, user input errors can easily
+Note that, since `(U == CE(S))` is true, user input errors can easily
 be detected by testing if the input CE is an element in `U`. Hence, if step-0
 does not trigger, then CE(S) can not be empty (i.e. step-2 won't trigger).
 And since a CE is unique to its CSS, the overall result is uniquely defined

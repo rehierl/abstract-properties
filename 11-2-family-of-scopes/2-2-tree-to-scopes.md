@@ -44,4 +44,4 @@ One can then define a containment order `P` using the family of scopes `S`.
 
 * `P := (V,<)` such that `(V := S)` and
 * `S := { si | (si := [ni,*]) such that (i in [1,#V(T)]) }`
-* `(a < b) := (a proper-superset-of b)`
+* `(a < b) := (a strict-superset-of b)`
