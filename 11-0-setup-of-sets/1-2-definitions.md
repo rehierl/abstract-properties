@@ -5,9 +5,9 @@
 The following will define graph-/hierarchy-based terms in regards to a
 hypothetical setup `S` - a consistent setup (T1).
 
-Note that the following definitions assume the **superset-of** operator as the
-basis of the related-to operator. That is, a root/source set must be considered
-to contain all of its subsets (i.e. most significant).
+Note that the following definitions assume the **superset-of** operator as
+the basis of the related-to operator. That is, a root/source set must be
+considered to contain all of its subsets (i.e. most significant).
 
 * `(A related-to B) := (A superset-of B) or (B superset-of A)`
 
@@ -53,6 +53,9 @@ another set.
 * `LS` is the set of all leaf sets
 * note - i.e. have no subset in S
 
+A **rooted setup** is such that it has **one and only one root set**.
+That is, the set of root sets contains one set only (i.e. `(#RS == 1)`).
+
 Note that a root set may or may not be a source set. Likewise, a leaf set may
 or may not be a sink set. That is because root sets and leaf sets may both be
 disconnected. A disconnected set may thus be considered a root and a leaf.
@@ -64,9 +67,6 @@ still satisfies all the requirements, will (2.1) add a new root (if that new
 set is disjoint to all pre-existing sets), (2.2) turn one or more root sets
 into non-root sets (if these root sets are subsets to the new set), or (2.3)
 add the new set as a new descendant to a pre-existing root.
-
-A **rooted setup** is such that it has **one and only one root set**.
-That is, the set of root sets contains one set only (i.e. `(#RS == 1)`).
 
 <!-- ======================================================================= -->
 ## ancestors, descendants (of S/s)
@@ -88,9 +88,9 @@ descendants to each other.
 subsets of sets
 
 * `AS := { a | (a ancestor-of s) for some (s in S) }`
-* `AS` is the set of all ancestor sets in `S`
+* `AS` is the set of all ancestor/parent sets in `S`
 * `DS := { d | (d descendant-of s) for some (s in S) }`
-* `DS` is the set of all descendant sets in `S`
+* `DS` is the set of all descendant/child sets in `S`
 
 helper functions
 

@@ -1,4 +1,8 @@
 
+about the readme files
+- all are more or less "initialized"
+- i.e. they need to be fleshed out at some point
+
 the overall intention is to communicate ..
 - a certain style of notation
 - my current level of understanding

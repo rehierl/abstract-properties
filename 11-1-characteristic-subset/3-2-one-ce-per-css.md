@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-## Iff (#CE(s) == 1)
+## if (#CE(s) == 1) is required to be true
 
 ```
 |----------------|
@@ -40,3 +40,36 @@ Due to the above `ce-of-set()` is then **inverse** to `set-of-ce()`.
 
 * `(set-of-ce( ce-of-set(s) ) == s)` is true for each `(s in S)`
 * `(ce-of-set( set-of-ce(ce) ) == ce)` is true for each `(ce in CE(S))`
+
+<!-- ======================================================================= -->
+## visual simplification iff (#CE(s) == 1)
+
+```
+S: normalized setup      S: compacted display
+===================  =>  ====================
+|-----------------|      |-1---------------|
+| 1               |      | |-2-----------| |
+| |-------------| |      | | |-3-| |-4-| | |
+| | 2           | |      | | |---| |---| | |
+| | |---| |---| | |      | |-------------| |
+| | | 3 | | 4 | | |      |-----------------|
+| | |---| |---| | |
+| |-------------| |
+|-----------------|
+```
+
+Since each set is now required to have exactly one CE, specific labels are no
+longer required. That is because each CE can be understood as a label which
+allows to uniquely identify the corresponding set. Visual representations can
+therefore be compacted/condensed, if each CE is "highlighted" into the border
+of the corresponding set.
+
+Since even leaf sets are now required to have exactly one CE, and since these
+sets have empty inner subsets, leaf sets appear as if they were empty. However,
+if one recalls that no set in a setup is allowed to be empty, then one can still
+conclude that each label must be the CE of the corresponding set.
+
+Note that, in order to allow to distinguish one case (a specific label) from
+the other (a CE is used as a label), one should not mix both cases into one
+visual representation. That is, one should either use specific labels for all
+sets, or use all the CEs as lables.

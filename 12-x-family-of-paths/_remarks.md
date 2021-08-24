@@ -31,3 +31,10 @@ overlaps eq. incomparable
 - a similarity to "related exor disjoint"
 - note - overlaps has no orientation
 - siblings are disjoint and thus incomparable
+
+level-based encoding
+- note - level- not depth-based encoding (!)
+- after all .. depth(r)=0, level(r)=1
+- i.e. a sequence of depth values
+- in essence a sequence of rank values
+- i.e. allows for a non-tag based notation
