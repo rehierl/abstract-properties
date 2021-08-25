@@ -1,5 +1,5 @@
 
-about the readme files
+the readme files
 - all are more or less "initialized"
 - i.e. they need to be fleshed out at some point
 

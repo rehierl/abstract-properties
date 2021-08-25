@@ -1,35 +1,12 @@
 
 <!-- ======================================================================= -->
-## (induced) subsequences
-
-Recall that the term "subsequence" is defined based upon the removal of
-components (i.e. a removal-based definition). That is, a source sequence is
-first cloned. After that, components, including the elements they hold, are
-removed from the newly cloned sequence. And, as a last step, the index-order
-of the cloned sequence is re-established since the set of index values would
-otherwise contain "gaps".
-
-Because of that, a subsequence can be described as being defined by a set of
-those elements that need to remain, while maintaining the index order. Based
-on that, the index order can be said to be preserved, which is why the creation
-of a subsequence can be described as **order preserving**.
-
-One can therefore describe the creation of a subsequence as a process (i.e.
-an ordered set of operations) that must be performed based on a given input.
-Because of that, the overall process can be described as being **induced**
-by the corresponding input. That is because the input can be understood to
-define which operations to execute in what order.
-
-Based on the above, any subsequence can be described as **an induced subsequence**.
-
-<!-- ======================================================================= -->
 ## relations / restriction
 
 The restriction `S := (T,U)` of a relation `R := (D,G)` can be described as
 an induced result. After all, the source realtion `R` will be restricted
 to the subset of elements `T` while preserving the relative order between
 those elements that remain. The restriction of a relation can therefore be
-described to return the **induced sub-relation** `R[T]`.
+described to return an **induced sub-relation** `R[T]`.
 
 * `S := R[T] := (T,U)` such that
 * `U := { (a,b) | aRb and (a,b in T) }`

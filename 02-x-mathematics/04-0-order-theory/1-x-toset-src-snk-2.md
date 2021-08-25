@@ -1,43 +1,5 @@
 
 <!-- ======================================================================= -->
-# total order (toset)
-
-* a preorder - (reflexive +) transitive
-* a poset - a anti-/a-symmetric preorder
-* a toset - a connex/trichotomous poset
-
-that is ..
-
-* no cycles allowed
-* one edge for any pair of vertices
-
-conclusions ..
-
-* if more than two vertices, then ..
-* must have one and only one source vertex
-* must have one and only one sink vertex
-
-<!-- ======================================================================= -->
-## the transitive reduction of a toset
-
-The trantsitive reduction of a total order relation must correspond with a
-path graph. That is because otherwise the transitive closure could not
-establish an edge between any pair of vertices.
-
-Also, a root is required since otherwise one would end up with a cycle graph,
-which does not correspond with a total order since each all vertices would
-then be presequent and subsequent to each other.
-
-No non-root vertex can have more than one incoming edge since the source
-vertices of these edges would then be incomparable (i.e. #ideg=1). Dual
-to that, no non-leaf vertex can have more than one outgoing edge since
-the sink vertices of these edges would then be incomparable (i.e. #odeg=1).
-
-* must be a path graph - to connect all vertices
-* each non-source must have (#ideg == 1)
-* each non-sink must have (#odeg == 1)
-
-<!-- ======================================================================= -->
 ## more than one source and/or sink vertex?
 
 Recall that a total order is defined as a specialized partial order that has

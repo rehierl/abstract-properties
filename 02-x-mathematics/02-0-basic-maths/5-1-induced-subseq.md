@@ -36,6 +36,28 @@ be understood in regards to the elements within the supersequence and thus to
 point out that the subsequence has no gaps.
 
 <!-- ======================================================================= -->
+## (induced) subsequence
+
+Recall that the term "subsequence" is defined based upon the removal of
+components (i.e. a removal-based definition). That is, a source sequence is
+first cloned. After that, components, including the elements they hold, are
+removed from the newly cloned sequence. And, as a last step, the index-order
+of the cloned sequence is re-established since the set of index values would
+otherwise contain "gaps".
+
+Because of that, a subsequence can be described as being defined by a set of
+those elements that need to remain, while maintaining the index order. Based
+on that, the index order can be said to be preserved, which is why the creation
+of a subsequence can be described as **order preserving**.
+
+One can therefore describe the creation of a subsequence as a process (i.e.
+a known ordered set of operations - aka. a **defining rule**) that must be
+performed based on a given input. Because of that, the overall process can
+be described as being **induced** by the corresponding input (aka.
+**defining element**). That is, the input can be understood to define which
+operations to execute in what order.
+
+<!-- ======================================================================= -->
 ## strict/proper-subsequence-of
 
 A subsequence `s` may be described as **a strict subsequence** of sequence `t`,

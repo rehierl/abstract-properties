@@ -2,12 +2,6 @@
 <!-- ======================================================================= -->
 # The inner/outer set of a node/tree
 
-- this was written before focussing on actual node orders
-- i.e. while still focussing on a tree's "visual" structure
-- hint - focus on border lines that surround the corresponding nodes
-- note - `ON(n) != OS(n)` - quite different actually
-- note - "border edge" refers to inner/outer sets - i.e. will have to update
-
 <!-- ======================================================================= -->
 ## inner/outer set of a node
 
@@ -91,33 +85,3 @@ the following applies to all pairs of sets `(s,t in IS)`:
 * `(s disjoint-to t)` and/or `(s related-to t)`
 * `(s disjoint-to t)` and/or `(s strictly-related-to t)`, if `(s != t)`
 * `(s overlaps t)` is always false
-
-<!-- ======================================================================= -->
-## a visual representation
-
-```
-the initial node tree      the resulting set of borders
-=====================  =>  ============================
-
-     1                      |-----------------------|
- ----------                 | 1     |-------------| |
- 2      3                   | |---| | 3           | |
-      -----                 | | 2 | | |---| |---| | |
-      4   5                 | |---| | | 4 | | 5 | | |
-                            |       | |---| |---| | |
-                            |       |-------------| |
-                            |-----------------------|
-```
-
-In order to imagine the set of outer sets `OS(T)`, try the following:
-
-* Draw a node tree onto a piece of paper.
-* Surround the whole tree with a border.
-* Similar to that, draw a border around the tree of each node.
-* Note that any border surrounds a node and all of its descendants.
-* Note that there are no two borders that cross each other.
-* Each border represents a set of nodes, if all edges are removed.
-* The set of borders represents the tree's set of outer sets.
-
-Note that "the set of outer sets" is the family of the sets of nodes of
-each induced subtree.

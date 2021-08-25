@@ -27,7 +27,7 @@ endpoints need to be removed explicitly in `T`.
 <!-- ======================================================================= -->
 ## restriction
 
-A relation `S := (T,U)` is said to be a restriction of relation `R := (D,G)`,
+A relation `S[T] := (T,U)` is said to be a restriction of relation `R := (D,G)`,
 if its set of vertices `T` is a (strict) subset to the set of vertices `D` in
 `R`, and if `S` contains all the edges from `R` whose endpoints are both in `T`.
 

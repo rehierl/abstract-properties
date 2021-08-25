@@ -69,12 +69,14 @@ may have. That is a setup may be defined such that sets are not allowed to
 overlap each other (**DI ex-or RE**). Likewise, a setup may be defined such
 that no disjoint sets are allowed (**RE ex-or OV**). And finally, one may
 even completely disallow both of these alternatives such that any two sets
-are required to related (**RE only**) with each other.
+are required to related (**RE only** - i.e. total) with each other.
 
-Note that, if only one alternative relationship is allowed, then one can
-conclude that a pair of unrelated sets must be a pair of disjoint/overlapping
-sets. If there is no such restriction defined, then such a conclusion can not
-be made.
+Note that the "unrelated" (i.e. not related) aspect reflects the case that
+there is no edge/path between two elements. Further restricting the available
+alternative relationships to only-disjoint or only-overlapping is therefore
+beneficial. That is because knowing that two elements are unrelated will then
+allow to conclude what "kind of unrelatedness" resulted in both elements being
+disconnected from each other.
 
 <!-- ======================================================================= -->
 ## remarks

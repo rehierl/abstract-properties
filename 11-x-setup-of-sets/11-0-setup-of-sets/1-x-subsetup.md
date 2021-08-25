@@ -24,3 +24,12 @@ set `r` and every superset in `S`:
 
 Note that both context-based definitions are such that the induced sub-setup
 **grows with the orientation** of the corresponding setup, not against it.
+
+<!-- ======================================================================= -->
+## previous/old definitions
+
+In case some old uses are still remaining ..
+
+* `iT(s) := A*(s)` referred to as "induced total subsetup"
+* `iP(s) := D*(s)` referred to as "induced partial subsetup"
+* similar - induced (partial) subtree
