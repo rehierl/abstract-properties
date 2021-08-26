@@ -5,21 +5,8 @@ point out that ..
 - a partial order is more than what meets the eye
 - thus far aligned to one case - superset + di-xor-re
 
-setup-t3-partial
-- since each tree must have one and only one root
-- rps are either related ex-or overlap each other
-- i.e. they are never disjoint
-
-superset-of
-- issue with multiple sources
-- more than one ce
-
-subset-of
-- issue with multipe sinks?
-- more than once ce?
-
 <!-- ======================================================================= -->
-# variants of partial orders (poset)
+## variants of partial orders (poset)
 
 * posets allow more than containment orders can support
 * with superset-/subset-of, with (di and/or ov),

@@ -46,7 +46,7 @@ v2 -> v3
 * may have more than one connected component
 
 ```
-v1 --> v2 --> v3
+v1 -> v2 -> v3
 ```
 
 * for each connected component ..
@@ -78,7 +78,8 @@ v1 ->|        |-> v4
 * any vertex may have any number of outgoing edges
 * any vertex may have any number of incoming edges
 
-unique paths?
+non-unique paths
 
+* without any restriction ...
 * vertices may be connected over more than one path
 * non-relevant in the transitive closure

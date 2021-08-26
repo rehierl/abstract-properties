@@ -66,6 +66,7 @@ remarks
 
 * magnitudes which are equal to the same are equal to each other
 * note - not to be confused with "transitive"
+* note - the definitions are quite unclear (!)
 
 ```
 right-euclidean   left-euclidean
@@ -79,12 +80,16 @@ a |               | c
 
 right-euclidean, euclidean
 
-* if aRc and aRd, then also cRd (or dRc ?)
-* note - aRa and aRb -> bRa
+* for all a,b,c in R
+* if aRc and aRd, then also cRd
+* note - aRd and aRc -> dRc (so also ?)
+* note - aRa and aRd -> bRa
 
 left-euclidean
 
-* if aRc and bRc, then also aRb (or bRa ?)
+* for all a,b,c in R
+* if aRc and bRc, then also aRb
+* note - bRc and aRc -> bRa (so also ?)
 * note - aRa and bRa -> aRb
 
 remarks
