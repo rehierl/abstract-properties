@@ -1,6 +1,14 @@
 
 # graph theory (GT)
 
+semantics of an edge
+- if an edge has semantics, then these semantics
+  usually also apply to any pair of matching edges
+- that is, if semantics are transitive, then the
+  resulting graph is itself transitive
+- e.g. parent-of vs. ancestor-of
+- there isn't much of a difference to order theory
+
 graph property
 - should probably have an explanation
 - describes the general characteristic of a graph

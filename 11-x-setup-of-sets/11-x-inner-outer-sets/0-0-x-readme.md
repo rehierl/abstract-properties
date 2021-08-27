@@ -1,10 +1,10 @@
 
-# inner/outer sets, border graph/edges
+# inner/outer sets of nodes
+- taken from the old top-down based approach
 
-no longer relevant
-- taken from the old top-down approach
+no longer relevant to the overall discussion
 - similar to drawing lines beneath an ordered sequence
-- except for the visual approach
+- kept for its visual hands-on approach
 
 general remark
 - this was written before focussing on actual node orders
@@ -13,7 +13,7 @@ general remark
 - note - `ON(n) != OS(n)` - quite different actually
 - note - "border edge" refers to inner/outer sets - i.e. will have to update
 
-allows for explanations that are more visual
+allows for visual explanations
 - draw boxes around induced subtrees
 - hence - inner/outer set of nodes, border edges
 - visually transition from subtrees to sets of nodes

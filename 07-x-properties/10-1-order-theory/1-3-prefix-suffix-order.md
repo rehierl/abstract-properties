@@ -37,13 +37,18 @@ A poset that is upward-total can be described as **a suffix order**
 ## remarks
 
 * (a < b), (down -> up) := "a" is down, "b" is up
+* arrows always point upwards to subsequent items
+
+Note that the definitions will be clarified when examining variations of setups.
+In essence, these definitions must be seen as structural definitions. That is,
+not related to the elements themselves.
 
 Note that, even though the description as "a prefix/suffix order" is based upon
 the prefixes/suffixes of strings/sequences, the elements in that order are in
 principle not required to be actual sequences/strings.
 
 Note that the rooted path of a node can be seen as a prefix of the corresponding
-tree. However, that point of view does not cover the definition based on the
-removal of one suffix only. That is, one will in general have to remove several
-suffixes (i.e. induced subtrees) from a tree in order to end up with the rooted
-path of a node.
+tree. However, that (extended) point of view does not cover the definition based
+on the removal of one suffix only. That is, one will in general have to remove
+several suffixes (i.e. induced subtrees) from a tree in order to end up with the
+rooted path of a node.

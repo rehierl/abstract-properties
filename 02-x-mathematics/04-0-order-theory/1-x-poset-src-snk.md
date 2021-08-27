@@ -1,6 +1,4 @@
 
-* when done - put back into order theory
-
 <!-- ======================================================================= -->
 # partial order (poset)
 

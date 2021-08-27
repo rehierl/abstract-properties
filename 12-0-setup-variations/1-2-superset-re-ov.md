@@ -3,7 +3,7 @@
 # superset, RE xor OV
 
 ```
-unclear (?)
+components ?
 ========
 s1 -> s3
       s2

@@ -18,13 +18,18 @@ DI-RE summary
 
 RE-OV summary
 
-* unclear if more than one root is possible (?)
+* unclear if more than one component is possible ?
+  e.g. not if rooted paths from a forest - disjoint
 * parallel sub-components are possible
 * seems to support all partial orders
 * rooted paths are not necessarily unique
-* TODO - applications ?!?
-* possibly? - downward-total, prefix-order
-* possibly? - upward-total, suffix-order
+* possibly upward-total - e.g. rps of a tree
+* possibly? - downward-total
+
+remarks
+
+* application - the rooted paths of a tree
+* DI-RE-OV - to support the rps of a forest
 
 <!-- ======================================================================= -->
 # RE-only, total

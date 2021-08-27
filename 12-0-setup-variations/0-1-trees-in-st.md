@@ -2,6 +2,8 @@
 <!-- ======================================================================= -->
 # trees in set theory (ST)
 
+- a short summary on trees in ST
+
 trees in descriptive ST
 - a collection of (ordered) sequences
 - each prefix of every sequence
@@ -17,6 +19,6 @@ trees P(T,<) in axiomatic ST
 - note - somewhat similar to downward-closed
 
 remarks
-- both concepts seem to focus on prefixes
+- both concepts focus on prefixes
 - larger numbers are more significant
 - maths needs to deal with infinity

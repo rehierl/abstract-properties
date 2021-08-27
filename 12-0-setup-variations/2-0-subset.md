@@ -10,7 +10,7 @@
 
 DI-RE summary
 
-* no node tree
+* no node tree (!)
 * no parallel sub-components
 * does not support all partial orders
 * multiple roots, non-unique rooted paths
@@ -18,13 +18,19 @@ DI-RE summary
 
 RE-OV summary
 
-* unclear if more than one root is possible (?)
+* a node tree - e.g. rps of a tree
+* unclear if more than one component is possible ?
+  e.g. not if rooted paths from a forest - disjoint
 * parallel sub-components are possible
 * seems to support all partial orders
 * rooted paths are not necessarily unique
-* TODO - applications ?!?
-* possibly? - downward-total, prefix-order
-* possibly? - upward-total, suffix-order
+* possibly downward-total - e.g. rps of a tree
+* possibly? - upward-total
+
+remarks
+
+* application - the rooted paths of a tree
+* DI-RE-OV - to support the rps of a forest
 
 <!-- ======================================================================= -->
 # RE-only, total
@@ -40,6 +46,6 @@ s1 -> s2 -> s3
 
 remarks
 
-* a node tree
+* a node tree, **setup-t4-total**
 * must have one root set only
 * must have one leaf set only

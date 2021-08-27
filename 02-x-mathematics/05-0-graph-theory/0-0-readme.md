@@ -6,7 +6,7 @@ A graph `G := (V,E)` is defined as an endo-relation that consists of a set of
 vertices `V` and a set of (directed) eges `E`. As such, and like an ordered
 set, a graph is a complex value/type.
 
-* `G := (V,E)` such that `(E subset-of (V × V))`
+* `G(V,E)` such that `(E subset-of (V × V))`
 
 <!-- ======================================================================= -->
 
@@ -15,19 +15,19 @@ requirement as to why two of its nodes are connected. That is, a graph does by
 default not have to satisfy any structural requirement. Because of that, a
 graph can be understood as a relation that has a seemingly arbitrary set of
 edges. As such, no conclusion can be drawn based upon shared characteristics,
-since none can be guaranteed to exist.
+since none can be guaranteed to even exist.
 
 Because of that, requirements need to be introduced that define sub-groups of
 graphs such that each graph in a group has the required characteristics (e.g.
-each graph must be a node tree. These shared characteristics then allow to draw
-conclusions in regards to such a group.
+each graph must be a node tree). These shared characteristics then allow to
+draw conclusions in the context of such a group.
 
 <!-- ======================================================================= -->
 
 An expression of some sort is in general associated with each edge `(e in E)`
 which is understood to provide an explanation as to why two vertices in a
-graph are adjacent to each other - i.e. connected with each other. This reason
-will be referred to as the semantics of an edge.
+graph are adjacent to each other - aka. connected with each other. This
+reason will be referred to as the semantics of an edge.
 
 * e.g. `sem(e) := (x divisible-by y)` for some edge `e := (x,y)`
 
@@ -42,17 +42,17 @@ and its semantics.
 * `S := { (e,s) | (e in E) and (s == sem(e)) }`
 
 However, in the context of this discussion, the semantics of each edge is
-expected to correspond with the semantics of all the other edges in a graph.
+expected to equal to the semantics of all the other edges in a graph.
 Because of that, the semantics of a graph `sem(G)` can be defined as the
-common semantics of its edges.
+shared semantics of its edges.
 
 * `(sem(G) == sem(e))` for all `(e in E)`
 
-Note that all graphs in context of this this discussion are are expected to be
-endo-relations based upon a homogenous set of vertices and a homogenous set of
-edges.
+Note that all graphs in context of this this discussion are expected to be
+endo-relations based upon a homogenous set of vertices and a homogenous set
+of edges.
 
-Note that the structure of a graph may be understood as its "syntax",
+Note that the structure of a graph could be described as its "syntax",
 and the reason as to why two vertices are connected as its "semantics".
 
 <!-- ======================================================================= -->
