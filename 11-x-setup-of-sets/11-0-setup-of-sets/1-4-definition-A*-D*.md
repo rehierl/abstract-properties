@@ -9,16 +9,16 @@ Likewise, any descendant set has fewer elements than any of its ancestor sets.
 * `(s > #d)` is true for any `(d in D(s))`
 
 Note that a partial setup has **no cycles**. That is because no set can be a
-subset and also a superset to another set, except for itself. It would need
-to have fewer and also more elements than that other set. Because of that,
-the set of ancestor and descendant sets are disjoint.
+subset and also a superset to another set. It would need to have fewer and also
+more elements than the other set. Because of that, the set of ancestor and
+descendant sets are disjoint.
 
 * `(A(s) disjoint-to D(s))` is true
 
 <!-- ======================================================================= -->
 ## remarks - (sub)setup
 
-Assuming a **partial setup (T1)** `S` and a set `(s in S)` ..
+Assuming a **partial setup** `S` and a set `(s in S)` ..
 
 ```
                              |-D(s)-partial--|
@@ -35,7 +35,7 @@ Assuming a **partial setup (T1)** `S` and a set `(s in S)` ..
 * `(c(s) subset-of D(s))` a set of child sets - child sets
 * `(l(s) subset-of D(s))` a set of leaf sets - leaf sets
 
-Assuming a **total setup (T2)** `S` and a set `(s in S)` ..
+Assuming a **total setup** `S` and a set `(s in S)` ..
 
 ```
 |-A(s)-total---------|       |-D(s)-total----------|

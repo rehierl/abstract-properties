@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# (rooted) paths of sets
+# paths of sets
 
 ```
 |-A*-total-/-rp(s)--------|
@@ -23,10 +23,10 @@ of sets is **an ordered sequence** of sets. Consequently, the rooted path of
 each set in a partial setup (T1) is **unique** to it.
 
 Similar to that, **a path** can be formed from set `a` to set `b`
-iff one is an ancestor set of the other.
+iff set `a` is an ancestor of set `b`.
 
 * `p(a,b) := {a} × (rp(b) \ rp(a))` iff `(a ancestor-of b)`
-* `(rp(a) prefix-to rp(b))` is true - i.e. remove a prefix
+* `(rp(a) prefix-of rp(b))` is true - i.e. remove a prefix
 * `aPb` := true if `p(a,b)` can be formed
 
 <!-- ======================================================================= -->

@@ -2,12 +2,13 @@
 <!-- ======================================================================= -->
 # Definition of hierarchy-based terms
 
-The following will define graph-/hierarchy-based terms in regards to a
-hypothetical setup `S` - a consistent setup (T1).
+The following will define graph-/hierarchy-based terms in regards to some
+hypothetical setup `S`.
 
 Note that the following definitions assume the **superset-of** operator as
 the basis of the related-to operator. That is, a root/source set must be
-considered to contain all of its subsets (i.e. most significant).
+considered to contain all of its subsets (i.e. most significant in terms
+of the number of elements in it).
 
 * `(A related-to B) := (A superset-of B) or (B superset-of A)`
 
@@ -139,7 +140,7 @@ if `p` is the parent set of `c`.
 * `(#c(p) >= 0)` is true
 
 A descendant set `l` of set `p` is **a leaf set of** `p`,
-if `l` is no ancestor set to another set.
+if `l` is no ancestor to another set.
 
 * `l(p) := { l | (l in D(p)) and (l in LS) }`
 * `(l leaf-of s) := (l in D(p))`

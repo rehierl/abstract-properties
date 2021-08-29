@@ -1,8 +1,8 @@
 
 <!-- ======================================================================= -->
-## Strict/Proper setup (T2)
+## A total setup of sets
 
-A set of sets `S` will be referred to as **a proper setup (of type-2)**,
+A set of sets `S` will be referred to as **a total setup (of sets)**,
 if and only if the following requirements are met:
 
 * (R1) `S` is a simple setup of sets
@@ -11,15 +11,13 @@ if and only if the following requirements are met:
 Note that, since any two sets in such a setup are required to be related,
 a total setup disallows any pairs of disjoint and any pairs of overlapping
 sets. That is, a total setup covers the **RE only** case as described in
-the remarks to simple setups. Because of that, such a setup may also be
-described as **a total setup**.
+the remarks to simple setups.
 
 Note that a total setup corresponds with a set of pairwise related sets.
-That is, each set in a total setup is related to all the other sets.
+That is, each set in a total setup is related to every other set in it.
 Because of that, and for any pair of distinct sets `(s,t in S)` it can be
 determined which is the subset and which the superset. That is, a total
-setup is **a partial setup (T1)** which does not even have one pair of
-disjoint sets.
+setup is such that there is no pair of disjoint sets.
 
 <!-- ======================================================================= -->
 ## a visual impression

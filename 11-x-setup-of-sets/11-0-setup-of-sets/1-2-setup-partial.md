@@ -1,8 +1,8 @@
 
 <!-- ======================================================================= -->
-# Strict/Proper setup (T1)
+# A partial setup of sets
 
-A set of sets `S` will be referred to as **a proper setup (of type-1)**,
+A set of sets `S` will be referred to as **a partial setup (of sets)**,
 if and only if the following requirements are met:
 
 * (R1) `S` is a simple setup of sets.
@@ -13,9 +13,8 @@ Note that, as can be seen below, R2 can be rephrased as follows:
 * (R2*) Any two sets in `S` must either be disjoint ex-or related.
 
 Note that, since two sets in a partial setup are either disjoint ex-or related
-(i.e. **DI ex-or RE**) requirement R2 guarantees that two sets in a partial
-setup do not overlap each other. Because of that, such a setup may also be
-described as **a partial setup** (of type-1).
+(i.e. **DI-RE**) requirement R2 guarantees that two sets in a partial setup do
+not overlap each other.
 
 <!-- ======================================================================= -->
 ## a visual impression

@@ -3,16 +3,16 @@
 # (Simple) setups of sets
 
 A set of sets will be referred to as **a (simple) setup of sets** `S`,
-if and only if no set in it is empty.
+if and only if the following requirements are met.
 
-* (R0) `S` is in general expected to be non-empty
+* (R0) `S` is expected to be non-empty
 * (R1) `(#s > 0)` - is required to be true for all `(s in S)`
 
 Note that, since a setup is not defined as a multiset, each set in `S` is
 distinct to every other set in it. Furthermore, each set in a setup may in
-principle hold elements of any kind (i.e. heterogenous). However, depending
-on a given context, a setup is in general required to hold elements of a
-certain kind (e.g. primitive numeric values only, i.e. **homogenous**).
+principle hold elements of any kind (i.e. heterogenous). Despite that, a
+setup is in general expected to hold elements of a certain kind (e.g.
+primitive numeric values only, i.e. **homogenous**).
 
 Note that set-based operators can be used in the context of a simple setup.
 This includes, but is not limited to the following operators ..
@@ -21,8 +21,8 @@ This includes, but is not limited to the following operators ..
 * `(T sub-setup-of S) := (T subset-of S)`
 * `(s in S)` := true, iff set `s` is an element in `S`
 
-Note that each setup can be understood to be accompanied by a **universal set**
-`U`, which is referred to as the union of all sets in `S`.
+Note that each setup can be understood to be accompanied by **a universal set**
+`U`, which can be described as the union of all sets in `S`.
 
 * `U, U(S)` is the universal set of setup `S`
 * `U := { x | (x in s) for some (s in S) }`
@@ -40,36 +40,39 @@ definition however seemed to make explanations needlessly verbose and thus
 more difficult to understand.
 
 <!-- ======================================================================= -->
-## options for refinment
+## possible variations
 
 Recall that two non-empty sets can either be disjoint (DI), related (RE), or
-both sets overlap each other (OV) - in short **DI ex-or RE ex-or OV**.
+both sets overlap each other (OV) - in short **DI ex-or RE ex-or OV**, or
+alternatively **DI-RE-OV**.
 
 Setups will be used to define partial orders based on the relationships between
 two non-empty sets in it. And since partial orders are defined to have directed
-edges, an order operator must be available that has a notion of **orientation**.
+edges, an order operator must be available that does support a notion of
+**orientation**.
 
 For obvious reasons, neither "disjoint-to" (DI) nor "overlaps-with" (OV) have
 such a notion of orientation. This only leaves the "related-to" (RE) operator
-as an option. Even though "related-to" is itself also without orientation, one
-can recall that it is defined based upon the **superset-of** operator (default),
-or alternatively the subset-of operator.
+as an option. Even though "related-to" is also without orientation, one can
+recall that "related-to" is defined based on the **superset-of** operator
+(default), or alternatively the subset-of operator, both of which are oriented.
 
 * `(A related-to B) := (A superset-of B) or (B superset-of A)`
 
-An option for refinement is therefore to choose to redefine "related-to" (RE)
-such that it is based upon a different operator such that it still implicitly
-supports a notion of orientation.
+A possible variation is therefore to choose to redefine "related-to" (RE)
+such that it is based upon a different operator such that it still supports
+a notion of orientation.
 
 * `(A related-to B) := (A prefix-of B) or (B prefix-of A)`
 
 Since an order operator will be based upon the "related-to" operator, one may
 still choose to restrict the types of relationships two sets in such a setup
 may have. That is a setup may be defined such that sets are not allowed to
-overlap each other (**DI ex-or RE**). Likewise, a setup may be defined such
-that no disjoint sets are allowed (**RE ex-or OV**). And finally, one may
-even completely disallow both of these alternatives such that any two sets
-are required to related (**RE only** - i.e. total) with each other.
+overlap each other (**DI ex-or RE**, or **DI-RE**). Likewise, a setup may be
+defined such that no disjoint sets are allowed (**RE ex-or OV**, or **RE-OV**).
+And finally, one may even completely disallow both of these alternatives such
+that any two sets are required to related (**RE only** - i.e. total) with each
+other.
 
 Note that the "unrelated" (i.e. not related) aspect reflects the case that
 there is no edge/path between two elements. Further restricting the available
