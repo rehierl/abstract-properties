@@ -3,9 +3,9 @@
 # Forest/Hierarchy of scopes
 
 Note that a family of scopes `S`, if generated from a tree `T(N,E)` using the
-concept of abstract properties, is a hierarchy of scopes `H`. That is, any tree
-corresponds with a hierarchy of scopes. Consequently, `S` provides a complete
-definition of `T`.
+concept of abstract properties, is a hierarchy of scopes `H`. That is, any
+tree corresponds with a hierarchy of scopes. Consequently, `S` provides a
+complete definition of `T`.
 
 <!-- ======================================================================= -->
 ## a forest of scopes (F)
@@ -46,9 +46,8 @@ if the following requirements are met:
 * (R1) `S` is a normalized setup of sets.
 * (R2) `S` has one and only one root set.
 
-Note that "a hierarchy of scopes" is synonymous to "a rooted normalized setup".
-Consequently, a "hierarchy of scopes" `H` has as a rooted normalized setup one
-root set only.
+Note that "a hierarchy of scopes" can also be described as
+**a rooted normalized setup**.
 
 * `(#RS(H) == 1)` is (required to be) true
 
@@ -64,8 +63,7 @@ Note that a hierarchy `H` of scopes has the following properties:
 * Each set has a unique rooted path.
 
 Note that the root set `(r in RS(H))` of a hierarchy `H` is equal to `U(H)`.
-That is because it is a superset to every other set in `H`. As such it is
-equal to the union of all sets in `H`.
+That is because it is a superset to every other set in `H`.
 
 <!-- ======================================================================= -->
 ## set of all hierarchies (UH) and forests (UF)
@@ -92,19 +90,18 @@ vice versa. The latter is because a setup may have more than one root set.
 * hierarchy -> normalized setup
 
 Note that two hierarchies `H1` and `H2` are **disjoint**, if their root sets
-are disjoint. That is, any set in `H1` is disjoint to every set in `H2`.
+are disjoint. Based on that, any set in `H1` is disjoint to every set in `H2`.
 
 * `(H1 disjoint-to H2) <-> (r1 disjoint-to r2)`
 
 Note that any **subset** of a hierarchy, after normalizing the result, is in
-general a forest - i.e. not necessarily a hierarchy. The subset will only be
-a hierarchy, if the subset contains the root set of the source hierarchy.
+general a forest - i.e. not necessarily a hierarchy.
 
-Note that a forests and a hierarchies are both **flat**"** setups of sets.
-Based on that, a forest can be described as "a union of disjoint hierarchies".
+Note that forests and hierarchies are all **flat** setups of sets. Based on
+that, a forest can be described as "a union of disjoint hierarchies".
 
 Note that the definition of a hierarchy does not cover the process of forming
-the sets it contains. It merely describes how these need to be related with
-each other. That is, the sets in a hierarchy may be formed in any number of
-different ways. However, the description as "a hierarchy of scopes" does point
-out the main method - based on the scopes of abstract properties.
+the sets it contains. It merely describes how these are related with each other.
+That is, the sets in a hierarchy may be formed in any number of different ways.
+However, the description as "a hierarchy of scopes" does highlight the main
+method - i.e. formed from the scopes of abstract properties.

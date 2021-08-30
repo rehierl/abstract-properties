@@ -10,7 +10,7 @@ if and only if the following requirements are met:
 
 Note that, as can be seen below, R2 can be rephrased as follows:
 
-* (R2*) Any two sets in `S` must either be disjoint ex-or related.
+* (R2) Any two sets in `S` are either disjoint ex-or related.
 
 Note that, since two sets in a partial setup are either disjoint ex-or related
 (i.e. **DI-RE**) requirement R2 guarantees that two sets in a partial setup do
@@ -116,11 +116,11 @@ sets are related with each other. Consequently, and in order to determine the
 orientation between both sets, one only needs to compare the number of elements
 (aka. their **size**) in both sets.
 
-Note that the **intersection** between any two sets in a partial setup is
-either empty ex-or a set in it. In the latter case, the intersection is equal
-to the smaller set (i.e. less significant). Likewise, the **union** of any two
-sets in a partial setup is either a union of disjoint sets ex-or a set it.
-In the latter case, the union is equal to the larger set (i.e. more significant).
+Note that the **intersection** between any two sets in a partial setup is either
+empty ex-or a set in it. In the latter case, the intersection is equal to the
+smaller set (i.e. less significant). Likewise, the **union** of any two sets in
+a partial setup is either a union of disjoint sets ex-or a set it. In the latter
+case, the union is equal to the larger set (i.e. more significant).
 
 * if `(s,t in S)`, `((s & t) != Ø)` and `(#s < #t)`, then ...
 * `((s & t) == s)` and `((s + t) == t)` are both true

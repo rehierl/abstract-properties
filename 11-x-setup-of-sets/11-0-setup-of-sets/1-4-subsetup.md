@@ -2,10 +2,11 @@
 <!-- ======================================================================= -->
 # subsetup
 
-Any subset of a setup can be described as **a sub-setup**.
+A subset of a setup can be described as **a sub-setup**.
+Likewise, a superset of a setup can be described as **a super-setup**.
 
-Note that this is independent of the specific operator that
-is seen as the basis of the related-to operator of a setup.
+Note that this is independent of the specific operator that is seen as the
+basis of the related-to operator of a setup.
 
 <!-- ======================================================================= -->
 ## induced sub-setup
@@ -16,9 +17,9 @@ specified set as a root set, and every subset in `S`:
 
 * `S[r], S[r,*] := { s | (s subset-of r) or (s == r) }`
 
-Note that both context-based definitions are such that the induced sub-setup
-**grows (upwards) with the orientation** of the corresponding setup, not
-against it.
+Note that both context-based definitions (i.e. superset-of or subset-of)
+are such that the induced sub-setup **grows with the orientation** of the
+corresponding setup, not against it.
 
 <!-- ======================================================================= -->
 ## previous/old definitions

@@ -4,8 +4,8 @@
 
 Even though an ordered sequence of elements can be understood to define an
 index-based order over the elements in it, the use of an **ordered sequence**
-to define a setup of sets is not for the index-based order to apply to the
-sets themselves, but to define **index-based ids** for the sets in it.
+to define a setup of sets is not for its index-order to apply to the sets
+themselves, but to define **index-based ids** for the sets in it.
 
 These ids can then be used to lookup the corresponding node in an ordered
 sequence of node definitions (i.e. an index-based mapping) that needs to be
@@ -13,7 +13,7 @@ understood to be provided separately, alongside the ordered sequence of sets.
 
 When choosing to provide numeric index-based ids via the index-order of an
 ordered sequence of sets, one would certainly want to first **reduce** the
-amount of elements in each set to a bare minimum. The following will mention
+amount of elements in each set as far as possible. The following will mention
 the aspects one should keep in mind.
 
 Note that, due to the below, an index-based setup is effectively an encoding
@@ -33,14 +33,20 @@ Even though it would not be a necessity, one should use the index-based id
 of each set as the CE of such a set.
 
 In case set `s` has a non-index CE, one should remove `ce(s)` from each set
-in `rp(s)` and then add `id(s)` to these sets in its stead.
+in `rp(s)` and then add `id(s)` to these sets instead.
 
 <!-- ======================================================================= -->
 ## empty root sets /non-parent
 
 A root set that has no child set may have an empty CSS. That is because there
 is no relationship with another set that will have to be determined. Hence,
-such a root set can reduced to the empty set.
+such a root set can be reduced to the empty set.
+
+Note that, even though the sequence-based setup could thus end up having more
+than one empty set, one needs to keep in mind, that each empty set is still
+associated with the corresponding index. Because of that, any empty set in a
+sequence-based setup must be understood as the unique instance of a non-empty
+set.
 
 <!-- ======================================================================= -->
 ## non-empty leaf sets /non-root
@@ -57,17 +63,13 @@ can be allowed to have an empty CSS. That is because such a parent set would
 then be equal to its child set. As a consequence, the resulting node tree
 would end up having no node for that parent set.
 
-Note that the index-based encoding of a total setup will thus be identical to
-its normalized version with the only difference that the setup is not required
-to be provided as an ordered sequence.
-
 <!-- ======================================================================= -->
 ## parent sets with no CE
 
 Since a parent set that has more than one child set must contain all the CEs
 of each descendant set in its inner set, the inner set of such a parent set
-is itself a unique set. Because of that, each CE of such a parent set can be
-removed.
+is itself a unique subset. Because of that, any CE of such a parent set can
+be removed.
 
 <!-- ======================================================================= -->
 ## decoding
@@ -92,7 +94,5 @@ that the CSS of a set is non-empty and contains more than one CE, then the
 setup is not as required. However, one could "fix" such a set by first
 removing all the CEs of such a set. Likewise, a single pre-existing CE that
 does not match the set's index-based id could be removed. In Both cases one
-would treat such a set as if it had an empty CSS.
-
-Note however that it stands to reason whether or not it would be better to
-simply reject any malformed input setup.
+would treat such a set as if it had an empty CSS. Despite that it stands to
+reason whether or not it would be better to reject a malformed input setup.

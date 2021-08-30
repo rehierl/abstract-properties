@@ -6,18 +6,18 @@ A set of sets `S` will be referred to as **a total setup (of sets)**,
 if and only if the following requirements are met:
 
 * (R1) `S` is a simple setup of sets
-* (R2) Any two sets in `S` must be related.
+* (R2) Any two sets in `S` are related with each other.
 
-Note that, since any two sets in such a setup are required to be related,
-a total setup disallows any pairs of disjoint and any pairs of overlapping
-sets. That is, a total setup covers the **RE only** case as described in
-the remarks to simple setups.
+Note that, since any two sets in such a setup are required to be related, a
+total setup does not allow pairs of disjoint and also no pairs of overlapping
+sets. That is, a total setup covers the **RE only** case as described in the
+remarks to simple setups.
 
-Note that a total setup corresponds with a set of pairwise related sets.
-That is, each set in a total setup is related to every other set in it.
-Because of that, and for any pair of distinct sets `(s,t in S)` it can be
-determined which is the subset and which the superset. That is, a total
-setup is such that there is no pair of disjoint sets.
+Note that a total setup is a set of pairwise related sets. That is, each set
+in a total setup is related to every other set in it. Because of that, and for
+any pair of distinct sets `(s,t in S)` it can be determined which is the subset
+and which the superset. That is, a total setup is such that there is no pair
+of disjoint sets.
 
 <!-- ======================================================================= -->
 ## a visual impression
@@ -42,6 +42,44 @@ As before, elements may belong to more than one set:
 * Elements 1 and 2 both belong to sets A and B.
 * Element 3 belongs to sets A, B and C.
 * Element 4 only belongs to set A.
+
+<!-- ======================================================================= -->
+## least/most significant (super)set
+
+Given a partial setup `S` and a non-root set `(s in S)`,
+then `s` is a subset to one or more other sets in `S`.
+Because of that, the set of all ancestors `A(s)` is non-empty.
+
+Since `s` is a subset to each set in `A(s)`, and since no set in `S` can be
+disjoint to, or overlap another set in `S`, all the sets in `A` are related
+with each other. Consequently, `A` is **a total sub-setup** of `S`.
+
+`A` therefore has a set `l` such that it is a subset to all the sets in `(A\l)`
+(i.e. `(l == p(s))`). Consequently, `l` has the least amount of elements in `A`.
+As such `l` can be described as **the least significant set** in `A` that is
+**sub-ordinate** to all the other sets.
+
+* `min(A) := l` such that `(#l < #t)` for all `(t in A\l)`
+* `(l subset-of t)` for all `(t in A\l)`
+
+Likewise, `A` has a set `m` such that it is a superset to all the sets in
+`(A\m)` (i.e. `(m == r(s))`. Consequently, `m` has the most amount of elements
+in `A`. As such, `m` can be described as **the most significant set** in `A`
+that is **super-ordinate** to all the other sets.
+
+* `max(A) := m` such that `(#t < #m)` for all `(t in A\m)`
+* `(m superset-of t)` for all `(t in A\m)`
+
+Note that any non-empty subset of a total setup is itself a total sub-setup
+and therefore has a least and a most significant set. (Hence the more generic
+specifiers `l` and `m`).
+
+Note that, due to the above, `S` can be described as being **downward-total**.
+
+TODO
+* define least/most significant in regards to relationships
+* i.e. not in regards to the number of elements in each item
+* i.e. based on presequent and subsequent
 
 <!-- ======================================================================= -->
 ## unique numbers of elements
@@ -101,34 +139,3 @@ over the sets in it correpsponds with the number of elements in each set.
 Note that one can describe a total setup as **an onion of sets** such that the
 least significant set is at its core. Based on that, the onion can be described
 to grow outwards by one or more elements with each next larger set.
-
-<!-- ======================================================================= -->
-## least/most significant (super)set
-
-Given a partial setup `S` and a non-root set `(s in S)`,
-then `s` is a subset to one or more other sets in `S`.
-Because of that, **the set of all supersets** `A(s)` is non-empty.
-One can thus form a sub-setup `T := (A(s) + {s})`.
-
-Since `s` is a subset to each set in `A(s)`, and since no set in `S` is
-allowed to overlap another set in `S`, all the sets in `T` are related
-with each other. Consequently, `T` is **a total sub-setup** of `S`.
-
-`T` therefore has a set `l` such that it is a subset to all the sets
-in `(T\l)`. Consequently, `l` has the least amount of elements in `T`.
-As such `l` can be described as **the least significant set** in `T`
-that is **sub-ordinate** to all the other sets.
-
-* `min(T) := l` such that `(#l < #t)` for all `(t in T\l)`
-* `(l subset-of t)` for all `(t in T\l)`
-
-Likewise, `T` has a set `m` such that it is a superset to all the sets
-in `(T\m)`. Consequently, `m` has the most amount of elements in `T`.
-As such, `m` can be described as **the most significant set** in `T`
-that is **super-ordinate** to all the other sets.
-
-* `max(T) := m` such that `(#t < #m)` for all `(t in T\m)`
-* `(m superset-of t)` for all `(t in T\m)`
-
-Note that any non-empty subset of a total setup is itself a total
-sub-setup and therefore has a least and a most significant set.

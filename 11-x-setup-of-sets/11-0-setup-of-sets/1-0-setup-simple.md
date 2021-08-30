@@ -10,9 +10,9 @@ if and only if the following requirements are met.
 
 Note that, since a setup is not defined as a multiset, each set in `S` is
 distinct to every other set in it. Furthermore, each set in a setup may in
-principle hold elements of any kind (i.e. heterogenous). Despite that, a
-setup is in general expected to hold elements of a certain kind (e.g.
-primitive numeric values only, i.e. **homogenous**).
+principle hold elements of any kind (i.e. heterogenous sets). Despite that,
+a setup is in general expected to hold elements of a certain kind (e.g.
+primitive numeric values only, i.e. **homogenous** sets).
 
 Note that set-based operators can be used in the context of a simple setup.
 This includes, but is not limited to the following operators ..
@@ -22,11 +22,12 @@ This includes, but is not limited to the following operators ..
 * `(s in S)` := true, iff set `s` is an element in `S`
 
 Note that each setup can be understood to be accompanied by **a universal set**
-`U`, which can be described as the union of all sets in `S`.
+`U`, which can be described as the union of all sets in `S`. Because of that,
+`S` can be described as a subset to the powerset over `U`.
 
+* `(S subset-of P(U))` is true
 * `U, U(S)` is the universal set of setup `S`
 * `U := { x | (x in s) for some (s in S) }`
-* `(S subset-of P(U))` - `S` is a subset to the powerset of `U`
 
 Note that the expression `(e in S)` may be used to test if `e` is an element
 in one or more sets of `S`. Since setups are in general such that `U` is a
@@ -34,13 +35,13 @@ set of primitive values, one can in general distinguish both cases in a given
 context. After all, `e` must then either be a primitive value ex-or a set of
 such values.
 
-Note that a setup was formerly defined as a tuple `S(P,U)` such that `P` is
-the set of sets, and `U` the universal set of elements. This more complete
-definition however seemed to make explanations needlessly verbose and thus
+Note that a setup was formerly defined as a tuple `S(P,U)` such that `P` is the
+set of sets, and `U` the universal set of elements. This old but more complete
+definition however seemed to make explanations needlessly verbose and therefore
 more difficult to understand.
 
 <!-- ======================================================================= -->
-## possible variations
+## variations
 
 Recall that two non-empty sets can either be disjoint (DI), related (RE), or
 both sets overlap each other (OV) - in short **DI ex-or RE ex-or OV**, or

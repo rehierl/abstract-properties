@@ -2,13 +2,13 @@
 <!-- ======================================================================= -->
 # normalized setups
 
-A partial/total setup `S` will be referred to as **a normalized setup**,
+A partial/total setup `S` can be described as **a normalized setup**,
 if the following requirements are met:
 
-* (R3) Each set in `S` has exactly one CE.
-* (R4) Each CE must allow to identify the node a set represents.
+* (R1) Each set in `S` has exactly one CE.
+* (R2) Each CE must be a unique node identifier of some sort.
 
-Due to R3 no CSS may be empty or have more than one CE.
+Due to R1 no CSS may be empty or have more than one CE.
 
 * `(#css(s) == 1)` must be true for all `(s in S)`
 * `U(S)` is effectively a set of node identifiers
@@ -20,7 +20,8 @@ Since the relationships between the sets in an input setup `S` define the
 relationships between the nodes in the resulting tree `T(N,E)`, a setup must
 first and foremost be understood to define the structure of a tree. Desipte
 that, a setup has no further characteristics that could be relied upon when
-creating the nodes of a tree. Additional characteristics are thus required:
+creating the nodes of a tree. Additional characteristics are therefore
+required:
 
 (1) - `(N subset-of U(S))` - Since it must be possible to determine which node
 a set represents, the node ids of the resulting tree must be elements in the

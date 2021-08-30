@@ -2,34 +2,34 @@
 <!-- ======================================================================= -->
 ## a recap on set-based definitions
 
-Note that the main intention of the following definitions is to shift ones
-focus away from the specific elements the sets contain. That is, the intention
-is to shift ones focus towards the relationships between two or more sets.
+Note that the main intention of the following definitions is to shift ones focus
+away from the elements the sets contain, towards the relationships between two
+or more sets.
 
 <!-- ======================================================================= -->
 ## remarks
 
-Note that the empty set `Ø` is disjoint-to and related-to every other set.
-Also, the empty set is the only set that is disjoint-to and thus also not
-coupled-with itself. In contrary to that, every other set is coupled-with
-itself.
+Note that the empty set `Ø` is disjoint-to and related-to every other set. Also,
+the empty set is the only set that is disjoint-to and as such also not coupled
+with itself. In contrary to that, every other set is coupled-with itself.
 
-Note that common elements can be understood to act as a "link" between two
-sets. Because of that, coupled sets can be said to be "connected" with each
-other via some "point of contact". Such a point of contact may consist of
-one or more elements. That is, the link between two coupled sets is itself
-a set of elements that is a subset (i.e. intersection) to both coupled sets.
+Note that common elements can be understood to act as a "link" between two sets.
+Because of that, coupled sets can be said to be "connected" with each other via
+some "point of contact". Such a point of contact may consist of one or more
+elements. That is, the link between two coupled sets is itself a set of elements
+that is a subset (i.e. intersection) to both coupled sets.
 
-Note that the set difference `(A \ B)` between sets A and B is in general also
-known as **the relative complement** of set B in regards to set A.
+Note that the set difference `css(A) := (A \ B)` between two sets A and B
+contains all those elements in A that are unique to it in regards to B.
+Because of that, the set difference can be described as
+**the characteristic subset css()** of A in regards to B.
 
-Note that the set difference `css(A) := (A \ B)` between sets A and B contains
-all those elements in A that are unique to it in regards to B. As such, it can
-be described as **the characteristic subset CSS()** of A in regards to B.
+Note that the set difference `(A \ B)` between sets A and B is also known
+as **the relative complement** of B in regards to A.
 
-Note that two non-empty subsets of two disjoint sets are themselves disjoint.
-Likewise, two descendants of two incomparable nodes in a tree are themselves
-incomparable.
+Note that any two non-empty subsets of two disjoint sets are themselves
+disjoint. Likewise, two descendants of two incomparable nodes in a tree
+are themselves incomparable.
 
 * Given two sets such that `(A disjoint-to B)`, ...
 * and two subsets `a` and `b` such that ...
@@ -57,7 +57,7 @@ if it contains all the elements of A, but no element of B.
 * `css(A) := (A \ B)`
 
 Set C is the **symmetric difference** between sets A and B,
-if it contains all the elements that are elements of only one set.
+if it contains all the elements that are elements of one set only.
 
 * `(A ^ B), (A xor B) := (A + B) \ (A & B)`
 * alt - `(A xor B) := (A \ B) + (B \ A)`
@@ -65,8 +65,8 @@ if it contains all the elements that are elements of only one set.
 <!-- ======================================================================= -->
 ## set-based definitions
 
-Set A is **empty** (Ø),
-if it has no elements at all.
+Set A is **empty**, if it has no elements at all.
+The empty set `Ø` is the only set that has no elements.
 
 * `isEmpty(A) := (#A == 0)`
 
@@ -74,19 +74,19 @@ Set A is **disjoint** (DI) to set B,
 if no element in A is also an element in B.
 
 * `(A disjoint-to B) := (a !in B) for all (a in A)`
-* alt - `(A disjoint-to B) := ((A & B) == Ø)`
+* alternatively - `(A disjoint-to B) := ((A & B) == Ø)`
 
 Set A is **coupled-with** (C) set B,
 if both sets have one or more elements in common.
 
 * `(A coupled-with B) := (a in B) for some (a in A)`
-* alt - `(A coupled-with B) := ((A & B) != Ø)`
+* alternatively - `(A coupled-with B) := ((A & B) != Ø)`
 
 Set A is a **(simple) subset** of set B,
 if every element in A is also an element in B.
 
 * `(A subset-of B) := (a in B) for all (a in A)`
-* alt - `(A subset-of B) := ((A & B) == A)`
+* alternatively - `(A subset-of B) := ((A & B) == A)`
 
 Set A is a **(simple) superset** of set B,
 if B is a subset of A.
@@ -97,17 +97,18 @@ Set A is **equal** (EQ) to set B,
 if both are subsets to each other.
 
 * `(A == B), (A equal-to B) := (A subset-of B) and (B subset-of A)`
-* alt - `(A == B) := ((A xor B) == Ø)`
+* alternatively - `(A == B) := ((A xor B) == Ø)`
 
-Set A is **distinct** from set B,
+Set A is **distinct** to set B,
 if both are unequal.
 
-* `(A != B), (A distinct-from B) := not (A == B)`
+* `(A != B), (A distinct-to B) := not (A == B)`
 
 Set A **overlaps** set B,
 if both are coupled-with but not related-to each other.
 
-* `(A overlaps B) := (A coupled-with B) and (A unrelated-to B)`
+* `(A overlaps B) := (A & B != Ø) and (A \ B != Ø) and (B \ A != Ø)`
+* alternatively - `(A overlaps B) := (A coupled-with B) and (A unrelated-to B)`
 
 <!-- ======================================================================= -->
 ## related
@@ -132,7 +133,7 @@ if both are distinct, and if A is a superset of B.
 
 * `(A proper-superset-of B) := (A superset-of B) and (A != B)`
 
-Set A is **strictly related** to set B,
+Set A is **strictly/properly related** to set B,
 if one is a proper subset of the other.
 
-* `(A related-to B) := (A proper-subset-of B) or (B proper-subset-of A)`
+* `(A properly-related-to B) := (A proper-subset-of B) or (B proper-subset-of A)`
