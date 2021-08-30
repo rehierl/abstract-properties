@@ -17,14 +17,14 @@ complete definition of `T`.
 |-------------| |-------|
 ```
 
-A partial/total setup `S` will be referred to as **a forest of scopes**,
+A partial setup `S` will be referred to as **a forest of scopes**,
 if the following requirements are met:
 
 * (R1) `S` is a normalized setup of sets.
 
-Note that "a forest of scopes" is synonymous to "a normalized setup". That is
-because there are no additional requirements. Consequently, a forest of scopes
-`F` may have any number of root sets.
+Note that "a forest of scopes" is synonymous to "a normalized partial setup".
+That is because there are no additional requirements. Consequently, a forest
+of scopes `F` may have any number of root sets.
 
 * `(#RS(F) in [0,*])` is true
 
@@ -46,8 +46,8 @@ if the following requirements are met:
 * (R1) `S` is a normalized setup of sets.
 * (R2) `S` has one and only one root set.
 
-Note that "a hierarchy of scopes" can also be described as
-**a rooted normalized setup**.
+Note that "a hierarchy of scopes" is synonymous to
+"a rooted normalized setup".
 
 * `(#RS(H) == 1)` is (required to be) true
 
@@ -57,7 +57,7 @@ Note that a hierarchy `H` of scopes has the following properties:
 * `(Ø !in H)` - No set in a hierarchy is empty.
 * A hierarchy is acyclic.
 * All the sets in a hierarchy are "DI ex-or RE".
-* Each set as no ex-or one parent set - a superset.
+* Each set has no ex-or one parent set - a superset.
 * Each set may have any number of child sets - subsets.
 * Any ancestor has more elements than all of its descendants.
 * Each set has a unique rooted path.
@@ -84,7 +84,7 @@ of hierarchies.
 ## remarks
 
 Note that each hierarchy of scopes is a forest of scopes, but not necessarily
-vice versa. The latter is because a setup may have more than one root set.
+also vice versa. The latter is because a setup may have more than one root set.
 
 * forest <-> normalized setup
 * hierarchy -> normalized setup
@@ -92,13 +92,10 @@ vice versa. The latter is because a setup may have more than one root set.
 Note that two hierarchies `H1` and `H2` are **disjoint**, if their root sets
 are disjoint. Based on that, any set in `H1` is disjoint to every set in `H2`.
 
-* `(H1 disjoint-to H2) <-> (r1 disjoint-to r2)`
+* `(H1 disjoint-to H2) := (r1 disjoint-to r2)`
 
 Note that any **subset** of a hierarchy, after normalizing the result, is in
 general a forest - i.e. not necessarily a hierarchy.
-
-Note that forests and hierarchies are all **flat** setups of sets. Based on
-that, a forest can be described as "a union of disjoint hierarchies".
 
 Note that the definition of a hierarchy does not cover the process of forming
 the sets it contains. It merely describes how these are related with each other.

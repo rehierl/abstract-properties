@@ -1,9 +1,6 @@
 
-# setups of sets (2)
-
-point out that ..
-- a partial order is more than what meets the eye
-- thus far aligned to one case - superset + di-xor-re
+# variations of setups
+- point out that a partial order is more than what meets the eye
 
 <!-- ======================================================================= -->
 ## variants of partial orders (poset)
@@ -26,4 +23,4 @@ see partial orders in order theory
 containment orders
 
 * a subset can not have disjoint supersets
-* can support parallel components - iff supersets overlap
+* can support parallel subcomponents - iff supersets overlap

@@ -48,35 +48,9 @@ does indeed correspond with a scope in the tree that hierarchy defines. Hence
 the "scopes" suffix in "hierarchy of scopes".
 
 <!-- ======================================================================= -->
-## hierarchy of scopes => node tree
-
-```
-S: a rooted normalized setup      T: a node tree
-============================  =>  ==============
-|-1---------------------|             1
-| |-2-----------| |-3-| |           -----
-| | |-4-| |-5-| | |---| |           2   3
-| | |---| |---| |       |         -----
-| |-------------|       |         4   5
-|-----------------------|
-```
-
-Provided that a given setup of sets `S` has (1) one root set only, and (2)
-a unique node identifier as the CE of each set, one can use `S` to form an
-order of scopes `P(S,<)` ..
-
-* `P(S,<)` where ..
-* `(a < b) := (a strict-superset-of b) for (a,b in S)`
-
-.. and also a node tree `T(N,E)`.
-
-* `T(N,E)` where `N := U(S)` and ..
-* `E := { (ce(a),ce(b)) | (a parent-set-of b) for (a,b in S) }`
-
-<!-- ======================================================================= -->
 ## node tree => hierarchy of scopes
 
-Given a node tree `T(N,E)`, **a family of scopes** `S` can be formed based on
+Given a node tree `T(N,E)`, **a hierarchy of scopes** `S` can be formed based on
 the concept of abstract properties. That family of scopes can then be used to
 form a strict partial containment order `P(S,<)` using the "strict-superset-of"
 operator as the order operator.
@@ -103,7 +77,7 @@ that each and every node `ni` in `T` declares its very own property `pi`.
 
 Based on these properties, one can define a set `S` such that it contains
 the scope `si` of each property `pi` as an element. As such, set `S` can be
-described as **a family of scopes**.
+described as **a hierarchy of scopes**.
 
 ```
 S  := +si   := { s1, s2, s3, s4, s5 }
@@ -119,3 +93,23 @@ One can then define a containment order `P` using the family of scopes `S`.
 * `P := (V,<)` such that `(V := S)` and
 * `S := { si | (si := [ni,*]) such that (i in [1,#V(T)]) }`
 * `(a < b) := (a strict-superset-of b)`
+
+<!-- ======================================================================= -->
+## hierarchy of scopes => node tree
+
+```
+S: a rooted normalized setup      T: a node tree
+============================  =>  ==============
+|-1---------------------|             1
+| |-2-----------| |-3-| |           -----
+| | |-4-| |-5-| | |---| |           2   3
+| | |---| |---| |       |         -----
+| |-------------|       |         4   5
+|-----------------------|
+```
+
+Provided that a given setup `S` is a hierarchy of scopes,
+one can form a node tree `T(N,E)` as follows:
+
+* `T(N,E)` where `N := U(S)` and ..
+* `E := { (ce(a),ce(b)) | (a parent-set-of b) for (a,b in S) }`

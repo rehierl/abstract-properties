@@ -1,8 +1,6 @@
 
-# setups of sets (2)
-
+# variations of setups
 - thus far mostly a chapter of bullet points
-- thus far only one kind of related-to used - i.e. superset-of
 
 the goal ..
 - find non-standard applications
