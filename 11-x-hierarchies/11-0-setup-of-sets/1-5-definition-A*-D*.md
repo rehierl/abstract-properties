@@ -15,6 +15,10 @@ descendant sets are disjoint.
 
 * `(A(s) disjoint-to D(s))` is true
 
+Note that, if one focusses on "a known fixed rule", then `A(s)` can be said
+to define an induced total sub-setup. Likewise, `D(s)` can both be said to
+define an induced partial sub-setup.
+
 <!-- ======================================================================= -->
 ## subsetups A and D
 

@@ -42,13 +42,11 @@ Note that no node is an ancestor nor a descendant to any of its peers.
 The ancestors of a node `n` are those nodes that are presequent to node `n`
 in its rooted path `rp(n)`.
 
-* `(a ancestor-of n) := (a in E(rp(n))) and (a != n)`
-* alternatively - `(a ancestor-of n) := aPn`
+* `(a ancestor-of n) := aPn and (a != n)`
 
 The descendants of node `n` are those nodes to which `n` is an ancestor.
 
-* `(d descendant-of n) := (n ancestor-of d)`
-* alternatively - `(d descendant-of n) := nPd`
+* `(d descendant-of n) := nPd and (n != d)`
 
 Note that no node is an ancestor or a descendant to itself.
 
@@ -82,14 +80,20 @@ With regards to `DN`:
 A function `(a: N -> P(N))` can be defined
 that returns the set of all ancestors of the input node.
 
-* `A(n), a(n) := { a | aPn }`
-* `(a in a(n)) <-> (a ancestor-of n)`
+* `A(n) := { a | aPn }`
+* `(a in A(n)) <-> (a ancestor-of n)`
 
 Likewise, a function `(d: N -> P(N))` can be defined
 that returns the set of all descendants of the input node.
 
-* `D(n), d(n) := { d | nPd }`
-* `(d in d(n)) <-> (d descendant-of n)`
+* `D(n) := { d | nPd }`
+* `(d in D(n)) <-> (d descendant-of n)`
+
+remarks
+
+* `(x ancestor-of n)` is false for each `(x in N\A(n))`
+* `(x descendant-of n)` is false for each `(x in N\D(n))`
+* `(x related-to n)` is true for each `((x,n) in (A(n)+D(n))×{n})`
 
 <!-- ======================================================================= -->
 ## distant ancestor/descendant
@@ -103,24 +107,3 @@ A descendant `d` may be referred to as **a distant descendant** `DD(n)`
 of node `n`, if it isn't a child of `n`.
 
 * `DD(n) := (D(n) \ c(n))`
-
-<!-- ======================================================================= -->
-## a recursive point of view on rooted paths
-
-In a rooted path, any edge is downward oriented (i.e. from an ancestor
-towards its descendants). Because of that, the ancestors `A(n)` of a
-node `n` are all presequent to that node in the node's rooted path:
-
-* `E(rp(n)) == (A(n) union {n})`
-* `rp(n) := (prefix × n)` where `(E(prefix) == A(n))`
-* `(rp(a) prefix-of rp(n))` where `(a ancestor-of n)`
-
-Furthermore, the parent `p` of a node is considered the least significant
-ancestor of a node. That is, `p` is subordinate to any other ancestor in `A(n)`:
-
-* `rp(n) := (prefix × p × n)` where `(E(prefix) == DA(n))`
-* `rp(n) := (rp(p) × n)` where `(p parent-of n)`
-
-The root root `r` of a tree is the most significant ancestor to every other node.
-
-* `(r ancestor-of n)` is true for all non-root nodes `(n in N\RN)`

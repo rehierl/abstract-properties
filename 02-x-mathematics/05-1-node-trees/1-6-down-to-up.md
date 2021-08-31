@@ -22,6 +22,7 @@ down            up
 Recall that the value-based point of view on the meaning of "up/down" is
 based on the numeric value of elements. As a consequence of that, the edges
 in drawings of number-based ordered sets `P(V,<)` are oriented "upwards".
+That is, "up" is oriented towards increasing numeric values.
 
 <!-- ======================================================================= -->
 ## the tree-based point of view
@@ -42,6 +43,12 @@ In contrary to that, and in the context of a node tree `T(N,E)`, the meaning
 of "up/down" is turned upside down. That is because the focus of consideration
 is not on the values of numbers, but on the paths that can be formed over the
 edges of a tree, which are oriented "downwards" in a vertical representation.
+
+Alternatively, one can speak of an **inside**, if one refers to the descendants
+of a a given node. Based on that, one can speak of an **outside**. However, if
+it comes to the "outside" of a node, one must distinguish between "not inside"
+and the set of "ancestors". That is because the former in general includes more
+than the latter.
 
 <!-- ======================================================================= -->
 ## a default point of view

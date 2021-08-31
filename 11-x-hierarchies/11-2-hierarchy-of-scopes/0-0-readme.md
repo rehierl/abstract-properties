@@ -3,13 +3,13 @@
 - the (scopes <-> trees) correspondence
 
 ```
-T <-> HS
+T <-> Hs
 ```
 
 * T - node trees
-* HS - a hierarchy of scopes
+* Hs - a hierarchy of scopes
 
-A tree (T) can be used to from a hierarchy of scopes (HS) such that the source
+A tree (T) can be used to from a hierarchy of scopes (Hs) such that the source
 tree can be recreated from it. Likewise, a hierarchy of scopes allows to form
 a tree, which in turn allows to form the source hierarchy. That is, each tree
 is isomorphic to a hierarchy of scopes. And since a forest of trees is the

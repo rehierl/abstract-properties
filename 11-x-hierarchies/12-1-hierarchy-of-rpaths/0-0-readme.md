@@ -3,14 +3,14 @@
 - the (rpaths <-> trees) correspondence
 
 ```
-T <-> HR <-> HS
+T <-> Hr <-> Hs
 ```
 
 * T - node trees
-* HR - a hierarchy of rooted paths
-* HS - a hierarchy of scopes
+* Hr - a hierarchy of rooted paths
+* Hs - a hierarchy of scopes
 
-A tree (T) can be used to form a hierarchy of rooted paths (HR) such that the
+A tree (T) can be used to form a hierarchy of rooted paths (Hr) such that the
 source tree can be recreated from it. Likewise, a hierarchy of rooted paths
 allows to form a tree, which in turn allows to recreate the source hierarchy.
 That is, each tree is isomorphic to a hierarchy of rooted paths. And since a
@@ -22,7 +22,7 @@ a hierarchy would need to have additional characteristics which could then be
 used to define a child order over the rooted paths in that hierarchy - e.g.
 an ordered sequence of rooted paths.
 
-A hierarchy of rooted paths (HR) also allows to directly form a hierarchy
-of scopes (HS) from it. Conversely, a hierarchy of scopes allows to form
+A hierarchy of rooted paths (Hr) also allows to directly form a hierarchy
+of scopes (Hs) from it. Conversely, a hierarchy of scopes allows to form
 a hierarchy of rooted paths. That is, a hierarchy of rooted paths is also
 isomorphic to a hierarchy of scopes.

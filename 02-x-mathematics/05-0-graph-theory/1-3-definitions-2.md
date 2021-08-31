@@ -51,7 +51,7 @@ or **isolated**, if is no endpoint to any edge.
 Two vertices in a graph can be described as being **connected with** each other,
 if a path can be formed that has both vertices as its endpoints.
 
-* `(a connected-with b) := aPb and/or bPa`
+* `(a related-to b), (a connected-with b) := aPb and/or bPa`
 
 Note that different levels of connectivity can be defined based on whether the
 corresponding path is a path over the directed graph, or a path over the graph's
