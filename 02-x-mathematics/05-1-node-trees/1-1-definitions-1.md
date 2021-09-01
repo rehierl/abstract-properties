@@ -28,7 +28,7 @@ The following function `(s: N -> P(N))` can be defined:
 
 Note that, there is no edge `xEy` and no edge `yEx` if `(x sibling-of y)` true.
 Also, the sibling-of operator has no orientation. Because of that, siblings can
-be considered to be of equal significance.
+be considered to be of equal significance to their parent.
 
 <!-- ======================================================================= -->
 ## semantics of a tree T

@@ -18,13 +18,9 @@ is understood to represent a unique object.
 The following can be said about the nodes of an edge `(e in E)`:
 
 * `e := (x -> y) := (x,y)`
-* `y` is a root, if there is no `x` such that `xEy` is true
-* `x` is a parent of `y`, and `y` is a child of `x`
-* `(x parent-of y)` is true, iff `x` is the parent of `y`
-* `(y child-of x)` is true, iff `y` is a child of `x`
-* `x` is super-ordinate to `y`, and `y` is sub-ordinate to `x`
-* `x` is more significant than `y`, and `y` is less significant than `x`
-* all graph-based definitions still apply - endpoints, source, sink, ..
+* all graph-based definitions apply - endpoints, source, sink, ..
+* `x` is super-ordinate to and more significant than `y`
+* `y` is sub-ordinate to and less significant than `x`
 
 The following can be said about any edge `(e in E)`
 and the relationship it has with both of its vertices:
@@ -33,20 +29,40 @@ and the relationship it has with both of its vertices:
 * from a super-ordinate towards a sub-ordinate node
 
 Like any (directed) graph, each tree can be understood to be associated
-with an indicator function `E()` (i.e. its characterisitc funciton):
+with an indicator function `E()` (i.e. its characterisitc function):
 
 * `(E: N×N -> Bool)` or `E(x,y) := ((x,y) in E)`
 * notational simplification - `xEy := E(x,y)`
 
 <!-- ======================================================================= -->
+## parent, child, siblings
+
+In the context of node trees, more specific edge-based definitions apply:
+
+* `e := (x -> y) := (x,y)`
+* `y` is a root, if there is no `x` such that `xEy` is true
+* `x` is a parent of `y`, and `y` is a child of `x`
+* `(x parent-of y)` is true, iff `xEy` is true
+* `(y child-of x)` is true, iff `xEy` is true
+
+Two child nodes `y` and `z` are said to be siblings to each other,
+if and only if both nodes have `x` as their parent node.
+
+* `(y sibling-of z)` is true, iff `xEy` and `xEz` are both true.
+
+Note that the definition of a node tree **does not support a child order**.
+That is, a node tree has no first and no last child, and the child nodes of
+a parent node appear to be equally relevant to their parent node.
+
+<!-- ======================================================================= -->
 ## restrictions, requirements
 
-Further requirements on node trees are:
+Further requirements:
 
 * a node that is no source to any edge is a root
-* each tree has a root, and one root node only
+* each tree has a root, and **one root node only**
 * any edge connects a parent (source) with a child (sink)
-* each child has one and only one incoming edge
+* each child has **one parent node only**
 
 Since no node is considered to be super- or sub-ordinate to itself,
 no edge begins and ends in the same node.
@@ -57,19 +73,27 @@ no edge begins and ends in the same node.
 * `xEy` may be true iff `(x != y)`
 
 Note that such a node tree can be described as an **arborescence**. That is,
-any tree in the context of this dicsussion is considered to be defined as
-an arborescence - a directed acyclic graph (dag) that has a unique rooted
-path for each node in it.
+any tree in the context of this dicsussion is considered to be defined as an
+arborescence - a directed acyclic graph (dag) that has a unique rooted path
+for each node in it.
 
 <!-- ======================================================================= -->
 ## (sub)sets of nodes
+
+```
+in VO      | in VI     | combined
+-----------|-----------|---------------------
+0 - leaf   | 0 - root  | 00 - root and leaf
+0 - leaf   | 1 - child | 01 - child and leaf
+1 - parent | 0 - root  | 10 - root and parent
+1 - parent | 1 - child | 11 - parent and child
+```
 
 As a matter of simplification, the following sets of nodes can be defined:
 
 * `RN := { (r in N) | (r !in VI) }`
 * `RN` is the set of nodes that have no incoming edge
 * note - `RN` is similar, but not equal to `SRC`
-* note - `(n in SRC) -> (n in RN)`
 * `PN := { (p in N) | (p in VO) } := VO`
 * `PN` is the set of nodes that are parent to some child node
 * `CN := { (c in N) | (c in VI) } := VI`
@@ -79,27 +103,28 @@ As a matter of simplification, the following sets of nodes can be defined:
 * note - each inner node is an internal vertex
 * `LN := { (l in N) | (l !in VO) }`
 * `LN` is the set of leaf nodes that have no child
+* note - `LN` is similar, but not equal to `SNK`
 
 <!-- ======================================================================= -->
 ## (helper) functions
 
-A function `(p: N -> P(N))` can be defined that returns the set of parent nodes
-of the input node `n`. Put differently, `p(n)` returns all the nodes to which
-`n` is a child.
+A function `(p: N -> P(N))` can be defined that returns the set of parent
+nodes of the input node `n`. Put differently, `p(n)` returns all the nodes
+to which `n` is a child.
 
 * `p(n) := { (p in N) | pEn } := src(n)`
 * `p(n)` is the set of parent nodes of `n`
 
-A function `(c: N -> P(n))` can be defined that returns the set of child nodes
-of the input node `n`. Put differently, `c(n)` returns all the nodes to which
-`n` is a parent.
+A function `(c: N -> P(n))` can be defined that returns the set of child
+nodes of the input node `n`. Put differently, `c(n)` returns all the nodes
+to which `n` is a parent.
 
 * `c(n) := { (c in N) | nEc } := snk(n)`
 * `c(n)` is the set of child nodes of `n`
 
 Based on the characteristics of a node tree `p()` can be redefined as below.
-As a matter of simplification, one can still assume that `p()` is defined to
-return a set of nodes (i.e. a 1-element set of nodes).
+As a matter of simplification, one can still assume that `p()` is defined
+to return a set of nodes (i.e. a 1-element set of nodes).
 
 * `(p: N -> N)` such that `p(n) := p` for `pEn`
 * `p(n)` is the parent node of `n`
@@ -133,9 +158,9 @@ With regards to a node's child nodes - a child-based view:
 * any node, except for a leaf, is a parent
 * a leaf has no child, but may itself be one
 
-Note that each non-root node `(n in N\RN)` is a sink to one and only one edge.
-That is, each child node has exactly one incoming edge. In contrary to that,
-each non-leaf node `(n in N\LN)` is a source to one or more edges. That is,
-each parent node has one or more outgoing edges. Put differently, each node
-may be the sink of an edge no more than once. In contrary to that, any node
-may act as a source to any number of edges.
+Note that each non-root node `(n in N\RN)` is a sink to one and only one
+edge. That is, each child node has exactly one incoming edge. In contrary
+to that, each non-leaf node `(n in N\LN)` is a source to one or more edges.
+That is, each parent node has one or more outgoing edges. Put differently,
+each node may be the sink of an edge no more than once. In contrary to
+that, any node may act as a source to any number of edges.

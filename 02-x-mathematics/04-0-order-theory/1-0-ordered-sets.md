@@ -78,12 +78,20 @@ relation-based definition seems "more generic" and as such "less misleading".
 <!-- ======================================================================= -->
 ## cover relation, hasse diagrams
 
-Note that the reflexive transitive reduction of an order relation can be
-described as **the cover relation** of an order relation.
+The reflexive transitive reduction of an order relation can be described as
+the **cover relation** of an order relation. That is because the reflexive
+transitive closure of that cover relation is equal to the initial order
+relation. Based on that, the paths that can be formed over the edges of a
+cover relation can be understood to cover all the edges in the underlying
+order relation.
 
-Note that **a hasse diagram** is the drawing of an order's (reflexive) transitive
-reduction. Hence, a hasse diagram can be said to visualize the cover relation
-of an order and as such to "cover" an order relation.
+Since a **hasse diagram** is the drawing of the cover relation of an order
+relation in terms of vertices and edges, a hasse diagram can be said to
+visualize an order relation.
+
+A cover relation may therefore also be described as **a cover graph** and
+also as **an order graph**. That is, an order graph is the cover relation
+of an order relation.
 
 <!-- ======================================================================= -->
 ## read "as is"

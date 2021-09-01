@@ -39,26 +39,6 @@ Note that edge-based terms can be used in the context of a path:
 * `p` has `a` as its source and `b` as its sink vertex
 
 <!-- ======================================================================= -->
-## connected, disconnected
-
-A vertex can be described as being **connected**, if it is an endpoint to one
-or more edges. Conversely, a vertex can be described as being **disconnected**
-or **isolated**, if is no endpoint to any edge.
-
-* `(is-connected v) := (v in VI) or (v in VO)`
-* `(is-disconnected v), (is-isolated v) := not (is-connected)`
-
-Two vertices in a graph can be described as being **connected with** each other,
-if a path can be formed that has both vertices as its endpoints.
-
-* `(a related-to b), (a connected-with b) := aPb and/or bPa`
-
-Note that different levels of connectivity can be defined based on whether the
-corresponding path is a path over the directed graph, or a path over the graph's
-underlying undriected graph. The focus of this discussion in that regards is on
-vertices that are not disconnected.
-
-<!-- ======================================================================= -->
 ## the length of a path
 
 Given a path `p := (v1,..,vk)`, its length `#p` can be defined as below.
@@ -78,6 +58,42 @@ Note that the default point of view is on the vertex-length of a path. As such
 
 Note that a path may in general have any (even infinite) length. However, in
 the context of this discussion, all paths are assumed to have finite length.
+
+<!-- ======================================================================= -->
+## a language-based point of view
+
+If the set of vertices of a graph `G(V,E)` is seen as the alphabet of a
+formal language, and the set of edges as representing the rules which define
+what symbol may be subsequent to another symbol, then the theoretical set
+of allpaths `P` that can be formed over the edges of a graph can be seen
+as **a set of words** that can be formed over the alphabet of a graph.
+
+With that in mind, syntactic tools that are used in the context of formal
+languages (e.g. regular expressions) can be used to denote certain sets of
+paths that can be formed over the edges of a given graph.
+
+* `(p in V*) <=> (p in P)` - intended to mean the same
+* `(p in V{2,5})` - all paths such that `(#p in [2,5])`
+
+<!-- ======================================================================= -->
+## connected, disconnected
+
+A vertex can be described as being **connected**, if it is an endpoint to one
+or more edges. Conversely, a vertex can be described as being **disconnected**
+or **isolated**, if is no endpoint to any edge.
+
+* `(is-connected v) := (v in VI) or (v in VO)`
+* `(is-disconnected v), (is-isolated v) := not (is-connected)`
+
+Two vertices in a graph can be described as being **connected with** each other,
+if a path can be formed that has both vertices as its endpoints.
+
+* `(a related-to b), (a connected-with b) := aPb and/or bPa`
+
+Note that different levels of connectivity can be defined based on whether the
+corresponding path is a path over the directed graph, or a path over the graph's
+underlying undriected graph. The focus of this discussion in that regards is on
+vertices that are not disconnected.
 
 <!-- ======================================================================= -->
 ## distance between vertices

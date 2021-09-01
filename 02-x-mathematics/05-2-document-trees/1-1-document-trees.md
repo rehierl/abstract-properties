@@ -22,11 +22,11 @@ elements that have no particular placement associated with them.
 <!-- ======================================================================= -->
 ## tree order
 
-The node order of a tree is commonly referred to as **the tree order** of some
-known tree and used to denote the top-down order between the nodes in it (i.e.
-descendants are subsequent to ancestors). Because of that, this description is
-more or less one that that focuses on the visual representation of a tree, and
-not so much on the underlying partial order.
+The node order of a tree is commonly referred to as its **tree order** and
+used to denote the top-down order between the nodes in it (i.e. descendants
+are subsequent to ancestors). Because of that, this description is more or
+less one that focuses on the visual representation of a tree, and not so much
+on the underlying partial order.
 
 Also, the description of "tree order" seems misleading since the corresponding
 order is no order of trees, but an order of nodes. That is, referring to some

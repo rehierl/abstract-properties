@@ -28,12 +28,19 @@ Based on that, `sem()` could be defined as ...
 * `(sem: E -> Expression)`, where `(sem(e) == s)` if `((e,s) in S)`
 * i.e. `sem(e)` returns the semantical expression of edge `e`
 
+Due to the above, a graph can be thought of as being accompanied by a set of
+expressions `SEM()` which contains all the expressions that are associated
+with at least one of its edges.
+
+* `(SEM: {G} -> {Expression})`
+* `SEM(G) := { sem(e) | (e in E(G)) }`
+
 If the expression of an edge is seen as the "type" of an edge, then a graph
 can be referred to as having a **homogenous set of edges**, if the semantics
 of each edge is identical to the semantics of all the other edges. Conversely,
 a graph may be referred to as having a **heterogenous set of edges**, if that
 is not the case. Put differently, a homogenous set of edges can be understood
-to hold **edges of the same sort**.
+to hold **edges of the same sort/kind**.
 
 * `homogenous(E) := (sem(e) == sem(f))` for any pair of edges `(e,f in E)`
 * `heterogenous(E) := not homogenous(E)`
@@ -44,9 +51,8 @@ defined by the semantics of its edges `sem(e)` (i.e. `(sem(e) => sem(G)`).
 Conversely, the semantics of a graph can be understood to define the semantics
 of its edges (i.e. `(sem(G) => sem(e))`).
 
-* `homogenous(G) := (sem(G) <-> sem(e))` for each edge `(e in E)`
-* `homogenous(G) -> homogenous(E)`
-* `heterogenous(G) := not homogenous(G)`
+* `homogenous(G) := (#SEM(G) <= 1)`
+* `heterogenous(G) := (#SEM(G) > 1)`
 
 Note that the semantics of a graph, that has a heterogenous set of edges,
 is strictly speaking undefined since it is not associated with one specific
@@ -54,6 +60,14 @@ expression. Because of that, one could speak of a graph as having ...
 
 * **uniform semantics** if `G` is homogenous
 * **mixed semantics** if `G` is heterogenous
+
+Note that the semantics of a graph `G` is first and foremost of **descriptive**
+nature. That is, its semantics is used to describe its edges and is as such,
+unlike with the semantics of an order relation `R`, not the primary reason for
+the existence of its edges.
+
+* `aGb -> (a presequent-to b)`
+* `aRb <-> (a presequent-to b)`
 
 Note that the null graph and a graph with a single edge may be described as
 having uniform semantics since there is no pair of edges that could be in

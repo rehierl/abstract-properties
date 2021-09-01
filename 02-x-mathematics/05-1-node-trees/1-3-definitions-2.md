@@ -48,7 +48,8 @@ The descendants of node `n` are those nodes to which `n` is an ancestor.
 
 * `(d descendant-of n) := nPd and (n != d)`
 
-Note that no node is an ancestor or a descendant to itself.
+Note that, since the endo-relation of a tree is a-symmetric, no node is an
+ancestor or a descendant to itself.
 
 <!-- ======================================================================= -->
 ## (sub)sets of nodes
@@ -59,6 +60,7 @@ Based paths, the following subsets of `N` can be defined:
 * `AN` is the set of all nodes that are ancestors to some node
 * `DN := { d | nPd for some (n in N) }`
 * `DN` is the set of all nodes that are descendants to some node
+* note - `AN` and `DN` are disjoint
 
 With regards to `AN`:
 
@@ -81,13 +83,21 @@ A function `(a: N -> P(N))` can be defined
 that returns the set of all ancestors of the input node.
 
 * `A(n) := { a | aPn }`
-* `(a in A(n)) <-> (a ancestor-of n)`
+* `(a ancestor-of n) := (a in A(n))`
 
 Likewise, a function `(d: N -> P(N))` can be defined
 that returns the set of all descendants of the input node.
 
 * `D(n) := { d | nPd }`
-* `(d in D(n)) <-> (d descendant-of n)`
+* `(d descendant-of n) := (d in D(n))`
+
+Similar to that, the sets `RN` and `LN` can be restricted
+in regards to a given node `n`.
+
+* `R(n) := { (r in RN) | (r ancestor-of n) }`
+* `L(n) := { (l in LN) | (l descendant-of n) }`
+* `(r root-of n) := (r in R(n))`
+* `(l leaf-of n) := (l in L(n))`
 
 remarks
 

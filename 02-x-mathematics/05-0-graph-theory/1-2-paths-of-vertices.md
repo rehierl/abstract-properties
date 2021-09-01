@@ -19,6 +19,9 @@ A **directed path** over a graph `G := (V,E)` is a sequence of vertices
 to that, any pair of consecutive vertices in `p` represents an edge in `E`.
 That is, `((vi,vi+1) in E)` is requried to be true.
 
+* `(p[i] source-to p[i+1])` and `(p[i] sink-to p[i-1])` are both true
+* note - each edge `(e in E)` is a valid path
+
 Defined as such, a path can be described as **a sequence of adjacent vertices**.
 Because of that, all definitions for sequences can be used in combination
 with paths - e.g. subsequence-of, substring-of, prefix-of.
@@ -98,7 +101,7 @@ Based on the above, each graph `G` can be understood to be associated with the
 set of all possible paths `P` that can be formed over its edges. A graph can
 thus be described as a triplet of sets: `G := (V,E,P)`.
 
-Note that any path in `(P0 + P1)` may be referred to a **degenerated path**.
+Note that any path in `(P0 + P1)` may be referred to as a **degenerated path**.
 That is, because such a path does not contain any consecutive pair of vertices.
 
 Note that, if a discussion is in regards to multiple graphs, a specific set

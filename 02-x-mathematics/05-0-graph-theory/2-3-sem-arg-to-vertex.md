@@ -129,7 +129,7 @@ oriented semantics".
 <!-- ======================================================================= -->
 ## default (generic) semantics
 
-As with any other endo-relation, one can associate semantics with the edges of
+As with any other endo-relation, one can associate semantics with the edges
 and the paths over a graph that are independent of specific semantical roles.
 
 * `sem(aEb) := (a predecessor-of b)`
@@ -140,10 +140,10 @@ path-based semantics
 * `sem(aPb) := (a presequent-to b)`
 * `sem(aPb) := (b subsequent-to a)`
 
-Note that one can still define a mapping between these generic semantics and
-more specific ones.
+Note that one can define a mapping between these generic semantics
+and more specific ones.
 
-* `(a predecessor-of b) => (a parent-of b)`
+* e.g. `(a parent-of b) := (a predecessor-of b)`
 
 <!-- ======================================================================= -->
 ## general remarks

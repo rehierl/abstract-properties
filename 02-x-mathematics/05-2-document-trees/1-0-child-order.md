@@ -4,8 +4,10 @@
 
 Any node tree `T := (N,E)` is defined to have a simple set of nodes `N` and a
 simple set of edges `E`. Also, any parent node `p` in a tree can be described
-as being associated with a simple set of child nodes `c(p)` that can be dreived
+as being associated with a simple set of child nodes `c(p)` that can be derived
 from the tree's set of edges `E`.
+
+* `c(p) := { c | pEc }`
 
 Defined as such, node trees do not support the notion of an order over child
 nodes. That is because the endo-relation of a node tree does not provide the

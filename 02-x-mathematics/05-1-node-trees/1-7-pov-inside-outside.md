@@ -24,8 +24,8 @@ nodes to a given node, excluding the node itself, can therefore be said to be
 * `ON(n) := (N \ IN(n) \ {n})`
 * note - `(n !in IN(n))`
 
-Note that not every such outer node is necessarily also an ancestor of node `n`.
-Also, no node is considered "inside" or "outside" in regards to itself.
+Note that not every outer node is also an ancestor of `n`.
+Also, no node is considered "inside" and "outside" to itself.
 
 * `(A(n) subset-of ON(n))`
 
