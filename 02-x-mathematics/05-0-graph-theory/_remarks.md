@@ -30,7 +30,3 @@ graph theory seems to treat vertices and edges
   as being mostly independent from one another
 - i.e. vertices may be (almost) arbitrarily connected
 - i.e. there is (some) degree of freedom in choosing the edges
-
-define "coupled sets"
-- related and overlapping sets are coupled
-- i.e. a common "feature"

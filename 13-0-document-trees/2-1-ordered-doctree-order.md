@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-## the cover graph of an ordered doctree
+## the node order of an ordered doctree
 
 ```
 edges        graph T      \(n,lc)      cover graph T*

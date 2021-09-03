@@ -9,12 +9,12 @@ in order to produce a result:
 * e.g. a new graph `op(G) -> (V',E')`
 
 <!-- ======================================================================= -->
-## topological sorting
+## topological sorting/ordering
 
 The "topological sort(ing)" or "topological ordering" of a DAG `G := (V,E)`
 refers to the process of "serializing" the vertices of a graph into an ordered
 sequence of vertices `s` such that the relative order of the endpoints of all
-paths over `G` is preserved within `s`.
+paths over `G` is preserved in `s`.
 
 * `aPb -> (a presequent-to b)`
 * for `(s in ×V)` and `(#s == #V)`

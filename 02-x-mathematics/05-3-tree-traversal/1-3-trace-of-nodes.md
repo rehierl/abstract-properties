@@ -37,4 +37,5 @@ the resulting trace of nodes can even be described as the trace of the root
 Note that, like any other ordered sequence, a trace of nodes corresponds with a
 total order over the nodes of the tree that was traversed. As such, the process
 of creating a trace of nodes corresponds with **a linear extension** of the
-tree's node order, which can also be described as **a topological sorting**.
+tree's node order, which can also be described as **a topological sorting**
+or as **a topological ordering**.

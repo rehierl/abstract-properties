@@ -56,7 +56,8 @@ orientation/direction (i.e. inwards, outwards) in regards to a given node.
 
 Two distinct nodes `x` and `y` can be said to be **coupled** with each other,
 if one contains the other. That is, one node is an inner node (aka. a descendant)
-of the other.
+of the other. Note that only then do the sets of inner nodes have one or more
+nodes in common.
 
 * `(x coupled-with y) := (xPy or yPx)`
 * note - "coupled-with" has no orientation

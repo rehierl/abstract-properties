@@ -55,12 +55,28 @@ if both sets are equal.
 * `((s & t) == s) and ((s & t) = t)` if `(s == t)`
 
 <!-- ======================================================================= -->
-## disjoint
+## subset-of, coupled, disjoint
 
-The other extreme in regards to the related-to operator is the disjoint-to
-operator, which requires **none-of** the elements of both sets to also be
-elements of the other set. That is, the intersection between two disjoint
-sets is empty.
+Recall that set `s` is a subset of `t`, if **all-of** the elements in it are
+also elements in `t`. Put differently, set `s` is a subset of `t`, if `s` is
+equal to the intersection between both sets.
+
+* `(s subset-of t) := ( (s & t) == s )`
+
+Based on that one can state that sets `s` and `t` are both related with each
+other, if one set is a subset of the other.
+
+* `(s related-to t) := (s subset-of t) or (t subset-of s)`
+
+From a less strict point of view on can state that sets `s` and `t` are
+coupled with each other, if both sets share **some-of** (i.e. one or more)
+their elements. That is, if the intersection between both sets is non-empty.
+
+* `(s coupled-with t) := ( (s & t) != Ø )`
+
+The other extreme in regards to related-to is that two sets are disjoint to
+each other, if **none-of** the elements they have are shared elements. That
+is, the intersection between two disjoint sets is empty.
 
 * `(s disjoint-to t) := ( (s & t) == Ø )`
 

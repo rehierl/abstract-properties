@@ -35,11 +35,19 @@ endpoints. Based on that, the addition of a child order can be said to push or
 stretch a tree order towards a total order, which is why embedding a child order
 into the node order of a tree can be described as **a partial extension**.
 
+Note that, the embedding of a child order will turn **leaf nodes**, which are
+no last child to a parent, into parent nodes. Because of that, the embedding
+of a child order will in general directly reduce the amount of leaf nodes that
+remain. However, the embedding of a child order can not turn leaf nodes, which
+are the last child of a parent, into comparable nodes. Consequently, leaf nodes
+that are the last child of a parent (e.g. `ls` and/or `lc`) will remain a leaf
+nodes in the resulting tree order.
+
 Note that the child order of an unordered doctree will be embedded as a set
-of **pre-determined edges**. That is, the embedding of the child order of one
-parent has no side effect on the embedding of the child order of another parent.
-Because of that, the child orders of all parent nodes can be embedded in any
-order - i.e. no particular processing order is required.
+of **pre-determined edges**. That is, the embedding of the child order of
+one parent has no side effect on the embedding of the child order of another
+parent. Because of that, the child orders of all parent nodes can be embedded
+in any order - i.e. no particular processing order is required.
 
 <!-- ======================================================================= -->
 ## embedded suborders
