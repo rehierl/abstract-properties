@@ -15,27 +15,29 @@ traceInPreOrder(tree) begin
 end
 ```
 
-Note that the "visit" algorithm is stack-based. Also, the visit()
-callback can be used to produce the tree's pre-order trace by appending
-its node argument to the end of the current trace.
+Note that the algorithm is stack-based.
 
 ```
-visitInPreOrder(tree, visit()) begin
+traceInPreOrder(tree) begin
   r = root-of(tree)
   next = stack()
   next.push(r)
+  t = ()
 
   while (next.isEmpty() == false) begin
     //- pop and "visit" the next node
     n = next.pop()
-    co = co(n)
-    visit(n)
+
+    //- visit node n
+    t = t.append(n)
 
     //- push the child nodes (reversed order)
-    for (i=co.length; (i>=1); i--) begin
+    for (co=co(n), i=co.length; (i>=1); i--) begin
       next.push(co[i])
     end
   end
+
+  return t
 end
 ```
 
