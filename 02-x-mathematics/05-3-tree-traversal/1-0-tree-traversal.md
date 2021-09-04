@@ -71,12 +71,25 @@ not in the focus of this discussion.
 <!-- ======================================================================= -->
 ## child order
 
-Even though the focus in the context of this discussion is on ordered document
-trees, the traversal algorithms introduced in this chapter can be understood
-to cover any node tree that has an explicit or an implicit/temporary child order
-associated with it. After all, any tree can be understood to be associated with
-a child order, even if that child order can be discarded afterwards. Because of
-that, the following for-loops must be understood as described below.
+Even though the focus in the context of this discussion is on document trees,
+the traversal algorithms introduced in this chapter can be understood to also
+cover node trees that have an implicit/temporary child order associated with
+it. After all, any tree can be understood to be associated with a child order,
+even if that child order can be discarded afterwards. Because of that, the
+following for-loops must be understood as described below.
+
+```
+for (child in parent.childNodesRnd) begin
+  //- do something
+end
+```
+
+Note that even a random iteration over the child nodes is required to provide
+each child node once, and only once. Because of that, this for-loop must be
+understood such that the child nodes are always provided **in random order**,
+even if a particular child order would be present. Consequently, this for-loop
+must be understood to denote that the child nodes are provided in a temporary
+order such that repeated iterations will yield different results.
 
 ```
 for (child in parent.childNodes) begin
@@ -84,13 +97,10 @@ for (child in parent.childNodes) begin
 end
 ```
 
-This for-loop must be understood such that the child nodes of a parent node
-are provided in random order, if (and only if) no external child order is
-available. However, if such a child order is available, then the child nodes
-are provided **in order** according to that child order.
-
-Note that even a random iteration over the child nodes is required to provide
-each child node once, and only once.
+This for-loop provides the child nodes of a parent in random order, iff no
+particular child order is present. However, if such a child order is available,
+then the child nodes are provided **in (first-to-last) order** according to
+that child order.
 
 ```
 for (child in parent.childNodesRev) begin
@@ -98,9 +108,9 @@ for (child in parent.childNodesRev) begin
 end
 ```
 
-Similar to the above, this for-loop provides the child nodes of a parent
-node in random order, if (and only if) no external child order is available.
-However, if a child order is available, then the child nodes will be provided
-**in reverse order (Rev)** according to that child order. Because of that, a
-tree traversal that uses the reversed child order may be described as a
-"reverse X traversal", where "X" stands for the name of the default variant.
+This for-loop provides the child nodes of a parent in random order, iff no
+particular child order is present. However, if such a child order is available,
+then the child nodes will be provided **in last-to-first order** according
+to that child order. Because of that, a tree traversal that uses the reversed
+child order may be described as a "X **(reversed/rev)**", where "X" stands for
+the name of the default variant.

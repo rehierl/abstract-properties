@@ -116,12 +116,25 @@ order embedding is to reduce the amount of incomparable nodes and thus to
 ultimately reduce the amount of leaf nodes to one leaf only.
 
 As can be seen due the embedding of a child order, the amount of incomparable
-nodes can be reduced by **connecting siblings** directly with each other. That
-is because each such edge will reduce the amount of incomparable pairs by one
-or more.
+nodes can be reduced by **connecting siblings** with each other. That is, each
+edge will reduce the amount of incomparable pairs by one pair only.
 
-Recall that the embedding of a child order will turn **leaf nodes**, which are
-no last child to a parent, into parent nodes. In contrary to that, leaf nodes
-which are the last child of a parent will remain leaf nodes in the resulting
-tree order. Because of that, such last child leaf nodes will be the focus
-of future order embeddings.
+Note that the descendants of two child nodes will remain incomparable since the
+edge added between them will not allow to form a path between these nodes. That
+is because the rooted paths of such descendants are disjoint, meaning that one
+will still first have to travel against the orientation of the edges up towards
+one of the newly connected child nodes, and then down towards the descendant of
+the other child node. Consequently, one can still not form a valid path between
+two such descendants.
+
+Despite that, the embedding of a child order will turn **leaf nodes**, which
+are no last child to a parent, into parent nodes. In contrary to that, leaf
+nodes which are the last child of a parent will remain leaf nodes in the
+resulting tree order.
+
+Note that turning a **last child leaf node** into a parent node by connecting
+it with a parent node as its child will establish a path between the leaf and
+all the descendants of the target parent. Consequently, such connections will
+turn multiple pairs of incomparable nodes into comparable ones. Because of that,
+adding connections between a last child leaf and a parent will be the focus of
+furter order embeddings.

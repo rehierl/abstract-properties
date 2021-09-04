@@ -14,7 +14,7 @@ if one is available.
 ## pre-order tree traversal
 
 ```
-//- the default pre-order traversal
+//- the default pre-order tree traversal
 traverseInPreOrder(node) begin
   visit(node)
   for(child in node.childNodes) begin
@@ -41,7 +41,7 @@ order relation.
 ## post-order tree traversal
 
 ```
-//- the default post-order traversal
+//- the default post-order tree traversal
 traverseInPostOrder(node) begin
   for(child in node.childNodes) begin
     traverseInPostOrder(child)
@@ -64,7 +64,7 @@ traversal is **not order preserving**.
 ## in-order tree traversal
 
 ```
-//- the default in-order traversal
+//- the default in-order tree traversal
 traverseInOrder(node) begin
   visit(node.leftChild)
   visit(node)
@@ -84,7 +84,7 @@ and even though the child order (if one exists) is preserved, the overall
 tree traversal is **not order preserving**.
 
 ```
-//- a modified in-order traversal
+//- a modified in-order tree traversal
 traverseInOrderMod(node) begin
   for(child in node.childNodes) begin
     visit(node)
