@@ -8,17 +8,25 @@ the last subsequent leaf `l` of the ordered doctree.
 
 * `trace(T) := (r, c1, ..., l)`
 
-Note that the first child `c1` of a parent `p` will become and remain its next
-subsequent sibling. That is, any parent always has its former first child as
-its next subsequent sibling in the resulting pre-order trace.
+Note that, if it exists, the first child `c1` of a parent `p` will always
+become and remain its next subsequent sibling. That is, any parent always
+has its former first child as its next subsequent sibling in the resulting
+pre-order trace.
 
 * `trace(T) := (..., p, c1, ...)`
+
+<!-- ======================================================================= -->
+## node levels
+
+Note that, the node level of a next subsequent node may be equal to the level
+of its predecessor (a sibling), one greater (a first child), or less than that
+(a sibling to an ancestor).
 
 <!-- ======================================================================= -->
 ## a recursive, upwards-oriented point of view
 
 ```
-trace(T) := (r, .. n, fc, .., lc, .., ns, .., ls, ..)
+trace(T) := (r, .. n, fc, .., lc, .., ns, .., ls, .., l)
                    |-scope-n--------|
                       |-fc-|...|-lc-|
 ```

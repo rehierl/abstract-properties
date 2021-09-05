@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# an example
+# example: pre-order
 
 ```
 unordered doctree    unordered doctree     ordered doctree
