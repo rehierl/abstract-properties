@@ -3,8 +3,8 @@
 # the (default) level-order tree traversal
 
 ```
-//- the default level-order tree traversal
-traverseBFS(root) begin
+//- the default level-order traversal
+traverseInLevelOrder(root) begin
   queue = new Queue()
   queue.enqueue(root)
 
@@ -19,36 +19,38 @@ traverseBFS(root) begin
 end
 ```
 
-Note that the level-order traversal trace begins with the tree's root, continues
-with the root's child nodes, followed by the child nodes of these child nodes,
-and so on. As such, the (default) level-order trace contains the nodes in tree
-order (i.e. ancestors before descendants) and also in child order (if it exists).
-Because of that, the level-order trace is **order-preserving**.
+Note that the level-order trace begins with the tree's root, continues with the
+root's child nodes, followed by the child nodes of these child nodes, and so on.
+As such, the (default) level-order trace contains the nodes in tree order (i.e.
+ancestors before descendants) and also in child order (if a child order does
+exist). Because of that, the level-order trace is **order-preserving**.
 
 ```
-n -|-> (ns .. ls)     =>     n -> (ns .. ls) -> (fc .. lc)
-   |-> (fc .. lc)            n -> s -> c
+      presequent           subsequent   |  the reduced pattern    |
+      siblings             siblings     |  of an ordered doctree  |  in short
+ =====================================  |  ===================    |  ========
+ p -> (fs .. ps) -> n -|-> (ns .. ls)   |  n -|-> (ns .. ls)      |  n -|-> s
+                       |-> (fc .. lc)   |     |-> (fc .. lc)      |     |-> c
+                                        |                         |
+                           child nodes  |                         |
 ```
 
-Due to the above, **the level-order rule** requires to first embed a child order
-(even if only temporary), and then to append the sequence of child nodes `c(n)`
-to the sequence of subsequent siblings `s(n)`. Because of that, and unlike the
-embedding of a child order, the pre-order rule does not build upon pre-existing
-edges.
+Based on the above algorithm, the level-order rule requires to first embed a
+child order (even if only temporary), and then to append the sequence of child
+nodes `c(n)` to the sequence of subsequent siblings `s(n)`.
 
-* the pre-order rule := `n -> (s × c)`
+```
+n -|-> (ns .. ls)     =>     -> n × (ns .. ls) × (fc .. lc)
+   |-> (fc .. lc)            -> (n × s × c)
+```
 
-Note that, since a (P)arent appears before its subsequent (S)iblings and they
-before the parent's (D)escendants, the level-order rule may also be referred
-to as **the PSD rule/pattern** (aka. `p -> s -> d`).
+* the (default) level-order rule := `(n × s × c)`
 
 Note that the level-order tree traversal is included as a dual counterpart to
 the pre-order rule. However, even though it is order-preserving, it is not in
 the focus of this discussion. That is because it does not keep a node and its
-descendants in close proximity.
-
-Note that, since the level-order rule does not keep a node and its descendants
-in close proximity, **a particular order of execution is required** (see below).
+descendants in close proximity. Because of that, it does not contain a hierarchy
+of substrings.
 
 <!-- ======================================================================= -->
 ## order of execution
@@ -56,41 +58,41 @@ in close proximity, **a particular order of execution is required** (see below).
 As pointed out above, the (default) level-order trace is **order preserving**
 since it is effectively a sequence of concatenated child orders. However,
 and since the child order of a node will be appended to the end of the node's
-sequence of subsequent siblings, the order in which the level-order rule is
-applied, is relevant. That is because different orders of execution result
-in different sequences of child orders and, because of that, in distinct
+current sequence of subsequent siblings, the order in which the level-order
+rule is applied, is relevant. That is because different orders of execution
+result in different sequences of child orders and, because of that, in distinct
 level-order traces. Consequently, a default order of execution must be defined.
 
 Note that the child orders on a node level may be ordered in random order
-without producing a conflict with tree's tree's node order and even without
-producing a conflict with the tree's child order. After all, the child orders
-will be appended as whole units. (Based on that, the level-order trace of a
-tree may be described as **a sequence of child orders**).
+without producing a conflict with tree's node order and even without producing
+a conflict with the tree's child order. After all, the child orders will be
+appended as whole units. Becuase of that, the level-order trace of a tree can
+be described as **a sequence of child orders**.
 
 Note that this seems to suggest that the level-order rule is **incomplete**
-to some extent. That is, the rule does by itself not turn all the nodes of
-an ordered doctree into comparable nodes. After all, incomparable nodes can
-be ordered arbitrarily without contradiction.
+to some extent. That is, the rule does by itself not turn all the nodes of an
+ordered doctree into comparable nodes. After all, incomparable nodes can be
+ordered arbitrarily without contradiction.
 
-TODO - An open issue - What exactly does the level-order rule not cover?
-The question is which means a doctree does provide that can be used for
-a more generic definition of the order of execution?
+**An open issue** - What exactly does the level-order rule not cover? The
+question is therefore which means a doctree does provide that can be used
+for a more generic definition of the order of execution?
 
 **The default order of execution** is as follows:
 
-The level-order rule must be first applied to the tree's root, which will append
-the root's child order as the next child order to be processed. After that, the
-level-order rule must be applied to the child nodes of the tree's root in the
-order as specified by the root's child order. Because of that, a tree's child
-order can be said to carry over to the order of child orders in the level-order
-trace.
+The level-order rule must first be applied to the tree's root, which will
+append the root's child order as the next child order to be processed. After
+that, the level-order rule must be applied to the next child order, the first
+of which consists of the child nodes of the tree's root, in the order as
+specified by the corresponding child order.
 
 Note that, defined as such, the order of execution can be described as being
 defined **in order of appearance of the nodes in each child order**. Because
 of that, the default order of execution builds upon the total order of each
-child order.
+child order which is why a tree's child order can be said to carry over to
+the order of child orders in its level-order trace.
 
-Note that, because of this default order of esecution, the level-order rule
-**can not be applied concurrently**. The question is, if there could be an
-order of exectuion which whould allow concurrency (e.g. by dropping the
-requirement of a well defined order of child orders).
+Note that, due to this default order of execution, the level-order rule
+**can not be applied concurrently**. The question is therefore, if there
+could be an order of exectuion which whould allow concurrency (e.g. by
+dropping the requirement of a well defined order of child orders).

@@ -3,18 +3,16 @@
   of a tag soup is critical to the discussion
 - the issue is with people who deal with trees
   only in the form of a tag soup ... misleading
-- in pre-order (!)
 
-remarks
-- this will then also allow to read the scopes
-  using the tag-based syntax ..
-- so yeah, in here a must-be
+todo
+- the document order is the doctree's pre-order trace
+- in pre-order (!)
 
 # the tag-based syntax
 
-- visually derive the tag-based syntax
-- i.e. push a node into its start-tag
-- the document order is the doctree's pre-order trace
+- this will also allow to read the scopes
+  from the tag-based syntax ..
+- so yeah, in here a must-be
 
 a tag soup ain't no (fucking) node tree
 - derive the family of scopes from a tag soup
