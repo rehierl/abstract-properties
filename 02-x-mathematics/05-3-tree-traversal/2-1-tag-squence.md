@@ -10,25 +10,25 @@ and end-tags `<$name>` as roughly outlined below.
 tagSequenceOf(root) being
   sequence = ()
 
-  onEnterScope(node) begin
+  onEnter(node) begin
     name = node.tagName.toLowerCase
     attribtues = node.attributes.toString
     sequence.add("<%s %s>", name, attributes)
   end
 
-  onExitScope(node begin
+  onExit(node) begin
     name = node.tagName.toLowerCase
     sequence.add("</%s>", name)
   end
 
   traverseDocTree(node) begin
-    onEnterScope(node)
+    onEnter(node)
 
     for(child in node.childNodes) begin
       traverseDocTree(child)
     end
 
-    onExitScope(node)
+    onExit(node)
   end
 
   traverseDocTree(root)
@@ -41,8 +41,8 @@ order of appearance, the result can informally be described as **tag soup**.
 
 Note that any tag produced will reflect the corresponding enter-/exit-event.
 Also, only the enter-event is being used to enrich the start-tag with the
-attributes of a node. As such, the start-tag can be understood to provide all
-the definitions that are required to reproduce the node while recreating the
+attributes of a node. As such, a start-tag can be understood to provide all
+the definitions that are required to reproduce a node while recreating the
 node tree from the tag sequence. Consequently, a tag soup can be assumed to
 be in enter-order and, as such, to reflect a pre-order tree traversal.
 

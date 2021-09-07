@@ -1,5 +1,8 @@
 
-# preD
+The following provides a summary over the tree traversal
+algorithms discussed by the following subsequent chapters.
+
+# preD - default pre-order
 
 * `preD(n) := n × (fc .. lc ..)`
 * `trace(n) := n × trace(fc) × ... × trace(lc)`
@@ -8,7 +11,7 @@
 * a hierarchy of scopes, interleaved child orders
 * order-preserving, reverse to `postR`
 
-# levelD
+# levelD - default level-order
 
 * `lvlD(n) := n × (ns .. ls) × (fc .. lc)`
 * `tags(T) := (.., <tag p="r">, fc, .., lc, </tag>, ..)`
@@ -17,7 +20,7 @@
 * non-hierarchical, a sequence of child orders
 * order-preserving
 
-# preR
+# preR - reversed pre-order
 
 * `preR(n) := n × (lc .. fc ..)`
 * `trace(n) := n × trace(lc) × ... × trace(fc)`
@@ -26,7 +29,7 @@
 * a hierarchy of scopes, interleaved child orders
 * not order-preserving, reverse to `postD`
 
-# postD
+# postD - default post-order
 
 * `postD(n) := (.. fc .. lc) × n`
 * `trace(n) := trace(fc) × ... × trace(lc) × n`
@@ -35,7 +38,7 @@
 * a hierarchy of scopes, interleaved child orders
 * not order-preserving, reverse to `preR`
 
-# postR
+# postR - reversed post-order
 
 * `postR(n) := (.. lc .. fc) × n`
 * `trace(n) := trace(lc) × ... × trace(fc) × n`

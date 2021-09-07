@@ -3,26 +3,26 @@
 # document traversal
 
 When writing a document as a character-based sequence of start- and end-tags,
-the document tree must be traversed in document order. That traversal order
-is, as can be seen below, a combination of the default pre-order and post-order
+the document tree must be traversed in document order. That traversal order is,
+as can be seen below, a combination of the default pre-order and post-order
 tree traversal.
 
 ```
-traversInDocOrder(node) begin
-  onEnterScope(node)
+traverseInDocOrder(node) begin
+  onEnter(node)
 
   for(child in node.childNodes) begin
     traverseInDocOrder(child)
   end
 
-  onExitScope(node)
+  onExit(node)
 end
 ```
 
-Even though the exact meaning of `onEnterScope()` and `onExitScope()` will be
-defined in the course of subsequent discussions, one can already describe these
-function calls as **enter-** and **exit-events**, which is why the traversal of
-a document tree can be described as **an event-driven process**.
+Even though the exact meaning of `onEnter()` and `onExit()` will be defined in
+the course of subsequent discussions, one can already describe these function
+calls as **enter-** and **exit-events**, which is why the traversal of a
+document tree can be described as **an event-driven process**.
 
 However, one must keep in mind that these enter- and exit-events are
 **a source of confusion** since these do not reflect the visit of that node.
@@ -40,4 +40,4 @@ entered, and closed when it is exited.
 Note that the scope can be understood counts as being open for as long as the
 node and all of its descendants in the unordered document tree are being
 visited. Because of that, the scope corresponds with the set of nodes of the
-corresponding induced subtree.
+underlying induced subtree.
