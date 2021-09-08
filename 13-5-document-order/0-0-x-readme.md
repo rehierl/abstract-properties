@@ -1,10 +1,9 @@
 
 # doctree order
-- the document order is in pre-order
-- first consequences which result from that
-- e.g. when to associate
+- the document order is a total pre-order trace
+- embedded into it is a partial containment order
 
-overall
-- the concept of abstract properties is an application of order theory
-- a hierarchy of scopes is an application of abstract properties
-- a tag soup defines a hierarchy of scopes
+consequences which result from that
+- (1) a tag soup ain't no node tree
+- (2) well-formedness is a must
+- (3) associate while visiting/entering

@@ -6,9 +6,9 @@ Since a node's start-tag holds the definition of a node (in terms of a name
 and a set of attributes), it is a node's start-tag that corresponds with the
 pre-order visit of that node. In contrary to that, a node's end-tag does not
 correspond with the visit of any node. The end-tag of a node must therefore
-be understood to only mark the end of the node's scope. Based on that, the
-node's pair of tags can be understood to enclose all of the nodes within its
-scope, including the node itself.
+be understood to only mark the end of the node's scope. Because of that, the
+pair of tags associated with a node can be understood to enclose all of the
+nodes within its scope, including the node itself.
 
 ```
     |-scope(n)----------------|-border-|
@@ -27,18 +27,18 @@ ends with `l`. Consequently, and since an end-tag does not correspond with any
 node, the node's end-tag must be treated as being located on top of the border
 of the node's scope.
 
-Note that the difficulty with locating the end-tag of a scope is similar to
-locating **the empty set** in regards to a non-empty set: (1) Since the empty
+Note that the difficulty with pinpointing the position of an end-tag is similar
+to locating **the empty set** in regards to another set: (1) Since the empty
 set is a subset to every set, the empty set can be said to be located inside
-of a non-empty set. (2) Since the empty set is disjoint to any set, the empty
-set can be also be said to be located outside of a non-empty set.
+of another set. (2) Since the empty set is disjoint to any set, the empty set
+can also be said to be located outside of the same set.
 
 ```
 .., <n>, fc, .., lc, .., l, </n>, ..
     |-scope(n)------------------|
 ```
 
-As a matter of simplification and consistency, and since a start-tag is located
-inside of a node's scope, the end-tag of a node will be visualized as the last
-element in a scope. However, one must keep in mind that an end-tag itself does
-still not represent any node.
+As a matter of simplification, and since a start-tag is located inside of a
+node's scope, the end-tag of a node will be visualized as the last element
+in a scope. However, one must keep in mind that an end-tag does still not
+represent any node.
