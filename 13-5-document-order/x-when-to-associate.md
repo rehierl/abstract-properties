@@ -1,4 +1,9 @@
 
+when are properties/attributes applied?
+- in the context of a node tree
+- not in the context of a tag soup
+- a big difference (!)
+
 * any operation that builds upon the visit order of a node
   must be executed while processing the node's start-tag
 

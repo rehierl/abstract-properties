@@ -24,10 +24,10 @@ all the nodes in `T` (i.e. `s(p1) = [n1,*] = {n1,..,n5}`. Put differently,
 the scope of `p1` contains every single node in `T`.
 
 ```
-             |-p2--------------|
-n1 ==|=======|==> n2 ==|==> n4 |
-     |==> n3 |         |==> n5 |
-             |-----------------|
+           |-p2-----------|
+n1 -|------|-> n2 -|-> n4 |
+    |-> n3 |       |-> n5 |
+           |--------------|
 ```
 
 Likewise, one can then assume that `n2` declares another property `p2` such

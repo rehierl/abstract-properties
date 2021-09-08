@@ -2,11 +2,12 @@
 - bullet points on what is to follow
 
 alternative titles
+- reinventing the wheel
 - generic properties, a bottom up approach
-- partial orders are anything but (purely) theoretical
+- partial orders are anything but theoretical
+- total orders are specialized partial orders
 - an order-/intervall-based point of view
-- an ordered tree is just another un-ordered tree
-- ordered trees are fictional, they do not exist
+- an "ordered tree" is just another un-ordered tree
 - a tag soup ain't no (fucking) node tree
 - trees - no more than 4 types of properties are possible
 - lists - no more than 2 types of properties are possible

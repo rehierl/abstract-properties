@@ -11,16 +11,15 @@ node's pair of tags can be understood to enclose all of the nodes within its
 scope, including the node itself.
 
 ```
-    |-border-|-scope(n)----------------|-border-|
-.., | empty  | <n>, fc, .., lc, .., l, |  </n>, | ..
-    |-border-|<-open------------close->|-border-|
+    |-scope(n)----------------|-border-|
+.., | <n>, fc, .., lc, .., l, | </n>,  | ..
+    |->-open->------>-closed->|-empty--|
 ```
 
 Since the **start-tag** of a node can be understood to define the corresponding
-node and therefore its absolute position, it must be understood to be located
-just behind the border and as such to be located inside of the node's scope.
-Based on that, the scope of a node can be understood to begin with the node's
-start-tag.
+node and also its absolute position, it must be understood to be located just
+behind the border and as such to be located inside of the node's scope. Based
+on that, the scope of a node can be said to begin with the node's start-tag.
 
 Since the last subsequent leaf `l` of the node's last child is the last node
 next presequent to the node's **end-tag**, one can state that the node's scope
@@ -30,17 +29,16 @@ of the node's scope.
 
 Note that the difficulty with locating the end-tag of a scope is similar to
 locating **the empty set** in regards to a non-empty set: (1) Since the empty
-set is a subset to every non-empty set, the empty set can be understood to
-be located inside of a non-empty set. (2) Since the empty set is disjoint to
-any non-empty set, the empty set can be understood to be located outside of
-a non-empty set.
+set is a subset to every set, the empty set can be said to be located inside
+of a non-empty set. (2) Since the empty set is disjoint to any set, the empty
+set can be also be said to be located outside of a non-empty set.
 
 ```
 .., <n>, fc, .., lc, .., l, </n>, ..
-   |-scope(n)-------------------|
+    |-scope(n)------------------|
 ```
 
-As a matter of simplification and consistency (a start-tag is inside a scope)
-the end-tag of a node will be visualized **by convention** as the last element
-within a scope. However, one must always keep in mind that an end-tag does not
-correspond with any node.
+As a matter of simplification and consistency, and since a start-tag is located
+inside of a node's scope, the end-tag of a node will be visualized as the last
+element in a scope. However, one must keep in mind that an end-tag itself does
+still not represent any node.
