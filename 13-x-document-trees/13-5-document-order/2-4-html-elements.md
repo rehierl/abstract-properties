@@ -56,12 +56,12 @@ does suggest a recursive point of view on elements.
 
 As described above, the description of "HTML element" can be misunderstood
 such that an element consists of its start-tag, its end-tag and also includes
-everything in between. That is, one might be mislead to believe that an element
-in HTML is, similar to an induced subtree, a complex unit of elements. That
-point of view is however misleading.
+everything in between. That is, one might be mislead to believe that an
+element in HTML is, similar to an induced subtree a complex unit of many
+elements. That point of view is however misleading.
 
-That is because the tag soup of a document is read into a node tree, which is
-why, regardless of ones current point of view, each HTML element directly
+That is because the tag soup of a document is read into a node tree, which
+is why, regardless of ones current point of view, each HTML element directly
 corresponds with one and only one node in the DOM tree. An HTML element can
 therefore not be understood to be equivalent to an entire (induced) subtree,
 which is what the official definition might seem to suggest.
@@ -76,7 +76,8 @@ element. That is because the scope of a node also includes the node itself.
 In addition to that, the scope of a node does strictly speaking not contain
 the node's end-tag since an end-tag does not translate into any node.
 
-Note that an element does not remain in the process of being visited while the
-element's descendants are being visited. That is because there would otherwise
-be no correlation between the nodes and the document's pre-order trace. The
-visit of a node must be understood as an uninterruptable atomic operation.
+Note that an element does not remain in the process of being visited while
+the element's descendants are being visited. That is because there would
+otherwise be no correlation between the nodes and the document's pre-order
+trace. The visit of a node must be understood as an uninterruptable atomic
+operation.

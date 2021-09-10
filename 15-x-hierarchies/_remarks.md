@@ -3,6 +3,6 @@
 
 can show the remaining hierarchies
 
-* pre-order traces
+* pre-order sub-traces
 * length values in pre-order
 * levels from rooted paths in pre-order

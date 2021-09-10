@@ -111,7 +111,7 @@ based on the child order, there is no other sibling in between `s` and `c`.
 Because of that, `s` can also be described as the **next-presequent** sbiling.
 
 <!-- ======================================================================= -->
-## semantical considerations - can be ignored
+## semantical considerations - to be ignored
 
 ```
 child order CO(p)      cover graph
