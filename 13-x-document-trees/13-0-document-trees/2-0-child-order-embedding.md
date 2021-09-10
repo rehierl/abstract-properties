@@ -4,11 +4,12 @@
 
 For as long as a doctree is considered to be associated with an external child
 order (i.e. an unordered doctree), nothing needs to be done since the formal
-definition remains as-is without a child order embedded into it. However, it
-is needlessly difficult to derive any conclusion since one still has to deal
-with two separate node orders (i.e. the tree order and its child order).
-Because of that, it is essential to merge both node orders into one and by
-that to determine **the true node order of an ordered doctree**.
+definition remains as-is without a child order embedded into it.
+
+However, it is needlessly difficult to derive any conclusion since one still
+has to deal with two separate node orders (i.e. the tree order and its child
+order). Because of that, it is essential to merge both node orders into one
+and by that to determine **the true node order of an ordered doctree**.
 
 <!-- ======================================================================= -->
 ## a set of complex edges
@@ -85,17 +86,19 @@ the transitive reduction of a (strict) partial order.
 
 * transitive if `aEb` and `bEc`, then also `aEc`
 
-This transitivity rule effectively states that, if a proper path `aPc` of two
-or more edges can be formed, then an edge `aEc` must exist that connects both
-of the endpoints of that path. Because of that, the transitivity rule can be
-generalized as follows:
+This transitivity rule effectively states that, if a path `aPc` of two or
+more edges can be formed, then an edge `aEc` must exist that connects both
+of the endpoints of that path. Because of that, the transitivity rule can
+be generalized as follows:
 
 * transitive if `aPb`, then also `aEb`
 
 With that in mind, one can also generalize the transitive reduction such that,
-if a proper path `aPb` of edge-length two or more exists, then the edge `aEb`
-(if it exists) can be dropped. Consequently, the order in which implicit edges
+if a path `aPb` of edge-length two or more exists, then the edge `aEb` (if it
+exists) can be dropped. Because of that, the order in which such implicit edges
 are removed during a transitive reduction is **non-relevant**.
+
+* reduction: drop `aEb`, if `p(a,b)` exists such that `(p != (a,b))`
 
 <!-- ======================================================================= -->
 ## embedding a child order (2)
@@ -116,32 +119,34 @@ edges, and edge `(1,3)` as an implicit edge since it can be derived from the
 previous two edges. Because of that, adding a child order to a node tree will
 also result in a graph that is **no longer the cover relation** of an order
 relation since it will in general contain edges that can be derived from other
-existing edges. In other words, **a transitive reduction can be performed**
-on T1.
+existing edges. Because of that, the modified graph can not be described as
+being "tranistively reduced". Consequently, a **transitive reduction** on T1
+will further modify the endo-relation.
 
 Note that `3` is no longer a child of root `1`, but a child of its (former)
 previous sibling `2` instead. As can be seen in the final cover graph T3,
-`3` will become the single child of `2`, and so on.
+`3` will become the single child of `2`, and `4` the single child of `3`.
 
 <!-- ======================================================================= -->
 ## restricted amount of affected edges
 
-Apart from their ancestors (e.g. `1`) any other non-ancestor node that may
-exist (i.e. siblings to `1`) remain to be incomparable to the child nodes
-(e.g. `2`). That is the child order of `1` will not affect any of these nodes.
-Likewise, the child order of `1` will not establish a path between `1` and
-any of the descendants of its child nodes.
+Apart from their ancestors (e.g. `1`) any other non-ancestor node that may exist
+(i.e. siblings to `1`) remain to be incomparable to the child nodes (e.g. `2`).
+That is the child order of `1` will not affect any of these nodes. Likewise, the
+child order of `1` will not establish a path between `1` and the descendants of
+its child nodes that didn't already exist.
 
 Since the child order will only establish new paths in between `1` and its
-child nodes no further reduction can apply. That is, only the edges from
-`1` to its non-first child nodes will be dropped.
+child nodes, and since the initial tree was transitively reduced, no further
+reduction can apply. That is, only the edges from `1` to its non-first child
+nodes will be dropped.
 
 The addition of a child order of `N` child nodes will therefore add `(N-1)`
-new edges. After that, `(N-1)` edges will be removed. Because of that,
+new edges. After that, `(N-1)` edges will be dropped. Because of that,
 **the overall number of edges remains the same**.
 
 * `#E` => `+(N-1)` => `-(N-1)` => `#E`
 
-Note that, based on that one might already suspect that the graph, that results
-from the transitive reduction, is once again a node tree and as such represents
+Due to the above one might already suspect that the graph, that results from
+the transitive reduction, is once again a node tree and as such represents
 the true node order of the ordered doctree.

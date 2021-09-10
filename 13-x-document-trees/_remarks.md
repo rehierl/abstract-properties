@@ -1,8 +1,6 @@
 
 # document trees
 
-- point out that the above-of order is the pre-order
-
 the embedding of a traversal consists of ..
 - an ordering rule and an order of execution
 - rule - how a sequence is formed - additional edges

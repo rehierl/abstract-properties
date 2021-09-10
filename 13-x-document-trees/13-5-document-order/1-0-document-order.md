@@ -35,20 +35,24 @@ is because both can be understood to represent events of some kind:
 Based on that, the process of parsing a document can be described as an
 event-driven process.
 
-Note that start-tags can be said to represent an **enter-order** (i.e. a
+Note that start-tags can be described to represent an **enter-order** (i.e. a
 sequence of enter events) and the end-tags an **exit-order** (i.e. a sequence
-of exit events). Based on that, the tag-based syntax can be understood to
-support **a stream-based point of view**.
+of exit events). Based on that, the tag soup of a document can be understood
+to describe as a sequence of enter- and exit events.
+
+Note that, since each enter-event is paired with an exit-event, the tag-based
+syntax can be understood to support **a stream-based point of view**.
 
 Since an implementation must be able to determine whether or not a given node
-is located within the scope of a property, a clear understanding of the meaning
-of the start-tags and the end-tags is critical. After all, how is one to tell
-the context of a node, if one can not pinpoint its exact location?
+is located within the scope of a property (e.g. within the scope of a section),
+a clear understanding of the meaning of the start-tags and the end-tags is
+critical. After all, how is one to tell the context of a node, if one can not
+pinpoint its exact location?
 
 Note that, as a matter of simplification, subsequent discussions will assume
 that any node and its scope can be expressed in terms of a pair of tags. Based
-on that, any document can be understood to consist of start-tags and end-tags
-only and can therefore be described as a pure sequence of tags.
+on that, any document can be understood to consist of paired start- and end-tags
+and can therefore be described as a pure sequence of tags.
 
 <!-- ======================================================================= -->
 ## the pre-order tree traversal
@@ -72,24 +76,23 @@ end
 
 As was shown in the discussion of the pre-order tree traversal algorithm,
 the pree-order traversal can be used to form a trace of nodes, if each node
-is appended to a sequence of nodes while being visited. Formed this way, the
-resulting trace of nodes is an ordered sequence of nodes and as such can be
-understood to define **the total pre-order node order**.
+is appended to a sequence of nodes while it is being visited. Formed this way,
+the resulting trace of nodes is an ordered sequence of nodes and as such can
+be understood to define **the total pre-order node order**.
 
 Note that no node will be visited while another node is still in the process
 of being visted. Because of that, **the visit of a node** must be understood
 as **an indivisible atomic operation**.
 
 Since the enter-order of a document traversal coincides with the pre-order
-visit-order, one can state that **the visit-order** of a pre-order document
+visit-order, one can conclude that **the visit-order** of a pre-order document
 traversal is equivalent to the the enter-order of a document traversal.
-Because of that, a node can be said to be visited during the corresponding
-enter-event only.
+Because of that, a node is visited during the corresponding enter-event only.
 
-Note that, if a the tag soup of a document is broken apart into a sequence
-of tags, and if all end-tags are dropped, then the resulting sequence of
-start-tags is equivalent to the pre-order trace of the document tree. That
-is because each node can be understood to be pushed into its start-tag, which
+Note that, if the tag soup of a document is broken apart into a sequence of
+tags, and if all the end-tags are dropped, then the resulting sequence of
+start-tags is equivalent to the pre-order trace of the document tree. That is
+because each node can be understood to be pushed into its start-tag, which
 is why **a start-tag corresponds with the visit of a node** and can thus be
 understood to define the absolute position of a node. In addition to that,
 **a start-tag also denotes the start of the node's scope**.
@@ -105,9 +108,9 @@ any node. Consequently, **an end-tag only marks the end of a scope**.
 <!-- ======================================================================= -->
 ## the doc-order is a total pre-order
 
-Recall that the pre-order and the level-order tree traversal algorithms are the
-only **order preserving** tree traversal algorithms. That is, both algorithms
-visit the nodes in tree order and also in child order.
+Recall that the pre-order and the level-order tree traversal algorithms are
+the only **order preserving** tree traversal algorithms. That is, both
+algorithms visit the nodes in tree order and also in child order.
 
 However, since the level-order trace of a tree can be described as a sequence
 of disjoint child orders, and is as such non-hierarchical, one can conclude
@@ -119,9 +122,21 @@ of a tree is a hierarchical ordered sequence of nodes. That is because
 **the scope of each node is a substring** to the pre-order trace. Furthermore,
 due to the order-preserving nature of the pre-order trace, the hierarchy of
 scopes embedded into it is such that two scopes are either disjoint exor
-related (**DI-RE**). Apart from that, a pre-order trace can be described as a
-sequence of interleaved child orders.
+related (**DI-RE**). Apart from that, a pre-order trace can be described as
+a sequence of interleaved child orders.
 
-**The tag soup of a document is in pre-order.**
+<!-- ======================================================================= -->
+## the document order of a document
+
+Recall that **the above-of node order** was introduced in the introduction as
+being synonymous/equal to the document order. With that in mind, and due to
+the above, the following is true.
+
+* The doctree's pre-order traversal defines the doctree's pre-order node order.
+* The tag soup of a document encodes the doctree's pre-order node order.
+* **The total document order is the pre-order node order**.
+* The tag soup of a document encodes a hierarchy of scopes.
+* The tag soup of a document is isomorphic to the document tree.
+* **The document tree is a partial suborder to the document order**.
 
 And there is not even the slightest shred of doubt about that!

@@ -31,3 +31,13 @@ then hierarchies
 - all properties seem to be restricted to induced subtrees
 - as if we did forget about the unrestricted case
 - almost - see headings
+
+# meta / later
+
+sections
+- if a node is within the scope of a section,
+  then that node and all of its descendants
+  count towards that section
+- all included exor none at all
+- easy to implement
+- howto provide proof ?!?
