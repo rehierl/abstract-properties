@@ -1,7 +1,11 @@
 
-the readme files
-- all are more or less "initialized"
-- i.e. they need to be fleshed out at some point
+note to self
+- be clear - stay on topic
+- keep it (somewhat) simple/slim
+
+note to others
+- be lenient in regards to explanations/analogies
+- be strict in regards to substantial/fundamental aspects
 
 the overall intention is to communicate ..
 - a certain style of notation
@@ -11,20 +15,12 @@ the overall intention is to communicate ..
 - the overall aspects involved
 - all of that - to enable others to proof me wrong
 
-coin "structurally dependent"
-- then "structurally independent"
-- then an order relation based on that ?!?
-- in regards to (div) containers
+# todos
 
-computer languages ?!?
-- using the for-each loop, randomize the iteration
-  over node trees that have no child order
-- would require node tree types that are
-  integrated into a programming language
-- can be circumvented by custom tree types
-- randomization adds computational complexity
-- so debug mode only - removed in release
-- will push programmers to pay more attention
-  to which and if a tree has a child order
-- i.e. be more aware of that aspect
-- i.e. be more aware of what the true node order is
+the readme files
+- all are more or less "initialized"
+- they need to be fleshed out at some point
+
+wikipedia links
+- copy wikipedia links from the maths repo
+- i.e. the "_wikipedia.md" files
