@@ -6,7 +6,7 @@ Since a node's start-tag holds the definition of a node (in terms of a name
 and a set of attributes), it is a node's start-tag that corresponds with the
 pre-order visit of that node. In contrary to that, a node's end-tag does not
 correspond with the visit of any node. The end-tag of a node must therefore
-be understood to only mark the end of the node's scope. Because of that, the
+be understood to only mark the end of a node's scope. Because of that, the
 pair of tags associated with a node can be understood to enclose all of the
 nodes within its scope, including the node itself.
 

@@ -20,6 +20,40 @@ related (**DI-RE**). Apart from that, a pre-order trace can be described as
 a sequence of interleaved child orders.
 
 <!-- ======================================================================= -->
+## a 90° clockwise rotation
+
+In order to visualize the general pattern of the node order of a document, the
+only transformation left is to .. clockwise rotate the tag soup of a document
+by 90 degrees and to indent the tags accordingly.
+
+```
+clockwise rotated | in regards    |
+by 90 degrees     | to node <n>   | scopes
+------------------|---------------|-------
+<p>               | presequent-to |  + s(p)
+  (fs ..)         | above-of      |  |
+  <n>             |---------------|  +-+ s(n)
+    (fc .. lc)    | subsequent-to |  | |
+  </n>            | below-of      |  | |
+  (ns ..)         |               |  |
+</p>              |               |  |
+```
+
+By looking at the scopes that are drawn to the side, one can conclude that we
+are already overly familiar with that particular node order. We see it each and
+every time we open a file system browser (i.e. a tree of files and folders), or
+when opening a the hierarchical listing of browser bookmarks (i.e. a tree of
+bookmarks organized in nested folders).
+
+Note that the only overall difference is that such a hierarchical listing has
+in general two types of nodes: (1) folders which may contain folders and items
+(by which the hierarchy is established), and (2) items which may contain nothing
+(the tree's leaf nodes). In addition to that, such a system affects the tree's
+child order (e.g. folders first, then alphabetical by an entry's name - i.e. an
+order that has two stages). In contrary to that, any node in a document tree is
+such that it may in general have any number of descendants.
+
+<!-- ======================================================================= -->
 ## the document order of a document
 
 Recall that **the above-of node order** was introduced as a reference to the
