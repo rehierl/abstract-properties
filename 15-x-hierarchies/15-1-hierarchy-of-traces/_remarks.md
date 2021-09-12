@@ -1,19 +1,22 @@
 
 - Hpre - a hierarchy of pre-order traces
 
-# family of traces
-- obviously not any traces
-- a family of pre-order traces
-- possibly also - family of post-order traces
-- after all, there is some duality
-- aka. family of strings
+equivalent to that
+- a family of rev-post-order traces
+- recall - preD is reversed to preR
 
-finalize with "a family of strings" ?
-- just to proof the obvious - it adds up
-- efficiency the ce() as the first item
+generalize to "a family of strings"
+- just to proof that it does add up
+- efficiency the ce() as the first/last item
 - a tag soup ain't no (fucking) node tree
 
-this isn't just to round it up
-- the basis to proof that a tree can be encoded
+essential to proof that a tree can be encoded
 - as a sequence of length values
 - as a sequence of level values
+- level - the number of current scopes
+
+traces/scopes are ..
+- related or disjoint/subsequent
+- overlap - cant uniquely determine the relationship
+- i.e. neither a super- and no a sub-set
+- i.e. if in overlap, then no least-significant superset

@@ -10,9 +10,7 @@ into the ordered doctree.
 
 In addition to that, an embedding of a doctree's child order has the effect
 of reducing the overall amount of incomparable nodes. That is, fewer nodes
-remain such that no path can be formed in between two such nodes. Because
-of that, the resulting ordered doctree has no more than two child nodes per
-parent.
+remain such that no path can be formed in between two such nodes.
 
 Based on that, one can assume that even more node orders can be embedded until
 there are no incomparable nodes left. That is, until the resulting node order
@@ -85,18 +83,35 @@ since no set can be a superset and also a subset to another set. Based on that,
 conflicting statements such as "(a presequent-to b) and (a subsequent-to b)"
 can not be allowed.
 
-Due to the above, and for `R` to result in a valid extension, an edge `aEb` can
-only be included if neither a path `aPb` nor a path `bPa` can be formed over `T`.
-Because of that, the endpoints of an edge in `R` must be disconnected in `T`.
-That is, **both endpoints must be incomparable** in `T`.
+Due to the above, and for `R` to result in a valid extension, an edge `aEb`
+can only be included if neither a path `aPb` nor a path `bPa` can be formed
+over `T`. Because of that, the endpoints of an edge in `R` must be disconnected
+in `T`. That is, **both endpoints must be incomparable** in `T`.
+
+<!-- ======================================================================= -->
+## remarks
+
+Note that, from a less strict point of view, one can state that
+**the embedding of an edge must not contradict pre-existing edges**.
+
+* (`aEb` contradicts `bPa`) or (`aEb` is in conflict with `bPa`)
+
+Note that, once there are no incomparable nodes left, one can not add even
+one more edge without producing a conflict with pre-existing edges. That is,
+if an extension results in a total order, then the last (linear) extension
+in **a sequence of order embeddings** reflects an end state past which no
+more change is possible.
+
+Note that **the traversal of a tree** and the corresponding trace of nodes
+can therefore be defined in terms of such a sequence of order embeddings.
 
 <!-- ======================================================================= -->
 ## order maintaining
 
-Since each node in a tree has a unique rooted path (e.g. `rPa` and `rPd`), an
-additional extension can not add any edge (e.g. `dEa`) that connects an ancestor
-with a descendant. That is because a path `aPd` can then be formed that connects
-an ancestor with its descendant.
+Since each node in a tree has a unique rooted path (e.g. `rPa` and `rPd`),
+an additional extension can not add any edge (e.g. `dEa`) that connects an
+ancestor with a descendant. That is because a path `aPd` can then be formed
+that connects an ancestor with its descendant.
 
 Note that, since the embedding of a child order will turn any presequent
 sibling of a node into an ancestor of that node, and thus into an element

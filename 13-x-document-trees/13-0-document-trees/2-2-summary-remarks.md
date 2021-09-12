@@ -39,9 +39,10 @@ Note that, the embedding of a child order will turn **leaf nodes**, which are
 no last child to a parent, into parent nodes. Because of that, the embedding
 of a child order will in general reduce the amount of leaf nodes that remain.
 However, the embedding of a child order can not turn leaf nodes, which are the
-last child of a parent, into non-leaf nodes. Consequently, leaf nodes that are
-the last child of a parent (e.g. `ls` and/or `lc`) will remain a leaf nodes in
-the resulting tree order.
+last child of a parent, into parent nodes. Consequently, these nodes (e.g. `ls`
+and/or `lc`) are the only candidates that may become leaf nodes in the resulting
+node order. The reduction in the amount of leaf nodes is therefore plays a part
+in reducing the amount of incomparable nodes.
 
 Note that the child order of an unordered doctree will be embedded as a set of
 **pre-determined edges**. That is, the embedding of the child order of a parent

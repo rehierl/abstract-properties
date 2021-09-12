@@ -1,4 +1,6 @@
 
+- it won't work without repeating content
+
 note to self
 - be clear - stay on topic
 - keep it (somewhat) simple/slim
