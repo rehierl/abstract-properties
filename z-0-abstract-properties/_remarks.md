@@ -5,43 +5,19 @@ build upon the use of abstract properties
 - in the context of ordered sequences (total orders)
 - in the context of node trees (partial orders)
 
-<!-- ======================================================================= -->
-## first - types of scopes
-
-introduce the term "type x scope of node y"
-- based upon the corresponding node order
-
-introduce the term "type-x descendants"?
-- based on the definition of "types of scopes"
-- instead of "the descendants in the the un-ordered tree"
-- a descendant in regards to the type-x node order
-
-the general pattern of defining scopes
-- also applies to total orders
-- type-0 - no edges have been added
-- type-1 - the edges of the order
-- the resulting order is total
-- no more types possible
-
-<!-- ======================================================================= -->
-## next
-
 allow overlapping scopes?
-- no - induced subtrees do not overlap each other
-- related in a path graph
-- disjoint exor related in a tree
+- why, types of properties have no overlapping scopes
+- so why allow such scopes in the context of sections?
 
-gaps in a trace
-- depens on the linear extension?
-- pre- vs. post-order vs. other
-- post-order is not order-preserving
-- does not work with abstract properties
-
-<!-- ======================================================================= -->
-## in the end
-
-some-of as a composed quantifier
-- relevant beginning with partial orders
-- some-of := all-of, but none-of
-- an interval-based point of view
-- some-of := (a,*) \ (b,*)
+with which properties to associate
+- will require a definition of "context"
+- will require the definition of types of scopes
+- in regards to the node order of an ordered doctree
+- needs box-based visuals to understand properly
+- a subsequent sibling may belong to the property of a presequent sibling
+- a presequent sibling can not belong to the property of a subsequent sibling
+- the transition towards context based on rooted paths
+- a property applies to all the descendants in the corresponding suborder
+- suborders may in general end at any point
+- even before reaching a certain end-tag
+- associate while exiting - a formal design error
