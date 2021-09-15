@@ -1,5 +1,6 @@
 
-- as a means to describe visuals
+- as a means to explain visuals
+- see / hierarchies / inner- and outer-set
 
 sub-graphs
 - border graph/edge

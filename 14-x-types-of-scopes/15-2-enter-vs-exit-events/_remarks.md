@@ -1,5 +1,6 @@
 
 - point out implementation-specific aspects
+- howto actually detect the end of a scope
 
 dom tree - order embedding
 - point out the implementation-specific

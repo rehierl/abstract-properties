@@ -2,9 +2,12 @@
 <!-- ======================================================================= -->
 # An analogy - a sequence of events
 
+Note that the following introduces a concept which will be referred to
+as the **past-present-future (PPF) principle**, or as the **PPF analogy**.
+
 ```
 - n1 - n2 - n3 - n4 - n5 - n6 - n7 - n8 - n9 ->
-     current event -->|----------> forward only
+      current event ->[]---------> forward only
 ```
 
 Given an infinte timeline with discrete timestamps, each of which is assumed
@@ -24,7 +27,7 @@ point, before it has started to process the corresponding event.
 
 ```
 - n1 - n2 - n3 - n4 - n5 - n6 - n7 - n8 - n9 ->
-           <----------|----------->
+           <----------[]---------->
           past     present    future
 ```
 
@@ -41,7 +44,7 @@ to process at some point in the future, can be understood to define the
 
 ```
 - n1 - n2 - n3 - n4 - n5 - n6 - n7 - n8 - n9 ->
-       |<-------------|
+       |<-------------[]
            cycles?
 ```
 
@@ -100,7 +103,7 @@ events must always be considered unavailable at any current present.
 
 ```
 - n1 - n2 - n3 - n4 - n5 - n6 - n7 - n8 - n9 ->
-|-------------------->|------------------>|
+|-------------------->[]----------------->|
  knowledge thus far    assume that n9 exists?
 ```
 
