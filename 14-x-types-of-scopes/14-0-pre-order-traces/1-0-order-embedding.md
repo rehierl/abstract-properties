@@ -3,17 +3,17 @@
 # embedded suborders
 
 ```
-TO --> UDT --> ODT --> PO
-|< minimal     maximal >|
+DTR --> DTU --> DTO --> DPR
+|< minimal       maximal >|
 ```
 
-Recall that embedding a child order into the unordered doctree (UDT) will yield
-the ordered doctree (ODT). After that, applying the pre-order rule to the ODT
+Recall that embedding a child order into the unordered doctree (DTU) will yield
+the ordered doctree (DTO). After that, applying the pre-order rule to the DTO
 (i.e. embedding the pre-order edges into it) will yield the doctree's pre-order
-trace, which can be said to correspond with the **processing order** (PO).
+trace, which can be said to correspond with the **processing order** (DPR).
 
 With these processing steps in mind one can assume the **trivial suborder**
-(TO) (i.e. the document's set of nodes, but with an empty set of edges) as the
+(DTR) (i.e. the document's set of nodes, but with an empty set of edges) as the
 actual starting point of the above linear extension. That is, one begins with
 the trivial suborder, and embeds all the edges in the unordered doctree into it.
 

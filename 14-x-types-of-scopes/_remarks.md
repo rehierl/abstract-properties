@@ -13,5 +13,5 @@ rooted paths - context
   rooted path - a matter of consequence
 
 a property
-- emantates from its defining nodes and is passed on
+- emanates from its defining nodes and is passed on
 - to all those nodes that are subsequent to it

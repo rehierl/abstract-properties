@@ -16,7 +16,7 @@ with an end-tag `</tag>`.
 
 ```
 n -|-> (ns .. ls)
-   |-> <tag> (fc .. lc) </tag>
+   |-> (<tag> fc .. lc </tag>)
 ```
 
 If the pre-order rule is then applied to node `n`, its "current" sequence of

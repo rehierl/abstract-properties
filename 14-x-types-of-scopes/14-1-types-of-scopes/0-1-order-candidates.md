@@ -2,10 +2,10 @@
 <!-- ======================================================================= -->
 # base order candidates
 
-Recall that a doctree's pre-order trace (aka. **the processing order**), is
-the node order in which a document tree must be processed. That is because
-there needs to be a total order over all the nodes in a document such that
-distinct implementations can be guaranteed to produce the exact same result.
+Recall that a doctree's pre-order trace (aka. **the processing order**), is the
+node order in which a document tree must be processed. That is because there
+needs to be a total order over all the nodes in a document such that distinct
+implementations can be guaranteed to produce the exact same result.
 
 * a tag soup encodes the processing order
 * a tag soup allows to visualize the processing order
