@@ -4,17 +4,6 @@
 - derived from that - types of properties/scopes
 - this is in essence about "naming orders"
 
-<!-- ======================================================================= -->
-
-- showcase the base orders as intermediate steps of the linear extension
-
-all exor none
-- can a suborder end with a parent, but exclude its child nodes?
-- either includes a node and all of its descendants, exor none at all
-- needs substring-based considerations
-
-<!-- ======================================================================= -->
-
 introduce the term "type x scope of node y"
 - based upon the corresponding node order
 
@@ -27,6 +16,17 @@ point out that there are no overlapping scopes
 - guaranteed by construction
 - related in a path graph
 - disjoint exor related in a tree
+
+# remarks
+
+all exor none
+- can a suborder end with a parent, but exclude its child nodes?
+- either includes a node and all of its descendants, exor none at all
+- needs substring-based considerations
+
+Note that this notion is different to the general notion of "a scope includes
+a node and all of its descendants ex-or none of these at all", which still
+needs to be confirmed or dismissed.
 
 # meta / beyond
 
