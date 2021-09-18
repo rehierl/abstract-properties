@@ -30,3 +30,12 @@ define/identify the last node of a scope
 * The last node of a scope can be defined as the last node of a sub-order,
   which enables implementations to determine the last node of a scope
   based on these nodes having no outgoing edge.
+
+Note that future extensions, such as rank values, may in principle close a
+scope before the corresponding end-tag is reached. Based on that, one can
+speak of **default scopes**. Implementations must therefore take into account
+that a scope already counts as being closed.
+
+Note that the above scopes need to be seen as **default scopes**. That is,
+in a given context (e.g. rank values) it might be allowed to **restrict**
+the scope of a property to a prefix of the default scope.

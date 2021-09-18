@@ -17,6 +17,12 @@ point out that there are no overlapping scopes
 - related in a path graph
 - disjoint exor related in a tree
 
+well defined sets of edges
+- base orders have a formal definition
+- the pre-order trace has a formal definition
+- scopes defined over a known base order have a formal definition
+- even if that definition is not intuitive to everyone
+
 # remarks
 
 all exor none
@@ -24,9 +30,9 @@ all exor none
 - either includes a node and all of its descendants, exor none at all
 - needs substring-based considerations
 
-Note that this notion is different to the general notion of "a scope includes
-a node and all of its descendants ex-or none of these at all", which still
-needs to be confirmed or dismissed.
+possibly slightly different to ..
+- a scope includes a node and all of its descendants ex-or none at all
+- which still needs to be confirmed or dismissed.
 
 # meta / beyond
 

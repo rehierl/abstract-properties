@@ -18,11 +18,6 @@ the overall issue
 <!-- ======================================================================= -->
 ## remarks
 
-Note that scopes must be closed explicitly since leaving a scope open runs the
-risk of associating a property with nodes that are by their structural placement
-not defined to be within the corresponding scope. Because of that, associations
-past the end of a scope represent implementation errors.
-
 Note that, in addition to obvious input errors, production code will have to
 take into account that a root could be misused to declare a type-2/3 property.
 In such cases, these property definitions must be ignored.

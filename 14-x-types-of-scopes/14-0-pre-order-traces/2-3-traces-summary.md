@@ -75,8 +75,8 @@ and ends with its parent's end-tag.
 
 ```
 <r> ... <p> ... <n> c(n) </n> s(n) </p> s(p) ... </r>
-|-t(T)--------------------------------------------->|
-                |-tPR(n)--------------------------->|
+ |-t(T)------------------------------------------->|
+                 |-tPR(n)------------------------->|
 ```
 
 The pre-order trace `tPR(n)` of any node in regards to the document tree's

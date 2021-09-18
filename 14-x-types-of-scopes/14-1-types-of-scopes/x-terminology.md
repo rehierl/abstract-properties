@@ -1,4 +1,7 @@
 
+- type-x scope of a node
+- type-0 - null scope vs. non-null scopes
+
 the extension of scopes
 - type-0 is "only the node"
 - type-1 is "the scope of a node"
@@ -17,20 +20,3 @@ clarifications
 - "exit a node" - "exit t0" (only)
 - "visit a node" - enter t0 until exit t0
 - enter/exit the scope of a node - enter/exit t1
-
-recall html-elements
-- enter - process an element's start-tag
-- enter all of its scopes in one go
-- exit - process an element's end-tag
-- exit t0 - exit the start-tag
-- exit t1 - exit the node's end-tag
-- exit t2 - exit the parent's end-tag
-- exit t3 - exit the root's end-tag
-
-<!-- ======================================================================= -->
-## remarks
-
-Note that future extensions, such as rank values, may in principle close a
-scope before the corresponding end-tag is reached. Based on that, one can speak
-of **default scopes**. Implementations must therefore take into account that a
-close operation will be triggered repeatedly.

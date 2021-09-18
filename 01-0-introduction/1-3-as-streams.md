@@ -2,9 +2,10 @@
 <!-- ======================================================================= -->
 # A stream-based point of view
 
-An implementation must **visit all the nodes in an orderly fashion** (i.e. one
-node after another) since it must be guaranteed that an implementation will not
-visit the nodes of a section before it has reached the section's sectioning node.
+An implementation must **visit all the nodes in an orderly fashion** (i.e.
+one node after another) since it must be guaranteed that an implementation
+will not visit the nodes of a section before it has reached the section's
+sectioning node.
 
 After all, if an implementation would reach a section's first content node
 before the section's sectioning node, it could not be aware that the section

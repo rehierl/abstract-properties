@@ -1,9 +1,4 @@
 
-An implementation can in general be said to begin at the root of a tree and to
-visit all the other nodes by traversing the tree along the edges of the tree's
-pre-order trace. Based on the correspondence between the above-of and the
-presequent-to node orders, that **processing order** is required.
-
 Based on that, an implementation can be assumed to reach the defining node of
 a scope and to have the means to determine the scope's type. From that point
 on, an implementation will continue to travel along the edges until the scope's
