@@ -16,26 +16,6 @@ an end tag, some-of
 - an end-tag provides a clear definition
   for the some-but-not-all quantifier
 
-<!-- ======================================================================= -->
-# remarks
-
-define/identify the last node of a scope
-
-* A scope's first node can be identified with ease (e.g. via attributes).
-  As such, a first node will be referred to as the scope's defining node.
-* The pre-order trace of a tree embeds several total and partial sub-orders.
-* The defining node of a scope is expected to be the first node of such a
-  well-defined sub-order. That is because it must be possible to uniquely
-  identify the corresponding sub-order as soon as a first node is reached.
-* The last node of a scope can be defined as the last node of a sub-order,
-  which enables implementations to determine the last node of a scope
-  based on these nodes having no outgoing edge.
-
-Note that future extensions, such as rank values, may in principle close a
-scope before the corresponding end-tag is reached. Based on that, one can
-speak of **default scopes**. Implementations must therefore take into account
-that a scope already counts as being closed.
-
-Note that the above scopes need to be seen as **default scopes**. That is,
-in a given context (e.g. rank values) it might be allowed to **restrict**
-the scope of a property to a prefix of the default scope.
+Note that defining the scope of an operation can be said to hide the difficult
+to define **some-of** qualifier. After all, an operation is in general not
+intended to apply to all the nodes in a tree.

@@ -2,10 +2,12 @@
 <!-- ======================================================================= -->
 # an implementation-based point of view
 
-Note that the following definitions and restrictions are in regards to the
-definition of default scopes (i.e. **upper boundaries**). That is, future
-definitions may introduce even further restrictions that can not be covered
-at this point.
+Note that the following restrictions are in regards to the definition of
+default scopes (i.e. **upper boundaries**).
+
+Note that future extensions may possibly **restrict a scope to a prefix**
+of its default scope. However, extensions remain subject to the restrictions
+which will be layed out below.
 
 <!-- ======================================================================= -->
 ## implementation-based restrictions
@@ -54,7 +56,7 @@ by some dedicated child node (e.g. a rank-based heading).
 
 ```
 ... <node> ... </node> ...
-    |1  |2     |3   |3
+    |1  |2     |3
 ```
 
 As a matter of consequence, a scope may be such that it ends with a parent and
@@ -81,10 +83,10 @@ identify such a node as the last node. That is because any assumption, which
 would allow to identify a node as that last node effectively introduces
 requirements that can not be relied upon (hint - input errors).
 
-Note that the above is intended to point out that the enter- and exit-events
-of a node can be guaranteed to exist in the context of that node. Because of
-that, the following will focus on these events since both represent well
-defined processing steps that can be relied upon.
+Note that the above is intended to point out that the enter- and exit-events of
+a node can be guaranteed to exist in the context of that node. Because of that,
+the following will focus on these events since both represent well defined
+processing steps that can be relied upon.
 
 <!-- ======================================================================= -->
 ## trivial vs. non-trivial base orders
@@ -94,7 +96,7 @@ that no node has another node subsequent to it. Because of that, every scope
 defined over a trivial base order is such that it begins and ends with the
 start-tag of its defining node. (Obviously including the node itself).
 
-* any scope over a trivial base order begins and ends with a **start-tag**
+* t0 - any scope over a trivial base order begins and ends with a **start-tag**
 
 Note that every other base order is such that the scopes over it begin with
 their defining node and end in another node (i.e. a node subsequent to it -
@@ -106,50 +108,51 @@ non-trivial base order ends with the end-tag of its last subsequent leaf.
 <!-- ======================================================================= -->
 ## non-trivial base orders
 
-The following will point out which end-tags can be guaranteed to exist in the
-context of a scope over a non-trivial base order.
+The following will point out which end-tags can be guaranteed to exist in
+the context of a scope over a non-trivial base order.
 
 Note that, if the defining node of a scope is reached by an implementation,
 then that node is guaranteed to exist. Consequently, definitions can be made
-in regards to that defining node. The corresponding end-tag must, for obvious
-reasons, be subsequent to the start-tag of that defining node.
+in regards to that defining node. The corresponding end-tag must obviously
+be subsequent to the start-tag of that defining node.
 
 (0) The first end-tag that could be used to define the default end of a scope
-over a non-trivial suborder is the end-tag of last subsequent descendant leaf
-of the scope's defining node. However, since a definition can not rely upon
-the existence of such a leaf, and since the same applies to any of the
+over a non-trivial suborder is the end-tag of the last subsequent descendant
+leaf of the scope's defining node. However, since a definition can not rely
+on the existence of such a leaf, and since the same applies to any of the
 descendants of the defining node, the end-tag of the defining node is the
-very first end-tag a definition can rely upon to exist.
+first end-tag a definition can build upon.
 
-* the end-tag of the defining node
+* t1 - the end-tag of the defining node
 
-(1) If the defining node is **the doctree's root**, then the one and only
-end-tag that can be guaranteed to exist is the root's end-tag. Because of
-that, the default scope over a non-trivial base order of the root must end
-in the root's end-tag.
+(1) If the defining node is **the doctree's root**, then only the root's
+end-tag are guaranteed to exist is the root's end-tag. Because of that,
+the default scope over a non-trivial base order of the root must end in
+the root's end-tag.
 
-* the end-tag of the doctree's root
+* t1 - the end-tag of the doctree's root
+* note - t1 is equal to t2 and t3
 
-(2) If the defining node is **a child to the doctree's root**, then its
-end-tag and the end-tag of the doctree's root are guaranteed to exist.
+(2) If the defining node is **a child to the doctree's root**, then only
+its end-tag and the end-tag of the doctree's root are guaranteed to exist.
 
-* the end-tag of the defining node
-* the end-tag of the doctree's root
+* t1 - the end-tag of the defining node
+* t2 - the end-tag of the doctree's root
+* note - t2 is equal to t3
 
 (3) If the defining node is **a distant descendant to the doctree's root**,
-then its end-tag, the end-tag of its parent, and the end-tag of the doctree's
-root is guaranteed to exist.
+then only its end-tag, the end-tag of its parent, and the end-tag of the
+doctree's root is guaranteed to exist.
 
-* the end-tag of the defining node
-* the end-tag of its parent
-* the end-tag of the doctree's root
+* t1 - the end-tag of the defining node
+* t2 - the end-tag of its parent
+* t3 - the end-tag of the doctree's root
 
-Note that the defining node's parent may be the doctree's root. Despite that,
-and similar to the existence of a child of the defining node, a definition
-can not rely upon the existence of any other end-tag.
+Note that, similar to the existence of a child of the defining node,
+the existence of any other end-tag can not be relied upon.
 
 <!-- ======================================================================= -->
-## remarks
+## remarks - four types of scopes only
 
 ```
 DTR --> DTU --> DTO --> DPR
@@ -157,8 +160,8 @@ DTR --> DTU --> DTO --> DPR
 ```
 
 Note that the above considerations are consistent with the amount of base
-orders in the linear extension that begins in DTR and ends in DPR. Based on
+orders in the linear extension which begins in DTR and ends in DPR. Based on
 that, it will be assumed that there simply is no other base order available.
 
-Because of that, and in the context of a tag-based syntax,
-**no more than four distinct types of (default) scopes can be used**.
+Consequently, and in the context of a tag-based syntax,
+**no more than four distinct types of (default) scopes are available**.

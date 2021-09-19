@@ -15,11 +15,11 @@ The following introduces the types of scopes a node has, based on the induced
 subtrees over the appropriate base order, that have the node as their root.
 
 ```
-|-t0[n]-|  |-t1[n]-----|  |-t[n]-----------|
-|   n   |  | n =|=> fc |  | n=|=> fc .. lc |
-|-------|  |    |=> .. |  |   |=> ns .. ls |
-           |    |=> lc |  |----------------|
-           |-----------|
+|-t0[n]-|   |-t1[n]-----|   |-t[n]-----------|
+|   n   |   | n =|=> fc |   | n=|=> fc .. lc |
+|-------|   |    |=> .. |   |   |=> ns .. ls |
+            |    |=> lc |   |----------------|
+            |-----------|
 
 |-t3[n]-------------------------------------|
 | n => (fc .. lc ..) => (ns .. ls ..) => .. |
@@ -105,10 +105,10 @@ the specified node. Likewise, the above definitions allow to refer to the
 descendants of a node in regards to a particular order by using descriptions
 such as **the type-x descendants of node y**.
 
-Thus far the description **the scope of a node** was used to refer to the
-type-1 scope of that node. This description may still be used as such, which
-is why that description continues to be in regards to the node order of the
-unordered document tree (DTU).
+Thus far the description **the scope of a node** was mainly used to refer to
+the type-1 scope of that node. This description may still be used as such,
+which is why that description continues to be, first and foremost in regards
+to the node order of the unordered document tree (DTU).
 
 The less cryptic description **the extended scope of a node** may be used to
 refer to the type-2 scope of a node. That is, this description is in regards
@@ -119,18 +119,25 @@ refer to the type-3 scope of a node. That is, this description is in regards
 to the scope of that node in the total document order (DPR).
 
 Note that **a node is being entered**, if any of its scopes are being entered.
-In contrary to that, **a node is being exited** only if its type-0 scope is
-being exited. That is because **the visit of a node** only lasts while the
-type-0 scope of that node is being processed.
+Despite that, one can use descriptions such as **the type-x enter-event** in
+order to refer to the process of entering the corresponding scope.
+
+Note that, **a node is being exited** only if its type-0 scope is being exited.
+Despite that, one can use descriptions such as **the type-x exit-event** in
+order to refer to the process of exiting the corresponding scope.
 
 * "enter a node" => enter its (t0, t1, t2, t3) scope
 * "exit a node" => (only) when exiting its type-0 scope
 * "visit a node" => (only) when processing its t0 scope
 * "enter/exit the scope of a node" => enter/exit its t1 scope
 
-Note that, despite the above default, one can sill use descriptions such as
-**enter/exit the type-x scope of node y** when an implementation is about to
-enter/exit the corresponding scope.
+Note that a node is being **entered**, **visited** and **exited** (each of
+which is in regards to the node's type-0 scope) while no other node is in the
+process of being entered, visited and exited (i.e. **an atomic operation**).
+That is because all the type-0 scopes of all the nodes in a doctree are
+pairwise disjoint, which is why all nodes will be visited one after another
+in a strict orderly fashion. After all, each type-0 scope only consists of
+the corresponding node.
 
 <!-- ======================================================================= -->
 ## html elements
@@ -140,10 +147,10 @@ enter/exit the corresponding scope.
 
 A HTML element is therefore such that it is understood to begin with its
 start-tag and to end with its end-tag. It should be clear that, each such
-element still corresponds with a single node in the document tree, this
-description is therefore not just inaccurate, but **misleading**.
+element still translates into a single node in the document tree.
 
-That is because the visit of the element's node in the document tree still
-only corresponds with its type-0 scope, *not* with its type-1 scope. Naming
-the pair of tags "an element", while implicitly including all the descendant
-elements it contains, does not change that.
+The above statement is therefore **misleading** because the visit of the
+element's node in the document tree still only corresponds with its type-0
+scope, *not* with its type-1 scope. Naming the pair of tags "an element",
+while implicitly including all the descendant elements it contains, does
+not change that.

@@ -83,9 +83,9 @@ DTR to the prodessing order DPR. Such a system may in general be described as
 NOTE that, such an order is in general neither required to be complete nor
 total. That is, the above order may in principle have more than one branch.
 However, since the focus of this discussion is on pre-order traces, and since
-there is already a complete path (from DTR to DPR), there is currently no need
-to determine if **a partial system** with more branches would exist and/or
-could even be supported as a system of base orders.
+there is already a complete path (from DTR to DPR), there is at this point
+no need to determine if **a partial system** with more branches would exist
+and/or if such a system of base orders could even be supported.
 
 Note that, in a complete partial system, each branch would have to end in the
 trival order as its leaf order. That is, due to its empty set of edges, the

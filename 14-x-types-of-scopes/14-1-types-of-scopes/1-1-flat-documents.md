@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-## flat documents, total orders
+# flat documents, total orders
 
 In the context of a document order, with no overall partial order embedded into
 it (i.e. a flat document), one can still use the same approach to define types
@@ -17,10 +17,10 @@ DTR ------> DPR
 
 Note that the flat document can still be described as a node tree. After all,
 the total document order is then defined as an ordered sequence of nodes which
-corresponds with a simple path graph. Based on that, one can still describe the
-document traversal as a pre-order traversal since the only difference is then
-that every single node is then guaranteed to have no more than one subsequent
-sibling/child.
+corresponds with a simple path graph. Based on that, one can still describe
+the document traversal as a pre-order traversal since the only difference is
+then that every single node is then guaranteed to have no more than one
+subsequent sibling/child.
 
 ```
 n1 ... ni ... nk
@@ -41,6 +41,6 @@ nodes in the induced subtree/suffix `DPR[n]`.
 <!-- ======================================================================= -->
 ## remarks
 
-Note that DPR in the context of a flat document is equivalent to DTU in regards
-to a hierarchical document. That is, it results from embedding the edges in the
-document tree/path into the trivial suborder DTR.
+Note that DPR in the context of a flat document is semantically equivalent
+to DTU in the context of a hierarchical document. Furthermore, DPR is still
+a linear extension to DTR.

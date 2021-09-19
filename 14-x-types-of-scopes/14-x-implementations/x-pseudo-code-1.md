@@ -1,4 +1,11 @@
 
+* the following is based on the concept of "parent containers"
+
+<!-- ======================================================================= -->
+
+Note that the following pseudo-code example is in regards to regular properties,
+each of which is associated with one of the previously defined types of scopes.
+
 ```
 Node {
   //- initialize a set of those
@@ -15,8 +22,10 @@ Node {
 }
 ```
 
-Assumed that the definition of a node is extended as above,
-an implementation may plan the closure as follows.
+<!-- ======================================================================= -->
+
+Assumed that the definition of a node is extended as above, an implementation
+may plan the closure as follows.
 
 ```
 //- used to maintain all those properties
@@ -24,7 +33,6 @@ an implementation may plan the closure as follows.
 Set<Property> openProperties.
 
 //- triggered when node n is reached
-//  in the pre-order trace of a tree
 onVisit(n) {
   //- process the declared properties
   foreach(p in n.getDeclaredProperties()) {
@@ -62,8 +70,10 @@ onVisit(n) {
 }
 ```
 
-Once the above steps have been executed, an implementation can close
-the scopes of those properties to which the node is a parent container.
+<!-- ======================================================================= -->
+
+Once the above steps have been executed, an implementation can close the scopes
+of those properties to which the node is a parent container.
 
 ```
 //- triggered when node n and all its

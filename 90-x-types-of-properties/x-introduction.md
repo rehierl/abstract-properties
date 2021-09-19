@@ -17,11 +17,11 @@ a node may in general have any number of descendants, implementations still
 have the issue of having to determine where in the pre-order trace of a tree
 such a well-defined scope ends.
 
-Despite the implementation-specific difficulties, one can however assume that
-there are four generic types of properties, each of which is defined based
-upon the corresponding scope of its defining node. Because of that, a **type-x
-property** can be understood to be defined such that its scope is the type-x
-scope of its defining node.
+Despite the implementation-specific difficulties, one can assume that there
+are four generic types of properties, each of which is defined based upon the
+corresponding scope of its defining node. Because of that, a type-x property
+can be understood to be defined such that its scope is the type-x scope of
+its defining node.
 
 * type-x property <=> type-x scope
 
