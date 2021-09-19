@@ -1,28 +1,27 @@
 
-- point out implementation-specific aspects
-- howto actually detect the end of a scope
+<!-- ======================================================================= -->
+- how an implementation needs to react to certain events
 
-dom tree - order embedding
-- point out the implementation-specific
-  aspects of a dom tree
-- explain why the tree orders can still be said
-  to be a suborders to that non-tree graph
+```
+    |<- enter node n, declares property 'p' |
+    |<- the scope of property 'p'         ->|
+.. <n> .................................. </x> ..
+    |-> link property with end-tag '</x>'   | onVisit(n)
+    |          close the property's scope <-| onExitT1(x)
+```
 
-the overall issue
-- implementations create objects that must be maintained
-- objects don't update themselves when exiting a scope
-- implementations must update objects explicitly
-- how one could implement the support of types of scopes
-- this is the default - extensions must be implemented accordingly
+Since the exit event of a scope does in general not correspond with the event
+of a node, and since the pre-order tree traversal algorithm focuses on a node
+and its descendants in the un-ordered tree, implementations must map the exit
+event of a type-2 and a type-3 scope onto the type-1 exit event of an ancestor.
+
+Note that the node whose type-1 exit event is used to close the property's
+(default) scope, will be referred to as the property's **parent container**.
+
+Implementations must therefore **plan a scope's closure** when it reaches
+the defining node of such a property. After that, the close operation can be
+triggered when the type-1 exit event of the property's parent container is
+executed. As such, the initialize-and-postpone approach may in general be
+referred to as **a planned closure**.
 
 <!-- ======================================================================= -->
-## remarks
-
-Note that, in addition to obvious input errors, production code will have to
-take into account that a root could be misused to declare a type-2/3 property.
-In such cases, these property definitions must be ignored.
-
-Note that, depending on property definitions, a specific **closing order** may
-be required. That is because a descendant scope/section will in general have
-to be closed before its ancestor scopes (i.e. in case of a section hierarchy).
-The above algorithm does obviously not take such a closing order into account.

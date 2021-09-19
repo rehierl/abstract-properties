@@ -1,9 +1,27 @@
 
-recall html-elements
-- enter - process an element's start-tag
-- enter all of its scopes in one go
-- exit - process an element's end-tag
-- exit t0 - exit the start-tag
-- exit t1 - exit the node's end-tag
-- exit t2 - exit the parent's end-tag
-- exit t3 - exit the root's end-tag
+- point out implementation-specific aspects
+- howto actually detect the end of a scope
+
+dom tree - order embedding
+- point out the implementation-specific
+  aspects of a dom tree
+- explain why the tree orders can still be said
+  to be a suborders to that non-tree graph
+
+the overall issue
+- implementations create objects that must be maintained
+- objects don't update themselves when exiting a scope
+- implementations must update objects explicitly
+- how one could implement the support of types of scopes
+- this is the default - extensions must be implemented accordingly
+
+Note that, in addition to obvious input errors, production code will have to
+take into account that a **root** could be misused to declare a type-2/3
+property. For obvious reasons, the scopes of such property definitions must
+be reduced to type-1 scopes.
+
+Note that, depending on property definitions, a particular **closing order**
+might be required. That is because a descendant scope/section will in general
+have to be closed before its ancestor scopes (i.e. in case of a section
+hierarchy). The above algorithm does not take such a closing order into
+account.

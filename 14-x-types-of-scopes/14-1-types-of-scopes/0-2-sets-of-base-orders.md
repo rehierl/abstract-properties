@@ -84,7 +84,7 @@ NOTE that, such an order is in general neither required to be complete nor
 total. That is, the above order may in principle have more than one branch.
 However, since the focus of this discussion is on pre-order traces, and since
 there is already a complete path (from DTR to DPR), there is currently no need
-to investigate if **a partial system** with more branches could exist and/or
+to determine if **a partial system** with more branches would exist and/or
 could even be supported as a system of base orders.
 
 Note that, in a complete partial system, each branch would have to end in the
@@ -92,4 +92,4 @@ trival order as its leaf order. That is, due to its empty set of edges, the
 **trivial order** is related to other orders in a similar fashion as the empty
 set is related to every other set. Because of that, and strictly speaking, the
 above order can not have actual branches but "parallel/concurrent" paths, each
-of which begins in DPR and ends in DTR. (recall - still a partial order).
+of which begins in DPR and ends in DTR. (hint - still a partial order).

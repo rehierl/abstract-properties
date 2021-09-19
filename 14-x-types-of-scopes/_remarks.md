@@ -1,4 +1,8 @@
 
+total vs. linear order
+- linear is more specific
+- think about a large-scale renaming ...
+
 general impression
 - we are overly used to total orders
 - we are barely aware of partial orders
@@ -11,7 +15,3 @@ rooted paths - context
 - the last node of a property is subsequent to its defining node,
   because of that, the defining node is a node in the last node's
   rooted path - a matter of consequence
-
-a property
-- emanates from its defining nodes and is passed on
-- to all those nodes that are subsequent to it
