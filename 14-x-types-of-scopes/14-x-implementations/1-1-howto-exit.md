@@ -3,7 +3,7 @@
 # howto implement exit events?
 
 As mentioned before, any implementation must explicitly create and maintain
-objects, each of which (from an implementation's point of view) can be said to
+objects, each of which can, from an implementation's point of view, be said to
 represent one piece of its knowledge base. Because of that, an implementation
 must explicitly mark the object it associates with a particular scope as being
 closed, as soon as it has exited the corresponding scope.
@@ -44,46 +44,36 @@ Note that each of these end-tags belongs to a node in the rooted path of the
 scope's defining node - i.e. the current node, its parent, the tree's root.
 Because of that, the object of each node in a rooted path can in principle
 be used to plan the closure of a scope. However, one should in general use a
-separate storage location for that purpose. That in order to ensure that the
+separate storage location for that purpose. This in order to ensure that the
 temporary information will be dropped once the overall process has finished.
 
 Note that the node whose type-1 exit-event will be used to close the scope,
 will be described as **the scope's surrounding (parent) container**, which
-can be said to be analogous to a numeric upper/outer boundary.
+can be described to be analogous to a numeric upper/outer boundary.
 
 Recall that, strictly speaking each scope ends with the last subsequent leaf
 node in it. That is because that leaf node has no further node subsequent to
 it in the scope's base order. However, since one can not define which node
-that will be, any definition has no other means but to work with upper/outer
-boundaries. Because of that, and even though a scope in general ends with the
-exit-event of the last subsequent leaf, definitions can only work with the
-next subsequent end-tag of one of the leaf's ancestors.
+will be that last node, any definition has no other means but to work with
+upper/outer boundaries. Because of that, and even though a scope in general
+ends with the exit-event of the last subsequent leaf, definitions can only
+work with the next subsequent end-tag of one of the leaf's ancestors.
 
 <!-- ======================================================================= -->
 ## the visit of a node
 
-```
-1. determine the properties the node defines
-2. apply all known properties
-3. close all type-0 scopes
-4. plan the closure of every other scope
-```
-
-Note that, except for type-0 scopes, and regardless of any future extensions,
-no scope ends while a node is in the process of being visited.
-
-```
+```js
 traverseInDocOrder(node) begin
-  //- determine the properties defined
-  //  by the current "node"
+  //- determine the properties defined by "node"
   onEnterT0123(node)
 
-  //- apply all known properties
+  //- run all operations related to "node"
+  //  and apply all open properties
   onVisit(node)
 
   //- close all type-0 scopes
   //- plan the closure of every other scope
-  //  of the properties defined by "node"
+  //  of those properties defined by "node"
   onExitT0(node)
 
   //- recursively visit all child nodes
@@ -103,6 +93,10 @@ merely fictional and intended to express the internal stages of onEnter().
 Note that there are no onExitT2() and no onExitT3() events since these
 correspond with the onExitT1() event of one of the defining node's ancestors.
 
+Note that, except for type-0 scopes, and regardless of any future extensions,
+no scope, other than the node's type-0 scopes end while a node is in the
+process of being visited.
+
 <!-- ======================================================================= -->
 ## remarks
 
@@ -110,12 +104,12 @@ Note that a scope is **forwards oriented** (i.e. along the edges). In contrary
 to that, the decision to close a scope is **backwards oriented** (i.e. against
 the orientation of the document order).
 
-Note that each end-tag is in general located in between two nodes and may mark
-the end of more than one scope. After all, the end-tag of a tree's root marks
-the end of the root's type-1 scope, the end of all type-2 scopes of its child
-nodes, and also the end of all type-3 scopes of all its descendant nodes. In
-addition to that, the end-tag of every other node marks the end of the node's
-type-1 scope and also the end of all type-2 scopes of its child nodes.
+Note that **each end-tag is located in between two nodes** and may mark the end
+of more than one scope. After all, the end-tag of a tree's root marks the end
+of the root's type-1 scope, the end of all type-2 scopes of its child nodes,
+and also the end of all type-3 scopes of all its descendant nodes. In addition
+to that, the end-tag of every other node marks the end of the node's type-1
+scope and also the end of all type-2 scopes of its child nodes.
 
 Note that implementations will have to take into account that a **root** could
 be associated with type-2/3 properties. For obvious reasons, the scopes of

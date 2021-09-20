@@ -43,7 +43,7 @@ can be relied upon - and based on that, results that can be taken advantage of.
 <!-- ======================================================================= -->
 
 ```
-- document/visit order --- none-/all-/some-of ---------->
+|- document/visit order -- none-/all-/some-of --------->|
 ```
 
 In most cases an operation is not intended to affect all of the nodes within a
@@ -60,9 +60,9 @@ It is "either all in, ex-or none at all".
 <!-- ======================================================================= -->
 
 ```
-- document/visit order --- d --------------------------->
-|- d is un-known -------->||- d is known -------------->|
-                           |- max scope possible ------>|
+|- document/visit order -- d -------------------------->|
+|- d is unknown --------->||- d is known -------------->|
+                           |- all-of ------------------>|
 ```
 
 The difficulty is therefore to provide a clear definition of the some-of
@@ -92,7 +92,7 @@ particular order.
 <!-- ======================================================================= -->
 
 ```
-- document/visit order --- d ----------- l ------------->
+|- document/visit order -- d ----------- l ------------>|
 |- none-of --------------->|- some-of ----------------->|
                            |- all-of --->|- none-of --->|
 ```

@@ -44,8 +44,9 @@ sequences (i.e. a hierarchy of scopes/traces).
 * `tO(n) := tU(n) × tO(ns)`
 * `(tO(ns) suffix-of tO(n))` is true
 
-Note that, similar as before and back in regards to TU, the trace `tU(n)` can be
-described such that node `n` is follwed by the trace of its first child `tO(fc)`.
+Note that, similar as before and back in regards to TU, the trace `tU(n)` can
+be described such that node `n` is follwed by the trace of its first child
+`tO(fc)`.
 
 * `tU(n) := n × tO(fc)`
 * `tU(n) := n × ( tU(fc) × .. × tU(lc) )`

@@ -59,10 +59,10 @@ trace (more accurately the trace of the document't trees root node) that is
 ## a suffix/prefix-based point of view
 
 Recall that each ordered sequence (including the pre-order trace of a tree)
-corresponds with a path graph and as such with a specialized node tree.
-Because of that, **each non-empty suffix** over an ordered sequence corresponds
-with **an induced subtree**. Based on that one can describe `TU[n]`, `TO[n]`
-and also `TO[ns]` as suffixes to the corresponding node orders.
+corresponds with a path graph and as such with a specialized node tree. Because
+of that, **each non-empty suffix** over an ordered sequence corresponds with
+**an induced subtree**. Based on that one can describe `TU[n]`, `TO[n]` and
+also `TO[ns]` as suffixes to the corresponding node orders.
 
 Conversely, the **prefix** of an ordered sequence can be described as what
 remains when a suffix is removed from a sequence. Based on that, and with

@@ -2,12 +2,14 @@
 <!-- ======================================================================= -->
 # A pattern-based overview
 
-The difficulty of an implementation is to map the exit-event of each scope onto
-the end-tag of a surrounding container. (Recall that an end-tag may mark the
-end of more than one scope).
+The difficulty of an implementation is to map the exit-event of each scope
+onto the end-tag of a surrounding container. (Recall that an end-tag may mark
+the end of more than one scope).
 
 Note that the following must be understood from the perspective of a document
-tree traversal, not from the context of reading a tag-based encoding.
+tree traversal, not from the context of reading a tag-based encoding. That is,
+possible issues in regards to "missing tags" can and will be ignored at this
+point.
 
 <!-- ======================================================================= -->
 ## type-0 scopes
@@ -71,8 +73,8 @@ onto the type-1 exit event of the defining node's parent.
 * Close the scope when processing the parent's end-tag.
 * e.g. heading-based section properties
 
-Note that a type-2 defining node is in general neither required to have
-a descendant, nor a subsequent sibling. That is, the "data" and "content"
+Note that a type-2 defining node is in general neither required to have a
+descendant, nor a subsequent sibling. That is, the "data" and "content"
 areas in the property's scope may both be empty.
 
 Note that a type-2 defining node must be treated as a type-1 defining node,
@@ -98,6 +100,6 @@ event must be mapped onto the type-1 exit event of the tree's root.
 * e.g. unclear use - kept for the sake of argument ...
 
 Note that a type-3 defining node must be treated as a type-2 defining node,
-if the defining node is a child to the document tree's root node. Similar to
-that, it must be treated as a type-1 defining node, if the defining node is
-the document tree's root node.
+if the defining node is a child to the document tree's root node. Similar
+to that, it must be treated as a type-1 defining node, if the defining node
+is the document tree's root node.

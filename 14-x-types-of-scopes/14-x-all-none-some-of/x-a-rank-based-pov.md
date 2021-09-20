@@ -9,8 +9,7 @@
 ```
 
 Since the pre-order trace `traceO(ns)` is a suffix to `traceO(n)`, trace
-`traceU(n)` can be formed from `traceO(n)` by removing `traceO(ns)` as a
-suffix.
+`traceU(n)` can be formed from `traceO(n)` by removing `traceO(ns)` as a suffix.
 
 * `traceU(n) := traceO(n) \ traceO(ns)`
 
@@ -31,8 +30,8 @@ Note that, based on the above, a scope can be understood to be forwards
 oriented (i.e. along the edges), whereas rank values need to be understood
 to be **backwards oriented** (i.e. against the edges).
 
-Since `t(x,y) := tO(x) \ t(y)` will in general not work if `y` is anything
-but a subsequent sibling to `x` (WHY ?!?) ...
+Since `t(x,y) := tO(x) \ t(y)` will in general not work if `y` is anything but
+a subsequent sibling to `x` (WHY ?!?) ...
 
 * the `(\)` must be understood to remove a suffix
 * `y` can not be an ancestor to `x` since these are not subsequent to `x`
