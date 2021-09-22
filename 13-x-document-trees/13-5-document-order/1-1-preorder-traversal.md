@@ -2,7 +2,7 @@
 <!-- ======================================================================= -->
 # the pre-order doctree traversal
 
-```
+```js
 //- the default pre-order tree traversal
 traverseInPreOrder(node) begin
   //- visit the node and enter its scope

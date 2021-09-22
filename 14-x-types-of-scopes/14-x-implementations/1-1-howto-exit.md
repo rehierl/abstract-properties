@@ -9,12 +9,12 @@ must explicitly mark the object it associates with a particular scope as being
 closed, as soon as it has exited the corresponding scope.
 
 ```
-<r> ... <p> ... <n> c(n) </n> s(n) </p> s(p) ... </r>
-|-t(T)--------------------------------------------->|
-scope-t3(n)     |-t3------------------------------->|
-scope-t2(n)     |-t2----------------->|
-scope-t1(n)     |-t1------->|
-scope-t0(n)     |-| t0
+<r> .. <p> .. <n> c(n) </n> s(n) </p> s(p) .. </r>
+|-t(T)------------------------------------------>|
+scope-t3(n)   |-t3------------------------------>|
+scope-t2(n)   |-t2----------------->|
+scope-t1(n)   |-t1------->|
+scope-t0(n)   |-| t0
 ```
 
 Since each scope begins with the start-tag of its defining node, and may end
@@ -25,9 +25,9 @@ exit event of the corresponding node.
 ```
   type-0                             type-1/2/3
 .. <n> ................................ </x> ..
-    |-> enter node n, detect all scopes   | onEnter(n)
-    |-> plan the closure of all scopes    |
-    |         close all relevant scopes ->| onExitT1(x)
+   |-> enter node n, detect all scopes     | onEnter(n)
+   |-> plan the closure of all scopes      |
+   |           close all relevant scopes ->| onExitT1(x)
 ```
 
 Because of that, implementations must in general **plan the closure of a scope**

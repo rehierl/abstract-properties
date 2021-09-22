@@ -75,6 +75,9 @@ Since the focus of this discussion is on the processing order of a document
 tree, order `P` has the processing order DPR (i.e. the pre-order node order)
 as its root order.
 
+<!-- ======================================================================= -->
+## remarks - extended systems?
+
 Note that the order visualized above (i.e. "DPR to DTR") is complete and total.
 That is, it effectively descripes a step-wise extension from the trival order
 DTR to the prodessing order DPR. Such a system may in general be described as

@@ -65,7 +65,7 @@ that, each node has its former next subsequent sibling and its former first
 child as its child nodes.
 
 ```
--> n -> (fc .. lc ..) -> (ns .. ls ..)
+pre-order: -> n -> (fc .. lc ..) -> (ns .. ls ..)
 ```
 
 Recall that applying the pre-order rule has the effect of turning the ordered

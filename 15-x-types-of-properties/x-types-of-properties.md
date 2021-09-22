@@ -72,10 +72,10 @@ of a "hidden" attribute and also the scopes of headings such as "h1,..,h6"
 
 ```
 type-3 property                   in a tree's pre-order trace
-==============================    ===============================
-    ...                           |-s3--------------------------|
-    <n property="value">          | <n> .. </n> .. </p> .. </r> |
-      [ descendants included ]    |-----------------------------|
+==============================    ==================================
+    ...                           |-s3-----------------------------|
+    <n property="value">          | .. <n> .. </n> .. </p> .. </r> |
+      [ descendants included ]    |--------------------------------|
     </n>
     [ siblings included ]
   </p>

@@ -55,8 +55,8 @@ by some dedicated child node (e.g. a rank-based heading).
 * by default, each scope either includes all child nodes exor none at all
 
 ```
-... <node> ... </node> ...
-    |1  |2     |3
+.. <node> .. </node> ..
+   |1  |2    |3
 ```
 
 As a matter of consequence, a scope may be such that it ends with a parent and

@@ -3,26 +3,25 @@
 # types of scopes
 
 ```
-<r> ... <p> ... <n> c(n) </n> s(n) </p> s(p) ... </r>
-|-t(T)--------------------------------------------->|
-scope-t3(n)     |-t3------------------------------->|
-scope-t2(n)     |-t2----------------->|
-scope-t1(n)     |-t1------->|
-scope-t0(n)     |-| t0
+.......... <n> c(n) </n> s(n) </p> .. </r>
+|-t(T)---------------------------------->|
+type-3(n)  |-t3------------------------->| - over DPR
+type-2(n)  |-t2----------------->|         - over DTO
+type-1(n)  |-t1------->|                   - over DTU
+type-0(n)  |-| t0                          - over DTR
 ```
 
 The following introduces the types of scopes a node has, based on the induced
 subtrees over the appropriate base order, that have the node as their root.
 
 ```
-|-t0[n]-|   |-t1[n]-----|   |-t[n]-----------|
-|   n   |   | n =|=> fc |   | n=|=> fc .. lc |
-|-------|   |    |=> .. |   |   |=> ns .. ls |
-            |    |=> lc |   |----------------|
-            |-----------|
+|-DTR---|  |-DTU-----------|  |-DTO------------|
+|   n   |  | n -> fc .. lc |  | n-|-> fc .. lc |
+|-------|  |---------------|  |   |-> ns .. ls |
+                              |----------------|
 
-|-t3[n]-------------------------------------|
-| n => (fc .. lc ..) => (ns .. ls ..) => .. |
+|-DPR---------------------------------------|
+| n -> (fc .. lc ..) -> (ns .. ls ..) -> .. |
 |-------------------------------------------|
 ```
 
@@ -85,18 +84,19 @@ Recall that the pre-order rule can not be understood such that it is based on
 a well-defined set of additional edges. In contrary to that, every other set
 of edges can be described as being **well-defined**. That is because, one can
 clearly state which edges will be embedded when transitioning from one node
-order to another.
+order to another. Despite that, the document order itself can still be said
+to be well defined (e.g. in terms of the corresponding tag soup).
 
 <!-- ======================================================================= -->
 ## terminology
 
 ```
-... <n> c(n) </n> s(n) </p> s(p) ... </r>
-|-t(T)--------------------------------->| - enter/exit the document
-t0  |-|                                   - enter/visit/exit the node
-t1  |-(scope)-->|                         - exit its (type-1) scope
-t2  |-(extended scope)--->|               - a type-2 exit
-t3  |-(unrestricted scope)------------->| - a type-3 exit
+... <n> c(n) </n> s(n) </p> .. </r>
+|-t(T)--------------------------->| - enter/exit the document
+t0  |-|                             - enter/visit/exit the node
+t1  |-(scope)-->|                   - exit its (type-1) scope
+t2  |-(extended scope)--->|         - a type-2 exit
+t3  |-(unrestricted scope)------->| - a type-3 exit
 ```
 
 With the above types of scopes defined one can now use descriptions such as
@@ -118,11 +118,11 @@ Likewise, the description **the unrestricted scope of a node** may be used to
 refer to the type-3 scope of a node. That is, this description is in regards
 to the scope of that node in the total document order (DPR).
 
-Note that **a node is being entered**, if any of its scopes are being entered.
+Note that **a node is being entered** if any of its scopes are being entered.
 Despite that, one can use descriptions such as **the type-x enter-event** in
 order to refer to the process of entering the corresponding scope.
 
-Note that, **a node is being exited** only if its type-0 scope is being exited.
+Note that **a node is being exited** only if its type-0 scope is being exited.
 Despite that, one can use descriptions such as **the type-x exit-event** in
 order to refer to the process of exiting the corresponding scope.
 

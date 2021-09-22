@@ -1,7 +1,4 @@
 
-# variations of setups
-- point out that a partial order is more than what meets the eye
-
 <!-- ======================================================================= -->
 ## variants of partial orders (poset)
 

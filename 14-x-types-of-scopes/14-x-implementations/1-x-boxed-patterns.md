@@ -15,10 +15,10 @@ point.
 ## type-0 scopes
 
 ```
-|-t0-scope------|
-|     node n    |
-|---------------|
-enter     exit-t0
+|-t0-scope----|
+| node n      |
+|-------------|
+enter   exit-t0
 ```
 
 The event-based mapping is more or less theoretical in the context of a type-0
@@ -60,7 +60,7 @@ the scope's **parent container** is the defining node.
 ```
 |-t1-scope------------------------|
 |      |-t2-scope-----------------|
-| p .. | n |   data   |  content  |
+| p .. | n | data     | content   |
 |      |--------------------------|
 |      visit      exit-t1  exit-t2|
 |---------------------------------|
@@ -86,7 +86,7 @@ if the defining node is the document tree's root node.
 ```
 |-t1-scope-----------------------------------|
 |      |-t3-scope----------------------------|
-| r .. | n |  data  |  content  | ???        |
+| r .. | n | data   | content   | ???        |
 |      |-------------------------------------|
 |      visit    exit-t1     exit-t2   exit-t3|
 |--------------------------------------------|

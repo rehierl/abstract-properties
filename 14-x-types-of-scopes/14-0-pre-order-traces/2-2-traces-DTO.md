@@ -3,12 +3,12 @@
 # the pre-order trace over DTO
 
 ```
-    <p> ..           <n> ..        </n> ..      </p>
------|----------------|--------------|------------|---
-.. × p × (fs .. ps) × n × (fc .. lc) × (ns .. ls) | ..
----|----------------|----------------|------------|---
-                    |-tO(n)---------------------->|
-                    |-tU(n)/prefix-->|-suffix---->|
+    <p> ..            <n> ..             </n> ..         </p>
+-----|-----------------|-------------------|---------------|---
+.. × p × (fs .. ps ..) × n × (fc .. lc ..) × (ns .. ls ..) | ..
+---|-------------------|-------------------|---------------|---
+                       |-tO(n)---------------------------->|
+                       |-tU(n)/prefix----->|-suffix------->|
 ```
 
 Since applying the pre-order rule to node `n` results in prefixing the sequence
@@ -31,7 +31,7 @@ Because of that, the pre-order trace of a node `tO(n)` can be described as
 **a string/sequence of pre-order traces**. As such it can be understood to be
 formed from **generic units**. Since the **building blocks** of `tO(n)` are
 traces over TU, this seems to suggest that the scope of a node over TO has some
-level of **granularity**. The above sub-traces could therefore be described as
+**level of granularity**. The above sub-traces could therefore be described as
 the atoms (i.e. indivisible units) of a scope over TO.
 
 * `tO(n) := tU(n) × tU(ns) × .. × tU(ls)`

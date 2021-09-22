@@ -3,11 +3,11 @@
 ## line-based visualizations
 
 ```
-     |-s-----|       |-u-------------|      | a pre-order trace,
-     |   |-t-|---|   |   |-v-----|   |      | including the scopes of
-( n1,|n2,|n3,|n4,|n5,|n6,|n7, n8,|n9,|n10 ) | properties s, t, u, and v
-     |===|===|   |   |   |=======|   |      |
-         |=======|   |===============|      |
+     |-s-----|       |-u-------------|      | - a pre-order trace,
+     |   |-t-|---|   |   |-v-----|   |      | - including the scopes of
+( n1,|n2,|n3,|n4,|n5,|n6,|n7, n8,|n9,|n10 ) | - properties s, t, u, and v
+     |---|---|   |   |   |-------|   |      |
+         |-------|   |---------------|      |
 ```
 
 Since each node may be associated with more than one property, the scopes
@@ -16,8 +16,8 @@ of distinct properties may be disjoint (e.g. `s` and `u`), related (e.g.
 
 ```
 ( n1, n2, n3, n4, n5, n6, n7, n8, n9, n10 ) | - a pre-order trace
-     =s======        =u==============       | - properties - s, u
-         =t======        =v======           | - properties - t, v
+     -s------        -u--------------       | - properties - s, u
+         -t------        -v------           | - properties - t, v
 ```
 
 Similar as before, the scopes of multiple properties can be visualized by

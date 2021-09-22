@@ -23,8 +23,8 @@ Recall that, unless specified otherwise, descriptions are by default in regards
 to the node order of an unordered doctree.
 
 ```
-pattern:        -> n -> (fc .. lc ..) -> (ns .. ls ..)
-t(n), trace(n): -> n -> (fc .. lc ..)
+pre-order:       -> n -> (fc .. lc ..) -> (ns .. ls ..)
+t(n), trace(n):  -> n -> (fc .. lc ..)
 ```
 
 Recall that the pre-order trace `t(n)` over a tree `T(N,E)` is a substring to

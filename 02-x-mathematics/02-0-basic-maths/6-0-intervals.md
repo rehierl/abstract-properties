@@ -7,6 +7,7 @@ certain range in the context of a known set of numbers. That is, an interval
 can be described as the shorthand definition of a **(sub)set** of numbers:
 
 * `i1 := [a,b] := { x | (a <= x <= b) }`
+* that is `[a,b] := ( [a,*) and (*,b] )`
 
 The interval `[a,b]` is said to have `a` and `b` as its **endpoints** such
 that the set of numbers an interval defines contains all the numbers that are
@@ -16,6 +17,8 @@ its 2nd/upper endpoint.
 Note that, in the context of this discussion, the **lower endpoint** (i.e. `a`)
 is expected to be lower than or equal to the **upper endpoint** (i.e. `b`).
 That is, `(a <= b)` is required to be true.
+
+* `(a presequent-to b) or (a equal-to b)` must be true
 
 Note that the resulting set of numbers can be said to have a first and a last
 number, and to contain every other number in between. As such, the set of

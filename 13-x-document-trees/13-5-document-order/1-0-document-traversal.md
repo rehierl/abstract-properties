@@ -7,7 +7,7 @@ over the nodes in it. In addition to that, the content of a document tree
 is serialized into a document using a tag-based syntax, which is generated
 using the following base algorithm.
 
-```
+```js
 //- the basic document tree traversal
 traverseInDocOrder(node) begin
   //- used to write start-tags
