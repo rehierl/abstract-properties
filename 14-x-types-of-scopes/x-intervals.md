@@ -1,4 +1,8 @@
 
+* needs a re-visit
+* the overall purpose - a generalized, easy-to-understand point-of-view
+* i.e. better than "a sequence of induced subtrees"
+
 <!-- ======================================================================= -->
 ## intervals over posets
 

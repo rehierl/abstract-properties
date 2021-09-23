@@ -1,14 +1,4 @@
 
-```
-      subsequent           presequent   |  the reduced pattern    |
-      siblings             siblings     |  of an ordered doctree  |  in short
- =====================================  |  ===================    |  ========
- p -> (ls .. ns) -> n -|-> (ps .. fs)   |  n -|-> (ps .. fs)      |  n -|-> sR
-                       |-> (lc .. fc)   |     |-> (lc .. fc)      |     |-> cR
-                                        |                         |
-                           child nodes  |                         |
-```
-
 general impression
 - we are overly used to total orders
 - we are barely aware of partial orders
@@ -29,3 +19,10 @@ html headings
 - no - that would be a fucking mess of scopes
 - all headings must be DTO headings
 - and the h-element is the only rank-less heading
+
+<!-- ======================================================================= -->
+
+allowing to prematurely close a scope
+- by the descendant of an associated container
+- can break the stream-based pov by introducing gaps
+- will break grouping by tags
