@@ -1,6 +1,4 @@
 
-# document trees
-
 the embedding of a traversal consists of ..
 - an ordering rule and an order of execution
 - rule - how a sequence is formed - additional edges
@@ -11,6 +9,14 @@ if you know that you have a transitive closure
 - the union of sinks of all the edges formes the scope of (a)
 - a way to efficiently calculate the transitive reduction?
 - howto distinguish a child from some other descendant?
+
+in regards to embedding sets of nodes
+- the pre-order rule does not correspond
+  with a well-defined set of edges since
+  there is no pre-calulated set of edges
+- however, one can still state that the
+  document order is well-defined in terms
+  of a tag soup
 
 # level-order traversal
 

@@ -12,7 +12,7 @@ which will be layed out below.
 <!-- ======================================================================= -->
 ## implementation-based restrictions
 
-```
+```js
 //- the basic document tree traversal
 traverseInDocOrder(node) begin
   //- used to write start-tags
@@ -152,7 +152,7 @@ Note that, similar to the existence of a child of the defining node,
 the existence of any other end-tag can not be relied upon.
 
 <!-- ======================================================================= -->
-## remarks - four types of scopes only
+## four types of scopes only
 
 ```
 DTR --> DTU --> DTO --> DPR

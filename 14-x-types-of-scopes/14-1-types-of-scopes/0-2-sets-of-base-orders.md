@@ -54,7 +54,7 @@ or can be expected to exist.
 
 ```
 DPR --> DTO --> DTU --> DTR
-|< minimal       maximal >|
+|< maximal       minimal >|
 ```
 
 Recall that the order relation of a processing order is total and therefore
@@ -83,12 +83,12 @@ That is, it effectively descripes a step-wise extension from the trival order
 DTR to the prodessing order DPR. Such a system may in general be described as
 **a complete system** and also as **a total system** of base orders.
 
-NOTE that, such an order is in general neither required to be complete nor
-total. That is, the above order may in principle have more than one branch.
-However, since the focus of this discussion is on pre-order traces, and since
-there is already a complete path (from DTR to DPR), there is at this point
-no need to determine if **a partial system** with more branches would exist
-and/or if such a system of base orders could even be supported.
+NOTE that such an order is in general neither required to be complete nor total.
+That is, the above order may in principle have more than one branch. However,
+since the focus of this discussion is on pre-order traces, and since there is
+already a complete path (from DTR to DPR), there is at this point no need to
+determine if **a partial system** with more branches would exist and/or if such
+a system of base orders could even be supported.
 
 Note that, in a complete partial system, each branch would have to end in the
 trival order as its leaf order. That is, due to its empty set of edges, the

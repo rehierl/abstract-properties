@@ -2,81 +2,104 @@
 <!-- ======================================================================= -->
 # base order candidates
 
-Recall that a doctree's pre-order trace (aka. **its processing order**), is
+Recall that a doctree's pre-order trace (aka. **the processing order**), is
 the node order in which a document tree must be processed. That is because
 there needs to be a total order over all the nodes in a document such that
 distinct implementations can be guaranteed to produce the exact same result.
 
-* a tag soup encodes the processing order
-* a tag soup can be used to visualize the processing order
+* a tag soup encodes and visualizes a processing order
 
-Note that definitions in regards to a tag soup are therefore not in regards
-to the tag-based syntax (i.e. some specific syntax), but in regards to the
-processing order and the suborders it contains.
+Note that definitions in the context of a tag soup are therefore in regards
+to the processing order and the suborders it contains, not in regards to the
+tag-based syntax (i.e. some specific syntax) itself.
 
-Recall that each scope is defined as an open interval such that it begins with
-its defining node and includes every other node that is subsequent to it. Even
-though the processing order may be used as a base order, the following tries
-to focus on finding restrictions each such base order candidate must satisfy.
+Recall that **scopes are defined as intervals over a base order** such that
+each scope begins with its defining node and includes every other node that
+is subsequent to it in that base order. Even though the processing order may
+be used as a base order, the following tries to focus on those characteristics
+a base order must have - with the goal of finding further base orders.
 
-* the processing order is a base order candidate
-* any base order is a (proper) suborder to the processing order
+* the processing order is a viable base order
 
-Since any scope over the processing order will end in the document's last node,
-any alternative base order is in general such that the scopes over it will end
-before the document's last node.
+Since a scope **follows the stream-based perspective** (begins with a defining
+node, ends with a last node, contains every other node in between), each scope
+is a substring to the processing order. Because of that, any base order must be
+such that possible scopes over it appear as substrings to the processing order.
 
-* scopes are **intervals over a (proper) suborder to the processing order**
-* any super-order is order-preserving to all of its suborders
-* any suborder is embedded into its super-order
+* the scopes over a base order are **substrings** to the processing order
+* each substring begins with the scope's defining node
 
-Since the scope of a property follows the stream-based perspective (begins with
-a defining node, ends with a last node, contains every other node in between),
-each scope is a substring to the processing order. Because of that, base orders
-must be such that the scopes over it are substrings to the processing order.
-
-* any scope is a **substring** to the processing order
-* the scopes over a base order must be substrings to the processing order
-
-Note that one should not assume that any possible substring can be supported.
-The above statements must therefore be understood to restrict what can be
-supported (i.e. as **an upper boundary**). That is, further restrictions (i.e.
-a refinment process) will be introduced.
+Note that, even though each scope must correspond with a substring over the
+processing order, an arbitrary substring over the processing order does not
+necessarily correspond with a scope over some base order. Because of that,
+the "any scope must appear as a substring" must be understood to describe
+**an upper boundary** of the characteristics of a base order. In addition
+to that, further restrictions may still follow (i.e. a refinment process).
 
 <!-- ======================================================================= -->
 ## the trivial base order
 
-Note that, due to having no edges at all, no nodes in the **trivial suborder**
-of a document tree have any nodes subsequent to them. Any scope over a trivial
-suborder therefore only consists of its defining node. Because of that, any
-scope over the trivial base order is **a 1-element substring** to the
-processing order.
+Due to having no edges at all, no node in the **trivial suborder** of a doctree
+has another node subsequent to it. Any scope over the trivial suborder therefore
+only consists of its defining node. Because of that, any scope over the trivial
+base order is **a 1-element substring** to the processing order.
 
-* the trivial suborder of a processing order is a viable base order
+* the trivial suborder of the doctree is a viable base order
 
 <!-- ======================================================================= -->
-## distinct and unqiue scopes
+## remarks
 
-Recall that any scope is defined as an open interval over a base order that
-begins with its defining node (i.e. a single node that is the scope's very
-first node - i.e. a root). Based on that, any scope can insofar be described
-as unique since each scope has a distinct starting point in regards to a
-particular base order.
+Since all the nodes in a scope must be subsequent to its defining node in the
+processing order, a base order must be a **suborder** to the processing order.
+Otherwise a scope's defining node can not be guaranteed to appear first in the
+processing order.
 
-* all scopes over a base order must be **unique**
+* any base order must be a suborder to the processing order
+* any super-order is order-preserving to all of its suborders
+* any suborder is embedded into its super-order
 
-If there are two distinct nodes in a base order that have the same scope, then
-that base order has a cycle. Both nodes could otherwise not have the same scope.
-In addition to that, and since each node is then subsequent to the other, none
-of the nodes has a characteristic element associated with it. That is because
-the characteristic subset of that shared scope is empty.
+If two nodes were nodes of the same cycle, then both nodes would have the same
+scope (i.e. the same set of nodes). Furthermore, only one of the nodes in such
+a cycle could be such that its scope would begin with its defining node in the
+processing order. Because of that, base orders must be **acyclic**.
 
-* a base order must be **acyclic**
+Note that no suborder to a total order can be cyclic since that would require
+the total order to be cyclic - i.e. in conflict with the definition of "total".
 
-Note that any suborder to a tree order is acyclic by nature. Because of that,
-and due to the overall context (i.e. document trees), this requirement can be
-understood to be auto-satisfied.
+* a base order must be acyclic
+* all scopes over the same base order must be unique
 
-Note that the scope over the last node of a processing order is equal to the
-scope of that node over the trivial base order. Because of that, scopes can
-not be required to be "globally unique".
+<!-- ======================================================================= -->
+## remarks
+
+If two nodes `a` and `b` were next presequent to node `c` in a base order (i.e.
+more than one "parent"), then either `a` would appear in between `b` and `c`
+in the processing order, or `b` would appear in between `a` and `c`. Because
+of that, there would be another node in between the defining node and its next
+subsequent node `c`, which would be in conflict with the stream-based aspect.
+Any two scopes over a base order must therefore be such that they are either
+disjoint exor related (i.e. **DI-RE**). Since a base order must be a tree order,
+all the scopes over the same base order are distinct.
+
+* a base order must be a **tree order**
+* all scopes over the same base order are **unique**
+
+Since the scope over the last node of a processing order is equal to the scope
+of that node over the trivial base order, scopes can not be required to be
+"globally unique". That is, one can not require that all the scopes over all
+the base orders must be distinct.
+
+* scopes over distinct base orders may be equal
+
+<!-- ======================================================================= -->
+## remarks
+
+Note that the trivial suborder DTR, the unordered doctree DTU and the ordered
+doctree DTO all contain all the nodes of the doctree. As such, these suborders
+appear as substrings to the processing order.
+
+Note that a base order is in general not required to contain all the nodes of
+a doctree. That is, a base order may in principle be restricted to a subset of
+nodes. It is however unclear at this point, if all the nodes of a base order
+must form a substring to the processing order, or if that aspect is a mere
+matter of consequence.

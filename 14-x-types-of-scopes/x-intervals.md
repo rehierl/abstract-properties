@@ -51,12 +51,12 @@ do overlap, or if `[x,*]` is a subset to `[d,*]`.
 <!-- ======================================================================= -->
 ## remarks
 
-Since `t(x,y) := tO(x) \ t(y)` will in general not work if `y` is anything but
-a subsequent sibling to `x` (WHY ?!?) ...
+Since `t(x,y) := tO(x) \ t(y)` will in general not work if `y`
+is anything but a subsequent sibling to `x` (WHY ?!?) ...
 
 * the `(\)` must be understood to remove a suffix
 * `y` can not be an ancestor to `x` since these are not subsequent to `x`
-* `y` can not be a subsequent sibling to `x` since `tO(x)` is then disjoint to `t(y)`
+* `y` can not be a subsequent sibling to `x` since `tO(x)` is disjoint to `t(y)`
 * `y` can not be a descendant of `x` since `(\)` is then, as the removal of a
   suffix, not applicable - i.e. in general not a suffix
 * if `(\)` were to be redefined as the removal of a subset, then that would
