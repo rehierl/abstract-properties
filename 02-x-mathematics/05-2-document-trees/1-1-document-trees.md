@@ -25,7 +25,7 @@ elements that have no particular placement associated with them.
 The node order of a tree is commonly referred to as its **tree order** and
 used to denote the top-down order between the nodes in it (i.e. descendants
 are subsequent to ancestors). Because of that, this description is more or
-less one that focuses on the visual representation of a tree, and not so much
+less one that focuses on the visual representation of a tree, not so much
 on the underlying partial order.
 
 Also, the description of "tree order" seems misleading since the corresponding
@@ -33,6 +33,11 @@ order is no order of trees, but an order of nodes. That is, referring to some
 "tree order" is like referring to "an ordered set of trees". Because of that,
 it seems better to not use that description, but to use descriptions such as
 "the tree's **node order**" instead.
+
+Note that the DOM specification treats the "tree order" description as being
+synonymous to the "pre-order node order" (i.e. the doctree's pre-order trace
+of nodes). That is, the DOM spec uses that description to refer to a total
+node order, which is more than just misleading.
 
 <!-- ======================================================================= -->
 ## unordered document tree

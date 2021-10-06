@@ -59,9 +59,11 @@ each node in it can be understood to represent some particular part of some
 content. Based on that, one can describe the content of a document tree as
 what results from combining the unique bits and pieces each node in it holds.
 
-In addition to that, a document order is (always) associated with a particular
-processing order. Based on that, any document tree can be understood to have
-a child order associated with it.
+Furthermore, a document order is associated with some processing order that
+defines the order in which the nodes in the document tree must be visited in
+order to ensure that different implementations will produce the same results.
+Due to that processing order, any document tree can be understood to have a
+**child order** associated with it.
 
 Due to the above, one can use the description **unordered doctree** to refer
 to the tree order before embedding the doctree's child order. Likewise, one

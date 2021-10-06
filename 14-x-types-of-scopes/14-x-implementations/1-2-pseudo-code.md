@@ -2,45 +2,42 @@
 <!-- ======================================================================= -->
 # a pseudo-code example
 
-Note that the following pseudo-code example is in regards to regular
-properties, each of which is associated with one of the previously
-defined types of scopes.
-
 ```js
 Node {
   //- initialize a set of those
   //  properties the node declares
   getDeclaredProperties()
 
-  //- this node is associated
-  //  with these properties
+  //- a set of those properties the
+  //  node instance is associated with
   Set<Property> properties
 
-  //- the scopes of these properties
-  //  end with the node's t1-exit event
+  //- a set of properties whose scopes must
+  //  be closed with the type-1 exit-event
+  //  of this node instance
   Set<Property> parentContainerOf
-}
-```
+}//- Node
 
-Assumed that the definition of a node is as above, an implementation
-could plan the closure of all scopes as follows.
-
-```js
 //- used to maintain all those properties
 //  whose scopes still count as being open
 Set<Property> openProperties
+```
 
+Assumed that the definition of a node is as above, and assuming the existence
+of "a set of all open properties", an implementation could plan the closure of
+all scopes as follows.
+
+```js
 //- triggered when node n is being visited
 onVisit(n) {
+
   //- process the declared properties
   foreach(p in n.getDeclaredProperties()) {
-    //- mark the property's scope as open
-    p.open()
 
+    //- determine the property's type of scope
     switch(p.getTypeOfScope()) {
     case "type-0":
-      n.properties.add(p)
-      p.close()
+      container = null
     case "type-1"://- scope of node
       container = n
     case "type-2"://- extended scope
@@ -49,7 +46,12 @@ onVisit(n) {
       container = n.getRootNode()
     }//- switch
 
-    if(p.isOpen()) {//- a non-null scope
+    if(container == null) {
+      p.open()
+      n.properties.add(p)
+      p.close()
+    } else {//- type-1/2/3
+      p.open()
       openProperties.add(p)
       container.parentContainerOf.add(p)
     }
@@ -62,8 +64,8 @@ onVisit(n) {
 }
 ```
 
-Once the above steps have been executed, an implementation can close
-the scopes of those properties to which the node is a parent container.
+Once the above steps have been executed, an implementation can close the scopes
+of those properties to which the node is a parent container.
 
 ```js
 //- triggered when node n and all of
@@ -80,9 +82,15 @@ onExitT1(n) {
 <!-- ======================================================================= -->
 ## remarks
 
-Note that specific kinds of properties may allow for far more efficient
-implementations. Sections for example will certainly never be defined
-as having a type-0 scope since they could then have no content at all.
-Because of that, the type-0 case in onVisit() will not be required.
-Also, any section will remain open when the visit of the current node
-has been finished.
+Note that specific kinds of properties (i.e. restricted type systems) may allow
+for more efficient implementations. Sections for example will never be defined
+as having a type-0 scope since they could then have no content nodes.
+
+Note that the above pseudo-code is merely intended to showcase a basic approach.
+Because of that, there are no specific checks. That is, `n.getParentNode()` and
+`n.getRootNode()` must be assumed to return the root (i.e. node `n`) if `n` is
+the doctree's root.
+
+Note that "the root node" of an HTML document tree is at this point assumed to
+be "the body element". That is because that element is the doctree's topmost
+content node.

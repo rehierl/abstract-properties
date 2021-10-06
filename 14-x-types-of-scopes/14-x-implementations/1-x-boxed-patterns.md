@@ -2,9 +2,9 @@
 <!-- ======================================================================= -->
 # A pattern-based overview
 
-The difficulty of an implementation is to map the exit-event of each scope
-onto the end-tag of a surrounding container. (Recall that an end-tag may mark
-the end of more than one scope).
+The difficulty of an implementation is to map the exit-event of each scope onto
+the end-tag of a parent container. (Recall that an end-tag may mark the end of
+more than one scope).
 
 Note that the following must be understood from the perspective of a document
 tree traversal, not from the context of reading a tag-based encoding. That is,
@@ -22,15 +22,15 @@ enter   exit-t0
 ```
 
 The event-based mapping is more or less theoretical in the context of a type-0
-scope. That is because both events of such a scope map onto the visit of the
-corresponding defining node.
+scope. That is because the enter- and the exit-events both map onto the visit
+of the defining node.
 
 * Open the scope when entering the node's start-tag.
 * Close the scope when leaving its start-tag.
 * e.g. an `id` attribute
 
-In contrary to that, the exit event of any other type of scope must be mapped
-onto the type-1 exit event of a the defining node (t1), or its parent node (t2),
+In contrary to that, the exit-event of any other type of scope must be mapped
+onto the type-1 exit-event of a the defining node (t1), or its parent node (t2),
 or the doctree's root (t3).
 
 <!-- ======================================================================= -->
@@ -50,19 +50,19 @@ onto the type-1 exit event of the defining node.
 * Close the scope when processing the node's end-tag.
 * e.g. the `hidden` attribute
 
-Note that the node's type-1 exit event is guaranteed to be triggered, if input
-errors don't have to be taken into account. In regards to a type-1 property,
-the scope's **parent container** is the defining node.
+Note that the node's type-1 exit event can be guaranteed to be triggered in the
+context of a doctree traversal. That is because the scope's **parent container**
+is the defining node.
 
 <!-- ======================================================================= -->
 ## type-2 scopes
 
 ```
 |-t1-scope------------------------|
-|      |-t2-scope-----------------|
-| p .. | n | data     | content   |
-|      |--------------------------|
-|      visit      exit-t1  exit-t2|
+|      |-t2-scope----------------||
+| p .. | n | data   | content    ||
+|      |-------------------------||
+|      visit    exit-t1    exit-t2|
 |---------------------------------|
 ```
 
@@ -74,26 +74,23 @@ onto the type-1 exit event of the defining node's parent.
 * e.g. heading-based section properties
 
 Note that a type-2 defining node is in general neither required to have a
-descendant, nor a subsequent sibling. That is, the "data" and "content"
-areas in the property's scope may both be empty.
-
-Note that a type-2 defining node must be treated as a type-1 defining node,
-if the defining node is the document tree's root node.
+descendant, nor a subsequent sibling. That is, the "data" and "content" areas
+in the property's scope may both be empty.
 
 <!-- ======================================================================= -->
 ## type-3 scopes
 
 ```
-|-t1-scope-----------------------------------|
-|      |-t3-scope----------------------------|
-| r .. | n | data   | content   | ???        |
-|      |-------------------------------------|
-|      visit    exit-t1     exit-t2   exit-t3|
-|--------------------------------------------|
+|-t1-scope------------------------------------|
+|      |-t3-scope----------------------------||
+| r .. | n | data   | content   | ???        ||
+|      |-------------------------------------||
+|      visit    exit-t1     exit-t2    exit-t3|
+|---------------------------------------------|
 ```
 
 Similar as above, and in regards to a type-3 defining node, the scope's exit
-event must be mapped onto the type-1 exit event of the tree's root.
+event must be mapped onto the type-1 exit event of the doctree's root.
 
 * Open the scope when entering the node's start-tag.
 * Close the scope when processing the root's end-tag.
