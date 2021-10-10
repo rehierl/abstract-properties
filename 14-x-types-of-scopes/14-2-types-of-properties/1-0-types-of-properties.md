@@ -4,25 +4,25 @@
 
 ```
 ... <n> c(n) </n> s(n) </p> s(p) ... </r>
-|-t(T)--------------------------------->| - enter/exit the document
-t0  |-|                                   - enter/visit/exit the node
-t1  |-(scope)-->|                         - exit its (type-1) scope
-t2  |-(extended scope)--->|               - a type-2 exit
-t3  |-(unrestricted scope)------------->| - a type-3 exit
+|-t(T)--------------------------------->| - enter/exit a document
+t0  |-|                                   - enter/visit/exit a node
+t1  |-(scope)-->|                         - enter/exit a type-1 scope
+t2  |-(extended scope)--->|               - enter/exit a type-2 scope
+t3  |-(unrestricted scope)------------->| - enter/exit a type-3 scope
 ```
 
 One can assume that there are no more than four types of abstract properties,
-each of which is defined based on the corresponding scope of its defining node.
-Because of that, a type-x property can be understood to be defined such that
-its scope is the type-x scope of its defining node.
+each of which is defined based on the corresponding scope. Because of that,
+a type-x property can be understood to be defined such that its scope is the
+type-x scope of its defining node.
 
-* **a type-x property := a property with a type-x scope**
+* **a type-x property is a property with a type-x scope**
 
 Note that these scopes need to be seen as "default scopes". That is, depending
 on a given context (e.g. rank values) it may or may not be possible to restrict
 a property's scope to a prefix of its default scope.
 
-* **extensions may still restrict the default scope to a prefix**
+* **extensions may or may not restrict the default scope to a prefix**
 
 <!-- ======================================================================= -->
 ## box-/line-based visualizations
@@ -47,7 +47,7 @@ related (e.g. `u` and `v`), or even overlap each other (e.g. `s` and `t`).
 
 Similar as before, the scopes of multiple properties can be visualized by
 underlining all the nodes in their scopes (i.e. a continuous line per scope).
-Because of that, the relationships between the scopes can be determined with
+Based on that, the relationships between the scopes can be determined with
 ease. Furthermore, and for the purpose of clarification, property identifiers
 may be used as shown above.
 
@@ -67,8 +67,8 @@ a property is defined to have no effect on any of the descendants of a defining
 node (e.g. **an id attribute**). Because of that, the scope of a type-0 property
 contains one node only, the property's defining node.
 
-Note that any scope begins with the defining node's start-tag and ends with
-the defining node's start-tag. As such, a type-0 property is the only type
+Note that any such scope begins with the defining node's start-tag and ends
+with the defining node's start-tag. As such, a type-0 property is the only type
 of property whose scope ends with a start-tag while still including the node
 of that tag.
 
@@ -101,10 +101,10 @@ defining node's pair of tags (i.e. start- to end-tag). The tags of a node
 therefore enclose all the nodes in the default scope of a type-1 property
 that has the node as its defining node.
 
-Based on the above, one might assume that type-1 properties will be
-**the predominant type of properties** since a node's pair of tags can be
-said to highlight the corresponding scope. (Apart from that, there also is
-the issue of still describing "unordered trees" as "ordered trees").
+Based that, one might assume that type-1 properties will be the predominant
+type of properties since a node's pair of tags can be said to highlight the
+corresponding scope. (Apart from that, there also is the widespread issue of
+describing "unordered trees" as "ordered trees").
 
 Note that future extensions may or may not be allowed to restrict the default
 scope of a type-1 property. If a restriction can not be allowed, then the
@@ -158,5 +158,5 @@ After all, there are no more nodes subsequent to the last node of a type-3
 scope.
 
 Note that, as mentioned before, type-3 scopes introduce the possibility of
-**overlapping scopes**. Recall that it is not possible to group the nodes
-in the intersection of overlapping scopes using a pair of tags.
+**overlapping scopes**. Recall also that it is not possible to group the
+nodes in the intersection of overlapping scopes using a pair of tags.

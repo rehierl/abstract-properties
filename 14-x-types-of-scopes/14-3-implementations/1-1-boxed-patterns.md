@@ -2,14 +2,14 @@
 <!-- ======================================================================= -->
 # A pattern-based overview
 
-The difficulty of an implementation is to map the exit-event of each scope onto
-the end-tag of a parent container. (Recall that an end-tag may mark the end of
-more than one scope).
+The difficulty of an implementation is to map the exit-event of a scope onto
+the start-tag of its defining node, onto the defining node's end-tag, or onto
+the end-tag of one of the defining node's ancestors. Recall also that any
+end-tag may mark the end of more than one scope.
 
-Note that the following must be understood from the perspective of a document
-tree traversal, not from the context of reading a tag-based encoding. That is,
-possible issues in regards to "missing tags" can and will be ignored at this
-point.
+Note that the node whose end-tag (i.e. its type-1 exit-event) must be used to
+close a scope, will be described as **the scope's (parent) container**, which
+can be understood to represent an outer border.
 
 <!-- ======================================================================= -->
 ## type-0 scopes
@@ -22,8 +22,8 @@ enter   exit-t0
 ```
 
 The event-based mapping is more or less theoretical in the context of a type-0
-scope. That is because the enter- and the exit-events both map onto the visit
-of the defining node.
+scope. That is because the scope's enter- and the exit-event both map onto the
+defining node's visit-event.
 
 * Open the scope when entering the node's start-tag.
 * Close the scope when leaving its start-tag.
@@ -50,9 +50,9 @@ onto the type-1 exit event of the defining node.
 * Close the scope when processing the node's end-tag.
 * e.g. the `hidden` attribute
 
-Note that the node's type-1 exit event can be guaranteed to be triggered in the
-context of a doctree traversal. That is because the scope's **parent container**
-is the defining node.
+Note that the node's type-1 exit-event can be guaranteed to be triggered in the
+context of a doctree traversal. That is because the parent container of such a
+scope is the defining node.
 
 <!-- ======================================================================= -->
 ## type-2 scopes
@@ -67,7 +67,8 @@ is the defining node.
 ```
 
 In regards to a type-2 defining node, the scope's exit event must be mapped
-onto the type-1 exit event of the defining node's parent.
+onto the type-1 exit event of the defining node's parent (i.e. the scope's
+parent container).
 
 * Open the scope when entering the node's start-tag.
 * Close the scope when processing the parent's end-tag.
@@ -90,7 +91,8 @@ in the property's scope may both be empty.
 ```
 
 Similar as above, and in regards to a type-3 defining node, the scope's exit
-event must be mapped onto the type-1 exit event of the doctree's root.
+event must be mapped onto the type-1 exit event of the doctree's root (i.e.
+the scope's parent container).
 
 * Open the scope when entering the node's start-tag.
 * Close the scope when processing the root's end-tag.

@@ -7,7 +7,7 @@ scopes, which can be seen as **upper boundaries**. Also, the following is in
 regards to the traversal of a document tree, which is why possible input errors
 will be ignored.
 
-Note that future extensions may further **restrict a scope to a prefix** of
+Note that future extensions may or may not **restrict a scope to a prefix** of
 its default scope. Despite that, extensions remain subject to the restrictions
 layed out below.
 
@@ -32,14 +32,14 @@ traverseInDocOrder(node) begin
 end
 ```
 
-In regards to the end of a scope one can state that an implementation must in
-general react to the end of each scope. That is because a scope would otherwise
-remain open for associations until the end of a document, which might exceed
-the base order of that scope. The definition of a scope must therefore be such
-that an implementation has well defined points it can use to explicitly mark
-a scope as being closed.
+In regards to the end of a scope one can state that an implementation must react
+to the end of each scope. That is because a scope would otherwise remain open
+for associations until the end of a document, which might exceed the base order
+(i.e. an upper boundary) of that scope. The definition of a scope must therefore
+be such that an implementation has well defined points it can use to explicitly
+mark a scope as being closed.
 
-* implementations must have the means to react to the end of any scope
+* implementations must have the means to react to the end of each scope
 
 Recall that any node in a document tree may in general have any number of child
 nodes. In addition to that, no node can be guaranteed to have a certain types
@@ -61,24 +61,24 @@ some specific descendant node (e.g. a rank-based heading).
 ```
 
 A scope can consequently only be defined such that it ends with a parent and
-therefore just before its first child, or it ends just after a parent's last
+therefore just before its first child, or such that it ends just after its last
 child, while including all of the child nodes and their descendants.
 
 * any scope ends by default with an enter- exor an exit-event
 * any scope must **end with a start-tag (1/2) exor an end-tag (3)**
 
 Note that "ends with a start-tag" is ambiguous since each start-tag corresponds
-with a node. As such, this description can be understood to mean two things:
-(1) the scope ends just before the visit of the start-tag's node while excluding
-that node, exor (2) the scope just after the visit of that node while including
-that node. Definitions, which build upon a start-tag in that regards, must
-therefore be clear about which case applies.
+with a node. As such, this description can be understood to mean two different
+things: (1) the scope ends just before the visit of the start-tag's node while
+excluding that node, exor (2) the scope ends just after the visit of that node
+while including that node. Definitions, which build upon a start-tag in that
+regards, must therefore be clear about which case applies.
 
 Note that, since the last node of a suborder is always defined by the last
 node's start-tag, and since that last node must be a leaf to the underlying
 base order, any scope can always be said to end with a start-tag (case-2).
 The difficulty with that description is however that one can not provide a
-generic definition that can be used to identify such a node as the last node.
+generic definition that can be used to identify a node as such a last node.
 That is because any assumption, which would allow to identify a node as that
 last node would effectively introduce requirements that can not be relied
 upon (e.g. due to possible input errors).
@@ -171,7 +171,7 @@ DTR --> DTU --> DTO --> DPR
 
 Note that the above considerations are consistent with the amount of orders in
 the linear extension, which begins in the trivial suborder DTR and ends in the
-processing order DPR. Based on that, it will be assumed that there simply is
-no other base order available.
+processing order DPR. Based on that, it will be assumed that there simply is no
+other base order available.
 
 * no more than four distinct types of (default) scopes are available

@@ -5,8 +5,8 @@
 As mentioned before, any implementation must explicitly create and maintain
 objects, each of which can be said to represent some amount of knowledge. An
 implementation must therefore explicitly mark the object it associates with a
-particular scope as being closed, as soon as it has exited the corresponding
-scope. This to keep an implementation's knowledge base in a consistent state.
+particular scope as being closed. This to keep the implementation's knowledge
+base in a consistent state.
 
 ```
 <r> .. <p> .. <n> c(n) </n> s(n) </p> s(p) .. </r>
@@ -33,9 +33,9 @@ exit-event of the corresponding node.
 Because of that, implementations must in general **plan the closure of a scope**
 (i.e. "initialize and postpone") when it reaches the scope's defining node.
 After that, the close operation can be executed when the corresponding type-1
-exit-event is triggered. An implementation must therfore maintain some memory
-it can use in order to determine which scopes to close whenever it reaches an
-end-tag.
+exit-event is triggered. An implementation must therefore maintain some memory
+it can query in order to determine which scopes to close whenever an end-tag
+is reached.
 
 Note that each of these end-tags belongs to a node in the rooted path of the
 scope's defining node - i.e. the current node, its parent, the tree's root.
@@ -44,10 +44,6 @@ in principle be used to plan the closure of a scope. However, one should in
 general maintain a separate storage location for that purpose since one needs
 to ensure that this temporary knowledge will be dropped once the overall
 process has finished.
-
-Note that the node whose type-1 exit-event must be used to close a scope, will
-be described as **the scope's (parent) container**, which can be understood to
-represent an upper/outer boundary.
 
 Recall that, strictly speaking each scope ends with a last subsequent leaf.
 That is because that leaf node has no further node subsequent to it in the
