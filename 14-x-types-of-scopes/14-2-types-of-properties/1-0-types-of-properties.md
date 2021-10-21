@@ -13,16 +13,16 @@ t3  |-(unrestricted scope)------------->| - enter/exit a type-3 scope
 
 One can assume that there are no more than four types of abstract properties,
 each of which is defined based on the corresponding scope. Because of that,
-a type-x property can be understood to be defined such that its scope is the
-type-x scope of its defining node.
+**a type-x property** can be understood to be defined such that its scope is
+the type-x scope of its defining node.
 
-* **a type-x property is a property with a type-x scope**
+* a type-x property is a property with a type-x scope
 
 Note that these scopes need to be seen as "default scopes". That is, depending
-on a given context (e.g. rank values) it may or may not be possible to restrict
-a property's scope to a prefix of its default scope.
+on a given context (e.g. rank values) **extensions** may or may not be allowed
+to restrict the scope of a property to a prefix of its default scope.
 
-* **extensions may or may not restrict the default scope to a prefix**
+* extensions may or may not restrict the default scope to a prefix
 
 <!-- ======================================================================= -->
 ## box-/line-based visualizations

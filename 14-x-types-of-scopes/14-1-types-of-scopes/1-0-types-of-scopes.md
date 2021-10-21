@@ -30,9 +30,9 @@ it contains none of the node's descendants (hence "type-0"). Note that this
 scope can be described as the induced subtree `DTR[n]` over the forest of
 root nodes DTR.
 
-**t1, tU, type-1:** The type-1 scope extends the node's type-0 scope by the
-node's descendants in DTU. As such, the type-1 scope of node `n` is the set
-of nodes in the induced subtree `DTU[n]`.
+**t1, tU, type-1:** The type-1 scope extends the node's type-0 scope by its
+descendants in DTU. As such, the type-1 scope of node `n` is the set of nodes
+in the induced subtree `DTU[n]`.
 
 **t2, tO, type-2:** The type-2 scope extends the node's type-1 scope by the
 additional descendants in DTO. That is, the type-2 scope of node `n` is the
