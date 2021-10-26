@@ -15,6 +15,10 @@ point out the difference in default cases
 - partial/trees - defaults to type-1 scopes
 - we do treat sequences and trees differently
 
+tree order
+- is a necessity as a description
+- not every partial order is a tree order
+
 <!-- ======================================================================= -->
 
 remove-2
