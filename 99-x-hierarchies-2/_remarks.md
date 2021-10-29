@@ -18,6 +18,21 @@ general impression
 - we are overly used to total orders
 - we are barely aware of partial orders
 
+# next-level
+
+relationships between scopes
+- relevant if it comes to scopes of multiple properties
+- not much of an issue if scopes are related
+- an issue if scopes overlap - inconsistent scopes
+
+What does it mean if the to-be-removed node has a characteristic that is
+considered to also apply to its descendants (e.g. a specific color)?
+
+After all, once that node was removed, such a characteristic can no longer
+apply to its former descendants since the defining node of that characteristic
+was removed. The removal of a node may therefore have unintended side effects,
+if the operation is restricted to a single node.
+
 # context
 
 context rooted paths

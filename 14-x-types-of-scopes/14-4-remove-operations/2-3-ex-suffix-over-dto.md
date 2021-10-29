@@ -66,11 +66,11 @@ p -> fs .. ps -> n -|-> ns .. ls        p -> fs .. ps
                     |-> fc .. lc
 ```
 
-The suffix over DTO contains all the child nodes of `n` (in DTU and DTO). Node
-`n` and its child order will therefore be removed as well as all of the child
-orders of each parent node that is a descendant of `n` in DTO. In regards to
-the child order of parent `p`, the above suffix-based removal appears as the
-removal of the suffix `[n,*]` over `c(p)`.
+The suffix over DTO contains all the child nodes of `n` in DTU. Node `n` and its
+child order will therefore be removed as well as all of the child orders of each
+parent node that is a descendant of `n` in DTO. In regards to the child order of
+parent `p`, the above suffix-based removal appears as the removal of the suffix
+`[n,*]` over `c(p)`.
 
 * `c1 := c(p) := (fs,..,ps,n,ns,..,ls)`
 * `c1` changes into `c2 := (fs,..,ps)`

@@ -4,19 +4,18 @@
 
 Recall that a HTML document is accessible to an implementation in terms of a
 DOM tree, which is why a document tree must be traversed as DOM nodes. The
-following will therefore take a short look at some of the properties and
-methods defined by the DOM interfaces, which are relevant to implementing a
-traversal algorithm.
+following will therefore take a short look at those properties and methods of
+the DOM interfaces that are relevant to implementing a traversal algorithm.
 
-Note that an Element is understood as a base interface that extends DOM's Node
+Note that an Element is understood as a base interface that extends the Node
 interface and which itself is extended by interfaces that are more specialized.
 That is, **an element must be understood to implement a certain type of node**,
-not so much as being synonymous to the theoretical description of a node. With
-that in mind it can be pointed out that a DOM tree has more nodes than a tag
-soup has pairs of tags.
+not so much as being synonymous to the theoretical concept of a node. With that
+in mind it can be pointed out that a DOM tree has more nodes than a tag soup
+has pairs of tags.
 
 Note that Mozilla's MDN Web Docs denotes deprecated properties and methods.
-In contrary to that, whatwg's specification does not seem to maintain such
+In contrary to that, WHATWG's specification does not seem to maintain such
 information. Further inconsistencies between WHATWG and MDN can be found.
 
 <!-- ======================================================================= -->
@@ -26,7 +25,6 @@ information. Further inconsistencies between WHATWG and MDN can be found.
 Node {
   //- e.g. Node.ELEMENT_NODE (1)
   //- e.g. Node.ATTRIBUTE_NODE (2)
-  //- and many more ...
   ushort nodeType
 
   //- depends on the implementing interface
@@ -39,7 +37,7 @@ Node {
   DOMString? nodeValue
 
   //- element - the descendant text content
-  //- attributes - the attributes value
+  //- attributes - the attribute's value
   DOMString? textContent
 
   //- unclear descriptions ...
@@ -94,7 +92,7 @@ Element : Node {
 
   //- non-standard, declared by MDN
   //- get/set the markup of the element's descendants
-  //- warning - possible security issues - use Node.textContent
+  //- warning - security issues - use Node.textContent
   DOMString innerHTML
 
   //- non-standard, declared by MDN
