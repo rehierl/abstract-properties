@@ -3,9 +3,9 @@
 # Forest/Hierarchy of scopes
 
 Note that a family of scopes `S`, if generated from a tree `T(N,E)` using the
-concept of abstract properties, is a hierarchy of scopes `H`. That is, any
-tree corresponds with a hierarchy of scopes. Consequently, `S` provides a
-complete definition of `T`.
+concept of abstract properties, is a rooted setup of scopes `H`. That is, any
+tree corresponds with a setup of scopes. Consequently, `S` provides a complete
+definition of `T`.
 
 <!-- ======================================================================= -->
 ## a forest of scopes (F)
@@ -17,18 +17,17 @@ complete definition of `T`.
 |-------------| |-------|
 ```
 
-A partial setup `S` will be referred to as **a forest of scopes**,
+A partial setup `S` may be referred to as **a forest of scopes**,
 if the following requirements are met:
 
-* (R1) `S` is a normalized setup of sets.
+* (R0) `S` is a normalized setup of sets.
 
 Note that "a forest of scopes" is synonymous to "a normalized partial setup".
 That is because there are no additional requirements. Consequently, a forest
-of scopes `F` may have any number of root sets.
+of scopes `F` may have any number of root sets, which is why an empty setup
+may be described as "an empty forest of scopes".
 
 * `(#RS(F) in [0,*])` is true
-
-Note that an empty setup can be described as an empty forest of scopes.
 
 <!-- ======================================================================= -->
 ## a hierarchy of scopes (H)
@@ -40,30 +39,33 @@ Note that an empty setup can be described as an empty forest of scopes.
 |-------------|
 ```
 
-A partial/total setup `S` will be referred to as **a hierarchy of scopes**,
+A partial setup `S` may be referred to as **a hierarchy of scopes**,
 if the following requirements are met:
 
-* (R1) `S` is a normalized setup of sets.
-* (R2) `S` has one and only one root set.
+* (R0) `S` is a normalized setup of sets.
+* (R1) `S` has one and only one root set `r`.
 
 Note that "a hierarchy of scopes" is synonymous to
 "a rooted normalized setup".
 
-* `(#RS(H) == 1)` is (required to be) true
+* `(#RS(H) == 1)` is required to be true
 
 Note that a hierarchy `H` of scopes has the following properties:
 
 * `(#S > 0)` - A hierarchy is always non-empty.
 * `(Ø !in H)` - No set in a hierarchy is empty.
 * A hierarchy is acyclic.
-* All the sets in a hierarchy are "DI ex-or RE".
+* All the sets in a hierarchy are disjoint ex-or related.
 * Each set has no ex-or one parent set - a superset.
 * Each set may have any number of child sets - subsets.
 * Any ancestor has more elements than all of its descendants.
 * Each set has a unique rooted path.
 
 Note that the root set `(r in RS(H))` of a hierarchy `H` is equal to `U(H)`.
-That is because it is a superset to every other set in `H`.
+Despite that, the root set of a hierarchy is required as an explicit set. That
+is because it too must have a CE which is no element in any other set in `H`.
+
+* `(r == U(H))` is true
 
 <!-- ======================================================================= -->
 ## set of all hierarchies (UH) and forests (UF)
@@ -84,7 +86,8 @@ of hierarchies.
 ## remarks
 
 Note that each hierarchy of scopes is a forest of scopes, but not necessarily
-also vice versa. The latter is because a setup may have more than one root set.
+also vice versa. The latter is because a partial setup may in general have more
+than one root set.
 
 * forest <-> normalized setup
 * hierarchy -> normalized setup
@@ -99,6 +102,5 @@ general a forest - i.e. not necessarily a hierarchy.
 
 Note that the definition of a hierarchy does not cover the process of forming
 the sets it contains. It merely describes how these are related with each other.
-That is, the sets in a hierarchy may be formed in any number of different ways.
 However, the description as "a hierarchy of scopes" does highlight the main
 method - i.e. formed from the scopes of abstract properties.

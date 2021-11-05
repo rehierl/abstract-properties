@@ -2,19 +2,21 @@
 <!-- ======================================================================= -->
 # A partial setup of sets
 
-A set of sets `S` will be referred to as **a partial setup (of sets)**,
-if and only if the following requirements are met:
+Assuming the superset-of operator as the basis of the related-to operator, a
+set of sets `S` will be referred to as **a partial setup (of sets)**, if and
+only if the following requirements are met:
 
-* (R1) `S` is a simple setup of sets.
-* (R2) If two sets in `S` are coupled, then both must be related.
+* (R0) `S` is a simple setup of sets.
+* (R1) If two sets in `S` are coupled with each other, then both sets
+  must be related with each other under the **superset-of** operator.
 
-Note that, as can be seen below, R2 can be rephrased as follows:
+As can be seen below, R1 can be rephrased as follows:
 
-* (R2) Any two sets in `S` are either disjoint ex-or related.
+* (R1) Any two sets in `S` must either be disjoint ex-or related.
 
-Note that, since two sets in a partial setup are either disjoint ex-or related
-(i.e. **DI-RE**) requirement R2 guarantees that two sets in a partial setup do
-not overlap each other.
+Note that, since two sets in a partial setup must either be disjoint ex-or
+related (i.e. **DI-RE**) no set in a partial setup is allowed to overlap
+another set.
 
 <!-- ======================================================================= -->
 ## a visual impression
@@ -59,8 +61,8 @@ to be coupled with each other.
 
 (1) `(s coupled-with t) <-> (s related-to t)` is true if `(s == t)` is true.
 That is because, in the context of a setup, and by the definition of the
-corresponding operators, that statement is true since any non-empty set
-is by definition coupled-with and related-to itself.
+corresponding operators, that statement is true since any non-empty set is
+by definition coupled-with and related-to itself.
 
 (2) `(s coupled-with t) -> (s related-to t)` is true if `(s != t)` is true.
 That is because that expression is, due to R2, required to be true.
@@ -73,12 +75,12 @@ to be empty.
 That is because two related sets are, by the definition of the "related-to"
 operator, coupled with each other.
 
-Note that two distinct unrelated sets are not necessarily disjoint since both
-may overlap each other (i.e. `(unrelated -> disjoint)` is in general *not*
-true). However, for an implication (i.e. `(a -> b) := (!a or b)`) to be true
-`b` must only be true if `a` is true. In contrary to that, `b` may have any
-value if `a` is false. Consequently, implication (3) is due to the definition
-of the "related-to" operator, satisfied.
+Note that two distinct unrelated sets are in general not necessarily disjoint
+since both sets may overlap each other (i.e. `(unrelated -> disjoint)` is in
+general *not* true). However, for an implication (i.e. `(a -> b) := (!a or b)`)
+to be true `b` must only be true if `a` is true. In contrary to that, `b` may
+have any value if `a` is false. Consequently, implication (3) is due to the
+definition of the "related-to" operator, satisfied.
 
 (4) `(s coupled-with t) <-> (s related-to t)` is true if `(s != t)` is true.
 That is because `((a -> b) and (a <- b)) <-> (a <-> b)` (i.e. 2+3).
@@ -91,7 +93,7 @@ a given setup are equal or not (i.e. 1+4).
 ## (disjoint ex-or related)
 
 Any two sets in a partial setup are either disjoint
-ex-or one set is a subset of the other.
+ex-or one set is a superset of the other.
 
 * `(s disjoint-to t) ex-or (s related-to t)` is true for all `(s,t in P)`
 
@@ -116,11 +118,16 @@ sets are related with each other. Consequently, and in order to determine the
 orientation between both sets, one only needs to compare the number of elements
 (aka. their **size**) in both sets.
 
+* if `(#s < #t)`, then `t` is the superset
+* if `(#s == #t)`, then both are equal
+* if `(#s > #t)`, then `s` is the superset
+
 Note that the **intersection** between any two sets in a partial setup is either
-empty ex-or a set in it. In the latter case, the intersection is equal to the
-smaller set (i.e. less significant). Likewise, the **union** of any two sets in
-a partial setup is either a union of disjoint sets ex-or a set it. In the latter
-case, the union is equal to the larger set (i.e. more significant).
+empty ex-or equal to one of the intersecting sets. In the latter case, the
+intersection is equal to the smaller set (i.e. less significant). Likewise, the
+**union** of any two sets in a partial setup is either a union of disjoint sets
+ex-or one of both input sets. In the latter case, the union is equal to the
+larger set (i.e. more significant).
 
 * if `(s,t in S)`, `((s & t) != Ø)` and `(#s < #t)`, then ...
 * `((s & t) == s)` and `((s + t) == t)` are both true

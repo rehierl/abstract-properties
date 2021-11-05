@@ -6,7 +6,7 @@ The CSS of a CE can be retrieved as follows:
 
 ```
 css-of-ce(ce,S) begin
-0: assert(ce in U)
+0: assert(ce in U(S))
 1: T = { css(s) | (s in S) and (ce in css(s)) }
 2: assert(#T > 0)
 3: assert(#T < 1)
@@ -14,11 +14,11 @@ css-of-ce(ce,S) begin
 end
 ```
 
-Note that, since `(U == CE(S))` is true, user input errors can easily
-be detected by testing if the input CE is an element in `U`. Hence, if step-0
-does not trigger, then CE(S) can not be empty (i.e. step-2 won't trigger).
-And since a CE is unique to its CSS, the overall result is uniquely defined
-(i.e. step-3 won't trigger) provided the setup is not broken.
+Note that, since `(U == CE(S))` is true, input errors can easily be detected
+by testing if the input CE is an element in `U`. Hence, if step-0 does not
+trigger, then CE(S) can not be empty (i.e. step-2 won't trigger). And since a
+CE is unique to its CSS, the overall result is uniquely defined (i.e. step-3
+won't trigger) provided the setup is not broken.
 
 ```
 set-of-ce(ce,S) begin

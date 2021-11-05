@@ -2,6 +2,14 @@
 <!-- ======================================================================= -->
 ## gemeral remarks
 
+```
+       |-oss(s)=s--------------|
+       | |-css(s)-| |-iss(s)-| |
+A(s) <---| { .. } | | { .. } |---> D(s)
+       | |--------| |--------| |
+       |-----------------------|
+```
+
 Note that each set `(s in S)` is the union of disjoint subsets (i.e. `css(s)`
 and `iss(s)`). Furthermore, the inner subset `iss(s)` of a set can be said to
 bind set `s` to its subsets. Likewise, the characteristic subset `css(s)` can
@@ -19,13 +27,12 @@ non-empty.
 * note - one or both must be non-empty
 
 Note that `CSS(S)` is a union of pairwise disjoint sets. In contrary to that,
-`ISS(S)` is a union of related sets. However, ISS is no setup of sets. That is
-because `iss(l)` is empty for `(l in LS)`. Despite that, the "DI ex-or RE"
-requirement does apply to ISS.
+`ISS(S)` is a union of possibly related sets. However, ISS is no setup of sets.
+That is because `iss(l)` is empty for `(l in LS)`. Despite that, the "DI ex-or
+RE" requirement does apply to ISS.
 
 Note that there is in general no requirement as to how many CEs a set in a
-setup needs to have. That is, `css(s)` may in general be an empty subset,
-a 1-element subset, or a subset of arbitrary size. For reasons elaborated
-in a subsequent discussion it is essential to require that each set in a
-setup must have a 1-element CSS (i.e. `(#CSS(s) == 1)`) and therefore one
-and only one CE.
+setup needs to have. That is, each `css(s)` is in general a set of arbitrary
+size. For reasons explained in a subsequent discussion it will be essential
+to require that each set in a setup must have a 1-element CSS (i.e.
+`(#CSS(s) == 1)`) and therefore one and only one CE.

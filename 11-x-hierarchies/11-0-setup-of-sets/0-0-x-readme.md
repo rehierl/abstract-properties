@@ -1,24 +1,9 @@
 
-# setups of sets
-
-todo
-- explained that each tree can be
-  transformed into a family of scopes
-- the issue - not every set of sets
-  can be transformed into a node tree
-- here - the criteria a set of sets
-  must satisfy to be a family fo scopes
-- here - set-based definitions for
-  graph-based terms
-
-<!-- ======================================================================= -->
-# from the old readme
-
 * overall too verbose
-* a readme should only provide a quick overview
+* should only provide a quick overview
 
 <!-- ======================================================================= -->
-## todo - seems ok
+## todo - seems ok-ish
 
 * the aspect about entropy is good
 
@@ -27,20 +12,16 @@ thought of as being formed from a universal set of elements (U) such that
 each set in it is a subset to (U). Because of that, each setup is a subset
 to the powerset over its universal set of elements.
 
-As such, a setup of sets S(P,U) can be thought of as being defined by a
-class/family/set of sets (P) and its universal set of elements (U).
-
 Since an arbitrary setup of sets (S) has no characteristics which could be
 relied upon, the very first step is to define additional requirements that
 need to be satisfied. One such requirement is that, due to the characteristics
-of the empty set (in regards to non-empty sets), no set in (P) is allowed to
-be empty. That is, a setup is required to correspond with a set of non-empty
-sets.
+of the empty set (in regards to non-empty sets), no set in (S) is allowed to
+be empty. That is, a setup is required to be a set of non-empty sets.
 
-As such, a setup of non-empty sets may correspond with a set of sets such
-that its sets are pairwise disjoint. That is, no element in (U) is an element
-of two or more sets in (P). Hence, each element belongs to one and only one
-set in (P). In such a case, (P) is a partition of (U) and (U) the union of
+As such, a setup of sets may correspond with a set of sets such that the
+sets in it are pairwise disjoint. That is, no element in (U) is an element
+of two or more sets in (S). Hence, each element belongs to one and only one
+set in (S). In such a case, (S) is a partition of (U) and (U) the union of
 pairwise disjoint sets.
 
 Even though there are multiple different ways to form a set of pairwise
@@ -52,15 +33,14 @@ point of view, a setup needs to have one or more sets that have one or more
 elements in common.
 
 The other extreme case would be to have a multiset of sets such that all the
-sets in it have identical content. Put differently, all the elements in (U)
-are elements to all the sets in (P). As before, such a setup would have no
-entropy in the relationships between its sets (i.e. all the sets are "equal")
-and would therefore not allow to encode any additional information. A setup
-of sets is therefore required to correspond with a simple set of sets (i.e.
-not a multiset of sets).
+sets in it are identical. Put differently, all the elements in (U) are elements
+to all the sets in (P). As before, such a setup would have no entropy in the
+relationships between its sets (i.e. all the sets are "equal") and would thus
+not allow to encode any additional information. With that in mind, a setup
+needs to have one or more sets that differ in one or more elements.
 
 <!-- ======================================================================= -->
-## todo - needs a full overhaul
+## todo - needs an overhaul
 
 * the conclusion about the available types of relationships not so much
 * i.e. edges are based upon a directional relationship - superset/subset
@@ -103,7 +83,7 @@ only be relative (i.e. "some"), not absolute (i.e. "all" or "none").
 * (A unrelated-to B) := (A not-related-to B)
 
 <!-- ======================================================================= -->
-## todo - needs a rework
+## todo - needs an overhaul
 
 Because of that, there are only two strict types of relationships relevant
 in the context of a setup (i.e. "disjoint" and "related"). Obviously, two

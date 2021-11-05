@@ -2,7 +2,7 @@
 <!-- ======================================================================= -->
 # hierarchy of scopes <=> node tree
 
-The focus of this chapter was to define "a hierarchy of scopes" as a class of
+The focus of this chapter is on defining "a hierarchy of scopes" as a class of
 setups such that each setup `S` in it allows to form a node tree.
 
 (1) Since each partial setup allows to form a forest of `#RS` trees, one needs
@@ -15,8 +15,8 @@ one needs to require that each set has a node-id as its single CE.
 Defined as such, each hierarchy `H` can be understood to define a tree `T`.
 
 In order to proof that the transformation from a hierarchy to a tree can be
-inverted, one needs to recall that, using the concept of abstract properties,
-a setup of scopes can be formed, and what the properties of these setups are.
+inverted, one needs to recall that the concept of abstract properties allows
+to form a setup of scopes and what the properties of these setups are.
 
 * No scope is empty since each scope is defined as an open interval `[n,*]`.
 * The setup will hold one scope per node.
@@ -24,14 +24,14 @@ a setup of scopes can be formed, and what the properties of these setups are.
 * No such sub-interval has `n` as an element.
 * `n` is the CE of `[n,*]`.
 
-Since the family of scopes formed from a node tree is in fact a hierarchy of
-scopes, one needs to show that the entire process (i.e. `(H -> T -> H*)`) is
-structure preserving.
+Since the family of scopes formed from a node tree is a hierarchy of scopes,
+one needs to show that the entire process (i.e. `(H -> T -> H*)`) is structure
+preserving.
 
 (A) The one-ce-only requirement of `H` guarantees that `T` has `#H` nodes.
 Because of that, `(#H == #N)` is true. Furthermore, the family of scopes has
-`#N` distinct sets since one scope will be generated for each node. Because
-of that, `(#N == #H*)` is true. Consequently, `(#H == #H*)` is true.
+`#N` distinct sets since one scope will be formed for each node. Because of
+that, `(#N == #H*)` is true. Consequently, `(#H == #H*)` is true.
 
 (B) For each child set `(c in DS(H))` and its parent set `(p := p(c))` an edge
 in `T` is generated from the parent node `np := ce(p)` to the corresponding
@@ -46,6 +46,26 @@ scopes from the generated tree, one can conclude that the resulting hierarchy
 Note that, based on the above isomorphism, each set in "a hierarchy of scopes"
 does indeed correspond with a scope in the tree that hierarchy defines. Hence
 the "scopes" suffix in "hierarchy of scopes".
+
+<!-- ======================================================================= -->
+## hierarchy of scopes => node tree
+
+```
+S: a rooted normalized setup      T: a node tree
+============================  =>  ==============
+|-1---------------------|             1
+| |-2-----------| |-3-| |           -----
+| | |-4-| |-5-| | |---| |           2   3
+| | |---| |---| |       |         -----
+| |-------------|       |         4   5
+|-----------------------|
+```
+
+Provided that a given setup `S` is a hierarchy of scopes,
+one can form a node tree `T(N,E)` as follows:
+
+* `T(N,E)` where `N := U(S)` and ..
+* `E := { (ce(a),ce(b)) | (a parent-set-of b) for (a,b in S) }`
 
 <!-- ======================================================================= -->
 ## node tree => hierarchy of scopes
@@ -73,11 +93,11 @@ the scope of `p1` contains every single node in `T`.
 
 Likewise, one can then assume that `n2` declares another property `p2` such
 that `d(p2) = n2` and `s(p2) = [n2,*] = {n2, n4, n5}`. One can thus assume
-that each and every node `ni` in `T` declares its very own property `pi`.
+that each and every node `ni` in `T` declares its own property `pi`.
 
-Based on these properties, one can define a set `S` such that it contains
-the scope `si` of each property `pi` as an element. As such, set `S` can be
-described as **a hierarchy of scopes**.
+Based on these properties, one can define a set `S` such that it contains the
+scope `si` of each property `pi` as an element. As such, set `S` satisfies the
+requirements of **a hierarchy of scopes**.
 
 ```
 S  := +si   := { s1, s2, s3, s4, s5 }
@@ -93,23 +113,3 @@ One can then define a containment order `P` using the family of scopes `S`.
 * `P := (V,<)` such that `(V := S)` and
 * `S := { si | (si := [ni,*]) such that (i in [1,#V(T)]) }`
 * `(a < b) := (a strict-superset-of b)`
-
-<!-- ======================================================================= -->
-## hierarchy of scopes => node tree
-
-```
-S: a rooted normalized setup      T: a node tree
-============================  =>  ==============
-|-1---------------------|             1
-| |-2-----------| |-3-| |           -----
-| | |-4-| |-5-| | |---| |           2   3
-| | |---| |---| |       |         -----
-| |-------------|       |         4   5
-|-----------------------|
-```
-
-Provided that a given setup `S` is a hierarchy of scopes,
-one can form a node tree `T(N,E)` as follows:
-
-* `T(N,E)` where `N := U(S)` and ..
-* `E := { (ce(a),ce(b)) | (a parent-set-of b) for (a,b in S) }`

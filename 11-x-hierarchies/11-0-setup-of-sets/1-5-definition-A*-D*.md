@@ -2,7 +2,7 @@
 <!-- ======================================================================= -->
 ## remarks - in general
 
-Note that any ancestor set has more elements than any of its descendant sets.
+Recall that any ancestor set has more elements than any of its descendant sets.
 Likewise, any descendant set has fewer elements than any of its ancestor sets.
 
 * `(#a > #s)` is true for all `(a in A(s))`
@@ -16,8 +16,8 @@ descendant sets are disjoint.
 * `(A(s) disjoint-to D(s))` is true
 
 Note that, if one focusses on "a known fixed rule", then `A(s)` can be said
-to define an induced total sub-setup. Likewise, `D(s)` can both be said to
-define an induced partial sub-setup.
+to define an induced total sub-setup. Likewise, `D(s)` can be said to define
+an induced partial sub-setup.
 
 <!-- ======================================================================= -->
 ## subsetups A and D
@@ -65,13 +65,6 @@ sets `l(s)` can be described as the subset of all **minimal sets** in `D(s)`
 and the subset of all child sets `c(s)` can be described as the subset of all
 **maximal sets** in `D(s)`.
 
-Note that each parent set in a total setup must have **one child set only**.
-( That is because if a parent set had more than one child set, then the setup
-would have a pair of unrelated/incomparable sets. As such, the setup would not
-be total ). Consequently, each parent set in a total setup always has a least
-`l(p)` and a most significant subset `c(p)`. Any non-empty total setup therefore
-has **exactly one root and excatly one leaf set**.
-
 <!-- ======================================================================= -->
 ## extending A/D to A*/D*
 
@@ -84,23 +77,22 @@ has **exactly one root and excatly one leaf set**.
                                    c(s)  l(s)
 ```
 
-Since `s` is a subset to each set in `A`, including `s` in `A` will result
-in a total sub-setup `A*`. Likewise, since `s` is a superset to each set
-in `D`, including `s` in `D` will result in a sub-setup `D*` that is either
-partial or total.
+Since `s` is a subset to each set in `A`, including `s` in `A` results in a
+total sub-setup `A*`. Likewise, since `s` is a superset to each set in `D`,
+including `s` in `D` results in a sub-setup `D*` that is partial or total.
 
 * `A*, A*(s) := (A(s)+{s}) := { a | (a ancestor-of s) or (a == s) }`
 * `D*, D*(s) := (D(s)+{s}) := { d | (d descendant-of s) or (d == s) }`
 
-Note that, since `s` is included as an element in `A*` and `D*`, both of these
-sub-setups are **guaranteed to be non-empty**.
+Note that, since `s` is included as an element in `A*` and `D*`, both of
+these sub-setups are **guaranteed to be non-empty**.
 
 * `(#A* > 0)` and `(#D* > 0)` are both always true
 
 Note that, `D*` is different to `D` isofar as `D` may in general have any
-number of root sets (aka. maximal sets). In contrary to that, and since
-`s` is a superset to each set in `D`, sub-setup `D*` has a greatest
-set and therefore **one and only one root set**.
+number of root sets (aka. maximal sets). In contrary to that, and since `s`
+is a superset to each set in `D`, sub-setup `D*` has a greatest set and
+therefore **one and only one root set**.
 
 * `(#RS(A*) == 1)`, `(#LS(D*) == 1)`
 * `(#RS(D*) == 1)`, `(#LS(D*) >= 1)`

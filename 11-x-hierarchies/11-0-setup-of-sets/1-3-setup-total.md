@@ -5,19 +5,12 @@
 A set of sets `S` will be referred to as **a total setup (of sets)**,
 if and only if the following requirements are met:
 
-* (R1) `S` is a simple setup of sets
-* (R2) Any two sets in `S` are related with each other.
+* (R0) `S` is a partial setup of sets.
+* (R1) Any two sets in `S` are related with each other.
 
 Note that, since any two sets in such a setup are required to be related, a
 total setup does not allow pairs of disjoint and also no pairs of overlapping
-sets. That is, a total setup covers the **RE only** case as described in the
-remarks to simple setups.
-
-Note that a total setup is a set of pairwise related sets. That is, each set
-in a total setup is related to every other set in it. Because of that, and for
-any pair of distinct sets `(s,t in S)` it can be determined which is the subset
-and which the superset. That is, a total setup is such that there is no pair
-of disjoint sets.
+sets. That is, a total setup covers the **RE only** case.
 
 <!-- ======================================================================= -->
 ## a visual impression
@@ -55,9 +48,9 @@ disjoint to, or overlap another set in `S`, all the sets in `A` are related
 with each other. Consequently, `A` is **a total sub-setup** of `S`.
 
 `A` therefore has a set `l` such that it is a subset to all the sets in `(A\l)`
-(i.e. `(l == p(s))`). Consequently, `l` has the least amount of elements in `A`.
-As such `l` can be described as **the least significant set** in `A` that is
-**sub-ordinate** to all the other sets.
+(i.e. `(l == p(s))`). Consequently, `l` has the least amount of elements in
+`A`. As such `l` can be described as **the least significant set** in `A` that
+is **sub-ordinate** to all the other sets.
 
 * `min(A) := l` such that `(#l < #t)` for all `(t in A\l)`
 * `(l subset-of t)` for all `(t in A\l)`
@@ -75,11 +68,6 @@ and therefore has a least and a most significant set. (Hence the more generic
 specifiers `l` and `m`).
 
 Note that, due to the above, `S` can be described as being **downward-total**.
-
-TODO
-* define least/most significant in regards to relationships
-* i.e. not in regards to the number of elements in each item
-* i.e. based on presequent and subsequent
 
 <!-- ======================================================================= -->
 ## unique numbers of elements
@@ -105,16 +93,16 @@ S -> {s}                      |#s    |-----------------------------
 Given an arbitrary total setup `S` of two or more sets, then two distinct sets
 `(s,t in S)` are required to be related with each other. That is, it can be
 determined if `s` is a proper subset or a proper superset to `t`. Because of
-that, `s` can not have the same amout of elements as `t`. Hence, `s` has either
-more or fewer elements than `t`.
+that, `s` can not have the same amout of elements as `t`. That is, `s` has
+either more ex-or fewer elements than `t`.
 
 * for `(s,t in S)` and `(s != t)` ..
 * `(s subset-of t) <-> (#s < #t)`
 
 The sets in `(S\s)` can therefore be split up into a set `A` that contains all
-the sets which have fewer elements than `s` (note - `D(s)`), and a set `B` that
-contains all the sets which have  more elements than `s` (note - `A(s)`).
-Consequently, `S` can be described as a union of three pairwise disjoint sets.
+the sets which have fewer elements than `s` (i.e. `D(s)`), and a set `B` that
+contains all the sets which have more elements than `s` (i.e. `A(s)`). Setup
+`S` can therefore be described as a union of three pairwise disjoint sets.
 
 * `S := (A + {s} + B)` where ..
 * `A := { t | (t in S\s) and (#t < #s) }`
@@ -129,13 +117,31 @@ That is, the number of elements in each set is **unique** to that set.
 
 * `(#S == #N)` is true for `N := { #s | (s in S) }`
 
-Since each set in a total setup has a unique number of elements, such a total
-setup can be used to form a total order of sets `P(S,<)` such that the order
-over the sets in it correpsponds with the number of elements in each set.
+Since each set in a total setup has a unique number of elements, a total setup
+can be used to form a total order of sets `P(S,<)` such that the order over the
+sets in it correpsponds with the number of elements in each set.
 
-* `(a < b) := (a superset-of b)`, alt. `(a < b) := (#a > #b)`
-* `(a < b) := (a subset-of b)`, alt. `(a < b) := (#a < #b)`
+* `(a < b) := (a superset-of b)`, alternatively `(a < b) := (#a > #b)`
+* `(a < b) := (a subset-of b)`, alternatively `(a < b) := (#a < #b)`
 
-Note that one can describe a total setup as **an onion of sets** such that the
-least significant set is at its core. Based on that, the onion can be described
-to grow outwards by one or more elements with each next larger set.
+Note that, with a visualization of nested sets in mind, one can describe a
+total setup as **an onion of sets** such that the least significant set is at
+its core. Based on that, the union can be described to grow outwards by one or
+more elements with each next larger set.
+
+<!-- ======================================================================= -->
+## remarks
+
+Note that a total setup is a set of pairwise related sets. That is, each set
+in a total setup is related to every other set in it. Because of that, and
+for any pair of distinct sets `(s,t in S)` it can be determined which is the
+subset and which the superset.
+
+Note that in a total setup any parent set has **one and only one child set**.
+That is because if a parent set had more than one child set, then the setup
+would have a pair of unrelated/disjoint subsets. As such, the setup would
+not be total. Consequently, a total setup is **downward- and upward-total**.
+
+Note that, since each parent set in a total setup has **one child set only**,
+each parent set in a total setup always has a least and a most significant
+subset. Any non-empty total setup therefore has **one root and one leaf set**.

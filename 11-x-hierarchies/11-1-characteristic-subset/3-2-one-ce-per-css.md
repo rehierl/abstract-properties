@@ -20,7 +20,7 @@ The following is true, iff each CSS has exactly one CE:
 
 * if `(#CE(s) == 1)` is true for each `(s in S)`, then ...
 * `ce-of-set()` is defined and unique for every `(s in S)`
-* `set-of-ce()` allows to reliably retrieve each `(s in S)`
+* `set-of-ce()` allows to reliably identify each `(s in S)`
 
 If each CSS has exactly one CE (i.e. `(#css(s) == 1)`), then
 `U` and `S` have the same number of elements (i.e. `(#U == #S)`).
@@ -59,17 +59,16 @@ S: normalized setup      S: compacted display
 ```
 
 Since each set is now required to have exactly one CE, specific labels are no
-longer required. That is because each CE can be understood as a label which
-allows to uniquely identify the corresponding set. Visual representations can
-therefore be compacted/condensed, if each CE is "highlighted" into the border
-of the corresponding set.
+longer required. That is because **each CE can be used as a label** that allows
+to uniquely identify the corresponding set. Visual representations can thus
+be compacted/condensed, if each CE is "highlighted" into the border of its set.
 
 Since even leaf sets are now required to have exactly one CE, and since these
 sets have empty inner subsets, leaf sets appear as if they were empty. However,
 if one recalls that no set in a setup is allowed to be empty, then one can still
 conclude that each label must be the CE of the corresponding set.
 
-Note that, in order to allow to distinguish one case (a specific label) from
+Note that, in order to allow to distinguish one case (a dedicated label) from
 the other (a CE is used as a label), one should not mix both cases into one
-visual representation. That is, one should either use specific labels for all
+visual representation. That is, one should either use dedicated labels for all
 sets, or use all the CEs as lables.

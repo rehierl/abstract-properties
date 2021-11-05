@@ -5,7 +5,8 @@
 Even though an ordered sequence of elements can be understood to define an
 index-based order over the elements in it, the use of an **ordered sequence**
 to define a setup of sets is not for its index-order to apply to the sets
-themselves, but to define **index-based ids** for the sets in it.
+themselves, but to define **index-based ids** for the sets in it. That is,
+the sets may still hold elements of any kind.
 
 These ids can then be used to lookup the corresponding node in an ordered
 sequence of node definitions (i.e. an index-based mapping) that needs to be
@@ -13,8 +14,8 @@ understood to be provided separately, alongside the ordered sequence of sets.
 
 When choosing to provide numeric index-based ids via the index-order of an
 ordered sequence of sets, one would certainly want to first **reduce** the
-amount of elements in each set as far as possible. The following will mention
-the aspects one should keep in mind.
+amount of elements in each set as far as possible. The following will point
+out those aspects one should keep in mind.
 
 Note that, due to the below, an index-based setup is effectively an encoding
 of a normalized setup. Despite that, it is doubtful that such an encoding has
@@ -23,20 +24,20 @@ substantial benefits over other encodings.
 <!-- ======================================================================= -->
 ## no more than one CE per CSS
 
-In case there is a set `s` that has a CSS such that  `(#css(s) > 1)` one can
+In case there is a set `s` that has a CSS such that `(#css(s) > 1)` one can
 reduce the CSS by removing any additional CE from each set in `rp(s) := A*(s)`.
 
 <!-- ======================================================================= -->
 ## index-based CEs
 
-Even though it would not be a necessity, one should use the index-based id
-of each set as the CE of such a set.
+Even though it is not a necessity, one should use the index-based id of each
+set as the CE of such a set.
 
 In case set `s` has a non-index CE, one should remove `ce(s)` from each set
 in `rp(s)` and then add `id(s)` to these sets instead.
 
 <!-- ======================================================================= -->
-## empty root sets /non-parent
+## empty root sets, non-parent
 
 A root set that has no child set may have an empty CSS. That is because there
 is no relationship with another set that will have to be determined. Hence,
@@ -49,7 +50,7 @@ sequence-based setup must be understood as the unique instance of a non-empty
 set.
 
 <!-- ======================================================================= -->
-## non-empty leaf sets /non-root
+## non-empty leaf sets, non-root
 
 Each non-root leaf set must be required to have a non-empty CSS. That is
 because it would otherwise not be possible to determine the parent set of
@@ -60,8 +61,8 @@ such a leaf set.
 
 Since a parent set may have one and only one child set, not every parent set
 can be allowed to have an empty CSS. That is because such a parent set would
-then be equal to its child set. As a consequence, the resulting node tree
-would end up having no node for that parent set.
+then be equal to its child set. Because of that, one could not tell which set
+instance is supposed to be the parent set and which the child set.
 
 <!-- ======================================================================= -->
 ## parent sets with no CE
