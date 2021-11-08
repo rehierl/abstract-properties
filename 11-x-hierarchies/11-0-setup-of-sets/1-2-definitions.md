@@ -58,7 +58,7 @@ may or may not be a sink set.
 Note that a source set must have a subset, and that a sink set must have a
 superset. In contrary to that, root sets and leaf sets may be disconnected.
 
-A **rooted setup** is such that it has **one and only one root set**. That is,
+A **rooted setup** is such that it has one and only one root set. That is,
 the set of root sets contains one root set only (i.e. `(#RS == 1)`).
 
 Note that the root set `r` of a rooted setup is equal to its universal set.

@@ -4,37 +4,86 @@
 
 Note that the following definitions are intended to shift ones focus away from
 the elements the sets contain, towards the relationships that exist between
-sets of elements.
+sets of elements. That is, sets of elements need to be perceived as a whole.
 
 <!-- ======================================================================= -->
-## remarks
+## set-based definitions
 
-Note that the empty set `Ø` is disjoint-to and related-to every other set. Also,
-the empty set is the only set that is disjoint-to and as such also not coupled
-with (i.e. no shared element) itself. In contrary to that, every other set is
-coupled-with itself.
+Set A is **empty**, if it contains no elements at all.
+The empty set `Ø` is the only set that has no elements.
 
-Note that common elements can be understood to act as a "link" between two sets.
-Because of that, coupled sets can be said to be "connected" with each other via
-some "point of contact" which may consist of one or more elements. That is, the
-link between two coupled sets is a set of elements which is a subset to both
-sets (i.e. the intersection).
+* `isEmpty(A) := (#A == 0)`
 
-Note that the set difference `css(A) := (A \ B)` of sets A and B contains all
-of those elements in A that are unique to it in regards to B. Because of that,
-the set difference can be described as **the characteristic subset css()** of
-A in regards to B.
+Set A is **disjoint** (DI) to set B,
+if no element in A is also an element in B.
 
-Note that the set difference `(A \ B)` of sets A and B is also known as
-**the relative complement** of B in regards to A.
+* `(A disjoint-to B) := (a !in B) for all (a in A)`
+* alternatively - `(A disjoint-to B) := ((A & B) == Ø)`
 
-Note that any two subsets of two disjoint sets are themselves disjoint. Similar
-to that, two descendants of two incomparable nodes in a tree are incomparable.
+Set A is **equal** (EQ) to set B,
+if both are subsets to each other.
 
-* Given two sets such that `(A disjoint-to B)` is true, ...
-* and two subsets `a` and `b` such that ...
-* `(a subset-of A)` and `(b subset-of B)` are both true, then ...
-* `(a disjoint-to b)` is a consequence also true.
+* `(A == B), (A equal-to B) := (A subset-of B) and (B subset-of A)`
+* alternatively - `(A == B) := ((A xor B) == Ø)`
+
+Set A is **distinct** (NEQ) to set B,
+if both are un-equal.
+
+* `(A != B), (A distinct-to B) := not (A == B)`
+
+<!-- ======================================================================= -->
+## related sets
+
+Set A is **coupled-with** (CW) set B,
+if both sets have one or more elements in common.
+
+* `(A coupled-with B) := (a in B) for some (a in A)`
+* alternatively - `(A coupled-with B) := ((A & B) != Ø)`
+
+Set A is a **(simple) subset** (SUB) of set B,
+if each element in A is also an element in B.
+
+* `(A subset-of B) := (a in B) for all (a in A)`
+* alternatively - `(A subset-of B) := ((A & B) == A)`
+
+Set A is a **(simple) superset** (SUP) of set B,
+if B is a subset of A.
+
+* `(B superset-of A) := (A subset-of B)`
+
+Set A is **related** (RE) to set B,
+if one is a subset of the other.
+
+* `(A related-to B) := (A subset-of B) or (B subset-of A)`
+* `(A related-to B) := (A superset-of B) or (B superset-of A)`
+* note - both sets may be equal
+
+Set A is **unrelated** to set B,
+if none is a subset of the other.
+
+* `(A unrelated-to B) := not (A related-to B)`
+
+Set A is a **strict/proper subset** of set B,
+if both are distinct, and if A is a subset of B.
+
+* `(A proper-subset-of B) := (A subset-of B) and (A != B)`
+
+Set A is a **strict/proper superset** of set B,
+if both are distinct, and if A is a superset of B.
+
+* `(A proper-superset-of B) := (A superset-of B) and (A != B)`
+
+Set A is **strictly/properly related** to set B,
+if one is a proper subset of the other.
+
+* `(A properly-related-to B) := (A proper-subset-of B) or (B proper-subset-of A)`
+
+Set A **overlaps** (OV) set B,
+if both are coupled-with but not related-to each other.
+
+* `(A overlaps B) := (A & B != Ø) and (A \ B != Ø) and (B \ A != Ø)`
+* alternatively - `(A overlaps B) := (A coupled-with B) and (A unrelated-to B)`
+* note - none is a subset of the other
 
 <!-- ======================================================================= -->
 ## set-based operations
@@ -63,77 +112,31 @@ if it consists of all the elements that are elements of one set only.
 * alternatively - `(A xor B) := (A \ B) + (B \ A)`
 
 <!-- ======================================================================= -->
-## set-based definitions
+## remarks
 
-Set A is **empty**, if it has no elements at all.
-The empty set `Ø` is the only set that has no elements.
+Note that the empty set `Ø` is disjoint-to and related-to every other set. Also,
+the empty set is the only set that is disjoint-to and as such also not coupled
+with (i.e. no shared element) itself. In contrary to that, every other set is
+coupled-with itself.
 
-* `isEmpty(A) := (#A == 0)`
+Note that common elements can be understood to act as a "link" between two sets.
+Because of that, coupled sets can be said to be "connected" with each other via
+some "point of contact", which may consist of one or more elements. That is,
+the link between two coupled sets is a subset of elements which is a subset to
+both (i.e. the intersection).
 
-Set A is **disjoint** (DI) to set B,
-if no element in A is also an element in B.
+Note that the set difference `css(A) := (A \ B)` of sets A and B contains all
+of those elements in A that are unique to it in regards to B. Because of that,
+the set difference will be described as **the characteristic subset css()** of
+A in regards to B.
 
-* `(A disjoint-to B) := (a !in B) for all (a in A)`
-* alternatively - `(A disjoint-to B) := ((A & B) == Ø)`
+Note that the set difference `(A \ B)` of sets A and B is also known as
+**the relative complement** of B in regards to A.
 
-Set A is **coupled-with** (CW) set B,
-if both sets have one or more elements in common.
+Note that any two subsets of two disjoint sets are themselves disjoint. Similar
+to that, two descendants of two incomparable nodes in a tree are incomparable.
 
-* `(A coupled-with B) := (a in B) for some (a in A)`
-* alternatively - `(A coupled-with B) := ((A & B) != Ø)`
-
-Set A is a **(simple) subset** (SUB) of set B,
-if every element in A is also an element in B.
-
-* `(A subset-of B) := (a in B) for all (a in A)`
-* alternatively - `(A subset-of B) := ((A & B) == A)`
-
-Set A is a **(simple) superset** (SUP) of set B,
-if B is a subset of A.
-
-* `(B superset-of A) := (A subset-of B)`
-
-Set A is **equal** (EQ) to set B,
-if both are subsets to each other.
-
-* `(A == B), (A equal-to B) := (A subset-of B) and (B subset-of A)`
-* alternatively - `(A == B) := ((A xor B) == Ø)`
-
-Set A is **distinct** (NEQ) to set B,
-if both are unequal.
-
-* `(A != B), (A distinct-to B) := not (A == B)`
-
-Set A **overlaps** (OV) set B, if both are coupled-with but not
-related-to each other. That is, none is a subset of the other.
-
-* `(A overlaps B) := (A & B != Ø) and (A \ B != Ø) and (B \ A != Ø)`
-* alternatively - `(A overlaps B) := (A coupled-with B) and (A unrelated-to B)`
-
-<!-- ======================================================================= -->
-## related
-
-Set A is **related** (RE) to set B,
-if one is a subset of the other.
-
-* `(A related-to B) := (A subset-of B) or (B subset-of A)`
-
-Set A is **unrelated** to set B,
-if none is a subset of the other.
-
-* `(A unrelated-to B) := not (A related-to B)`
-
-Set A is a **strict/proper subset** of set B,
-if both are distinct, and if A is a subset of B.
-
-* `(A proper-subset-of B) := (A subset-of B) and (A != B)`
-
-Set A is a **strict/proper superset** of set B,
-if both are distinct, and if A is a superset of B.
-
-* `(A proper-superset-of B) := (A superset-of B) and (A != B)`
-
-Set A is **strictly/properly related** to set B,
-if one is a proper subset of the other.
-
-* `(A properly-related-to B) := (A proper-subset-of B) or (B proper-subset-of A)`
+* Given two sets such that `(A disjoint-to B)` is true, ...
+* and two subsets `a` and `b` such that ...
+* `(a subset-of A)` and `(b subset-of B)` are both true, then ...
+* `(a disjoint-to b)` is a consequence also true.

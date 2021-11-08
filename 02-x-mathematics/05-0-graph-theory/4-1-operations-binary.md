@@ -44,7 +44,7 @@ nor edges in common:
 * `(S disjoint-to G) := (T disjoint-to V) and (U disjoint-to E)`
 
 Graph `S` can be described to **intersect** graph `G`, if both are not disjoint.
-As such, both graphs can be understood to be **coupled** (with each other) via
+As such, both graphs can be understood to be **coupled** with each other via
 the elements they share:
 
 * `(S intersects G), (S coupled-with G) := not (S disjoint-to G)`
