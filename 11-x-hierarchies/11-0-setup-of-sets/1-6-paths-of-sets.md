@@ -21,7 +21,7 @@ Note that all rooted paths are **non-empty**. Furthermore, each rooted path
 of sets is **an ordered sequence** of sets. Also, the rooted path of each set
 in a partial setup is **unique** to it.
 
-Similar to that, **a path** can be formed from set `a` to set `b`
+Based on that, **a path** can be formed from set `a` to set `b`
 if and only if set `a` is an ancestor of set `b`.
 
 * `p(a,b) := {a} × (rp(b) \ rp(a))` iff `(a ancestor-of b)`

@@ -107,7 +107,10 @@ helper functions
 * `D(s)` is the set of all descendant sets of `s`
 * note - all the subsets of `s` in `S`
 
-Note that `A(s)` and `D(s)` are always disjoint.
+Note that a partial setup has **no cycles**. That is because no set can be a
+subset and also a superset to another set. It would need to have fewer and also
+more elements than the other set. Because of that, the set of ancestor and
+descendant sets are disjoint.
 
 * `(A(s) disjoint-to D(s))` is true for all `(s in S)`
 

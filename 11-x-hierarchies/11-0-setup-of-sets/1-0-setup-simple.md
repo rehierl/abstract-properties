@@ -5,7 +5,7 @@
 A set of sets will be referred to as **a (simple) setup of sets** `S`,
 if and only if the following requirements are met.
 
-* (R0) `S` is a family of sets.
+* (R0) `S` is a set/family of sets.
 * (R1) `S` is expected to be non-empty.
 * (R2) `(#s > 0)` is required to be true for all `(s in S)`.
 

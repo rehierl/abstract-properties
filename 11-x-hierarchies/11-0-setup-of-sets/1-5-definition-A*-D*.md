@@ -8,19 +8,12 @@ Likewise, any descendant set has fewer elements than any of its ancestor sets.
 * `(#a > #s)` is true for all `(a in A(s))`
 * `(#s > #d)` is true for all `(d in D(s))`
 
-Note that a partial setup has **no cycles**. That is because no set can be a
-subset and also a superset to another set. It would need to have fewer and also
-more elements than the other set. Because of that, the set of ancestor and
-descendant sets are disjoint.
-
-* `(A(s) disjoint-to D(s))` is true
-
 Note that, if one focusses on "a known fixed rule", then `A(s)` can be said
 to define an induced total sub-setup. Likewise, `D(s)` can be said to define
 an induced partial sub-setup.
 
 <!-- ======================================================================= -->
-## subsetups A and D
+## subsetups A() and D()
 
 Assuming a **partial setup** `S` and a set `(s in S)` ..
 

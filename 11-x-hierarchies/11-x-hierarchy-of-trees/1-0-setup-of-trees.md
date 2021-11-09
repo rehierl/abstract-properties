@@ -2,8 +2,8 @@
 <!-- ======================================================================= -->
 # setups of trees
 
-As before with simple sets of elements, and with tree-based definitions in mind,
-one can define basic setups of node trees.
+As before with simple sets of elements, and with the tree-based definitions in
+mind, setups of trees can be defined as follows.
 
 <!-- ======================================================================= -->
 ## (simple) setups of trees
@@ -11,41 +11,42 @@ one can define basic setups of node trees.
 A set of trees will be referred to as **a (simple) setup of trees** `S`,
 if and only if the following requirements are met.
 
-* (R0) `S` is a family of trees.
+* (R0) `S` is a set/family of trees.
 * (R1) `S` is expected to be non-empty.
 * (R2) `S` is required to be well formed.
 
 Note that, there is no requirement that the trees in `S` must be non-empty.
-That is because each tree is required to have at least a root node.
+That is because each tree is required to have at least a root node. Because
+of that, no tree can be an empty graph.
 
-Note that, similiar to the universal set `U` in the context of a setup of sets,
-a setup of trees can be understood to be associated with a graph that can be
-described as the union of all trees in `S`, which may in general not be a tree
-- i.e. a possilby empty non-tree graph.
+Note that, similiar to the universal set of elements `U` in the context of a
+setup of sets, a setup of trees can be understood to be associated with a graph
+that can be described as the union of all trees in `S`, which is in general not
+a tree - i.e. a possilby empty non-tree graph.
 
-Note that, analogous to the powerset `P(U)`, the expression `P(U)` in the
-context of a setup of trees can be understood as the set of all possible
-subtrees of `U`.
+Note that, analogous to the powerset `P(U)` over a simple set of elements, the
+expression `P(U)` in the context of a setup of trees can be understood as the
+set of all possible subtrees of `U`.
 
 Note that the **well formedness** requirement (R2) is intended to ensure that
 any two trees in such a setup are either disjoint, related ex-or overlap each
-other (i.e. **DI-RE-OV**). That is, all trees are required to represent node
-orders that do not contradict each other - e.g. the ancestor of a node in a
-tree can not be the descendant of that node in another tree.
+other (i.e. **DI-RE-OV**). Based on that, all trees are required to represent
+node orders that do not contradict each other - e.g. the ancestor of a node
+in a tree is no descendant of that node in another tree.
 
-* the intersection between any two trees needs to be empty or a tree
-* the union of two trees needs to be a forest or a tree
+* the intersection between any two trees must be empty or a tree
+* the union of two trees must be a forest or a tree
 
 Note that, in the case of overlapping trees, the root node of one tree must be
 a node in the other tree. That is because otherwise the union of both trees
 would not be a tree.
 
 Note that the well formedness requirement (R2) has the effect of turning the
-relationship between the nodes into a secondary characterisitc. After all,
-if all trees effectively share the same order between the nodes they contain,
-the relationship between the nodes has less significance. Because of that, the
-focus shifts towards the sets of nodes and the relationships between these sets.
-That is, a setup of trees essentially acts as a setup of sets.
+relationship between the nodes of a tree into a secondary characterisitc.
+After all, if all trees effectively share the same order between the nodes they
+contain, the relationship between the nodes is of less significance. Because of
+that, the focus shifts towards the sets of nodes and the relationships between
+these sets. That is, a setup of trees essentially acts as a setup of sets.
 
 <!-- ======================================================================= -->
 ## a partial setup of trees
@@ -58,40 +59,39 @@ only if the following requirements are met:
 * (R1) Any two trees in `S`must either be disjoint ex-or related.
 
 Note that, due to requirement R1, no tree in a partial setup may overlap another
-tree - i.e. the **DI ex-or RE** case.
+tree in that setup - i.e. the **DI-RE** case.
 
 Note that, as with partial setups of sets, in order to determine if two trees
-are related with each other in a partial setup, one only needs to determine if
-both trees have **one node** in common. Consequently, in order to determine the
-orientation between both trees, one only needs to compare the number of nodes
-in each tree.
+are related with each other, one only needs to determine if both trees have
+**one node in common**. Consequently, in order to determine the orientation
+between both trees, one only needs to compare the number of nodes in each tree.
 
 * if `(#s < #t)`, then `t` is the super-tree
 * if `(#s == #t)`, then both trees are equal
 * if `(#s > #t)`, then `s` is the super-tree
 
 Note that the **intersection** between two trees in a partial setup is either
-the empty graph ex-or equal to one of the trees. In the latter case, the
-intersection is equal to the smaller tree (i.e. less significant). Likewise,
-the **union** of two trees in a partial setup is either a forest ex-or one of
-both input trees. In the latter case, the union is equal to the larger tree
-(i.e. more significant).
+the empty graph ex-or equal to one of the trees (R2). In the latter case, the
+intersection is equal to the smaller tree (less significant). Likewise, the
+**union** of two trees in a partial setup is either a forest ex-or one of both
+input trees. In the latter case, the union is equal to the larger tree (more
+significant).
 
-* if `(s,t in S)`, `((s & t) != Ø)` and `(#s < #t)`, then ...
+* if `(s,t in S)` and `(#s < #t)`, then ...
 * `((s & t) == s)` and `((s + t) == t)` are both true
 
 Note that, in contrary to a partial setup of sets, a subtree can be understood
-to support "a notion of placement". That is, the subtree's root can be said to
-be located in the supertree an in regards to the supertree's root. However, thus
-far there is no requirement in regards to the placement of a subtree. That is,
-a subtree may or may not have the supertree's root as its own root node. In
-addition to that, a subtree may or may not contain a leaf node of the supertree.
+to support "a notion of placement". That is, a subtree's root can be said to
+have a placement in regards to the supertree's root. However, thus far there is
+no requirement in regards to the placement of a subtree. That is, a subtree may
+or may not have the supertree's root as its own root node. Likewise, a subtree
+may or may not contain one or more leaf nodes in the supertree.
 
 <!-- ======================================================================= -->
 ## definition of hierarchy-based terms
 
 Note that, similar to a partial setup of sets, hierarchy-based terms can be
-defined. Notable definitions are as follows ...
+defined. The most notable definitions are as follows ...
 
 A **root tree** is such that it is no subtree to another tree. As such, a root
 tree may or may not have a subtree in `S`. That is, a root tree may or may not
@@ -104,12 +104,17 @@ Note that, since the union of two trees must either be a forest or a tree (R2),
 the union graph `U` of a rooted setup of trees is a tree and as such equal to
 the setup's root tree.
 
-An **ancestor tree** `a` is such that it is a supertree to another tree in the
-setup. Likewise, a **descendant tree** `d` is such that it is a subtree to
-another tree.
+An **ancestor tree** `a` is a supertree to another tree.
+Likewise, a **descendant tree** `d` is a subtree to another tree.
 
 * `A(t) := { a | (a ancestor-of t) }`
 * `D(t) := { d | (d descendant-of t) }`
+
+Note that a partial setup has **no cycles**. That is because no tree can be
+a subtree and also a supertree to another tree. Because of that, the set of
+ancestor and descendant trees are disjoint.
+
+* `(A(s) disjoint-to D(s))` is true
 
 The **root tree of** tree `t` is the most significant ancestor of `t`.
 The **parent tree of** tree `t` is the least significant ancestor of `t`.
@@ -131,15 +136,15 @@ trees of a parent tree.
 <!-- ======================================================================= -->
 ## a total setup of trees
 
-A set of trees `S` will be referred to as **a total setup (of trees)**, if and
-only if the following requirements are met:
+A set of trees `S` will be referred to as **a total setup (of trees)**,
+if and only if the following requirements are met:
 
 * (R0) `S` is a partial setup of trees.
 * (R1) Any two trees in `S` are related with each other.
 
-Note that, due to requirement R1, a total setup does not allow pairs of disjoint
-trees and also no pairs of overlapping trees - i.e. the **RE only** case.
+Note that a total setup does not allow pairs of disjoint trees (R1)
+and also no pairs of overlapping trees (R0) - i.e. the **RE only** case.
 
 Note that in a total setup any parent tree has **one and only one child tree**.
-Consequently, a total setup is **downward- and upward-total**. A non-empty
+Consequently, a total setup is **downward- and upward-total**. Any non-empty
 total setup therefore has **one root and one leaf tree**.

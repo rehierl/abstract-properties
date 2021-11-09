@@ -80,26 +80,16 @@ one can also define a partial order over `ID`.
 <!-- ======================================================================= -->
 ## partial setup => node tree
 
-```
-S: a partial setup                             T: a node tree
-=========================================  =>  ==============
-|-A-------------------------------------|            A        |- parent-of
-| |-B-----------| |-E-| |-F-----------| |         -------     |
-| | |-C-| |-D-| | | 3 | | |-G-| |-H-| | |         B  E  F     |
-| | | 1 | | 2 | | |---| | | 4 | | 5 | | |      ----     ----  |
-| | |---| |---| |       | |---| |---| | |      C  D     G  H  |- child-of
-| |-------------|       |-------------| |
-|---------------------------------------|
-```
-
 Using the above rooted setup `S`,
-one can directly define a node tree over `S`.
+one can directly define a node tree `T`,
+such that each node represents a set in `S`.
 
 * `T(S,E)` where ..
 * `E := { (a,b) | (a parent-of b) for (a,b in S) }`
 
 Since one can associate an id with each set,
-one can also directly define a node tree over `ID`.
+one can also directly define a node tree `T`,
+such that each node is one of the above identifiers.
 
 * `T(ID,E)` such that `ID := {A..H}` and ..
 * `E := { (ID(a),ID(b)) | (a parent-of b) for (a,b in S) }`
@@ -130,8 +120,8 @@ set into a node is independent of these elements. That is, in general a setup
 As shown above, one can still associate a unique id with each set. However,
 since the iteration over `S` is random, subsequent runs will yield trees that
 have the same structure, but also trees that will in general differ in their
-labels (i.e. their id values). Obviously, this randomness is insufficient since
-the intention is to reliably recreate a tree from a given input setup.
+labels (i.e. their id values). Obviously, this randomness is insufficient
+since the intention is to reliably recreate a tree from a given input setup.
 
 The issue is therefore how to embed unique object/node identifiers such that
 one can reliably determine the identifier that is associated with a particular
