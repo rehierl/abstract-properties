@@ -6,8 +6,8 @@ A partial setup `S` can be described as **a normalized setup**,
 if the following requirements are met:
 
 * (R0) `S` is a partial setup of sets.
-* (R1) Each set in `S` has exactly one CE.
-* (R2) Each CE corresponds with a unique node.
+* (R1) Each set in `S` has one and only one CE.
+* (R2) Each CE acts as a unique node reference.
 
 Due to R1 no CSS may be empty or have more than one CE.
 

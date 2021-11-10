@@ -3,14 +3,14 @@
 # a recap on tree-based definitions
 
 Note that the following recap is intended to shift ones focus away from the
-nodes the trees contain, towards the relationships that exist between node
-trees. That is, a tree T(N,E) needs to be perceived as a whole.
+nodes the trees contain, towards the relationships that exist between entire
+node trees. That is, a tree T(N,E) needs to be perceived as a whole.
 
 Recall that, if two graphs have a shared edge, then both graphs must also have
 both of the endpoints of that edge in common. Because of that, if two graphs
-have a shared edge, then both graphs also have intersecting sets of vertices.
-Consequently, two graphs can not have an edge in common, if their sets of
-vertices are disjoint.
+have intersecting sets of edges, then both graphs also have intersecting sets
+of vertices. However, two graphs with intersecting sets of vertices do not
+necessarily also have intersecting sets of edges.
 
 <!-- ======================================================================= -->
 ## tree-based definitions
@@ -19,7 +19,6 @@ Tree A is **disjoint** (DI) to tree B,
 if both have disjoint sets of nodes and disjoint sets of edges.
 
 * `(A disjoint-to B) := (N(A) disjoint-to N(B)) and (E(A) disjoint-to E(B))`
-* note - this is the more strict/verbose graph-based definition
 
 Tree A is **equal** (EQ) to tree B,
 if both have equal sets of nodes and equal sets of edges.
@@ -31,13 +30,9 @@ if both are un-equal.
 
 * `(A != B), (A distinct-to B) := not (A == B)`
 
-Note that, since each tree must have a root node, an **empty** tree can not
+Note that, since each tree must have a root node, an **empty** trees do not
 exist. That is because the graph of a tree will always have the root node as
 a vertex (i.e. a non-empty set of nodes).
-
-Note that a less strict order-based definition of **disjoint** is possible, if
-the definition only requires both trees to have disjoints sets of nodes. With
-such a definition, one would treat both trees more like ordered sets of nodes.
 
 <!-- ======================================================================= -->
 ## related trees
@@ -114,14 +109,14 @@ symmetric difference of the corresponding sets in both trees.
 
 * `(A ^ B), (A xor B) := (N(A) xor N(B), E(A) xor E(B))`
 
-Note that the removal of a vertex from a graph must trigger the implicit
-removal of all the edges to which that vertex is an endpoint. Because of that,
-the simple and the symmetric difference graph may have fewer edges that what
-would directly result from the removal of second input tree.
+Note that the removal of a vertex from a graph must implicit also remove all of
+the edges to which that vertex is an endpoint. Because of that, the simple and
+the symmetric difference graph may have fewer edges that what would directly
+result from the removal of second input tree.
 
 Note that the resulting graph of the above operations is not necessarily a
 tree. That is because the input trees have thus far no requirements. That is,
-the ancestor of a node in one tree may (e.g.) be a descendant of the node in
-the other tree. Despite that, and in the context of this discussion, the input
-trees will in general be related in some way (e.g. tree B will in general be
-an incuded subtree of A).
+the ancestor of a node in one tree may (e.g.) be a descendant of that node
+in the other tree. Despite that, and in the context of this discussion, input
+trees will in general be related in some way - e.g. tree B will in general
+be an incuded subtree of tree A.

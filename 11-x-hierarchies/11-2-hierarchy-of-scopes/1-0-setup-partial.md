@@ -2,14 +2,9 @@
 <!-- ======================================================================= -->
 # A partial setup (of sets)
 
-Recall that a partial setup `S` has the following requirements:
-
-* (1) No set in `S` is empty.
-* (2) Any two sets in `S` are either disjoint ex-or related.
-
-Note that the focus of this chapter is on rooted setups.
-
-* `S` is a "rooted setup", iff `(#RS(S) == 1)` is true
+Note that the focus of this discussion is on rooted setups that are isomorphic
+to node trees. As such, these setups must embed (1) the definition of each
+node, and (2) the definition of the tree's structure.
 
 <!-- ======================================================================= -->
 ## unique identifiers
@@ -112,16 +107,17 @@ additional characteristic element CE to each set in `A*(s)`.
 <!-- ======================================================================= -->
 ## partial setup =?=> node tree
 
-Even though the relationship a node has with all the other nodes is defined
-by those elements that are shared by the sets in `S`, the translation of a
-set into a node is independent of these elements. That is, in general a setup
-**does not embed the definition of the nodes** themselves.
+Even though the relationship a node has with all the other nodes (i.e. the
+tree's structure) is defined by those elements that are shared by the sets in
+`S`, the translation of a set into a node is independent of these elements.
+That is, **a setup does in general not embed the definition of the nodes**
+themselves.
 
 As shown above, one can still associate a unique id with each set. However,
 since the iteration over `S` is random, subsequent runs will yield trees that
 have the same structure, but also trees that will in general differ in their
 labels (i.e. their id values). Obviously, this randomness is insufficient
-since the intention is to reliably recreate a tree from a given input setup.
+since the intention is to reliably recreate a tree from a given setup.
 
 The issue is therefore how to embed unique object/node identifiers such that
 one can reliably determine the identifier that is associated with a particular
