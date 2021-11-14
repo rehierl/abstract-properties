@@ -17,13 +17,13 @@ Note that the above requirements define the default **RE-OV** case.
 ## remarks (1)
 
 In order to determine if two paths are related with each other in a partial
-setup, one only needs to determine if both paths have same "last" element.
+setup, one only needs to determine if both paths have same last element.
 
 * `(s related-to t)` is true for `(s,t in S)` if ...
-* `(s(n) == t(n))` where `n := min(#s,#t)`
+* `(s(i) == t(i))` where `i := min(#s,#t)`
 
 Furthermore, and in order to determine the orientation between two related
-paths, one only needs to compare the number of elements (aka. their size).
+paths, one only needs to compare the number of elements (aka. their length).
 
 * `(s prefix-of t)` is true if `(s related-to t) and (#s < #t)`
 
@@ -77,8 +77,3 @@ and therefore has a least and a most significant path. (Hence the more generic
 specifiers `l` and `m`).
 
 Note that, due to the above, `S` can be described as being **downward-total**.
-
-TODO
-* define least/most significant in regards to relationships
-* i.e. not in regards to the number of elements in each item
-* i.e. based on presequent and subsequent

@@ -3,7 +3,7 @@
 - superset-of is consistent, subset-of is not
 
 <!-- ======================================================================= -->
-# total pov / sequences
+# total / sequences
 
 ```
 s1 := { n1, n2, n3, n4, n5, n6 } - the scope of the root

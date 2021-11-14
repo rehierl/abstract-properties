@@ -2,8 +2,8 @@
 <!-- ======================================================================= -->
 # Definition of hierarchy-based terms
 
-The following will define graph-/hierarchy-based terms in the context of
-some hypothetical setup of rooted paths `S`.
+The following will define graph-/hierarchy-based terms in the context of some
+hypothetical setup of rooted paths `S`.
 
 Note that, from a strict point of view, and since the **subset-of** operator
 is now the basis of the "related-to" operator, the defintions made in the
@@ -112,7 +112,7 @@ of that, there is no first child and no last child, and therefore also
 <!-- ======================================================================= -->
 ## universal set, roots, leafs
 
-Recall that each setump `S` can be understood to be accompanied by a universal
+Recall that each setup `S` can be understood to be accompanied by a universal
 set `U(S)`, which is effectively a superset to each path in `S`. Because of
 that, each path in `S` corresponds with a total suborder to `U(S)`.
 

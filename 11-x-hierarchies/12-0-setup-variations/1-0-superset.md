@@ -10,7 +10,7 @@
 
 DI-RE summary
 
-* a node tree, **setup-t1-partial**
+* a node tree, **a partial setup**
 * no parallel sub-components
 * does not support all partial orders
 * unique rooted paths
@@ -20,7 +20,7 @@ RE-OV summary
 
 * unclear if more than one component is possible ?
   e.g. not if rooted paths from a forest - disjoint
-* parallel sub-components are possible
+* parallel sub-components are possible ?!?
 * seems to support all partial orders
 * rooted paths are not necessarily unique
 * possibly upward-total - e.g. rps of a tree
@@ -45,6 +45,6 @@ s1 -> s2 -> s3
 
 remarks
 
-* a node tree, **setup-t2-total**
+* a node tree, **a total setup**
 * must have one root set only
 * must have one leaf set only

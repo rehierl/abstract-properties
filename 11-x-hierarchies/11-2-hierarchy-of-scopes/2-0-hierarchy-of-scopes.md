@@ -21,43 +21,34 @@ if the following requirements are met:
 
 * (R0) `S` is a normalized setup of sets.
 
-Note that a forest of scopes has no additional requirements. Because of that,
-a forest of scopes `F` may have any number of root sets, which is why an empty
-setup may be described as "an empty forest of scopes".
+Note that a forest of scopes may have any number of root sets,
+including none at all.
 
 * `(#RS(F) in [0,*])` is true
+
+Note that a forest of scopes has no additional requirements. Because of that,
+a forest of scopes `F` may only contain disjoint ex-or related scopes. (i.e.
+the **DI-RE** case).
 
 <!-- ======================================================================= -->
 ## a hierarchy of scopes (H)
 
-```
-|-1-----------|
-| |-2-| |-3-| |
-| |---| |---| |
-|-------------|
-```
-
 A partial setup `S` may be referred to as **a hierarchy of scopes**,
 if the following requirements are met:
 
-* (R0) `S` is a normalized setup of scopes.
-* (R1) `S` has one and only one root set `r`.
-
-Note that "a hierarchy of scopes" is synonymous to "a rooted normalized partial
-setup" and also synonymous to "a rooted forest of scopes".
-
-* `(#RS(H) == 1)` is required to be true
+* (R0) `S` is a forest of scopes.
+* (R1) `S` has one and only one root.
 
 Note that a hierarchy of scopes `H` has the following properties:
 
+* `(#RS(H) == 1)` must be treu
 * `(#S > 0)` - A hierarchy is always non-empty.
 * `(Ø !in H)` - No set in a hierarchy is empty.
-* A hierarchy is acyclic.
-* All the sets in a hierarchy are disjoint ex-or related.
+* All the sets in a hierarchy are "DI ex-or RE".
 * Each set has no ex-or one parent set - a superset.
 * Each set may have any number of child sets - subsets.
 * Any ancestor has more elements than all of its descendants.
-* Each set has a unique rooted path of sets.
+* Each set has a unique rooted path.
 
 Note that the root set `(r in RS(H))` of a hierarchy `H` is equal to `U(H)`.
 Despite that, the root set of a hierarchy is required as an explicit set since
@@ -93,14 +84,9 @@ one root set.
 * hierarchy -> normalized setup
 
 Note that two hierarchies `H1` and `H2` are **disjoint**, if their root sets
-are disjoint. Based on that, any set in `H1` is disjoint to every set in `H2`.
+are disjoint. Based on that, any set in `H1` is disjoint to each set in `H2`.
 
 * `(H1 disjoint-to H2) := (r1 disjoint-to r2)`
 
-Note that any **subset** of a hierarchy, after normalizing the result, is in
-general a forest - i.e. not necessarily a hierarchy.
-
-Note that the definition of a hierarchy does not cover the process of forming
-the sets it contains. It merely describes how these are related with each other.
-However, the description as "a hierarchy of scopes" does highlight the main
-method - i.e. formed from the scopes of abstract properties.
+Note that an arbitrary **subset** of a hierarchy, after normalizing the result,
+is in general a forest - i.e. not necessarily a hierarchy.

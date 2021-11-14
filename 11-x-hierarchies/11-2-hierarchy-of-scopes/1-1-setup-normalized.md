@@ -7,7 +7,7 @@ if the following requirements are met:
 
 * (R0) `S` is a partial setup of sets.
 * (R1) Each set in `S` has one and only one CE.
-* (R2) Each CE acts as a unique node reference.
+* (R2) Each CE can be treated a unique node reference.
 
 Due to R1 no CSS may be empty or have more than one CE.
 

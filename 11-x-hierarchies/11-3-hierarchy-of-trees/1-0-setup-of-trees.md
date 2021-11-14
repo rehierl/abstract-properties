@@ -8,8 +8,8 @@ setups of trees can be defined as follows.
 <!-- ======================================================================= -->
 ## (simple) setups of trees
 
-A set of trees will be referred to as **a (simple) setup of trees** `S`,
-if and only if the following requirements are met.
+A set of trees will be referred to as **a (simple) setup of trees** `S`, if and
+only if the following requirements are met.
 
 * (R0) `S` is a set/family of trees.
 * (R1) `S` is expected to be non-empty.

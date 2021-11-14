@@ -2,10 +2,9 @@
 <!-- ======================================================================= -->
 # Forest/Hierarchy of rpaths
 
-Note that a family of rooted paths `S`, if generated from a tree `T(N,E)`,
-is a hierarchy of rooted paths `H`. That is, any tree corresponds with a
-hierarchy of rooted paths. Consequently, `S` provides a complete definition
-of `T`.
+Note that a family of rooted paths `S`, if formed from a tree `T(N,E)`, is a
+hierarchy of rooted paths `H`. Any tree is therefore isomorphic to a hierarchy
+of rooted paths.
 
 <!-- ======================================================================= -->
 ## a forest of rpaths (F)
@@ -20,51 +19,41 @@ a forest of scopes             a forest rpaths
                                s5: (4,5)
 ```
 
-A partial setup `S` will be referred to as **a forest of rpaths**,
+A partial setup `S` may be referred to as **a forest of rooted paths**,
 if the following requirements are met:
 
-* (R1) `S` is a normalized setup of rooted paths.
+* (R0) `S` is a normalized setup of rooted paths.
 
-Note that "a forest of rpaths" is synonymous to "a normalized partial setup of
-rpaths". That is because there are no additional requirements. Consequently,
-a forest of rooted paths `F` may have any number of rooted paths as its roots.
+Note that a forest of rooted paths may have any number of root paths,
+including none at all.
 
 * `(#RS(F) in [0,*])` is true
 
-Note that an empty setup can be described as an empty forest of rooted paths.
+Note that a forest of rooted paths has no additional requirements. Because
+of that, a forest of rooted paths `F` may contain disjoint, related and also
+overlapping rooted paths (i.e. the **DI-RE-OV** case).
+
+Note that the disjoint case allows to tell that disjoint rooted paths belong
+to different trees. In contrary to that, two disjoint sets in the context of
+a forest of scopes may or may not belong to the same tree.
 
 <!-- ======================================================================= -->
 ## a hierarchy of rpaths (H)
 
-
-```
-a hierarchy of scopes      a hierarchy of rpaths
-=====================  =>  =====================
-|-1-----------|            s1: (1)
-| |-2-| |-3-| |            s2: (1,2)
-| |---| |---| |            s3: (1,3)
-|-------------|
-```
-
-A partial/total setup `S` will be referred to as **a hierarchy of rpaths**,
+A partial setup `S` may be referred to as **a hierarchy of rpaths**,
 if the following requirements are met:
 
-* (R1) `S` is a normalized setup of rooted paths.
+* (R1) `S` is a forest of rooted paths.
 * (R2) `S` has one and only one root.
-
-Note that "a hierarchy of rooted paths" is synonymous to
-"a rooted normalized setup of rpaths".
-
-* `(#RS(H) == 1)` is (required to be) true
 
 Note that a hierarchy `H` of rooted paths has the following properties:
 
+* `(#RS(H) == 1)` must be true
 * `(#S > 0)` - A hierarchy is always non-empty.
 * `(Ø !in H)` - No path in a hierarchy is empty.
-* A hierarchy is acyclic.
 * All the paths in a hierarchy are "RE ex-or OV".
 * Each path has no ex-or one parent - a prefix.
-* Each path may have any number of overlapping child paths.
+* Each path may have any number of child paths.
 * Any ancestor has fewer elements than all of its descendants.
 * Each path has a unique rooted path.
 
@@ -94,14 +83,14 @@ one root.
 * hierarchy -> normalized setup
 
 Note that two hierarchies `H1` and `H2` are **disjoint**, if their universal
-sets are disjoint. Based on that, any path in `H1` is disjoint to every set
+sets are disjoint. Based on that, any path in `H1` is disjoint to each path
 in `H2`.
 
 * `(H1 disjoint-to H2) := (U(H1) disjoint-to U(H2))`
 
-Note that an arbitrary subset of a hierarchy is neither a hierarchy, nor a
-forest of hierarchies. That is because such an arbitrary subset is not required
-to include each prefix of the rooted paths it contains.
+Note that an arbitrary **subset** of a hierarchy is neither guaranteed to be
+a hierarchy, nor a forest. That is because an arbitrary subset is not required
+to include all the prefixes of all the paths it contains.
 
 Note that, except for the required prefixes, the definition of a hierarchy does
 not cover the process of forming the paths it contains. It merely describes how

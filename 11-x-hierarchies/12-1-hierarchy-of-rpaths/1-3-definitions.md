@@ -13,13 +13,25 @@ A subset of a setup can be described as **a sub-setup**.
 Likewise, a superset of a setup can be described as **a super-setup**.
 
 In the context of a setup of paths **an induced sub-setup** `S[r]` is such
-that it contains the specified path as a root, and all the other paths in `S`
-to which the root is a prefix.
+that it contains the specified path as a root, and all the other paths in
+`S` to which `r` is a prefix.
 
 * `S[r], S[r,*] := { s | (r prefix-of s) or (s == r) }`
 
 Note that the induced subsetup can still be understood such that it
 **grows with the orientation** of the corresponding setup, not against it.
+That is because the subsetup grows with the orientation of the prefix-of
+relationship.
+
+Note that this definition fo "induced sub-setup" only allows to grab all the
+rooted paths that have the same root node - i.e. all the paths in a forest
+of paths. That is, the definition is less versatile since it does not allow
+to grab all the rooted paths of an induced subtree. That is because these
+rooted paths are no elements in the setup.
+
+Note that an alternative definition of "induced sub-setup" could use the input
+path to require that all additional paths from the setup must be prefixes to
+that input path.
 
 <!-- ======================================================================= -->
 ## subsetups A and D

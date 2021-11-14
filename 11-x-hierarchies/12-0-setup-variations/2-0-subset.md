@@ -46,6 +46,6 @@ s1 -> s2 -> s3
 
 remarks
 
-* a node tree, **setup-t4-total**
+* a node tree, **total setup**
 * must have one root set only
 * must have one leaf set only

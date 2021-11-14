@@ -2,7 +2,10 @@
 <!-- ======================================================================= -->
 # hierarchy of trees (Ht) <=> hierarchy of scopes (Hs)
 
-A hierarchy of trees Ht is isomorphic to a hierarchy of scopes Hs.
+Even though one can first transform a hierarchy of trees `Ht` into a node
+tree `T(N,E)`, and then into a hierarchy of scopes `Hs`, one can also directly
+transform `Ht` into `Hs`. Likewise, a direct transformation of `Hs` into `Ht`
+is possible.
 
 <!-- ======================================================================= -->
 ## Ht => Hs
