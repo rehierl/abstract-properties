@@ -6,9 +6,9 @@ Given the api definitions used by the pre-order algorithm, the level-order
 trace of an ordered doctree `t(N,E)` (i.e. nodes `N`, complex edges `E`)
 can be formed as follows:
 
-```
+```js
 traceInLevelOrder(tree) begin
-  t = () × root-of(tree)
+  t = () × root(tree)
   for(i = 1 to #N) begin
     t = t × co(t[i])
   end
@@ -18,9 +18,9 @@ end
 
 Note that the algorithm is queue-based.
 
-```
+```js
 traceInLevelOrder(tree) begin
-  r = root-of(tree)
+  r = root(tree)
   next = queue()
   next.append(r)
   t = ()

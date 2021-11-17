@@ -7,22 +7,21 @@ n.s = (n.c × n.s)
 n.c = null
 ```
 
-Since the pre-order rule will effectively prefix a node's current sequence
-of subsequent siblings with its child order, a node can be treated afterwards
-as having no more child nodes, which is why the pre-order rule can be said to
+Since the pre-order rule will effectively prefix a node's current sequence of
+subsequent siblings by its child order, a node can be treated afterwards as
+having no more child nodes, which is why the pre-order rule can be said to
 remove all child nodes by turning them into subsequent siblings of their former
-parent. Because of that, the pre-order rule can be said to push the child nodes
-of a node, including all of their descendants, one level upwards closer the
-tree's root.
+parent. Based on that, the pre-order rule can be understood to push the child
+nodes of a node, including all of their descendants, one level upwards closer
+to the tree's root.
 
 Note that, in this context, a missing sequence can be treated as being
-equivalent to an empty sequence (i.e. no null-reference error).
+equivalent to an empty sequence (i.e. no null-reference errors).
 
-Note that, if a node is a leaf, then the pre-order rule will have no effect
-on it. Likewise, a node that had subsequent siblings but no child nodes will
-remain unchanged. In contrary to that, a node that had child nodes but no
-subsequent siblings will have its sequence of (former) child nodes as its
-new sequence of subsequent siblings.
+Note that, if a node is a leaf, then the rule will have no effect. Likewise, a
+node that had subsequent siblings but no child nodes will remain unchanged. In
+contrary to that, a node that had child nodes but no subsequent siblings will
+have its sequence of child nodes as its new sequence of subsequent siblings.
 
 <!-- ======================================================================= -->
 ## applied to all the nodes => a path graph
@@ -42,8 +41,8 @@ n -> (fc .. lc) -> (ns .. ls)
 
 If `lc` has no child in the unordered doctree (i.e. a leaf), then `lc` is also
 a leaf in the ordered doctree (i.e. no subsequent sibling and no child). The
-pre-order rule therefore has the effect of turning a leaf node into one that
-is no longer a last sibling to any node and therefore also **no longer a leaf**.
+pre-order rule therefore has the effect of turning a leaf node into a node
+that is a parent and therefore **no longer a leaf**.
 
 If `lc` has a child in the unordered doctree (i.e. a parent), then it remains
 to be a parent that has `ns` as its next sibling. The pre-order rule therefore

@@ -11,15 +11,6 @@ algorithms discussed by the following subsequent chapters.
 * a hierarchy of scopes, interleaved child orders
 * order-preserving, reverse to `postR`
 
-# levelD - default level-order
-
-* `lvlD(n) := n × (ns .. ls) × (fc .. lc)`
-* `tags(T) := (.., <tag p="r">, fc, .., lc, </tag>, ..)`
-* must begin with the tree's root,
-  continue with its child order, ..
-* non-hierarchical, a sequence of child orders
-* order-preserving
-
 # preR - reversed pre-order
 
 * `preR(n) := n × (lc .. fc ..)`
@@ -28,6 +19,15 @@ algorithms discussed by the following subsequent chapters.
 * no order of execution required
 * a hierarchy of scopes, interleaved child orders
 * not order-preserving, reverse to `postD`
+
+# levelD - default level-order
+
+* `lvlD(n) := n × (ns .. ls) × (fc .. lc)`
+* `tags(T) := (.., <tag p="r">, fc, .., lc, </tag>, ..)`
+* must begin with the tree's root,
+  continue with its child order, ..
+* non-hierarchical, a sequence of child orders
+* order-preserving
 
 # postD - default post-order
 

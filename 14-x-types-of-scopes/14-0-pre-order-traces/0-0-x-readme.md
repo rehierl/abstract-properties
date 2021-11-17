@@ -14,16 +14,16 @@ and as such as an open interval over the appropriate **base order**. Because
 of that, the concept of properties can be described as a generalization of the
 concept of sections.
 
-Note that the doctree's **pre-order trace** (aka. the document order,
-**the processing order**) always is a viable base order. Likewise, and since
-the first node of a scope may also be its last node, **the trivial suborder**
-(i.e. the document's set of nodes combined with an empty set of edges) always
-is an alternative base order.
+Note that the doctree's **pre-order trace** (aka. the document order, or the
+**processing order**) is always a viable base order. Likewise, and since the
+first node of a scope may also be its last node, **the trivial suborder** (i.e.
+the document's set of nodes combined with an empty set of edges) is always an
+alternative base order.
 
 Note that, from an even more generalized point of view, one can state that the
 existence of an actual property is secondary. After all, what counts is that
 there are certain nodes (i.e. the defining nodes) which introduce scopes as
-intervals of over some base order.
+intervals of over the corresponding base order.
 
 This chapter will provide further insight into the inner workings of a doctree's
 pre-order trace, with the intent of listing those orders that are embedded into

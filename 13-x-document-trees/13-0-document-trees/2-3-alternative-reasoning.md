@@ -52,14 +52,14 @@ appear within the scope of `n`, but *not also* within the scope of `fc`.
 ```
 
 Based on that one can conclude that, regardless of how many child nodes `n`
-and `r` had, node `n` is guaranteed to have no more than two child nodes after
-embedding the child order of the source tree.
+and `r` had, node `n` is guaranteed to have no more than two child nodes.
 
-Since the child order of `r` has not yet been embedded entirely, one can state
-that the remaining edges transform the subsequent siblings of `fs` (including
-node `n`) such that they are subsequent to `fs`. Because of that, these nodes
-and all of their descendants appear within the scope of `fs`. Consequently,
-`n` and all of its descendants are also within the scope of `ps`.
+Since the child order of `r` has not yet been embedded in its entirety, one
+can state that the remaining edges transform the subsequent siblings of `fs`
+(including node `n`) such that they are subsequent to `fs`. Because of that,
+these nodes and all of their descendants appear within the scope of `fs`.
+Node `n` and all of its descendants therefore also appear within the scope
+of `ps`.
 
 ```
 r -> |-fs--------------------------------|
@@ -73,8 +73,7 @@ r -> |-fs--------------------------------|
      |-----------------------------------|
 ```
 
-Because of that, the tree's root `r` is guaranteed to have one and only one
-child node - i.e. if it was a non-leaf root.
+Because of that, the tree's root `r` is guaranteed to have one child node only.
 
 ```
 |-r-------------------------------------|

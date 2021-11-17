@@ -2,12 +2,12 @@
 <!-- ======================================================================= -->
 # an algorithm-based point of view
 
-Given the api definitions below, the pre-order trace of an ordered tree
+Given the api definitions below, the pre-order trace of a document tree
 `t(N,E)` (i.e. nodes `N`, complex edges `E`) can be formed as follows:
 
-```
+```js
 traceInPreOrder(tree) begin
-  t = () × root-of(tree)
+  t = () × root(tree)
   for(i = 1 to #N) begin
     t = prefix(t,i) × co(t[i]) × suffix(t,i+1)
   end
@@ -15,11 +15,33 @@ traceInPreOrder(tree) begin
 end
 ```
 
-Note that the algorithm is stack-based.
+A less mathematical recursive implementation could be as follows.
 
-```
+```js
 traceInPreOrder(tree) begin
-  r = root-of(tree)
+  t = ()
+
+  visitInPreOrder(node) begin
+    //- visit node 'n'
+    t.append(node)
+
+    //- recursively visilt all child nodes
+    for(child in node.childNodes) begin
+      visitInPreOrder(child)
+    end
+  end
+
+  r = root(tree)
+  visitInPreOrder(r)
+  return t
+end
+```
+
+Note that the algorithm is inherently stack-based.
+
+```js
+traceInPreOrder(tree) begin
+  r = root(tree)
   next = stack()
   next.push(r)
   t = ()
@@ -31,7 +53,7 @@ traceInPreOrder(tree) begin
     //- visit node n
     t = t.append(n)
 
-    //- push the child nodes (reversed order)
+    //- push the child nodes - in reversed order
     for (co=co(n), i=co.length; (i>=1); i--) begin
       next.push(co[i])
     end
@@ -57,8 +79,8 @@ t := (N,E)    | edges E(t)     | i: ns
     F         |  (F, ())   }   | 6: (A,B,D,E,F,C)
 ```
 
-Note that the child order of a node is a sub-sequence, but
-in general not a sub-string to the pre-order trace of an ancestor.
+Note that the child order of a node is a sub-sequence, but in general
+not a sub-string to the pre-order trace of an ancestor.
 
 * e.g. `(B,C)` is no substring to `(A,B,D,E,F,C))`
 

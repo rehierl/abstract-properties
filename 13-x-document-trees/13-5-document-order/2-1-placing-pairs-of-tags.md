@@ -12,7 +12,7 @@ be decoded by computers as intended.
 Recall that each start-tag is understood by a parser to define a node and its
 absolute position. Because of that, the subsequence of start-tags will be read
 as the definition of a total node order (i.e. the document's node order - i.e.
-**the total pre-order trace** of the document tree).
+**the total pre-order trace**).
 
 ```
 <root> ... <n> ......................... </root>
@@ -38,12 +38,11 @@ with the last node subsequent to it (i.e. `s(p) := [n,*]`).
            |-all-of-s(n)----------->|-none-of-->|
 ```
 
-Due to the above, and since an end-tag is understood to mark the end of a scope,
-the placement of an end-tag can be understood as a method to reduce the default
-scope such that it ends before the last node in the document order has been
-reached.
+Due to the above, and since an end-tag is understood to mark the end of a
+scope, the placement of an end-tag can be understood as a method to restrict
+the default scope such that it ends before the last node of the document order.
 
 Note that an end-tag can therefore be seen as a method to reduce the default
 unrestricted **all-of** quantifier to a well-defined **some-of** quantifier.
 Put differently, a some-of quantifier can be defined by combining the all-of
-quantifier with a non-of quantifier.
+quantifier with a none-of quantifier.

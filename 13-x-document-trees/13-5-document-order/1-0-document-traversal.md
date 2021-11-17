@@ -3,9 +3,9 @@
 # the document traversal
 
 Recall that the document order of a document is understood as a total order
-over the nodes in it. In addition to that, the content of a document tree
-is serialized into a document using a tag-based syntax, which is generated
-using the following base algorithm.
+over the nodes in it. In addition to that, the content of a document tree is
+serialized using a tag-based syntax, which is generated using the following
+base algorithm.
 
 ```js
 //- the basic document tree traversal
@@ -27,7 +27,8 @@ end
 
 When trying to parse the tag-based syntax (aka. **tag soup**) of a document,
 questions arise about the exact meaning of a start-tag and an end-tag. That
-is because both can be understood to represent events of some kind:
+is because while parsing a tag soup, both tags can be understood to trigger
+events of some kind:
 
 * (1) a **start-tag** can be said to trigger an **enter-event**
 * (2) an **end-tag** can be said to trigger an **exit-event**
@@ -38,7 +39,7 @@ event-driven process.
 Note that start-tags can be described to represent an **enter-order** (i.e. a
 sequence of enter events) and the end-tags an **exit-order** (i.e. a sequence
 of exit events). Based on that, the tag soup of a document can be understood
-to describe as a sequence of enter- and exit events.
+to describe a sequence of enter- and exit events.
 
 Note that, since each enter-event is paired with an exit-event, the tag-based
 syntax can be understood to support **a stream-based point of view**.

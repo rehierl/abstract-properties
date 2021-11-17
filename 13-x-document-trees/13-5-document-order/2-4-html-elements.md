@@ -5,11 +5,10 @@
 The following is intended to point out that the definition of HTML elements
 in the official specification can - one way or another - be easily misread.
 
-What one must always keep in mind is that it is quite difficult to express
-a certain point of view, while still ensuring that the reader audience will
-understand the written statements as they were intended. Despite that, well
-established descriptions (e.g. "ordered tree") can still turn out to be
-quite misleading.
+One must always keep in mind that it is quite difficult to express a certain
+point of view, while still ensuring that the reader will understand the written
+statements as they were intended. Despite that, well established descriptions
+(e.g. "ordered tree") can themselves also turn out to be quite misleading.
 
 <!-- ======================================================================= -->
 ## the definition of an element
@@ -19,7 +18,7 @@ whatwg.org / 13.1.2 Elements / as of 2021-09-08
 * Tags are used to delimit the start and end of elements in the markup.
 
 Since tags are described to delimit the extent of an HTML element, one might
-be mislead conclude that HTML sees elements as consisting of its start-tag
+be mislead to conclude that HTML sees elements as consisting of its start-tag
 and its end-tag, and as containing everything in between.
 
 <!-- ======================================================================= -->
@@ -55,10 +54,10 @@ does suggest a recursive point of view on elements.
 ```
 
 As described above, the description of "HTML element" can be misunderstood
-such that an element consists of its start-tag, its end-tag and also includes
-everything in between. That is, one might be mislead to believe that an
-element in HTML is, similar to an induced subtree a complex unit of many
-elements. That point of view is however misleading.
+such that an element consists of its start-tag and its end-tag, while
+including everything in between. That is, one might be mislead to believe
+that an element in HTML is, similar to an induced subtree, a complex unit
+of many elements. That point of view is however misleading.
 
 That is because the tag soup of a document is read into a node tree, which
 is why, regardless of ones current point of view, each HTML element directly
@@ -79,5 +78,4 @@ the node's end-tag since an end-tag does not translate into any node.
 Note that an element does not remain in the process of being visited while
 the element's descendants are being visited. That is because there would
 otherwise be no correlation between the nodes and the document's pre-order
-trace. The visit of a node must be understood as an uninterruptable atomic
-operation.
+trace. The visit of a node must still be understood as an atomic operation.

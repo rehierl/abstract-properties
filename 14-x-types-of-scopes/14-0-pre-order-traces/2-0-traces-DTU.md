@@ -39,9 +39,9 @@ as the trace of an induced subtree.
 
 Recall that the descendants of a node `n` will be inserted in between `n` and
 its next subsequent sibling `ns`. Because of that it is possible to enclose
-all of the nodes within a node's scope `scope(n) := [n,*]` in a pair of tags.
-The tag-based syntax can therefore be described as being bound to the node
-order of an unordered doctree.
+all of the nodes within the scope of a node`scope(n) := [n,*]` in a pair of
+tags. The tag-based syntax can therefore be described as being bound to the
+node order of an unordered doctree.
 
 * `tags(n) := <n> tags(fc) .. tags(lc) </n>`
 * `tags(T) := tags(r)` for `(r in RN(T))`

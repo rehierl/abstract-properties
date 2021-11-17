@@ -4,13 +4,13 @@
 
 The following will provide examples of notable embedded suborders.
 
-Note that not every suborder is an actual subgraph to the super-order's
-cover relation. In contrary to that, and in the context of this discussion,
+Note that not every suborder is an actual subgraph to the cover relation of
+a super-order. In contrary to that, and in the context of this discussion,
 every subgraph corresponds with an actual suborder.
 
 Note that the following examples will in general describe the default case,
-while ignoring special edge cases which have the potential to render the
-statements invalid that are attached to these examples.
+while ignoring special edge cases which have the potential to render those
+statements invalid that are attached to the following examples.
 
 <!-- ======================================================================= -->
 ## total suborders to total orders

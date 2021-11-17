@@ -13,7 +13,7 @@ edges        graph T      \(n,lc)      cover graph T*
 ```
 
 In general, embedding the child order of a doctree into its node order will
-first turn the node tree into a non-tree graph such that each non-first child
+first turn the doctree into a non-tree graph such that each non-first child
 has two parent nodes. A subsequent transitive reduction will then drop the
 edges between a former non-first child and its former parent node.
 
@@ -30,9 +30,9 @@ edges between a former non-first child and its former parent node.
 ```
 
 That is, node `n` has `ps` as its previous sibling, `ns` as its next sibling,
-`fc` as its first child and `lc` as its last child. Similar to that, node `p`
-has `fs` as its first child (i.e. the "first sibling" of `n`) and `ls` as its
-last child (i.e. the "last sibling" of `n`).
+`fc` as its first child and `lc` as its last child. Based on that, node `p` has
+`fs` as its first child (i.e. the "first sibling" of `n`) and `ls` as its last
+child (i.e. the "last sibling" of `n`).
 
 With the above tree order in mind, one can perform the same steps in regards
 to the child order of parent `p`. What remains is a cover graph whose general
@@ -48,8 +48,11 @@ p -> (fs .. ps) -> n -|-> (ns .. ls)    |
                            child nodes  |
 ```
 
+Note that `(fs .. ps)`, `(ns .. ls)` and `(fc .. lc)` denote sequences of nodes
+such that each node in it may still be connected to their former first child.
+
 Depending on the relationship between node `n` and its neighbors, the resulting
-graph, after the explicit addition of a child order, has the following patterns.
+graph, after the embedding of a child order, has the following patterns.
 
 ```
 root       1-st child of p    n-th child of p  |  base pattern
@@ -60,7 +63,7 @@ n -> fc    p -> n -|-> ns     ps -> n -|-> ns  |  n -|-> s
 
 Consequently, a child in the cover graph of an unordered doctree has one
 incoming edge in the ordered doctree whose source is either the node's
-former parent `p` exor the node's former previous sibling `ps`.
+former parent `p` ex-or the node's former previous sibling `ps`.
 
 * Each node in the resulting graph has **no more than one parent**.
 

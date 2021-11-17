@@ -13,7 +13,7 @@
 
 Since applying the pre-order rule to node `n` results in prefixing the sequence
 of subsequent siblings by the sequence of its child nodes, the pre-order trace
-`tU(n)` is consequently a prefix to `tO(n)`.
+`tU(n)` is a prefix to `tO(n)`.
 
 * `tO(n) := (prefix × suffix)`, where `prefix := tU(n)`
 * `(tU(n) prefix-of tO(n))` is true

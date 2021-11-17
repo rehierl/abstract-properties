@@ -2,7 +2,7 @@
 <!-- ======================================================================= -->
 # induced subtrees over DTU and DTO
 
-Note that all considerations have been thus far in regards to the node order
+Note that all considerations thus far have been in regards to the node order
 of the unordered doctree `TU(N,E)`. The following considerations will therefore
 shift towards the node order of the ordered doctree `TO(N,E)`.
 
@@ -23,8 +23,8 @@ shift towards the node order of the ordered doctree `TO(N,E)`.
 ```
 
 If one shifts one's focus to the node order of the ordered doctree, one might
-notice that the description "induced subtree", which is defined as containing
-the node provided and all its descendants, is in regards to a particular base
+notice that the description "induced subtree", which is defined to contain the
+specified node and all of its descendants, is in regards to a particular base
 order.
 
 With that in mind one can then notice that the induced subtree `TU[n]` is,
@@ -50,22 +50,22 @@ it does not include all the node's descendants in TO. Consequently, any node
 can be understood to be associated with **two pre-order traces**, a trace
 `tU(n)` in regards to TU and a trace `tO(n)` in regards to TO.
 
-With the above in mind, the pre-order trace of a node can be described as a
+With that in mind, the pre-order trace of a node can be described as a
 subsequence (more accurately a substring) of the document tree's pre-order
-trace (more accurately the trace of the document't trees root node) that is
-**restricted to a node and its descendants** in the respective node order.
+trace which is **restricted to a node and its descendants** in the respective
+node order.
 
 <!-- ======================================================================= -->
 ## a suffix/prefix-based point of view
 
-Recall that each ordered sequence (including the pre-order trace of a tree)
+Recall that each ordered sequence, including the pre-order trace of a tree,
 corresponds with a path graph and as such with a specialized node tree. Because
 of that, **each non-empty suffix** over an ordered sequence corresponds with
 **an induced subtree**. Based on that one can describe `TU[n]`, `TO[n]` and
 also `TO[ns]` as suffixes to the corresponding node orders.
 
 Conversely, the **prefix** of an ordered sequence can be described as what
-remains when a suffix is removed from a sequence. Based on that, and with
+remains when a suffix is removed from that sequence. Based on that, and with
 a less strict perspective in mind, one can describe `TU[n]` as a prefix of
 `TO[n]` since `TU[n]` can be formed by removing `TO[ns]` from `TO[n]`.
 

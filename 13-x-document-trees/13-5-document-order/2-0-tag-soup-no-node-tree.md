@@ -12,7 +12,7 @@ As mentioned earlier, a hierarchy of scopes corresponds with a node tree. In
 addition to that, each scope is the union of two disjoint subsets, an inner
 subset of nodes `iss(n)`, which connects the scope of a node `s(n)` with the
 scopes of its descendants, and a characteristic subset `css(n)`, which allows
-to identify the scope amongst the scopes of the node's ancestors.
+to identify the scope amongst the scopes of a node's ancestors.
 
 Furthermore, a hierarchy of scopes that corresponds with a node tree is such
 that the CSS of each scope consists of one characteristic element `ce(n)` only.
@@ -26,22 +26,21 @@ Based on that one can conclude that **each start-tag denotes the CE of a scope**
 
 Recall that each scope ends with the last subsequent leaf `l` of the node's
 last child `lc`, if it exists. And since `l` is a leaf, the inner subset of
-that leaf is empty, which is why there is no further tag in between `<l>`
-and `</l>`.
+that leaf is empty, which is why there is no further tag in between the tags
+of `l`.
 
-Note that, as a matter of simplification, a pair of tags such that a start
-tag is next presequent to its matching end tag (i.e. `<l></l>`) may be merged
-into a self-closing start-tag (i.e. `<l/>`).
+Note that, as a matter of simplification, a pair of tags which is such that
+its start tag is next presequent to its matching end tag (i.e. `<l></l>`) may
+be merged into a self-closing start-tag (i.e. `<l/>`).
 
 ```
 .. <n> <fc> .. </fc> .. <lc> .. <l></l> </lc> </n> ..
    |-s(n)----------------------------------------|
 ```
 
-Since `l` is the last subsequent leaf of `lc`, end-tag `</lc>` is located
-just after end-tag `</l>`, or depending on the encoding just after `<l/>`.
-Similar to that, and since `fc` and `lc` are both child nodes to `n`, the
-end-tag `</fc>` precedes the start-tag `<lc>`.
+Since `l` is the last subsequent leaf of `lc`, end-tag `</lc>` is located just
+after end-tag `</l>`. Similar to that, and since `fc` and `lc` are both child
+nodes to `n`, end-tag `</fc>` precedes start-tag `<lc>`.
 
 ```
 .. <n> <fc> .. </fc> .. <lc> .. <l></l> </lc> </n> ..
