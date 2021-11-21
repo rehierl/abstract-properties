@@ -2,9 +2,10 @@
 <!-- ======================================================================= -->
 # a recap on tree-based definitions
 
-Note that the following recap is intended to shift ones focus away from the
-nodes the trees contain, towards the relationships that exist between entire
-node trees. That is, a tree T(N,E) needs to be perceived as a whole.
+Note that the following is intended to shift ones focus away from the nodes
+the trees contain, towards the relationships that exist between entire trees.
+That is, a tree T(N,E) needs to be perceived as a whole - i.e. not a s complex
+construct of nodes and edges.
 
 Recall that, if two graphs have a shared edge, then both graphs must also have
 both of the endpoints of that edge in common. Because of that, if two graphs
@@ -18,21 +19,24 @@ necessarily also have intersecting sets of edges.
 Tree A is **disjoint** (DI) to tree B,
 if both have disjoint sets of nodes and disjoint sets of edges.
 
-* `(A disjoint-to B) := (N(A) disjoint-to N(B)) and (E(A) disjoint-to E(B))`
+* `(A disjoint-to B) := (N(A) disjoint-to N(B))`
+
+Note that the requirement of having disjoint sets of nodes implicitly also
+ensures that both graphs also have disjoint sets of edges.
 
 Tree A is **equal** (EQ) to tree B,
 if both have equal sets of nodes and equal sets of edges.
 
-* `(A == B), (A equal-to B) := (N(A) == N(B) and (E(A) == E(B))`
+* `(A == B), (A equal-to B) := (N(A) == N(B)) and (E(A) == E(B))`
 
 Tree A is **distinct** (NEQ) to tree B,
 if both are un-equal.
 
 * `(A != B), (A distinct-to B) := not (A == B)`
 
-Note that, since each tree must have a root node, an **empty** trees do not
-exist. That is because the graph of a tree will always have the root node as
-a vertex (i.e. a non-empty set of nodes).
+Note that, since each tree must have a root, **empty** trees do not exist.
+That is because the graph of a tree will always have a root node as a vertex
+(i.e. a non-empty set of nodes).
 
 <!-- ======================================================================= -->
 ## related trees
@@ -63,7 +67,7 @@ if none is a subtree of the other.
 
 * `(A unrelated-to B) := not (A related-to B)`
 
-Tree A is a **porper subtree** (PSUB) of tree B,
+Tree A is a **proper subtree** (PSUB) of tree B,
 if both trees are distinct, and if A is a subtree of B.
 
 * `(A proper-subtree-of B) := (A SUB B) and (A != B)`

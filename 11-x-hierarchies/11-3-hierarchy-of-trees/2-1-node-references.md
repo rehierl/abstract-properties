@@ -31,41 +31,42 @@ between the trees in `S`. The nodes of each tree in `S` is therefore secondary.
 Because of that, a setup `S` does not contain any characteristics which could
 be relied upon in order to recreate the nodes in `T`.
 
+Further requirements are therefore required, which allow to determine the
+definition of a node in `T` that corresponds with a particular tree in `S`.
+
 <!-- ======================================================================= -->
 ## missing characteristics
 
-Further requirements are therefore required, which allow to determine the
-definition of a node that corresponds with a particular tree in `S`.
-
 Since it must be possible to reliably determine which node tree `t` represents,
-each node `n` in `T` must be a node in `t`. Because of that, `n` must also be
-a node in all of the supertrees `A(t)` of that tree. - Note that this does not
-state that `n` can not also be a node in any of the subtrees in `D(t)`.
+each node `n` in `T` must be some node in `t`. Because of that, `n` must also
+be a node in all of the supertrees in `A(t)`.
 
 Since the structure of the resulting tree `T` is such that it has `#S` nodes,
 one for each tree in `S`, `#S` node definitions must be embedded into `S`.
-Furthermore, the node definitions must be embedded such that each definition
-can be determined from the corresponding tree.
+Furthermore, the node definitions must be embedded such that each can be
+identified from the corresponding tree.
 
 <!-- ======================================================================= -->
 ## missing requirements
 
 In contrary to a hierarchy of sets, the elements in `S` are actual node trees,
-each of which has one and only one dedicated element, its root node. Because of
-that, definitions that are analogous to those of characteristic subsets (CSS)
-and characteristic elements (CE) are not required.
+each of which has one and only one dedicated element, its root node. Because
+of that, definitions that are analogous to those of characteristic subsets
+(CSS) and characteristic elements (CE) are not required since one can always
+identify the root of any tree.
 
-Note that the removal of all the proper subtrees of a tree `(t in S)` from `t`
-results in a 1-node tree, which only consists of the tree's root node. Because
-of that, the root node of a tree can be seen as a characteristic element (CE).
+Note that the removal of all the proper induced subtrees of a tree `(t in S)`
+from `t` results in a 1-node tree, which only consists of the tree's root.
+Because of that, the root node of a tree can be understood as a characteristic
+element (CE).
 
-Since each tree is guaranteed to have a root node, the root node of each tree
-`t` in `S` can and must be used in order to provide the definition (i.e. a
-node reference) of the corresponding node in `T`.
+Since each tree is guaranteed to have a root node, the root of each tree `t`
+in `S` can and must be used in order to provide the definition of a node in
+`T` (e.g. as a node reference).
 
 Note that a node tree in setup `S` has no other characteristics that could be
 relied upon in order to embed the definition of the nodes in `T`. Because of
-that, each tree can only hold one such definition in its root.
+that, each tree can only hold such a definition in its root.
 
 <!-- ======================================================================= -->
 ## types of subtrees

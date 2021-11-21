@@ -7,8 +7,8 @@
 Since the child order of `n` will be appended to `n`, the pre-order trace will
 be expanded to the right-hand side of node `n`. Because of that, a pre-order
 trace begins with the tree's root `r`, continues with the root's first child
-`fc` and ends in leaf `l`, which is the last subsequent descendant leaf of the
-root's last child.
+`fc` and ends in leaf `l`, which is the last subsequent descendant leaf of
+the root's last child.
 
 * `trace(T) := (r, fc, .., l)`
 
