@@ -15,11 +15,6 @@ hierarchy would need to have additional characteristics which could then be
 used to define a child order over the rooted paths of siblings - e.g. an
 ordered sequence of rooted paths.
 
-Note that a hierarchy of rooted paths is a partial setup of strings such that
-the related-to operator is based on the **prefix-of** operator, and also such
-that the strings in it are either related ex-or overlap each other - i.e. the
-**RE-OV** case. Furthermore, the CE of each string/path is its last element.
-
 ## the Hs-Hr isomorphism
 
 ```

@@ -25,8 +25,8 @@ A setup of strings is therefore equivalent to a (specialized) setup of trees.
 Note that, as with a setup of trees, a setup of strings can be understood to
 be associated with a graph that can be described as the union of all strings
 in `S`. Note however that a simple setup has no structural requirement on the
-path graphs of each string in `S`. That is, `U` may at this point be a directed
-cyclic graph.
+path graphs of each string in `S`. That is, `U` may at this point be a
+directed cyclic graph.
 
 Note that the **well formedness** requirement (R4) is intended to ensure that
 any two strings in a setup are disjoint, related (i.e. one is a substring of
@@ -46,8 +46,8 @@ could otherwise not be a tree.
 ## a partial setup of strings
 
 Assuming the **superstring-of** operator as the basis of the related-to
-operator, a set of strings `S` may be referred to as a partial setup (of
-strings), if and only if the following requirements are met.
+operator, a set of strings `S` may be referred to as a partial setup
+(of strings), if and only if the following requirements are met.
 
 * (R0) `S` is a simple setup of strings.
 * (R1) Any two strings in `S` must either be disjoint ex-or related.
@@ -127,12 +127,12 @@ Since each string in `A*` has a unique amount of nodes, the strings in it can
 be used to define the **rooted path** `rp(s)` of string `s` as an ordered
 sequence of strings, ordered in decreasing order of significance.
 
-Based on that, **a path** can be formed from string `a` to string `b`,
-if and only if string `a` is an ancestor of string `b`.
+Based on that, **a path** can be formed from string `a` to string `b`, if and
+only if string `a` is an ancestor of string `b`.
 
 * `p(a,b) := {a} × (rp(b) \ rp(a))` iff `(a ancestor-of b)`
 * `(rp(a) prefix-of rp(b))` is true - i.e. the removal of a prefix
 * `aPb` := true if `p(a,b)` can be formed
 
-Since paths can be formed in the context of a partial setup of strings,
-all other path-based definitions, can be assumed to be available.
+Since paths can be formed in the context of a partial setup of strings, all
+other path-based definitions, can be assumed to be available.

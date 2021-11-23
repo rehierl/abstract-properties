@@ -3,9 +3,9 @@
 # Forest/Hierarchy of trees
 
 Note that a family of trees `S`, if formed from a tree `T(N,E)` by collecting
-the induced subtrees of each node in `N`, is a hierarchy of trees `H`. As such,
-hierarchy `H` holds the complete definition of tree `T`, which is why any tree
-is isomorphic to a hierarchy of trees.
+the induced subtrees of all the nodes in `N`, is a hierarchy of trees `H`. As
+such, hierarchy `H` holds the complete definition of tree `T`, which is why
+any tree is isomorphic to a hierarchy of trees.
 
 * `S := { T[n] | (n in N) }`
 * `(#S == #N)` is true

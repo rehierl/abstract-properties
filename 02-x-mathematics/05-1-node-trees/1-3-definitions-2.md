@@ -8,9 +8,9 @@
 The level/depth of a node can be defined as follows:
 
 * `level(n) := #rp(n)` - the node level of a node
-* `level(n)` is the node-length of the node's rooted path
+* `level(n)` - the node-length of the node's rooted path
 * `depth(n) := (#rp(n) - 1)` - the depth of a node
-* `depth(n)` is the edge-length of the node's rooted path
+* `depth(n)` - the edge-length of the node's rooted path
 * note - `(level(r) == 1)` but `(depth(r) == 0)`
 
 The height of a node/tree can be defined as follows:

@@ -32,7 +32,7 @@ none at all.
 * `(#RS(F) in [0,*])` is true
 
 <!-- ======================================================================= -->
-## a hierarchy of trees (H)
+## a hierarchy of strings (H)
 
 A partial setup `S` may be referred to as **a hierarchy of strings**,
 if the following requirements are met.
@@ -55,8 +55,8 @@ Note that a hierarchy of strings `H` has the following properties:
 ## set of all hierarchies and forests
 
 Similar to hierarchies and forests of sets, a theoretical set of all possible
-hierarchies **UH** and a theoretical set of all possible forests **UF** can
-be assumed to exist.
+hierarchies **UH** and a theoretical set of all possible forests **UF** can be
+assumed to exist.
 
 * `UH := { h | "h is a hierarchy" }`
 * `UF := { f | "f is a forest of hierarchies" }`
