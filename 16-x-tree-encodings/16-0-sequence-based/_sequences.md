@@ -1,13 +1,20 @@
 
-- sequence-base tree encodings
+- sequence-based tree encodings
+- howto store non-linear orders using sequences
 
 from a sequences to orders
-- elements will have to be repeated in order to define
-  non-linar orders using sequences
-- a sequence can thus only define the structure, it can
-  not hold the elements itself - provided externally
-- consequently, references of some sort are required to
-  map elements onto the structure that is defined
+- in order to correspond with non-linear orders,
+  sequences must hold elements repeatedly
+- in regards to non-linear orders, a sequence can
+  only define the structure, but not the actual
+  elements - aka. the nodes/vertices in the order
+- these nodes must be provided externally
+- that is, the elements in a sequence can only be
+  used to define the non-linear structure
+
+references
+- references of some sort can be used to map the
+  elements onto the structure that is defined
 - using unique id/index values as the elements of that
   sequence has the same issue as directly storing the
   elements themselves inside of the remaining sequence
@@ -23,6 +30,11 @@ from a sequences to orders
   non-valid index-based reference allowed
 - as such, a sequence can be used to more-or-less
   directly define a forest of trees
+
+grouping
+- using group-ids as the elements in a sequence
+  allows to group the actual elements, which
+  can be identified by the corresponding index
 
 sequences can be used to define trees
 - direct edges - (f: Index -> Index)

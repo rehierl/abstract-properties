@@ -1,6 +1,6 @@
 
 * from - node tree outliner
-* tenor - a trace of nodes for each node within the tree
+* a trace of nodes for each node in the tree
 * the trace of a node is a substring to the trace of an ancestor
 * the length-based encoding
 * this is the beginning - core concept - of the lenc encoding
