@@ -17,15 +17,16 @@ within its scope, including the node itself.
 ```
 
 Since the **start-tag** of a node can be understood to define the corresponding
-node and also its absolute position, it must be understood to be located just
-behind the border and as such to be located inside of the node's scope. Based
-on that, the scope of a node can be said to begin with the node's start-tag.
+node and also its absolute position in the document order, it must be understood
+to be located just behind the border and as such to be located inside of the
+node's scope. Based on that, the scope of a node can be said to begin with the
+node's start-tag.
 
 Since the last subsequent leaf `l` of the node's last child is the last node
 next presequent to the node's **end-tag**, one can state that the node's scope
-ends with `l`. Consequently, and since an end-tag does not correspond with any
-node, the node's end-tag must be treated as being located on top of the border
-of the node's scope.
+ends with leaf `l`. Consequently, and since an end-tag does not correspond with
+any node, the node's end-tag must be treated as being located on top of the
+border of the node's scope.
 
 Note that the difficulty with pinpointing the position of an end-tag is similar
 to locating **the empty set** in regards to another set: (1) Since the empty
@@ -40,5 +41,5 @@ can also be said to be located outside of the same set.
 
 As a matter of simplification, and since a start-tag is located inside of a
 node's scope, the end-tag of a node will be visualized as the last element
-within a scope. However, one must keep in mind that an end-tag does still not
-represent any node.
+within a scope. However, one must keep in mind that an end-tag does not
+correspond with any node.

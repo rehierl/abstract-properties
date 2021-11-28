@@ -1,7 +1,4 @@
 
-- a tag soup does not define a tree
-- instead, a tag soup defines a containment order
-
 a hierarchy of traces
 - no trace of a node is a suborder to
   the unordered/ordered document tree
@@ -10,7 +7,16 @@ a hierarchy of traces
 - in essence a hierarchy of scopes
   that consists of serialized scopes
 
-consistency of scopes
-- in regards to underlining/boxing nodes
-- there are no overlapping traces/sequences
-- none of the borders of any two scopes cross each other
+pairs of tags - DTU, DTO
+- a pair of tags encloses a node
+  and its descendants in DTU
+- any node in DTO has two child nodes
+- the end-tag of a node separates its
+  descendants in DTU from its subsequent
+  siblings and their descendants
+- the end-tag of a node separates
+  the child nodes of a node in DTO
+- the pair of tags that consists of the
+  start-tag of a node and the end-tag of
+  its parent encloses the descendants of
+  a node in DTO

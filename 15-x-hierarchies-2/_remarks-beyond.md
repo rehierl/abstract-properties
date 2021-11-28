@@ -10,11 +10,17 @@ overall impression
 - we are overly used to total orders
 - we are barely aware of partial orders
 
-# topics - beyond
+# topics - rank values
 
 a rank-based heading
 - is a descendant to a presequent heading over DPR
 - a heading acts like a `<section>` element over DTO
+
+howto see rank values
+- set the rank value of each sectioning node to its node level
+- rescale all rank values such that they only increase by +1
+
+# topics - beyond
 
 html headings
 - introduce the h-element as a DTO scoped heading?

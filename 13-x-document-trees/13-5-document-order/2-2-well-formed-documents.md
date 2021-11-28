@@ -5,22 +5,19 @@
 Since a parser is implemented to read a partial containment order from a tag
 soup, an input document is initially assumed to be **well formed**. That is,
 tags appear as pairs of start- and end-tags, and the scopes they define are
-assumed to either be disjoint exor related.
-
-However, since the input document can not be guaranteed to be the result of a
-previous serialization (e.g. a hand-written tag soup), and not even that the
-implementation used to produce the input document is without errors, a parser
-must take into account that it might encounter a **malformed** document. That
-is, an input document might be such that it contains start- and end-tags for
-which **a matching tag is missing**.
+assumed to either be disjoint ex-or related.
 
 ```
       a missing start-tag          a missing end-tag
 .., <a>, .., </c>, .., </a>, .., <b>, .., <d>, .., </b>, ..
 ```
 
-Likewise, an implementation must take into account that an input document might
-be such that the pairs of start- and end-tags define **overlapping scopes**.
+However, since an input document can not be guaranteed to be the result of a
+previous serialization (e.g. a hand-written tag soup), and not even that the
+implementation used to produce an input document is without errors, a parser
+must take into account that it might encounter a **malformed** document. That
+is, an input document might be such that it contains start- and end-tags for
+which there is **no matching tag**.
 
 ```
       overlapping scopes
@@ -28,6 +25,9 @@ be such that the pairs of start- and end-tags define **overlapping scopes**.
 |->-a-------------->-|
          |->-b--------------->-|
 ```
+
+Likewise, an implementation must take into account that an input document might
+be such that the pairs of start- and end-tags define **overlapping scopes**.
 
 Note that the scope of node `a` can be said to **reach into** the scope of node
 `b`. Likewise, the scope of node `b` can be said to **reach out of** the scope
@@ -46,21 +46,21 @@ can be summarized as follows:
 * (R3) a start-tag and its end-tag must have the same parent
 
 Note that authors must ensure that a document is well-formed. That is because
-implementations may react differently in response to a **malformed** document.
+implementations may output different results when parsing a malformed document.
 
 <!-- ======================================================================= -->
 ## html - implied start- and end-tags
 
 The HTML specification introduces the concept of "implied tags", which in
-essence allows for certain tags to be missing under specific conditions.
-Conforming implementations are thus required to support these cases.
+allows for certain tags to be missing under certain conditions. Conforming
+implementations are required to support these cases.
 
 <!-- ======================================================================= -->
 ## well-formedness
 
 In order for a document to define an actual hierarchy of scopes, and therefore
-to correspond with an actual node tree, the document's sequence of tags must
-be **well-formed** by following these rules:
+to correspond with an actual document tree, the document's sequence of tags
+must be **well-formed** by following these rules:
 
 * (R1) each start-tag `<tag>` has an end-tag `</tag>` subsequent to it
 * (R2) for each end-tag there is a start-tag presequent to it
@@ -72,9 +72,9 @@ is because the definition of a document tree, as defined by a malformed
 tag soup, is broken.
 
 Note that rule (R3) guarantees that no scope reaches into or out of another
-scope. Because of that, a conforming document defines no overlapping scopes.
-As a matter of consequence, the scope of a node `n` in regards to the scope
-of another node `x` can only be one of the following:
+scope. Because of that, a conforming document can not define overlapping
+scopes. As a matter of consequence, the scope of a node `n` in regards to
+the scope of another node `x` can only be one of the following:
 
 * (1) disjoint - `<n> .. </n> .. <x> .. </x>`
 * (2) disjoint - `<x> .. </x> .. <n> .. </n>`

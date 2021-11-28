@@ -34,9 +34,7 @@ T <-> Ht <-> Hs
 ```
 
 A hierarchy of trees (Ht) is isomorphic to hierarchy of scopes (Hs). After all,
-each induced subtree in Ht corresponds with a sub-hierarchy of scopes over Hs,
-which contains the scope that corresponds with the subtree's set of nodes, and
-all its subsets in Hs.
+each induced subtree in Ht corresponds with a sub-hierarchy of scopes over Hs.
 
-Note that the Hs-Ht isomorphism is inteded to underline that the hierarchy of
+Note that the Hs-Ht isomorphism is intended to underline that the hierarchy of
 scopes Hs is itself hierarchical.

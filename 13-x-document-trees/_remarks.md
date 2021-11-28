@@ -1,11 +1,12 @@
 
-the embedding of a traversal consists of ..
+the embedding of traversal edges consists of ..
 - an ordering rule and an order of execution
 - rule - how a sequence is formed - additional edges
 - execution - in which order these rules must be applied
 
 if you know that you have a transitive closure
-- then you know that (a) in (a,x) is a ce
+- if the order is a partial order - i.e. no cycles
+- then you know that (a) in (a,x) is a characteristic element
 - the union of sinks of all the edges formes the scope of (a)
 - a way to efficiently calculate the transitive reduction?
 - howto distinguish a child from some other descendant?
