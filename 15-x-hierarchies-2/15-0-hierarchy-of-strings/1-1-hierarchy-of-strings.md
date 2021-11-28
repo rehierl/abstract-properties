@@ -2,12 +2,8 @@
 <!-- ======================================================================= -->
 # Forest/Hierarchy of strings
 
-Note that the following definitions of forests/hierarchies of strings must be
-understood to be in preparation of more specific hierarchies of strings. That
-is, a generic type of hierarchy of strings is such that there is no requirement
-as to how the strings it contains must be formed. Specialized hierarchies will
-then be defined that specify the kinds of strings, and how these must be related
-with each other.
+As before with setups of trees, specialized but still generic hierarchies and
+forests of strings may be defined as follows.
 
 <!-- ======================================================================= -->
 ## a forest of strings (F)
@@ -23,8 +19,8 @@ a forest of strings `F` may only contain disjoint ex-or related strings.
 
 Note that requirement R1 is intended to state that for each string `(s in S)`
 there must be `#s` distinct substrings in `S`, one for each node in `s`.
-As such, that R1 can be understood to be analogous to "Each set in a setup
-of sets must have one and only one CE".
+As such, requirement R1 can be understood to be analogous to "Each set in a
+setup of sets must have one and only one CE".
 
 Note that a forest of strings may have any number of root strings, including
 none at all.

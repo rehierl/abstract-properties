@@ -1,6 +1,6 @@
 
-The following provides a summary over the tree traversal
-algorithms discussed by the following subsequent chapters.
+The following provides a brief summary over the traversal
+algorithms discussed by the following chapters.
 
 # preD - default pre-order
 

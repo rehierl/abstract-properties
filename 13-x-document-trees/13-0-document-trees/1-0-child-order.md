@@ -4,17 +4,16 @@
 
 As mentioned before, a tree `T(N,E)` is defined as a tuple of two simple sets:
 A set of nodes `N` and a set edges `E` over `N×N`. Based on that, any parent
-node `p` in a tree can be understood to be associated with a simple set of
-child nodes `c(p)` that can be formed from `E`.
+`p` in a tree can be understood to be associated with a simple set of child
+nodes `c(p)` which can be formed from `E`.
 
 * `c(p) := { c | pEc }`
 * `(c child-of p) := (c in c(p))`
 * `(a sibling-of b) := (pEa and pEb)`
 
-Because of that, and strictly based on the above formal definition,
-**no tree can be described as having a child order**.
-
-Note that a subset of child nodes is formed based on a simple set of edges.
+Based on the above, **no tree can be described as having a child order**.
+That is because the set of child nodes of a parent is defined based on a
+simple set of edges that does not define any order over the edges in it.
 
 However, due to the limitations of real world applications, trees can only
 be processed one node at a time. A tree can therefore be understood to have
@@ -25,10 +24,10 @@ be processed.
 * `trace(T), t(T) := (n1,..,nZ)`
 * `(#t == #N)` is true
 
-Since `t` is an ordered sequence over the nodes `N` of a tree, any child can be
-understood to have a unique index associated with it - its index in the tree's
-trace of nodes. Based on that, any parent node can be understood to have a first
-child and a last child, and therefore to have a child order associated with it.
+Since `t` is an ordered sequence over the nodes `N` of a tree, any child can
+be understood to have a unique index associated with it - its index in the
+tree's trace of nodes. Based on that, any parent can be understood to have a
+first and a last child, and therefore to have a child order associated with it.
 
 **The child order of a parent CO(p)** can be defined as an induced subsequence
 (i.e. a total suborder) to the tree's trace of nodes, induced by the parent's
@@ -37,7 +36,8 @@ set of child nodes. As such, the child order of a parent can be described as
 
 * `CO(p) := t[c(p)] := (c1,..,cZ)`
 
-Note that `CO(p)` is not required to be a substring of `t(T)`.
+Note that `CO(p)` is not required to be a substring of `t(T)`, which is
+consistent with the removal-based mathematical definition of "sub-sequence".
 
 **The child order of a tree CO(T)** can be defined as a simple set of non-empty
 child orders, one for each parent node. Put differently, and since each total
@@ -58,11 +58,11 @@ each parent has a child order associated with it, ex-or none at all.
 <!-- ======================================================================= -->
 ## the cover relation of a child order
 
-Since the child order of a parent can be described as an induced ordered sequence
-of siblings, a parent can be understood to be associated with an order relation
-that formalizes its child order. That is, for a parent node `p` and its ordered
-sequence of child nodes `CO(p) := (c1,..,c2)` one can define the cover relation
-`R(p)` of its order relation as follows:
+Since the child order of a parent node can be described as an induced ordered
+sequence of siblings, a parent can be understood to be associated with an order
+relation that formalizes its child order. That is, for a parent node `p` and
+its ordered sequence of child nodes `CO(p) := (c1,..,c2)` one can define the
+cover relation `R(p)` of its order relation as follows:
 
 * `R(p) := CO(V,E)` where `V := c(p)` and ..
 * `E := { (a,b) | (a next-presequent-to b) }`
@@ -71,8 +71,8 @@ sequence of child nodes `CO(p) := (c1,..,c2)` one can define the cover relation
 
 Note that `R(p)` is a cover relation since its set of edges is not transitive.
 Despite that, and as a matter of convenience, subsequent discussions will treat
-such a cover relation as being synonymous to the underlying order relation.
-Because of that, the focus will be on transitively reduced sets of edges.
+such a cover relation as being synonymous to the underlying transitive order
+relation. That is, the focus will be on transitively reduced sets of edges.
 
 As a matter of consequence, the child order `R(T)` of a tree `T(N,E)` can be
 defined as the cover relation of an actual order relation:
@@ -98,8 +98,8 @@ the following definitions can be made:
 * `(s next-sibling-of c) := cRs` and `(s previous-sibling-of c) := sRc`
 
 Assuming an indicator function `aPb` such that it is true if a path can be
-formed over the edges in `R` (i.e. if an edge exists in the underlying order
-relation), the following definitions can be made:
+formed over the edges in `R(p)` (i.e. if an edge exists in the underlying
+order relation), the following definitions can be made:
 
 * `(a presquent-sibling-of b) := aPb`
 * `(a subsequent-sibling-of b) := bPa`

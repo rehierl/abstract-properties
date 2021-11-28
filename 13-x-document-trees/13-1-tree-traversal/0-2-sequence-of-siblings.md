@@ -59,9 +59,9 @@ of nodes will represent **a (traversal) trace of nodes** such that it can be
 understood to be defined based on the node orders that were embedded one after
 another.
 
-Note that the transformation of a tree into a trace of nodes is, regardless of
-any immediate practical use, a theoretical approach which focusses on explaining
-**the inner structure of such a trace** of nodes.
+Note that the transformation of a tree into a trace of nodes is, regardless
+of any immediate practical use, a theoretical approach which focusses on
+explaining **the inner structure of such a trace** of nodes.
 
 <!-- ======================================================================= -->
 ## narrow down the width

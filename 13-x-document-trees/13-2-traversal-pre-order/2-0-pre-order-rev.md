@@ -12,6 +12,11 @@ traverseInPreOrderR(node) begin
 end
 ```
 
+Note that the reversed pre-order tree traversal is such that the document tree's
+child order is reversed (i.e. a parent's first child will become its last child,
+its second child its second to last child, and so on) before embedding it into
+the node order of the unordered document tree.
+
 Note that the reversed pre-order trace will contain the nodes in tree order
 (i.e. ancestors before descendands), but not in child order. Because of that,
 the reversed pre-order trace is inconsistent with the child order and therefore

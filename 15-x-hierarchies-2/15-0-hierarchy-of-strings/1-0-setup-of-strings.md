@@ -13,8 +13,8 @@ if and only if the following requirements are met.
 
 * (R0) `S` is a set/family of strings.
 * (R1) `S` is expected to be non-empty.
-* (R2) each `(s in S)` must be an ordered sequence.
-* (R3) each `(s in S)` must be non-empty.
+* (R2) Each `(s in S)` must be an ordered sequence.
+* (R3) Each `(s in S)` must be non-empty.
 * (R4) `S` must be well formed.
 
 Note that, since each `(s in S)` is required to be an ordered sequence nodes
@@ -25,8 +25,7 @@ A setup of strings is therefore equivalent to a (specialized) setup of trees.
 Note that, as with a setup of trees, a setup of strings can be understood to
 be associated with a graph that can be described as the union of all strings
 in `S`. Note however that a simple setup has no structural requirement on the
-path graphs of each string in `S`. That is, `U` may at this point be a
-directed cyclic graph.
+strings it holds. That is, `U` may at this point be a directed cyclic graph.
 
 Note that the **well formedness** requirement (R4) is intended to ensure that
 any two strings in a setup are disjoint, related (i.e. one is a substring of
@@ -36,11 +35,11 @@ other - e.g. the ancestor of a node in the path graph of a string is no
 descendant of that node in the path graph of another string.
 
 * the intersection between any two strings must be empty or a path graph
-* the union of two strings must be a forest or a tree
+* the union of two strings must be a forest, a tree or a path graph
 
 Note that, in the case of overlapping strings, the first node of one string
 must be a node in the other string. That is because the union of both strings
-could otherwise not be a tree.
+might otherwise not be a tree.
 
 <!-- ======================================================================= -->
 ## a partial setup of strings
@@ -53,7 +52,7 @@ operator, a set of strings `S` may be referred to as a partial setup
 * (R1) Any two strings in `S` must either be disjoint ex-or related.
 
 Note that, due to requirement R1, no string in such a setup may overlap
-another string in that setup - i.e. the default **DI-RE** case.
+another string in it - i.e. the default **DI-RE** case.
 
 Recall that a setup of strings, as a setup of trees, supports "a notion of
 placement". That is, the root of a subtree can be said to have a placement
@@ -62,17 +61,13 @@ in regards to the root of its supertree.
 <!-- ======================================================================= -->
 ## definitions of hierarchy-based terms
 
-Note that the hierarchy-based terms defined for setups of trees can be assumed
-to still apply ...
+Note that the hierarchy-based terms defined for setups of trees apply ...
 
 * root string, rooted setup
 * ancestor/descendant string
 * no cycles, (A(s) disjoint-to D(s))
 * root string of, parent string of
 * child string of, sibling strings
-
-Note that the union graph `U` of a rooted setup is equal to the setup's root
-string.
 
 Note that, `A(s)` in the context of a partial setup of strings is a total
 subsetup of strings. As such, each partial setup of strings can be described

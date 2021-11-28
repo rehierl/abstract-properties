@@ -7,8 +7,8 @@ T <-> Ht
 
 A tree (T) allows to form a hierarchy of induced subtrees (Ht) such that the
 source tree can be recreated based on the relationships between its trees.
-That is, each tree is isomorphic to a hierarchy of subtrees. Because of that,
-this isomorphism will be referred to as **the T-Ht isomorphism**.
+That is, each tree is isomorphic to a hierarchy of induced subtrees. Because
+of that, this isomorphism will be referred to as **the T-Ht isomorphism**.
 
 Note that, since the set of nodes of each induced subtree is equal to the scope
 of its root, the T-Ht isomorphism can be understood to be already covered by
@@ -17,7 +17,7 @@ of its induced subtrees is embedded into the sets of nodes of the trees in Ht,
 and the relationships between them.
 
 Note that the induced subtree that has the source tree's root as its root is
-an element in Ht. That is, the source tree T itself is a tree in Ht. Because
+an element in Ht. That is, the source tree T is itself a tree in Ht. Because
 of that, a hierarchy of trees is anything but minimal in regards to the amount
 of information it holds.
 

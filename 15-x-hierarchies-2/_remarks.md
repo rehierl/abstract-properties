@@ -36,7 +36,7 @@ if the operation is restricted to a single node.
 
 # topics - context
 
-context rooted paths
+context, rooted paths
 - the last node of a property is subsequent to its defining node
 - the defining node is a node in the last node's rooted path
 - a matter of consequence

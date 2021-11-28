@@ -2,7 +2,7 @@
 # doctree order
 - the document order is the pre-order trace of a doctree
 - embedded into it is a partial containment order
-- both of which are encoded using the tag-based syntax
+- both of which can be encoded using a tag-based syntax
 
 consequences which result from that
 - (1) a tag soup ain't no node tree

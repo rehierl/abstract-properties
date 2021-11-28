@@ -1,12 +1,12 @@
 
 <!-- ======================================================================= -->
-# examples of embedded suborders
+# examples of suborders
 
-The following will provide examples of notable embedded suborders.
+The following will provide general examples of notable suborders.
 
-Note that not every suborder is an actual subgraph to the cover relation of
-a super-order. In contrary to that, and in the context of this discussion,
-every subgraph corresponds with an actual suborder.
+Note that not every suborder is an actual subgraph to the cover relation of a
+super-order. In contrary to that, and in the context of this discussion, each
+subgraph (e.g. induced subtrees) corresponds with an actual suborder.
 
 Note that the following examples will in general describe the default case,
 while ignoring special edge cases which have the potential to render those
@@ -41,8 +41,9 @@ unequal to the roted path of that node in the ordered doctree `rpO(n)` and as
 such no rooted path in that tree. However, `rpU(n)` is still a total suborder
 to the tree order of the ordered doctree.
 
-(*) The child order of each node `co(n)` is a path in the ordered doctree. As
-such, a child order is a total suborder to the tree order of the ordered doctree.
+(*) The child order of each node `co(n)` is a path in the ordered doctree.
+As such, a child order is a total suborder to the tree order of the ordered
+doctree.
 
 <!-- ======================================================================= -->
 ## partial suborders to total orders
@@ -54,13 +55,18 @@ subtree to the path graph of the pre-order trace.
 <!-- ======================================================================= -->
 ## partial suborders to partial orders
 
-(*) An unordered doctree is no subtree to an ordered doctree. However,
-an unordered doctree is still a partial suborder to the ordered doctree.
+(*) An unordered doctree is no subtree to an ordered doctree. However, an
+unordered doctree is still a partial suborder to the ordered doctree.
 
 <!-- ======================================================================= -->
 ## no order embeddings
 
-(*) The pre-order trace of a doctree is not embedded into the doctree. That is
-because that trace contains edges that are neither edges in the unordered nor
-edges in the ordered doctree. In addition to that the pre-order trace of a tree
-is also no total suborder to these tree orders.
+(*) The pre-order trace of a doctree is not embedded into the doctree's node
+order. That is because that trace contains edges that are neither edges in the
+unordered nor edges in the ordered doctree. In addition to that the pre-order
+trace of a tree is also no total suborder to these tree orders.
+
+(*) The pre-order trace of a node (i.e. the pre-order trace of its induced
+subtree) is neither a suborder to the unordered doctree nor the ordered doctree.
+These traces are however still suborders to the doctree's pre-order trace (i.e.
+the trace of the doctree's root node).

@@ -1,6 +1,7 @@
 
 - this is about abstract properties
-- a purely theoretical discussion
+- there are no actual implementations
+- i.e. a purely theoretical discussion
 
 # topics - meta
 
@@ -19,6 +20,7 @@ a rank-based heading
 howto see rank values
 - set the rank value of each sectioning node to its node level
 - rescale all rank values such that they only increase by +1
+- issue with - headings that have the same parent
 
 # topics - beyond
 

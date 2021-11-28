@@ -40,11 +40,14 @@ and also ends with the node's start-tag.
 * `tU(n) := n × tU(fc) × .. × tU(lc)`
 * `(tU(n) substring-of tU(a))` is true for all `(a in A(n))`
 
-Note that `tU(n)` begins the the node's start-
-and ends with the node's end-tag.
+Note that `tU(n)` begins with the node's
+start-tag and ends with its end-tag.
 
 * `tags(n) := <n> tags(fc) .. tags(lc) </n>`
 * `tags(T) := tags(r)` for `(r in RN(T))`
+
+Note that a pair of tags that consists of the start-tag of a node and its
+end-tag encloses the node and all of its descendants over DTU.
 
 <!-- ======================================================================= -->
 # the pre-order trace over DTO
@@ -70,6 +73,13 @@ In addition to the above ...
 Note that `tO(n)` begins with the node's start-tag
 and ends with its parent's end-tag.
 
+Note that, since a node has no more than two child nodes in DTO, and since
+the end-tag of a node appears just after its last descendant in DTU, the
+end-tag of a node can be understood to separate these descendants (i.e. one
+branch in DTO) from its other descendants in DTO. That is, the pair of tags
+that consists of the start-tag of a node and the end-tag of its parent
+encloses the node and all of its descendants in DTO.
+
 <!-- ======================================================================= -->
 ## the pre-order trace over DPR
 
@@ -94,3 +104,6 @@ to the pre-order traces of its ancestors, including that of the tree's root.
 
 Note that `tPR(n)` begins with the node's start-tag
 and ends with the root's end-tag.
+
+Note that the pair of tags that consists of a node's start-tag and the root's
+end-tag encloses the node and all of its descendants in DPR.

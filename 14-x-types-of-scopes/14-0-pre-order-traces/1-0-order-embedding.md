@@ -10,12 +10,12 @@ DTR --> DTU --> DTO --> DPR
 Recall that embedding a child order into the unordered doctree (DTU) will yield
 the ordered doctree (DTO). After that, applying the pre-order rule to DTO (i.e.
 embedding the pre-order edges into it) will yield the doctree's pre-order trace,
-which can be understood to correspond with the **processing order** (DPR).
+which can be understood as the document tree's **processing order** (DPR).
 
-With these processing steps in mind one can assume the **trivial suborder**
-(DTR) (i.e. the document's set of nodes, but with an empty set of edges) as the
-actual starting point of the above linear extension. That is, one begins with
-the trivial suborder, and embeds all the edges in the unordered doctree into it.
+With these steps in mind one can assume the **trivial suborder** (DTR) (i.e.
+the document's set of nodes, but with an empty set of edges) as the actual
+starting point of the above linear extension. That is, one begins with the
+trivial suborder, and embeds all the edges of the unordered doctree into it.
 
 A trivial order may therefore be described as **minimal** since it does not
 define any structure (aka. maximal disorder/entropy). That is "minimal" must
@@ -30,8 +30,8 @@ since the "order" of a total order can not be increased any further.
 ## pattern-based overview
 
 Recall that the above node orders can be described using the following
-pattern-based descriptions. (Note that the trivial order only consists
-of a simple set of nodes, which is why it won't be visualized).
+pattern-based descriptions. (Note that the trivial order only consists of
+a simple set of nodes, which is why it will in general not be visualized).
 
 ```
          p           | tree-order:
@@ -47,7 +47,7 @@ of a simple set of nodes, which is why it won't be visualized).
 
 Recall that an unordered doctree is such that no child order has been embedded
 into it. Because of that, an unordered doctree must be treated like any other
-node tree - i.e. with no child order attached to it.
+node tree - i.e. with no child order of its own.
 
 ```
       presequent           subsequent   |  the resulting tree-order
