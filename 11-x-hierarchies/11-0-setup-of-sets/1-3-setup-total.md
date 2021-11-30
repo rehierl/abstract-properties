@@ -3,7 +3,7 @@
 ## A total setup of sets
 
 A set of sets `S` will be referred to as **a total setup (of sets)**,
-if and only if the following requirements are met:
+if the following requirements are met.
 
 * (R0) `S` is a partial setup of sets.
 * (R1) Any two sets in `S` are related with each other.

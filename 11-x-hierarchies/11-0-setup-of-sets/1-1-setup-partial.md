@@ -2,17 +2,17 @@
 <!-- ======================================================================= -->
 # A partial setup of sets
 
-Assuming the superset-of operator as the basis of the related-to operator, a
-set of sets `S` will be referred to as **a partial setup (of sets)**, if and
-only if the following requirements are met:
+Assuming the superset-of operator as the basis of the related-to operator,
+a set of sets `S` will be referred to as **a partial setup (of sets)**,
+if the following requirements are met.
 
 * (R0) `S` is a simple setup of sets.
 * (R1) If two sets in `S` are coupled with each other, then both sets
   must be related with each other under the **superset-of** operator.
 
-As can be seen below, R1 can be rephrased as follows:
+As can be seen below, requirement R1 can be rephrased as follows.
 
-* (R1) Any two sets in `S` must either be disjoint ex-or related.
+* (R1) Any two sets in `S` are either disjoint ex-or related.
 
 Note that, since two sets in a partial setup must either be disjoint ex-or
 related (i.e. **DI-RE**) no set in a partial setup is allowed to overlap

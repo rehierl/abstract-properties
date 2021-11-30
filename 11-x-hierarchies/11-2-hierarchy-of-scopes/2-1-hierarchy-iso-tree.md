@@ -2,50 +2,49 @@
 <!-- ======================================================================= -->
 # hierarchy of scopes <=> node tree
 
-The focus of this chapter is on defining "a hierarchy of scopes" as a class of
-setups such that each setup `S` in it allows to form a node tree.
+The focus of the following is on defining "a hierarchy of scopes" as a class
+of setups such that each setup `S` in it allows to form a node tree.
 
-(1) Since each partial setup allows to form a forest of `#RS` trees, one needs
-to require the existence of a dedicated root set `r`.
+(1) Since each partial setup corresponds with `#RS` node trees, one needs to
+require the existence of a dedicated root set `r`.
 
 (2) Since each induced sub-setup `S[r]` can be understood to only define the
 structure of a tree of `#S[r]` nodes, but does not define the nodes themselves,
-one needs to require that each set has a node-id as its single CE.
+one needs to require that each set has a node identifier as its single CE.
 
-Defined as such, each hierarchy `H` can be understood to define a tree `T`.
+Defined as such, a hierarchy `H` can be understood to define a tree `T(N,E)`.
 
-In order to proof that the transformation from a hierarchy to a tree can be
+In order to show that the transformation from a hierarchy to a tree can be
 inverted, one needs to recall that the concept of abstract properties allows
-to form a setup of scopes and what the properties of these setups are.
+to form a setup of scopes and what the properties of these scopes are.
 
 * No scope is empty since each scope is defined as an open interval `[n,*]`.
-* The setup will hold one scope per node.
-* There are `(#[n,*]-1)` sub-intervals for each scope `[n,*]`.
+* The setup will hold `#N` scopes, one for each node in `T`.
+* There are `(#[n,*]-1)` sub-intervals for each scope.
 * No such sub-interval has `n` as an element.
-* `n` is the CE of `[n,*]`.
+* `n` is the CE of its scope.
 
 Since the family of scopes formed from a node tree is a hierarchy of scopes,
-one needs to show that the entire process (i.e. `(H -> T -> H*)`) is structure
-preserving.
+one needs to show that the entire transformation process (i.e. `(H -> T -> H*)`)
+is structure preserving.
 
-(A) The one-ce-only requirement of `H` guarantees that `T` has `#H` nodes.
-Because of that, `(#H == #N)` is true. Furthermore, the family of scopes has
-`#N` distinct sets since one scope will be formed for each node. Because of
-that, `(#N == #H*)` is true. Consequently, `(#H == #H*)` is true.
+(A) The one-ce-only requirement of hierarchy `H` guarantees that tree `T` has
+`#H` nodes, which is why `(#H == #N)` is true. Furthermore, hierarchy `#H*`
+has `#N` distinct sets since one scope will be formed for each node. Because
+of that, `(#N == #H*)` is true, which is why `(#H == #H*)` is true.
 
 (B) For each child set `(c in DS(H))` and its parent set `(p := p(c))` an edge
-in `T` is generated from the parent node `np := ce(p)` to the corresponding
-child node `nc := ce(c)`. Because of that, `H*` is guaranteed to have a pair
-of scopes `sp := [np,*]` and `sc := [nc,*]`. Consequently, `sc` is equal to
-child set `c`.
+in `T` is generated from parent node `np := ce(p)` to child node `nc := ce(c)`.
+Because of that, `H*` is guaranteed to have a pair of scopes `sp := [np,*]` and
+`sc := [nc,*]`, which is why set `(sc in H*)` is equal to child set `(c in H)`.
 
 Based on the definition of "a hierarchy of scopes" and the construction of the
 scopes from the generated tree, one can conclude that the resulting hierarchy
 `H*` is equal to the source hierarchy `H`. Consequently, `(H* == H)` is true.
 
-Note that, based on the above isomorphism, each set in "a hierarchy of scopes"
-does indeed correspond with a scope in the tree that hierarchy defines. Hence
-the "scopes" suffix in "hierarchy of scopes".
+Note that, based on the isomorphism described above, each set in "a hierarchy
+of scopes" does indeed correspond with a scope in the tree that hierarchy
+defines. Hence the "scopes" qualifier in "hierarchy of scopes".
 
 <!-- ======================================================================= -->
 ## hierarchy of scopes => node tree
@@ -70,7 +69,7 @@ one can form a node tree `T(N,E)` as follows:
 <!-- ======================================================================= -->
 ## node tree => hierarchy of scopes
 
-Given a node tree `T(N,E)`, **a hierarchy of scopes** `S` can be formed based on
+Given a node tree `T(N,E)`, **a hierarchy of scopes** `S` can be formed using
 the concept of abstract properties. That family of scopes can then be used to
 form a strict partial containment order `P(S,<)` using the "strict-superset-of"
 operator as the order operator.
@@ -108,7 +107,7 @@ s4 := s(p5) := {             n5     }
 s5 := s(p3) := {                 n3 }
 ```
 
-One can then define a containment order `P` using the family of scopes `S`.
+One can then define a containment order `P` based on that family of scopes.
 
 * `P := (V,<)` such that `(V := S)` and
 * `S := { si | (si := [ni,*]) such that (i in [1,#V(T)]) }`

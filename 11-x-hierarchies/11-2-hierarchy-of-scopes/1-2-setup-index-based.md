@@ -3,37 +3,37 @@
 # index-based setups
 
 Even though an ordered sequence of elements can be understood to define an
-index-based order over the elements in it, the use of an **ordered sequence**
-to define a setup of sets is not for its index-order to apply to the sets
-themselves, but to define **index-based ids** for the sets in it. That is,
-the sets may still hold elements of any kind.
+index-based order over the elements in it, the main aspect of using of an
+**ordered sequence** to define a setup of sets is at this point not for its
+index-order to apply to the sets, but to provide **index-based ids** for
+the sets in it. That is, the sets may still hold elements of any kind.
 
 These ids can then be used to lookup the corresponding node in an ordered
 sequence of node definitions (i.e. an index-based mapping) that needs to be
-understood to be provided separately, alongside the ordered sequence of sets.
+provided separately, alongside the ordered sequence of sets.
 
 When choosing to provide numeric index-based ids via the index-order of an
 ordered sequence of sets, one would certainly want to first **reduce** the
 amount of elements in each set as far as possible. The following will point
 out those aspects one should keep in mind.
 
-Note that, due to the below, an index-based setup is effectively an encoding
-of a normalized setup. Despite that, it is doubtful that such an encoding has
+Note that, as can be seen below, an index-based setup is effectively encoding
+a normalized setup. Despite that, it is doubtful if such an encoding has
 substantial benefits over other encodings.
 
 <!-- ======================================================================= -->
 ## no more than one CE per CSS
 
-In case there is a set `s` that has a CSS such that `(#css(s) > 1)` one can
-reduce the CSS by removing any additional CE from each set in `rp(s) := A*(s)`.
+In case there is a set `s` that has a CSS with more than one CE, one can reduce
+the CSS by removing any additional CE from each set in `rp(s) := A*(s)`.
 
 <!-- ======================================================================= -->
 ## index-based CEs
 
-Even though it is not a necessity, one should use the index-based id of each
-set as the CE of such a set.
+Even though not a necessity, one should use the index-based id of each set as
+the CE of such a set.
 
-In case set `s` has a non-index CE, one should remove `ce(s)` from each set
+In case set `s` has a non-index CE, one should remove such a CE from each set
 in `rp(s)` and then add `id(s)` to these sets instead.
 
 <!-- ======================================================================= -->
@@ -84,16 +84,12 @@ a normalized setup such that each set has its index-based id as its only CE.
 Note that the CSS of each set must at this point have no more than one CE.
 
 (1) Determine the rooted path `rp(s) := A*(s)` of each set.
-That is, one determines the relationship of each set with all the other sets.
+That is, one must determine the relationship of each set with every other set.
 (Recall - DI xor RE for sets - ordered by #s - RE xor OV for rooted paths).
 
-(2) For each set that has an empty CSS (i.e. `(#css(s) == 0)`),
-add `id(s)` to each set in `rp(s)`.
+(2) For each set that has an empty CSS, add `id(s)` to each set in `rp(s)`.
 
 Note that step-2 can be used to verify the setup. That is, if one determines
-that the CSS of a set is non-empty and contains more than one CE, then the
-setup is not as required. However, one could "fix" such a set by first
-removing all the CEs of such a set. Likewise, a single pre-existing CE that
-does not match the set's index-based id could be removed. In Both cases one
-would treat such a set as if it had an empty CSS. Despite that it stands to
-reason whether or not it would be better to reject a malformed input setup.
+that the CSS of a set is non-empty and contains more than one CE, or if the
+single CE does not match the set's index-based id, the setup may be rejected
+as being malformed.

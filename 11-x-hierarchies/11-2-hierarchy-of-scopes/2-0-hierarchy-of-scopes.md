@@ -3,8 +3,8 @@
 # Forest/Hierarchy of scopes
 
 Note that a family of scopes `S`, if generated from a tree `T(N,E)` using the
-concept of abstract properties, is a hierarchy of scopes `H`. That is, any tree
-is isomorphic to a setup of scopes `S`.
+concept of abstract properties, is a hierarchy of scopes `H`. That is, any
+tree is isomorphic to a setup of scopes `S`.
 
 <!-- ======================================================================= -->
 ## a forest of scopes (F)
@@ -17,7 +17,7 @@ is isomorphic to a setup of scopes `S`.
 ```
 
 A partial setup `S` may be referred to as **a forest of scopes**,
-if the following requirements are met:
+if the following requirements are met.
 
 * (R0) `S` is a normalized setup of sets.
 
@@ -34,12 +34,12 @@ the **DI-RE** case).
 ## a hierarchy of scopes (H)
 
 A partial setup `S` may be referred to as **a hierarchy of scopes**,
-if the following requirements are met:
+if the following requirements are met.
 
 * (R0) `S` is a forest of scopes.
 * (R1) `S` has one and only one root.
 
-Note that a hierarchy of scopes `H` has the following properties:
+Note that a hierarchy of scopes `H` has the following properties.
 
 * `(#RS(H) == 1)` must be treu
 * `(#S > 0)` - A hierarchy is always non-empty.
@@ -52,7 +52,7 @@ Note that a hierarchy of scopes `H` has the following properties:
 
 Note that the root set `(r in RS(H))` of a hierarchy `H` is equal to `U(H)`.
 Despite that, the root set of a hierarchy is required as an explicit set since
-even the root set must have a CE, which can not be an element in another set.
+even the root set must have a CE, which can not be an element in any other set.
 That is, there must be one element in `U(H)` which is an element only in the
 hierarchy's root set.
 
@@ -84,7 +84,8 @@ one root set.
 * hierarchy -> normalized setup
 
 Note that two hierarchies `H1` and `H2` are **disjoint**, if their root sets
-are disjoint. Based on that, any set in `H1` is disjoint to each set in `H2`.
+are disjoint. If that is the case, then any set in `H1` is disjoint to each
+set in `H2`.
 
 * `(H1 disjoint-to H2) := (r1 disjoint-to r2)`
 

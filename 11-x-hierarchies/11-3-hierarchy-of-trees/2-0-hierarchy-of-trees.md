@@ -4,7 +4,7 @@
 
 Note that a family of trees `S`, if formed from a tree `T(N,E)` by collecting
 the induced subtrees of all the nodes in `N`, is a hierarchy of trees `H`. As
-such, hierarchy `H` holds the complete definition of tree `T`, which is why
+such, hierarchy `H` provides a complete definition of tree `T`, which is why
 any tree is isomorphic to a hierarchy of trees.
 
 * `S := { T[n] | (n in N) }`
@@ -17,17 +17,15 @@ A partial setup of trees `S` may be referred to as **a forest of trees**,
 if the following requirements are met.
 
 * (R0) `S` is a partial setup of trees.
-* (R1) There are `#N` subtrees for each tree `t(N,E)` in `S`.
-* (R2) Each tree `(t in S)` is an induced subtree to every tree in `A(t)`.
+* (R1) There are `#N` induced subtrees for each tree `t(N,E)` in `S`.
 
 Recall that a partial setup `S` covers the **DI-RE** case. Because of that,
 a forest of trees `F` may only contain disjoint ex-or related trees.
 
-Note that requirements R1 and R2 intend to state that for each tree `t(N,E)`
-in `S`, all the proper induced subtrees of that tree must also be trees in
-that setup. That is, for each tree `(t in S)` there are `#N` trees in `S`.
-Both requirements can therefore be understood to be analogous to "Each set
-in a setup of sets must have one any only one CE".
+Note that requirement R1 is intended to state that for each tree `t(N,E)` in
+`S`, all the proper induced subtrees of that tree must also be trees in `S`.
+Because of that, this requirement can be understood to ensure that each tree
+in `S` has one and only one characteristic element (CE), its root node.
 
 Note that a forest of trees may have any number of root trees,
 including none at all.

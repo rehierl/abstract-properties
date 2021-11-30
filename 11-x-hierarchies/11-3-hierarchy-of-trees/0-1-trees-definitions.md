@@ -4,8 +4,8 @@
 
 Note that the following is intended to shift ones focus away from the nodes
 the trees contain, towards the relationships that exist between entire trees.
-That is, a tree T(N,E) needs to be perceived as a whole - i.e. not a s complex
-construct of nodes and edges.
+That is, a tree `T(N,E)` needs to be perceived as a whole - i.e. not as a
+complex construct of nodes and edges.
 
 Recall that, if two graphs have a shared edge, then both graphs must also have
 both of the endpoints of that edge in common. Because of that, if two graphs
@@ -115,12 +115,12 @@ symmetric difference of the corresponding sets in both trees.
 
 Note that the removal of a vertex from a graph must implicit also remove all of
 the edges to which that vertex is an endpoint. Because of that, the simple and
-the symmetric difference graph may have fewer edges that what would directly
+the symmetric difference graph might have fewer edges than what would directly
 result from the removal of second input tree.
 
 Note that the resulting graph of the above operations is not necessarily a
-tree. That is because the input trees have thus far no requirements. That is,
-the ancestor of a node in one tree may (e.g.) be a descendant of that node
-in the other tree. Despite that, and in the context of this discussion, input
-trees will in general be related in some way - e.g. tree B will in general
+tree. That is because both input trees do not have to satisfy any requirements.
+That is, the ancestor of a node in one tree may in general be a descendant of
+that node in the other tree. Despite that, and in the context of this discussion,
+input trees will in general be related in some way - e.g. tree B will in general
 be an incuded subtree of tree A.

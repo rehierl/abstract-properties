@@ -3,7 +3,7 @@
 # remarks
 
 The following contains further definitions, which are analogous to those that
-were defined for setup of sets.
+were defined for setups of sets.
 
 <!-- ======================================================================= -->
 ## (induced) subsetup
@@ -14,7 +14,7 @@ A subset of a setup of trees may be described as **a sub-setup** of trees.
 
 Assuming the supertree-of operator as the basis of the related-to operator,
 then **an induced subsetup** `S[r]` is such that it contains the specified
-tree `r` as its root tree, and also all the subtrees of `r` in `S`:
+tree `r` as its root, and also all the subtrees of `r` in `S`:
 
 * `S[r], S[r,*] := { t | (t subtree-of r) or (t == r) }`
 
@@ -25,7 +25,7 @@ Note that, if one focusses on "a known fixed rule", then `A(s)` can be said
 to define an induced total sub-setup. Likewise, `D(s)` can be said to define
 an induced partial sub-setup.
 
-In a partial setup and total setups, `A(s)` is a total subsetup. Because of
+In a partial setup and a total setup, `A(s)` is a total subsetup. Because of
 that, any non-root tree always has a most significant and a least significant
 supertree in `A(s)`. In contrary to that, the setup must be a total setup for
 `D(s)` to be a total subsetup since each parent tree may have any number of
@@ -41,12 +41,12 @@ that both results will always be non-empty.
 <!-- ======================================================================= -->
 ## paths of trees
 
-Since each tree in `A*` has a unique amount of nodes, the trees in it can be
-used to define the **rooted path** `rp(t)` of tree `t` as an ordered sequence
-of trees, ordered in decreasing order of significance.
+Since each tree in `A*` has a unique amount of nodes, the trees in it allow to
+define the **rooted path** `rp(t)` of tree `t` as an ordered sequence of trees,
+ordered in decreasing order of significance.
 
 Based on that, **a path** can be formed from tree `a` to tree `b`,
-if and only if tree `a` is an ancestor of tree `b`.
+if tree `a` is an ancestor of `b`.
 
 * `p(a,b) := {a} × (rp(b) \ rp(a))` iff `(a ancestor-of b)`
 * `(rp(a) prefix-of rp(b))` is true - i.e. the removal of a prefix
