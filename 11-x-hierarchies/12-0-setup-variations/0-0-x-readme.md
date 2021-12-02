@@ -5,9 +5,9 @@
 
 the goal ..
 - find non-standard applications
-- find possible variants
+- find possible variations
 
-an essential, a critical remark (!)
+a critical remark (!)
 - one should not focus on the edges/paths
 - focus on presequent/subsequent instead
 - the elements themselves must be ignored

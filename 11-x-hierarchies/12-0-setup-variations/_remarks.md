@@ -1,10 +1,9 @@
 
-<!-- ======================================================================= -->
-## variants of partial orders (poset)
+variations of partial orders (posets)
 
 - posets allow more than containment orders can support
-- with superset-/subset-of, with (di and/or ov),
-  with the orientation of the edges with/against
+- with superset-of/subset-of, with (di and/or ov),
+  with/against the orientation of the edges
 - what are the general characteristics of each combo?
 - what do containment orders support?
 
@@ -20,4 +19,5 @@ see partial orders in order theory
 containment orders
 
 - a subset can not have disjoint supersets
-- can support parallel subcomponents - iff supersets overlap
+- a subset can have overlapping supersets
+- i.e. can support parallel subcomponents

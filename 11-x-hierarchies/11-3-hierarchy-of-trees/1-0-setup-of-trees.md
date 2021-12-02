@@ -13,7 +13,7 @@ if the following requirements are met.
 
 * (R0) `S` is a set/family of trees.
 * (R1) `S` is expected to be non-empty.
-* (R2) `S` is well formed.
+* (R2) `S` is **well formed**.
 
 Note that there is no explicit requirement that the trees in `S` must be
 non-empty. That is because each tree is required to have at least a root,
@@ -101,14 +101,14 @@ subtree may or may not contain one or more leaf nodes of its supertree.
 ## definitions of hierarchy-based terms
 
 Note that, similar to a partial setup of sets, hierarchy-based terms can be
-defined. The most notable definitions are as follows ...
+defined. The most notable definitions are as follows.
 
-A **root tree** is such that it is no subtree to another tree. As such, a
-root tree may or may not have a subtree in `S`. That is, a root tree may or
-may not be a source tree to another tree.
+A **root tree** is such that it is **no subtree** to another tree. As such, a
+root tree may or may not have a subtree in `S`. That is, a root tree may or may
+not be a source tree to another tree.
 
-A **rooted setup** is such that it has one and only root tree. That is, the
-set of root trees `RT` of `S` consists of one tree only - i.e. `(#RT == 1)`.
+A **rooted setup** is such that it has one and only root tree. That is, the set
+of root trees `RT(S)` of `S` consists of one tree only - i.e. `(#RT == 1)`.
 
 Note that, since the union of two trees must either be a forest or a tree,
 the union graph `U` of a rooted setup of trees is a tree and as such equal
@@ -126,21 +126,20 @@ ancestor and descendant trees are disjoint.
 
 * `(A(t) disjoint-to D(t))` is true
 
-The **root tree** of tree `(t in S)` is the most significant ancestor of `t`.
-The **parent tree** `p(t)` of tree `t` is the least significant ancestor of
-`t`. (Note that "most significant" and "least significant" is in regards to
-the amount of nodes in each tree).
+The **root tree** `r(t)` of tree `(t in S)` is the most significant ancestor
+of `t`. The **parent tree** `p(t)` of tree `t` is the least significant ancestor
+of `t`. (Recall that "most significant" and "least significant" is in regards
+to the amount of nodes in the corresponding trees).
 
 A descendant tree `(c in D(p))` is **a child tree of** `p`, if `p` is the
 parent tree of `c`. (Note that, in a partial setup, a tree may have any number
-of child trees).
+of disjoint child trees).
 
 * `c(p) := { c | (p(c) == p) for (c in D(p)) }`
 
 Two trees `(s,t in S)` may be described as **sibling trees**, if both trees
-have the same parent tree `p`. (Note that, like sibling sets, sibling trees
-are disjoint from one another. Also, there is no child order over the child
-trees of a parent tree).
+have the same parent tree. (Note that, like sibling sets, sibling trees are
+disjoint from one another. Also, there is no child order over sibling trees).
 
 * `(s sibling-of t) := (p parent-of s) and (p parent-of t)`
 * `(s sibling-of t) <-> (A(s) == A(t))`
@@ -165,5 +164,5 @@ Note that in a total setup any parent tree has **one and only one child tree**.
 Consequently, a total setup is **downward- and upward-total**. Any non-empty
 total setup therefore has **one root and one leaf tree only**.
 
-Note that the root tree of `A(t)` is the root tree of `t`, and that the leaf
-tree of `A(t)` is the parent of `t`.
+Note that the root tree of `A(t)` is the root tree of `t`,
+and that the leaf tree of `A(t)` is the parent of `t`.

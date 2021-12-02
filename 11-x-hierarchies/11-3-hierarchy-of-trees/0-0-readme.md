@@ -12,9 +12,9 @@ of that, this isomorphism will be referred to as **the T-Ht isomorphism**.
 
 Note that, since the set of nodes of each induced subtree is equal to the scope
 of its root, the T-Ht isomorphism can be understood to be already covered by
-the T-Hs isomorphism. That is because the definition of the source tree and all
-of its induced subtrees is embedded into the sets of nodes of the trees in Ht,
-and the relationships between them.
+the T-Hs isomorphism. That is because the definition of the source tree and
+all of its induced subtrees is embedded into the sets of nodes of the induced
+subtrees in Ht, and the relationships between them.
 
 Note that the induced subtree that has the source tree's root as its root is
 an element in Ht. That is, the source tree T is itself a tree in Ht. Because

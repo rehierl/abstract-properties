@@ -6,6 +6,9 @@
 # total / sequences
 
 ```
+an ordered sequence and all the scopes of its nodes
+========================================================
+s  :=   n1, n2, n3, n4, n5, n6
 s1 := { n1, n2, n3, n4, n5, n6 } - the scope of the root
 s2 := {     n2, n3, n4, n5, n6 }
 s3 := {         n3, n4, n5, n6 }
@@ -22,30 +25,29 @@ superset-of
 <!-- ======================================================================= -->
 # the superset/DI-RE case
 
-- s1 as a root
+- s1 as the only root
 - a leaf for each 1-element subset
 - a downward total poset
 
 <!-- ======================================================================= -->
 # the subset/DI-RE case
 
-- a root for each 1-element subset
 - s1 as the only leaf
+- a root for each 1-element subset
 - an upward total poset
 
 <!-- ======================================================================= -->
 # remarks
 
 which cases
-- assuming all scopes from an entire tree
-- scopes are disjoint xor related
-- the RE-OV cases can not apply
+- assuming all the scopes in a tree
+- scopes are disjoint ex-or related
+- the RE-OV case can not apply
 
 well formed
-- all "suffixes" are included
-- therefore - (#CE == 1)
+- all the "suffixes" are included
+- (#CE == 1) is true
 
 ordered sequences
-- recall that an ordered sequence corresponds with a set
-- sub-/super-sequence maps to sub-/super-set
-- sub-/super-string maps to sub/-/super-set
+- an ordered sequence corresponds with a set
+- sub-/super-sequence/string map to sub-/super-set
