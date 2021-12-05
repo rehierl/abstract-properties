@@ -33,12 +33,12 @@ Finally, trees A and F are also coupled with each other since both have all of
 their nodes in common. However, both trees have none of their edges in common -
 i.e. edges (1,2) and (1,3) in A are no edges in B, and edges (2,1) and (2,3)
 in B are no edges in A. Because of that, the intersection graph (A & B) is a
-trivial subgraph to both trees (i.e. all the nodes, but none of the edges) and
-as such no tree.
+trivial subgraph to both (i.e. all the nodes, but none of the edges) and as
+such no tree.
 
 Note that, due to the overall intent of forming sets of trees such that the
-trees in them are either disjoint ex-or related in some way, a setup of trees
-will have to be **well formed**. That is, the trees in a setup must be such
-that the node orders they represent do not contradict each other - e.g. the
-ancestor of a node in a tree must not be the descendant of that node in another
-tree, as is the case with trees A and F.
+trees in them are either disjoint ex-or related, a setup of trees will have
+to be **well formed**. That is, the trees in a setup must be such that the
+node orders they represent do not contradict each other - e.g. the ancestor
+of a node in a tree must not be the descendant of that node in another tree,
+as is the case with trees A and F.

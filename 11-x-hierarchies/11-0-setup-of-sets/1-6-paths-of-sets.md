@@ -17,22 +17,22 @@ in decreasing order of signinficance.
 * where `(rp[i] superset-of rp[j])` for `(i < j)`
 * where `(#rp[i] > #rp[i+1])` for `(i in [1,#rp-1])`
 
-Note that all rooted paths are **non-empty**. Furthermore, each rooted path
-of sets is **an ordered sequence** of sets. Also, the rooted path of each set
-in a partial setup is **unique** to it.
+Note that all rooted paths are **non-empty** since each rooted path ends in
+set `s`. Furthermore, each rooted path is **an ordered sequence** of sets.
+Also, the rooted path of a set in a partial setup is **unique** to it.
 
-Based on that, **a path** can be formed from set `a` to set `b`
-if and only if set `a` is an ancestor of set `b`.
+Based on the definition of rooted paths, **a path** can be formed from set
+`a` to set `b` if set `a` is an ancestor of `b`.
 
-* `p(a,b) := {a} × (rp(b) \ rp(a))` iff `(a ancestor-of b)`
+* `p(a,b) := {a} × (rp(b) \ rp(a))` if `(a ancestor-of b)`
 * `(rp(a) prefix-of rp(b))` is true - i.e. the removal of a prefix
-* `aPb` := true if `p(a,b)` can be formed
+* `aPb` is true if `p(a,b)` can be formed
 
 <!-- ======================================================================= -->
 ## path-based definitions
 
-Since paths can be formed in the context of a partial setup of sets,
-path-based defintions such as the following can be introduced.
+Since paths can be formed in the context of a partial setup of sets, path-based
+defintions such as the following can be introduced.
 
 * `(a connected-to b)` := true if `aPb` or `bPa`
 * `level(s) := #rp(s)` - the level of set `s`
@@ -41,5 +41,7 @@ path-based defintions such as the following can be introduced.
 * `(s peer-to t) := (#rp(s) == #rp(t))`
 
 Note the difference: In the context of node trees, it was essential to first
-be able to define paths over the edges of a tree, since one could otherwise
-neither provide a definition for "ancestor", nor a definition for "descendant".
+be able to define paths over the edges of a tree. That is because one could
+otherwise neither provide a definition for "ancestor", nor a definition for
+"descendant". In contrary to that, the definition of both terms is based on
+the specific definition of the related-to operator.

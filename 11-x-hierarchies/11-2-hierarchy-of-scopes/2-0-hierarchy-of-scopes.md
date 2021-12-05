@@ -3,37 +3,32 @@
 # Forest/Hierarchy of scopes
 
 Note that a family of scopes `S`, if generated from a tree `T(N,E)` using the
-concept of abstract properties, is a hierarchy of scopes `H`. That is, any
-tree is isomorphic to a setup of scopes `S`.
+concept of abstract properties, is a hierarchy of scopes `H`. That is, any tree
+is isomorphic to a setup of scopes `S`.
 
 <!-- ======================================================================= -->
 ## a forest of scopes (F)
 
-```
-|-1-----------| |-4-----|
-| |-2-| |-3-| | | |-5-| |
-| |---| |---| | | |---| |
-|-------------| |-------|
-```
-
-A partial setup `S` may be referred to as **a forest of scopes**,
+A partial setup of sets `S` may be referred to as **a forest of scopes**,
 if the following requirements are met.
 
 * (R0) `S` is a normalized setup of sets.
+
+Note that a forest of scopes has no additional requirements. Because of that,
+a forest of scopes `F` is such that its related-to operator is defined based
+on the **superset-of** operator and that the scopes in it are either disjoint
+ex-or related with each other - i.e. the **DI-RE** case. Furthermore, each
+scope is required to have **one and only one CE**.
 
 Note that a forest of scopes may have any number of root sets,
 including none at all.
 
 * `(#RS(F) in [0,*])` is true
 
-Note that a forest of scopes has no additional requirements. Because of that,
-a forest of scopes `F` may only contain disjoint ex-or related scopes. (i.e.
-the **DI-RE** case).
-
 <!-- ======================================================================= -->
 ## a hierarchy of scopes (H)
 
-A partial setup `S` may be referred to as **a hierarchy of scopes**,
+A partial setup of sets `S` may be referred to as **a hierarchy of scopes**,
 if the following requirements are met.
 
 * (R0) `S` is a forest of scopes.
@@ -41,20 +36,18 @@ if the following requirements are met.
 
 Note that a hierarchy of scopes `H` has the following properties.
 
-* `(#RS(H) == 1)` must be treu
+* `(#RS(H) == 1)` must be true
 * `(#S > 0)` - A hierarchy is always non-empty.
-* `(Ø !in H)` - No set in a hierarchy is empty.
-* All the sets in a hierarchy are "DI ex-or RE".
-* Each set has no ex-or one parent set - a superset.
+* Each set has no ex-or one parent - a superset.
 * Each set may have any number of child sets - subsets.
 * Any ancestor has more elements than all of its descendants.
-* Each set has a unique rooted path.
+* Each set has a unique rooted path of scopes.
 
 Note that the root set `(r in RS(H))` of a hierarchy `H` is equal to `U(H)`.
-Despite that, the root set of a hierarchy is required as an explicit set since
-even the root set must have a CE, which can not be an element in any other set.
-That is, there must be one element in `U(H)` which is an element only in the
-hierarchy's root set.
+Despite that, the root set of a hierarchy is required as an explicit set in
+`H`. That is because even the root set must have a CE, which can not be an
+element in any other set. That is, there must be one element in `U(H)` which
+is an element only in the hierarchy's root set.
 
 * `(r == U(H))` is true
 
@@ -89,5 +82,5 @@ set in `H2`.
 
 * `(H1 disjoint-to H2) := (r1 disjoint-to r2)`
 
-Note that an arbitrary **subset** of a hierarchy, after normalizing the result,
+Note that an arbitrary **subset** of a hierarchy, after normalizing the subset,
 is in general a forest - i.e. not necessarily a hierarchy.

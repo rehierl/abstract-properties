@@ -1,4 +1,8 @@
 
+suffix-order
+- a set of all rooted paths acts as a prefix-order
+- a set of all induced subtrees acts as a (partial) suffix-order
+
 needs an overview
 - summarize the isomorphisms
 - point out which are most important

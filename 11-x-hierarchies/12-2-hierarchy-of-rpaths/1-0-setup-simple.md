@@ -1,9 +1,9 @@
 
 <!-- ======================================================================= -->
-# A (simple) setup of rooted paths (rpaths)
+# A (simple) setup of rooted paths
 
-A set of rooted paths will be referred to as **a (simple) setup of rpaths**
-`S`, if and only if the following requirements are met.
+A set of rooted paths will be referred to as **a (simple) setup** `S`,
+if the following requirements are met.
 
 * (R0) `S` is a set/family of sequences.
 * (R1) `S` is expected to be non-empty.
@@ -11,22 +11,17 @@ A set of rooted paths will be referred to as **a (simple) setup of rpaths**
 * (R3) Each `(s in S)` must be non-empty.
 * (R4) If `(s in S)`, then so are all prefixes of `s`.
 
-Note that all sequences in such a setup are understood represent all of the
-rooted paths in a single tree, or all the rooted paths in a forest of trees.
-Because of that, each sequence in `S` must be an **ordered sequence**.
-
 Note that each setup can be understood to be accompanied by **a universal set**
-`U`, which can be described as the union of all the elements in each sequence.
-Because of that, `S` can be described as a set in the powerset `P(×U)` over
-the set of all possible sequences over `U`.
+of nodes `U`, which can be described as the union of all the nodes in each
+rooted path in the setup. Likewise, such a setup can be understood to be
+accompanied by **a universal graph** `G`, which can be described as the union
+graph of all the sequences in it, which is in general a possibly empty non-tree
+graph.
 
-* `(S in P(×U))` is true
-* `(E(s) subset-of U(S))` is true for each `(s in S)`
-
-Note that `S` must contain all non-empty prefixes of each path in it. Based
-on that, `S` can be described as being **downward closed**. (Note - similar
-to the reflexive/transitive closure - i.e. there is no element missing that
-can be derived from existing ones).
+Note that `S` must contain all non-empty prefixes of each path in it. Based on
+that, `S` can be described as being **downward closed**. (Note - similar to a
+reflexive/transitive closure - i.e. there is no element missing that could be
+derived from existing ones).
 
 * `(S(s) subset-of S)` is true for all `(s in S)` where ..
 * `S(s) := { t | (t prefix-of s) and (#t > 0) }`
@@ -43,13 +38,13 @@ In the context of a setup of rooted paths, the related-to operator (RE) must
 be understood to be defined based on the **prefix-of** operator, which can be
 described as a specialization of the subset-of operator. After all, each rooted
 path is an ordered sequence and therefore corresponds with a totally ordered
-set of nodes. That is, the base relationship operator in the context of a setup
-of rooted paths is the subset-of operator, not the superset-of operator.
+set of nodes. That is, the base operator in the context of a setup of rooted
+paths is the subset-of operator, not the superset-of operator.
 
 * `(s related-to t) <=> (s prefix-of t) <=> (s subset-of t)`
 
-Since a setup of rooted paths can be understood to represent a set of all the
-rooted paths in a single tree, any two rooted paths in `S` share a common prefix
+Since a setup of rooted paths is intended to represent a set of all the rooted
+paths in a single tree, any two rooted paths in `S` must share a common prefix
 and (possibly empty) disjoint suffixes. Because of that, two paths `(s,t in S)`
 are either related ex-or overlap each other - i.e. the **RE-OV** case.
 
@@ -70,17 +65,13 @@ may form an "X" - i.e. contains a node that has two parents and two child
 nodes).
 
 Because of that, the union of setups is in general expected to be a union of
-setups that have **disjoint universal sets**. Based on that expectation, the
-union of setups can be described as **a union of disjoint setups**.
-
-* `(S1 + S2) := { s | (s in S1) or (s in S2) }`
-* if and only if `(U(S1) disjoint-to U(S2))`
+setups that have **disjoint universal sets**. Based on that, the union of
+setups can be described as **a union of pairwise disjoint setups**.
 
 Note that, even though general operations on setups of rooted paths are not the
 focus of this discussion, the union of non-disjoint setups could be performed
 in order to add one or more nodes to a tree. However, care must be taken in
-order for the resulting union to not break the requirements of a setup of
-rooted paths.
+order for the resulting union to not break the above mentioned requirements.
 
 Since a union is by default expected to be a union of disjoint setups, the
 relationships that are allowed in the resulting union must be extended such

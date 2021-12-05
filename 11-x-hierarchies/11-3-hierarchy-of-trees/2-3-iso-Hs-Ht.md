@@ -2,7 +2,7 @@
 <!-- ======================================================================= -->
 # hierarchy of trees (Ht) <=> hierarchy of scopes (Hs)
 
-Even though one can first transform a hierarchy of trees `Ht` into a node tree
+Even though one can first transform a hierarchy of trees `Ht` into a tree
 `T(N,E)`, and then that tree into a hierarchy of scopes `Hs`, one can also
 directly transform `Ht` into `Hs`. Likewise, a direct transformation of `Hs`
 into `Ht` is possible.
@@ -23,7 +23,7 @@ trees Ht.
 
 Recall that a hierarchy of scopes Hs corresponds with a node tree `T(N,E)`.
 Furthermore each scope `(s in Hs)` is such that it has one characteristic
-element only (i.e. the node definition `n(s)` of the node represented by `s`).
+element only (i.e. the definition `n(s)` of the node set `s` represents).
 Because of that, scope `(s in Hs)` and all of its subsets in Hs form a
 sub-hierarchy that corresponds with the induced subtree `T[n(s)]`.
 
@@ -41,7 +41,7 @@ One can then use `Hs1` to from the hierarchy of trees `Ht` by replacing each
 hierarchy of scopes in `Hs1` by the tree to which it is isomorphic. That is,
 each scope in `Hs1` is replaced by the corresponding induced subtree over `T`.
 
-* `Ht := { T(s) | (s in Hs1) }`
+* `Ht := { T(h) | (h in Hs1) }`
 
-Note that `T(s)` denotes the process of forming tree `t` from the corresponding
-sub-hierarchy in `Hs1`.
+Note that `T(h)` denotes the process of forming tree `t` from the corresponding
+sub-hierarchy `(h in Hs1)`.

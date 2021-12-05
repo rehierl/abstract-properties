@@ -113,13 +113,12 @@ of that, there is no first child and no last child, and therefore also
 ## universal set, roots, leafs
 
 Recall that each setup `S` can be understood to be accompanied by a universal
-set `U(S)`, which is effectively a superset to each path in `S`. Because of
-that, each path in `S` corresponds with a total suborder to `U(S)`.
+graph `G(S)`, which is effectively a supergraph to each path in `S`.
 
 In contrary to a setup of sets, each root in a setup of rooted paths can be
-described as a child to the empty path `()`. That is, the empty path acts as
-a "theoretical" super-root.
+described as a child to the empty path `()`. That is, the empty path can be
+understood as a theoretical super-root.
 
 Furthermore, and with the extended definition of "prefix" in mind, each leaf
-in `S` can be described as a prefix to the universal set `U(S)`. Because of
+in `S` can be described as a prefix to the universal graph `G(S)`. Because of
 that, the universal set can be described as a "theoretical" super-leaf.

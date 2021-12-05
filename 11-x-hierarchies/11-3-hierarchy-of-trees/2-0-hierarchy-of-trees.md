@@ -19,8 +19,10 @@ if the following requirements are met.
 * (R0) `S` is a partial setup of trees.
 * (R1) There are `#N` induced subtrees for each tree `t(N,E)` in `S`.
 
-Recall that a partial setup `S` covers the **DI-RE** case. Because of that,
-a forest of trees `F` may only contain disjoint ex-or related trees.
+Recall that the related-to operator of a partial setup `S` is defined based
+on the **supertree-of** operator and that such a setup covers the **DI-RE**
+case. Because of that, a forest of trees `F` may only contain disjoint ex-or
+related trees.
 
 Note that requirement R1 is intended to state that for each tree `t(N,E)` in
 `S`, all the proper induced subtrees of that tree must also be trees in `S`.
@@ -44,20 +46,19 @@ if the following requirements are met.
 Note that a hierarchy of trees `H` has the following properties:
 
 * `(#RS(H) == 1)` must be true
-* The root tree `r` is equal to `U(H)`.
 * `(#S > 0)` - A hierarchy is always non-empty.
-* All the trees in a hierarchy are "DI ex-or RE".
 * Each tree has no ex-or one parent - a supertree.
 * Each tree may have any number of child trees - subtrees.
 * Any ancestor has more nodes than all of its descendants.
-* Each tree has a unique rooted path.
+* Each tree has a unique rooted path of trees.
+* The root tree `r` is equal to `G(H)`.
 
 <!-- ======================================================================= -->
 ## set of all hierarchies and forests
 
 Similar to hierarchies and forests of sets, a theoretical set of all possible
-hierarchies **UH** and a theoretical set of all possible forests **UF** can
-be assumed to exist.
+hierarchies (UH) and a theoretical set of all possible forests (UF) can be
+assumed to exist.
 
 * `UH := { h | "h is a hierarchy" }`
 * `UF := { f | "f is a forest of hierarchies" }`
