@@ -1,5 +1,5 @@
 
-# hierarchy of rpaths
+# hierarchy of rooted paths (rpaths)
 
 ```
 T <-> Hrp
@@ -10,23 +10,22 @@ source tree can be recreated based on the relationships between its paths. That
 is, each tree is isomorphic to a hierarchy of rooted paths. Because of that,
 this isomorphism will be referred to as **the T-Hrp isomorphism**.
 
-Note that there is no order over the rooted paths in such a hierarchy. That is,
-a hierarchy would need to have additional characteristics which allow to embed
-a child order over the rooted paths of siblings - e.g. an ordered sequence of
-rooted paths.
+Note that a hierarchy of rooted paths (Hrp) is defined as a setup of strings
+such that the related-to operator is based on the **prefix-of** operator, and
+such that its strings are either related ex-or overlap each other (i.e. the
+**RE-OV** case). Finally, the characteristic element (CE) in each rooted path
+is its last element.
 
-Note that a hierarchy of rooted paths (Hrp) can be described as a partial setup
-of strings such that the related-to operator is based on the **prefix-of**
-operator, and such that its strings are either related ex-or overlap each other
-(i.e. the **RE-OV** case). Finally, the CE in each string is its last element.
+Note that there is no order over the rooted paths in such a hierarchy. Because
+of that, a hierarchy of rooted paths does not embed a child order.
 
-## the Hs-Hr isomorphism
+## the Hs-Hrp isomorphism
 
 ```
 T <-> Hrp <-> Hs
 |<------------>|
 ```
 
-A hierarchy of rooted paths (Hr) is isomorphic to a hierarchy of scopes (Hs).
-After all, each rooted path in Hr corresponds with the rooted path of a scope
+A hierarchy of rooted paths (Hrp) is isomorphic to a hierarchy of scopes (Hs).
+After all, each rooted path in Hrp corresponds with the rooted path of a scope
 in Hs.

@@ -1,5 +1,5 @@
 
-# hierarchy of rscopes
+# hierarchy of reversed scopes (rscopes)
 
 ```
 T <-> Hrs

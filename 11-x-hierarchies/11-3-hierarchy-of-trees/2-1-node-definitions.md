@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# some remarks about the embedding of node definitions
+# remarks about the embedding of node definitions
 
 Note that the following is in regards to forming a node tree `T(N,E)`
 from a partial setup of trees `S`.
@@ -52,13 +52,18 @@ corresponding tree.
 In contrary to a hierarchy of sets, the elements in `S` are actual node trees,
 each of which has one and only one dedicated element, its root node. Because
 of that, definitions that are analogous to those of characteristic subsets
-(CSS) and characteristic elements (CE) are not required since one can always
-identify the root of a tree.
+**CSS** and characteristic elements **CE** are not required since one can
+always identify the root of a tree.
+
+* `(#css(t) == 1)` is true for any `(t in S)`
 
 Note that the removal of all the proper induced subtrees of a tree `(t in S)`
 from `t` results in a 1-node tree, which only consists of the tree's root.
 Because of that, the root node of a tree can be understood as the tree's
-characteristic element (CE).
+characteristic element (CE). That is, each tree has **its root node** as its
+one and only CE.
+
+* `ce(t) := r(t)`
 
 Since each tree is guaranteed to have a root node, the root of each tree `t`
 can and must be used in order to provide the identifier of a node in `T` (e.g.

@@ -23,8 +23,8 @@ requirement R3 is strictly speaking not necessary.
 Note that a setup can be understood to be accompanied by **a universal set**
 of nodes `U`, which can be described as the union of all the sets of nodes of
 each tree in the setup. Likewise, a setup can be understood to be accompanied
-by **a universal graph** `G`, which can be described as the union graph of all
-the trees in the setup, which is not necessarily a tree.
+by **a universal graph** `G`, which can be described as the union of all the
+trees in the setup, which is not necessarily a tree.
 
 Note that the **well formedness** requirement (R4) is intended to ensure that
 any two trees in a setup of trees are either disjoint, related (i.e. one is a
