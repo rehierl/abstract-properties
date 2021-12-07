@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# hierarchy of trees <=> node tree
+# node tree (T) <=> hierarchy of trees (Ht)
 
 ```
 node tree       hierarchy of subtrees
@@ -14,7 +14,7 @@ node tree       hierarchy of subtrees
 ```
 
 <!-- ======================================================================= -->
-## node tree => hierarchy of trees
+## (T => Ht)
 
 Given a tree `T(N,E)`, one can form a hierarchy of trees `S` by collecting
 all the induced subtrees of that tree - i.e. one induced subtree per node.
@@ -23,7 +23,7 @@ all the induced subtrees of that tree - i.e. one induced subtree per node.
 * `(#S == #N)` is true
 
 <!-- ======================================================================= -->
-## hierarchy of trees => node tree
+## (Ht => T)
 
 Given a hierarchy of trees `S`,
 a node tree `T(N,E)` can then be formed as follows.
@@ -44,17 +44,18 @@ Note that each edge `(e in E)` corresponds with the **border edge** between
 an induced subtree `T[c]` and its parent tree `T[p]`. (see inner-outer-sets).
 
 <!-- ======================================================================= -->
-## derived order relations
+## order relations
 
 A hierarchy of trees `S` can be used to define an order of trees `P`.
 
 * `P(S,<)` where `(a < t) := (a supertree-of t) and (a != b)`
 
-The tree order order relation `P` of tree `T` can be formed as follows.
+The tree order `P` of tree `T` can be formed as follows.
 
-* `P(N,E)` where `N := { r(t) | (t in S) }`
-* `E := { (r(a),r(d)) | (a ancestor-of d) for (a,d in S) }`
+* `P(N,E)` where `N := { ce(t) | (t in S) }`
+* and `E := { (ce(a),ce(d)) | (a ancestor-of d) for (a,d in S) }`
+* and `ce(t) := r(t)` - i.e. the tree's root node
 
-Note that this order relation can also be formed from tree `T`.
+Note that this tree order can also be formed from tree `T`.
 
 * `P(N,E)` where `E :=  { (a,d) | (a ancestor-of d) for (a,d in N) }`

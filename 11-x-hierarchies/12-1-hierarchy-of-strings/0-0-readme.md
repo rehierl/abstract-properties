@@ -1,5 +1,5 @@
 
-# hierarchy of (sub-)strings
+# hierarchy of strings (Hstr)
 
 ```
 T <-> Hstr

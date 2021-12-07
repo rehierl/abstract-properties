@@ -36,7 +36,7 @@ Because on that, all strings are required to represent node orders that do
 not contradict each other - e.g. the ancestor of a node in the path graph of
 a string is no descendant of that node in another string.
 
-* the intersection between any two strings must be empty or a substring to both
+* the intersection between two strings must be empty or a substring to both
 * the union of two strings must be a forest, a tree or a path graph
 
 Note that, in the case of coupled strings, **the first node of one** string

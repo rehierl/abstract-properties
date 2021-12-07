@@ -1,5 +1,5 @@
 
-# hierarchy of scopes
+# hierarchy of scopes (Hs)
 
 ```
 T <-> Hs

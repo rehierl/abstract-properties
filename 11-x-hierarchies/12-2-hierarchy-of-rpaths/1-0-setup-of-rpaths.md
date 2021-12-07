@@ -27,20 +27,20 @@ specialization of the **subset-of** operator.
 
 Note that, due to requirement R1, any two rooted paths are expected to be
 related (i.e. one is a prefix of the other) ex-or to overlap each other as
-described below (i.e. the **RE-OV** case). However, in order to allow for a
-partial setup to correspond with a forest of trees, rooted paths must be
+described below (i.e. the **RE-OV** case). However, in order to allow for
+a partial setup to correspond with a forest of trees, rooted paths must be
 allowed to be disjoint (i.e. the **DI-RE-OV** case). That is, the disjoint
 case (DI) is only allowed in the context of rooted paths that belong to
 distinct trees.
 
-Note that this is different to a partial setup of scopes. That is because such
-setups only need two types of relationships (DI-RE) in order to support a forest
-of trees. In contrary to that, a setup of rooted paths must allow three types
-of relationships (DI-RE-OV) to support forests of trees.
+Note that this is different to a partial setup of scopes. That is because
+such setups only need two types of relationships (DI-RE) in order to support
+a forest of trees. In contrary to that, a setup of rooted paths must allow
+three types of relationships (DI-RE-OV) to support forests of trees.
 
-Recall that a simple setup of strings must be **well formed**. Because of that,
-if two paths have one or more nodes in common, then the intersection between
-both paths must be a prefix to one path.
+Recall that a simple setup of strings must be **well formed**. Because of
+that, if two paths have one or more nodes in common, then the intersection
+between both paths must be a prefix to one path.
 
 <!-- ======================================================================= -->
 ## remarks

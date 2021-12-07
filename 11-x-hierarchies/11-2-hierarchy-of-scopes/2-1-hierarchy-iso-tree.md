@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# hierarchy of scopes <=> node tree
+# node tree (T) <=> hierarchy of scopes (Hs)
 
 The focus of the following is on defining "a hierarchy of scopes" as a class
 of setups such that each setup `S` in it allows to form a node tree.
@@ -50,7 +50,7 @@ of scopes" does indeed correspond with the scope of a node in the tree that
 hierarchy defines. Hence the "scopes" qualifier in "a hierarchy of scopes".
 
 <!-- ======================================================================= -->
-## hierarchy of scopes => node tree
+## (Hs => T)
 
 ```
 S: a rooted normalized setup      T: a node tree
@@ -70,7 +70,7 @@ one can form a node tree `T(N,E)` as follows:
 * `E := { (ce(a),ce(b)) | (a parent-set-of b) for (a,b in S) }`
 
 <!-- ======================================================================= -->
-## node tree => hierarchy of scopes
+## (T => Hs)
 
 Given a node tree `T(N,E)`, **a hierarchy of scopes** `S` can be formed using
 the concept of abstract properties. That family of scopes can then be used to
@@ -111,17 +111,17 @@ s5 := s(p3) := {                 n3 }
 ```
 
 <!-- ======================================================================= -->
-## derived order relations
+## order relations
 
 A hierarchy of scopes `S` can be used to define an order of scopes `P`.
 
-* `P(S,<)` where `(a < b) := (a superset-of b)`
+* `P(S,<)` where `(a < b) := (a superset-of b) and (a != b)`
 
-The tree order order relation `P` of tree `T` can be formed as follows.
+The tree order `P` of tree `T` can be formed as follows.
 
 * `P(N,E)` where `N := { ce(s) | (s in S) }`
 * `E := { (ce(a),ce(d)) | (a ancestor-of d) for (a,d in S) }`
 
-Note that this order relation can also be formed from tree `T`.
+Note that this tree order can also be formed from tree `T`.
 
 * `P(N,E)` where `E :=  { (a,d) | (a ancestor-of d) for (a,d in N) }`

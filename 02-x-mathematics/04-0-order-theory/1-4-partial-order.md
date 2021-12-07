@@ -16,12 +16,12 @@ is associated with a **strict partial order** relation. Based on that, the
 ordered set can itself be described as a **strict poset** (i.e. a strict
 partially ordered set).
 
-* any strict partial order is an anti-symmetric strict pre-order
-* any strict partial order is an a-symmetric (strict) pre-order
+* any strict partial order is a strict anti-symmetric pre-order
+* any strict partial order is an a-symmetric pre-order
 
 Note that any partial order is **acyclic**. That is because the order's
 transitivity would otherwise force the existence of one or more pairs of
-"flipped" edges, which are not allowed in any partial order.
+"flipped/reversed" edges, which are not allowed in any partial order.
 
 Note that any partial order **may have one or more source vertices** (aka.
 "root nodes" or "points of entry"). Also, any partial order relation may
@@ -39,7 +39,7 @@ in a symmetric order relation.
 An order relation that has no such "flipped" counterpart for any of its edges,
 is said to be **a-symmetric**. Note that loops are not allowed in an a-symmetric
 order relation. That is, an a-symmetric order relation is also irreflexive and
-can as such be described as "strict".
+can as such still be described as "strict".
 
 * a-symmetric := if `aRb`, then `!bRa`
 

@@ -2,21 +2,20 @@
 <!-- ======================================================================= -->
 # total order
 
-An ordered set `P := (V,R)` which is a (simple) partial order and, in addition
-to that also **connex** can be described as an ordered set that is associated
-with a **(simple) total order** relation. Based on that, the ordered
-set can itself be described as a (simple) total order, or as a
-**(simple) toset** (i.e. a (simple) totally ordered set).
+An ordered set `P := (V,R)`, which is a (simple) partial order and also
+**connex**, can be said to be associated with a **(simple) total order**
+relation. Because of that, the ordered set can itself be described as a
+(simple) total order, or as a **(simple) toset** (i.e. a (simple) totally
+ordered set).
 
 * any (simple) total order is a connex simple partial order
 
-An ordered set `P := (V,R)` which is a strict partial order and, in addition
-to that also **trichotomous** can be described as an ordered set that is
-associated with a **strict total order** relation. Based on that,
-the ordered set can itself be described as a strict total order, or as a
-**strict toset** (i.e. a strict totally ordered set).
+An ordered set `P := (V,R)`, which is a strict partial order and also
+**trichotomous**, can be said to be associated with a **strict total order**
+relation. Because of that, the ordered set can itself be described as a strict
+total order, or as a **strict toset** (i.e. a strict totally ordered set).
 
-* any strict total order is a connex strict partial order
+* any strict total order is a strict connex partial order
 * any strict total order is a trichotomous partial order
 
 Note that any total order is, as a specialized partial order, **acyclic**.
@@ -39,8 +38,8 @@ total order can be described as a **linear order**, or simply as a **loset**.
 <!-- ======================================================================= -->
 ## connex, trichotomous
 
-A **connex** order relation is such that, for any pair of
-vertices `(a,b in V)` either the edge `aRb` and/or the edge `bRa` does exist.
+A **connex** order relation is such that, for any pair of vertices `(a,b in V)`
+either the edge `aRb` and/or the edge `bRa` does exist.
 
 * connex := `aRb` and/or `bRa` is true for any `(a,b in V)`
 
@@ -50,9 +49,9 @@ transitive). Put differently, a connex order relation has no disconnected
 vertices.
 
 Note that "and/or" in the definition of "connex", and in the context of a
-(simple) total order, is in effect an "ex-or". After all, even a (simple)
-total order is still required to be a (simple) partial order, which is why
-"and" does not apply in regards to total orders.
+(simple) total order, is **in effect an "ex-or"**. After all, even a (simple)
+total order is still required to be a (simple) partial order, which must be
+anti-symmetric, which is why "and" does not apply in regards to total orders.
 
 A **semi-connex** order relation is such that, for any pair of *distinct*
 vertices `(a,b in V)` either the edge `aRb` and/or the edge `bRa` does exist.
@@ -65,7 +64,7 @@ loops are allowed, but not required.
 A **trichotomous** order relation is such that, for any pair of vertices one,
 and only one of the following must be true: `aRb`, `bRa`, `(a == b)`.
 
-* semi-connex := `aRb` ex-or `bRa` ex-or `(a == b)`
+* trichotomous := `aRb` ex-or `bRa` ex-or `(a == b)`
 
 Note that a trichotomous order relation is required to be irreflexive. That
 is, an trichotomous order relation is not allowed to have any loops at all.

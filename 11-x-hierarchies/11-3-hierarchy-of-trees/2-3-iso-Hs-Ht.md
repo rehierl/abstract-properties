@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# hierarchy of trees (Ht) <=> hierarchy of scopes (Hs)
+# hierarchy of scopes (Hs) <=> hierarchy of trees (Ht)
 
 Even though one can first transform a hierarchy of trees `Ht` into a tree
 `T(N,E)`, and then that tree into a hierarchy of scopes `Hs`, one can also
@@ -8,7 +8,7 @@ directly transform `Ht` into `Hs`. Likewise, a direct transformation of `Hs`
 into `Ht` is possible.
 
 <!-- ======================================================================= -->
-## Ht => Hs
+## (Ht => Hs)
 
 A hierarchy of scopes Hs can be formed by collecting all of the sets of nodes
 of each tree in Ht.
@@ -16,7 +16,7 @@ of each tree in Ht.
 * `Hs := { N(t) | (t in Ht) }`
 
 <!-- ======================================================================= -->
-## Hs => Ht
+## (Hs => Ht)
 
 Similar to the above, a hierarchy of scopes Hs allows to form a hierarchy of
 trees Ht.

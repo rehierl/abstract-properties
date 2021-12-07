@@ -1,5 +1,5 @@
 
-# hierarchy of trees
+# hierarchy of trees (Ht)
 
 ```
 T <-> Ht

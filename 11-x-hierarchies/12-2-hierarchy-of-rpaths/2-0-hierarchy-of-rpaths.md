@@ -40,7 +40,7 @@ if the following requirements are met.
 
 Note that a hierarchy of rpaths `H` has the following properties.
 
-* `(#RP(h) == 1)` must be true.
+* `(#RP(S) == 1)` must be true.
 * `(#S > 0)` - A hierarchy is always non-empty.
 * Each path has no ex-or one parent - a prefix.
 * Each path may have any number of child paths - overlapping.

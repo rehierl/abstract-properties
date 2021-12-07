@@ -1,23 +1,20 @@
 
-# hierarchy of rooted paths (rpaths)
+# hierarchy of rooted paths (rpaths, Hrp)
 
 ```
 T <-> Hrp
 ```
 
-A tree (T) can be used to form a hierarchy of rooted paths (Hrp) such that the
-source tree can be recreated based on the relationships between its paths. That
-is, each tree is isomorphic to a hierarchy of rooted paths. Because of that,
-this isomorphism will be referred to as **the T-Hrp isomorphism**.
+A tree (T) can be used to form a hierarchy of rooted paths (Hrp) such that
+the source tree can be recreated based on the relationships between its paths.
+That is, each tree is isomorphic to a hierarchy of rooted paths. Because of
+that, this isomorphism will be referred to as **the T-Hrp isomorphism**.
 
 Note that a hierarchy of rooted paths (Hrp) is defined as a setup of strings
 such that the related-to operator is based on the **prefix-of** operator, and
 such that its strings are either related ex-or overlap each other (i.e. the
 **RE-OV** case). Finally, the characteristic element (CE) in each rooted path
 is its last element.
-
-Note that there is no order over the rooted paths in such a hierarchy. Because
-of that, a hierarchy of rooted paths does not embed a child order.
 
 ## the Hs-Hrp isomorphism
 
