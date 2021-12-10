@@ -2,7 +2,7 @@
 <!-- ======================================================================= -->
 # (Simple) setups of sets
 
-A set of sets will be referred to as **a (simple) setup** `S`,
+A set of sets `S` will be referred to as **a (simple) setup**,
 if the following requirements are met.
 
 * (R0) `S` is a set/family of sets.

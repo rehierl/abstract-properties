@@ -8,30 +8,37 @@ element embedded into it. This CE must be used as a node reference which
 denotes the node that the corresponding element represents in the node tree.
 
 <!-- ======================================================================= -->
-## characteristic subsets and elements
+## characteristic subsets (CSS) and elements (CE)
 
-Recall that a partial setup is defined such that it contains any prefix of any
-rooted path it contains. Because of that, the characteristic subset **CSS** of
-a rooted paths is formed by removing all the nodes in each ancestor path. Each
-rooted path is therefore guaranteed to have one and only one characteristic
-element **CE**.
+Since the related-to operator of a partial setup of rooted paths is based on
+the prefix-of operator, all the nodes of the ancestors of a path are nodes in
+the path of a descendant. That is, unlike a hierarchy of induced subtrees (Ht),
+the inner subset of a path `iss(s)` consists of all the nodes in its parent
+`p(s)`, which is a prefix to path `s`. The characteristic subset (CSS) of a
+path therefore corresponds with a non-empty suffix to that path.
 
-* `(#css(s) == 1)` is true for any `(s in S)`
+* `s := (iss(s) × css(s))` where `(iss(s) == p(s))`
 
-Note that, since any rooted path in a partial setup of rooted paths has one CE
-only, any such setup can be described as a normalized setup of rooted paths.
-Based on that, each rooted path can be understood to have **its last node**
-as its one and only CE.
+Since a partial setup has no requirement that restricts the length of a suffix
+to one characteristic element (CE) only, any path may have any number of such
+elements. Because of that, and without further requirements, a general partial
+setup of rooted paths can not yet be understood to hold the strict definition
+of a tree.
 
-* `ce(s) := s[#s]`
+Note that, unlike with scopes, no `css(s)` in a setup of rooted paths can be
+empty. That is because a child `c` must hold at least one node in addition to
+its parent `p`. As a matter of consequence, no non-root parent can exist that
+has an empty characteristic subset since any such parent is a child to its
+very own parent.
 
-Note that the set of all characteristic elements `CE(S)` in a partial setup of
-rooted paths is equal to its universal set of all elements `U(S)`, which must
-be understood as a set of node references.
+* `(#css(s) > 0)` is true for any `(s in S)`
 
-* `(CE(S) == U(S))` is true
+Due to the above, and in order to ensure that each path has one and only one
+CE, a forest/hierarchy of rooted paths must be required to include every prefix
+of each path it holds.
 
-Note that the CSS of no rooted path in such a setup can be empty.
+* if a forest `F` includes all the prefixes of each path `(s in F)`, then ..
+* `(#css(s) == 1)` is true for any `(s in F)`
 
 <!-- ======================================================================= -->
 ## index-based setups

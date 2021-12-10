@@ -5,8 +5,8 @@
 One kind of "well-behaved" sets in DST is
 analogous to the concept of node trees in Graph theory:
 
-A tree `T` in DST is a collection of sequences over a set of elements `N` such
-that every prefix `p` of every sequence in `T` is also a sequence in `T`.
+A tree `T` in DST is a collection of sequences `S` over a set of elements `N`
+such that every prefix `p` of each sequence in `T` is also a sequence in `T`.
 
 * for `(S subset-of ×N)`
 * if `(t prefix-of s)` for `(s in T)`, then also `(t in T)`

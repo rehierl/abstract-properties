@@ -29,23 +29,22 @@ ends with the defining node `n`. Because of that, each rooted path has its
 defining node as its last element and therefore also as its one and only
 characterisitic element.
 
-* `rp(n)` is of the form `[r .. n]`
+* `rp(n) := (r .. n)`
 * `(ce(s) == n)` and `(n == s[#s])` are true for `s := rp(n)`
 
 <!-- ======================================================================= -->
 ## (Hrp => T)
 
 Provided that setup `S` is a hierarchy of rooted paths,
-one can form a node tree `T(N,E)` as follows:
+one can derive the node tree `T(N,E)` as follows.
 
-* `T(N,E)` where `N := U(S)`
-* and `E := { (ce(a),ce(b)) | (a parent-of b) }`
-* and `ce(a) := a[#a]`
+* `T(N,E)` where `N := U(S)` and ..
+* `E := { (ce(a),ce(b)) | (a parent-of b) }`
 
 Note that, since each rooted path in `S` is an ordered sequence of nodes, and
-therefore isomorphic to a path graph, one an describe the resulting tree `T`
-simply as the union of path graphs, one for each rooted path in `S`. Because
-of that, the setup's universal graph `G(S)` is equal to the resulting tree `T`.
+therefore isomorphic to a path graph, one can describe the resulting tree `T`
+as the union of path graphs, one for each rooted path in `S`. Because of that,
+the setup's universal graph `G(S)` is equal to the resulting tree `T`.
 
 * `(G(S) == T)` is true
 

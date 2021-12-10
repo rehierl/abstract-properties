@@ -3,12 +3,12 @@
 # A partial setup of sets
 
 Assuming the **superset-of** operator as the basis of the related-to operator,
-a set of sets `S` may be referred to as **a partial setup**, if the following
+a set of sets `S` will be referred to as **a partial setup**, if the following
 requirements are met.
 
 * (R0) `S` is a simple setup of sets.
 * (R1) If two sets in `S` are coupled with each other,
-  then both must be related under the **superset-of** operator.
+  then both sets must be related under the **superset-of** operator.
 
 As can be seen below, requirement R1 can be rephrased as follows.
 
