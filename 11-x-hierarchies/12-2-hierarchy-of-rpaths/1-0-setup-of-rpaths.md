@@ -9,25 +9,29 @@ set of nodes.
 <!-- ======================================================================= -->
 ## a partial setup of rpaths
 
-Assuming the **prefix-of** operator as the basis of the related-to operator,
-a set of rooted paths may be referred to as **a partial setup**, if the
-following requirements are met.
+A set of rooted paths `S` will be referred to as **a partial setup**,
+if the following requirements are met.
 
 * (R0) `S` is a simple setup of strings.
-* (R1) The rooted paths in `S` are expected to
+* (R1) A descendant is a prefix to its ancestor.
+* (R2) The rooted paths in `S` are expected to
        be related with, or to overlap each other.
-* (R2) If two paths in `S` are coupled with each
+* (R3) If two paths in `S` are coupled with each
        other, then both must have a common prefix.
-* (R3) `S` must be downward-total.
+* (R4) `S` must be downward-total.
+
+Note that two rooted paths are **related**, if one is a prefix to the other.
+
+* `(a ancestor-of d), (d descendant-of a) := (d prefix-of a)`
+* `(s related-to t) := (s prefix-of t) or (t prefix-of s)`
 
 Note that, since the elements in such a setup are rooted paths and as such
 ordered sequences of nodes, the prefix-of operator can be described as a
-specialized **subset-of** operator.
+specialized subset-of operator.
 
-* `(s related-to t) := (s prefix-of t) or (t prefix-of s)`
 * `(s related-to t) <=> (s prefix-of t) <=> (s subset-of t)`
 
-Note that, due to requirement R1, any two rooted paths are expected to be
+Note that, due to requirement R2, any two rooted paths are expected to be
 related with (i.e. one is a prefix of the other) ex-or to overlap each other
 (i.e. the **RE-OV** case). However, in order to allow for a partial setup to
 correspond with a forest of trees, rooted paths must be allowed to be disjoint
@@ -40,7 +44,7 @@ order to support forests of trees. In contrary to that, a setup of rooted
 paths must support three types of relationships (DI-RE-OV).
 
 Recall that each partial setup of rooted paths is a setup of strings and as
-such required to be **well formed**. Based on that, requirement R2 is to ensure
+such required to be **well formed**. Based on that, requirement R3 is to ensure
 that overlapping rooted paths only have disjoint suffixes. Despite that, there
 is no requirement in regards to the amounts of nodes in a shared prefix and
 thus also not in regards to disjoint suffixes. That is, overlapping paths are
@@ -56,7 +60,7 @@ since that is a consequence of the prefix-of operator.
 <!-- ======================================================================= -->
 ## coupled paths
 
-Recall that two non-disjoint paths are required to share a common prefix (R2).
+Recall that two non-disjoint paths are required to share a common prefix (R3).
 Because of that, two such paths always have the same first node.
 
 * `(s coupled-with t) <-> (s[1] == t[1])` must be true for `(s,t in S)`
@@ -118,12 +122,12 @@ can be defined in a similar fashion.
 * extended sets of ancestors and descendants ..
 * `A*(s) := A(s) + {s}` and `D*(s) := D(s) + {s}`
 * `( #(A*(s)) == #s )` is true
-* paths of rooted paths ..
+* rooted paths of rooted paths ..
 * `level(s) := #rp(s)`
 
 Note that an induced subsetup still **grows with its orientation**, not against
 it. That is because the subsetup grows with the orientation of the prefix-of
-relationship.
+operator.
 
 Note that, as before, `A(s)` is always **a total subsetup**, whereas `D(s)`
 is in general only **a partial subsetup**. That is, the overall setup must

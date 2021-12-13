@@ -9,7 +9,7 @@ is isomorphic to a setup of scopes `S`.
 <!-- ======================================================================= -->
 ## a forest of scopes (F)
 
-A partial setup of sets `S` may be referred to as **a forest of scopes**,
+A partial setup of sets `S` may be referred to as **a forest**,
 if the following requirements are met.
 
 * (R0) `S` is a normalized setup of sets.
@@ -28,7 +28,7 @@ including none at all.
 <!-- ======================================================================= -->
 ## a hierarchy of scopes (H)
 
-A partial setup of sets `S` may be referred to as **a hierarchy of scopes**,
+A partial setup of sets `S` may be referred to as **a hierarchy**,
 if the following requirements are met.
 
 * (R0) `S` is a forest of scopes.
@@ -36,8 +36,7 @@ if the following requirements are met.
 
 Note that a hierarchy of scopes `H` has the following properties.
 
-* `(#RS(H) == 1)` must be true
-* `(#S > 0)` - A hierarchy is always non-empty.
+* `(#RS(H) == 1)` and `(#S > 0)` must be true
 * Each set has no ex-or one parent - a superset.
 * Each set may have any number of child sets - subsets.
 * Any ancestor has more elements than all of its descendants.

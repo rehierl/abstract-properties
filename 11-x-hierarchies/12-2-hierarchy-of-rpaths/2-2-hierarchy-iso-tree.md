@@ -15,18 +15,18 @@ n1 -|-> n2 -|-> n4       s1: (n1)
 <!-- ======================================================================= -->
 ## (T => Hrp)
 
-Given a node tree `T(N,E)`, **a hierarchy of rpaths** `S` can be formed by
+Given a node tree `T(N,E)`, **a hierarchy of rpaths** `S` is formed by
 collecting the rooted paths of each node in `T`.
 
 * `S(T) := RP(T) := { rp(n) | (n in N(T)) }`
 
 Recall that, in the context of a node tree, the rooted path of any ancestor is
 a prefix to the rooted path of a descendant. Because of that, the set of all
-rooted paths of a tree `RP(T)` has a prefix for each rooted path in it.
+the rooted paths of a tree `RP(T)` has a prefix for each rooted path in it.
 
 Also, the rooted path `rp(n)` of any node begins with the tree's root `r` and
 ends with the defining node `n`. Because of that, each rooted path has its
-defining node as its last element and therefore also as its one and only
+defining node as its last element and therefore also as its one and only one
 characterisitic element.
 
 * `rp(n) := (r .. n)`
@@ -59,7 +59,7 @@ The tree order `P` of tree `T` can be formed as follows.
 
 * `P(N,E)` where `N := { ce(s) | (s in S) }`
 * and `E := { (ce(a),ce(b)) | (a ancestor-of b) for (a,b in S) }`
-* and `ce(s) := s[#s]`
+* note - `ce(s) := s[#s]`
 
 Note that this tree order can also be formed from tree `T`.
 

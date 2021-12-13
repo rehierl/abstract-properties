@@ -2,10 +2,10 @@
 <!-- ======================================================================= -->
 # hierarchy of scopes (Hs) <=> hierarchy of rpaths (Hrp)
 
-Even though one can first transform any hierarchy of rooted paths `Hrp` into
-a node tree `T(N,E)`, and then into a hierarchy of scopes `Hs`, one can also
-directly transform `Hrp` into `Hs`. Likewise, a direct transformation of `Hs`
-into `Hrp` is in general possible.
+Even though one can first transform any hierarchy of rooted paths `Hrp` into a
+node tree `T(N,E)`, and then that tree into a hierarchy of scopes `Hs`, one can
+also directly transform `Hrp` into `Hs`. Likewise, a direct transformation of
+`Hs` into `Hrp` is possible.
 
 <!-- ======================================================================= -->
 ## (Hs => Hrp)
@@ -14,17 +14,12 @@ Recall that each set `(s in Hs)` in a hierarchy of scopes `Hs` has a unique
 rooted path `rp(s)`. In addition to that, each set in `Hs` is required to have
 one and only one CE, which can be understood to define the node a set represents.
 Because of that, `rp(s)` can be transformed such that each element in it is the
-CE of the corresponding set. That is, the rooted path of each set in Hs can be
-transformed into a rooted path of nodes.
+CE of the corresponding scope. That is, the rooted path of each set in Hs can
+be transformed into a rooted path of nodes.
 
-* `Hr := { rpath(s) | (s in Hs) }` where ..
-* `rpath(s) := (ce(s1),..,ce(sN))` and `rp(s) := (s1,..,sN)`
-* note - `rp(s)` is the rooted path of `s` over `Hs`
-
-Note that ..
-
-* `(rpath(s) == rp(n))` where `n := ce(s)`
-* note - `rp(n)` is the rooted path of `n` over `T`
+* `RPs := { rp(s) | (s in Hs) }`
+* `replace(p): (s1..sk) -> (ce(s1)..ce(sk))`
+* `Hrp := { replace(p) | (p in RPs) }`
 
 <!-- ======================================================================= -->
 ## (Hrp => Hs)
@@ -60,11 +55,11 @@ universal set `U()` of `Hrp(a)` is therefore equal to the scope of node `a`.
 <!-- ======================================================================= -->
 ## (Hrp => Hs) in pseudocode
 
-The following pseudocode fragment showcases a rudimentary direct implementation.
+The following pseudocode showcases a rudimentary implementation.
 
 ```js
 getHsFromHrp(hr) begin
-  //- the resulting setup of scopes
+  //- the resulting hierarchy of scopes
   hs = new set()
 
   foreach (a in U(hr)) begin
@@ -79,7 +74,7 @@ getHsFromHrp(hr) begin
 
       //- ignore the rooted path 'r',
       //  if 'a' is no node in it
-      if(ia < 1) begin
+      if (ia < 1) begin
         continue
       end
 
@@ -98,10 +93,10 @@ getHsFromHrp(hr) begin
 end
 ```
 
-Note that optimizations are obviously possible. After all, once one has a valid
-offset of a certain node in a rooted path, then that node will have the exact
-same index in every rooted path to which that node is an element. Because of
-that, the index of that node could be cached in a hashtable, which is why one
-would not have to actually search each rooted path for a specific node. That
-is, once the index of a node is known, one would only have to test a subsequent
+Note that optimizations are possible. After all, once one has a valid offset
+of a certain node in a rooted path, then that node will have the exact same
+index in every rooted path to which that node is an element. Because of that,
+the index of that node could be cached in a hashtable, which is why one would
+not have to actually search each rooted path for a specific node. That is,
+once the index of a node is known, one would only have to test a subsequent
 rooted path, if that node is at the known index.

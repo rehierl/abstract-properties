@@ -57,12 +57,17 @@ simple sets).
 <!-- ======================================================================= -->
 ## a partial setup of trees
 
-Assuming the **supertree-of** operator as the basis of the related-to operator,
-a set of trees `S` may be referred to as **a partial setup**, if the following
-requirements are met.
+A set of trees `S` may be referred to as **a partial setup**,
+if the following requirements are met.
 
 * (R0) `S` is a simple setup of trees.
-* (R1) Any two trees are either disjoint ex-or related.
+* (R1) An ancestor is a supertree to its descendant.
+* (R2) Any two trees are either disjoint ex-or related.
+
+Note that two trees are **related**, if one is a super-tree to the other.
+
+* `(a ancestor-of d), (d descendant-of a) := (a supertree-of d)`
+* `(s related-to t) := (s supertree-of t) or (t supertree-of s)`
 
 Note that, due to requirement R1, no tree in such a setup may overlap another
 tree - i.e. the default **DI-RE** case.

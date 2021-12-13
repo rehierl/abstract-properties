@@ -8,7 +8,7 @@ hierarchies of strings can be defined as follows.
 <!-- ======================================================================= -->
 ## a forest of strings (F)
 
-A partial setup of strings `S` may be referred to as **a forest of strings**,
+A partial setup of strings `S` may be referred to as **a forest**,
 if the following requirements are met.
 
 * (R0) `S` is a partial setup of strings.
@@ -32,7 +32,7 @@ including none at all.
 <!-- ======================================================================= -->
 ## a hierarchy of strings (H)
 
-A partial setup `S` may be referred to as **a hierarchy of strings**,
+A partial setup `S` may be referred to as **a hierarchy**,
 if the following requirements are met.
 
 * (R0) `S` is a forest of strings.
@@ -40,8 +40,7 @@ if the following requirements are met.
 
 Note that a hierarchy of strings `H` has the following properties.
 
-* `(#RS(H) == 1)` must be true.
-* `(#S > 0)` - A hierarchy is always non-empty.
+* `(#RS(H) == 1)` and `(#S > 0)` must be true.
 * Each string has no ex-or one parent - a superstring.
 * Each string may have any number of child strings - substrings.
 * Any ancestor has more nodes than all of its descendants.

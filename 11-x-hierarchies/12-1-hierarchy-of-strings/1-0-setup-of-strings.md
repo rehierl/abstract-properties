@@ -8,7 +8,7 @@ setups of strings can be defined as follows.
 <!-- ======================================================================= -->
 ## a (simple) setup of strings
 
-A set of strings will be referred to as **a (simple) setup** `S`,
+A set of strings `S` will be referred to as **a (simple) setup**,
 if the following requirements are met.
 
 * (R0) `S` is a set/family of strings.
@@ -58,12 +58,17 @@ a notion of placement in regards to each other.
 <!-- ======================================================================= -->
 ## a partial setup of strings
 
-Assuming the **superstring-of** operator as the basis of the related-to
-operator, a set of strings `S` may be referred to as **a partial setup**,
+A set of strings `S` may be referred to as **a partial setup**,
 if the following requirements are met.
 
 * (R0) `S` is a simple setup of strings.
-* (R1) Any two strings are either disjoint ex-or related.
+* (R1) An ancestor is a superstring to its descendant.
+* (R2) Any two strings are either disjoint ex-or related.
+
+Note that two strings are **related**, if one is a super-string to the other.
+
+* `(a ancestor-of d), (d descendant-of a) := (a superstring-of d)`
+* `(s related-to t) := (s superstring-of t) or (t superstring-of s)`
 
 Note that, due to requirement R1, no string in such a setup may overlap
 another string - i.e. the **DI-RE** case.

@@ -13,7 +13,7 @@ any tree is isomorphic to a hierarchy of trees.
 <!-- ======================================================================= -->
 ## a forest of trees (F)
 
-A partial setup of trees `S` may be referred to as **a forest of trees**,
+A partial setup of trees `S` may be referred to as **a forest**,
 if the following requirements are met.
 
 * (R0) `S` is a partial setup of trees.
@@ -37,7 +37,7 @@ including none at all.
 <!-- ======================================================================= -->
 ## a hierarchy of trees (H)
 
-A partial setup `S` may be referred to as **a hierarchy of trees**,
+A partial setup `S` may be referred to as **a hierarchy**,
 if the following requirements are met.
 
 * (R0) `S` is a forest of trees.
@@ -45,8 +45,7 @@ if the following requirements are met.
 
 Note that a hierarchy of trees `H` has the following properties:
 
-* `(#RS(H) == 1)` must be true
-* `(#S > 0)` - A hierarchy is always non-empty.
+* `(#RS(H) == 1)` and `(#S > 0)` must be true
 * Each tree has no ex-or one parent - a supertree.
 * Each tree may have any number of child trees - subtrees.
 * Any ancestor has more nodes than all of its descendants.
