@@ -13,9 +13,9 @@ as **the T-He isomorphism**.
 
 Note that a hierarchy of edges (He) is defined as a setup of 2-element strings
 such that the related-to operator is defined based on **being able to form a path**
-over the hierarchy's edges. Two edges are thus related, if a path can be formed
-that has the source node of one edge as its own source, and the sink node of
-the other edge as its own sink.
+over the edges in it. Two edges are thus related, if a path can be formed that
+has the source node of one edge as its own source, and the sink node of the
+other edge as its own sink.
 
 Note that two edges in a hierarchy are either related (RE), disjoint (DI)
 ex-or overlap each other (OV). That is, a hierarchy of edges is a specialized
@@ -24,9 +24,9 @@ two cases (i.e. not just one).
 
 Note that this type of hierarchy is **unlike any previous hierarchy** since
 the elements in it are considered to be related with each other, even though
-none is required to be embedded into the other. This is in contrary to a scope
-being a subset to an ancestor, a tree being a subtree to an ancestor, and a
-rooted path being a superstring to an ancestor.
+none is embedded into the other. This is in contrary to a scope being a subset
+to an ancestor, a tree being a subtree to an ancestor, and a rooted path being
+a superstring to an ancestor.
 
 Note that the T-He isomorphism is inteded to underline that a hierarchy of
 elements is itself **not required to be hierarchical**. That is because, a

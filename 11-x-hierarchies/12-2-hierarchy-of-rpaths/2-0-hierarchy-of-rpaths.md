@@ -101,11 +101,11 @@ intersect each other in some other node.
 * `(p1[1] == p2[1]) -> (H1 coupled-with H2)` for `(p1 in H1)` and `(p2 in H2)`
 * `(p1[1] != p2[1]) =?> (H1 disjoint-to H2)`
 
-Note that even though both hierarchies are themselves required to be well formed,
-the order defined by hierarchy H1 might still be in conflict with the order of
-hierarchy H2. However, if both hierarchies can be understood to form a forest
-of hierarchies, then it would be sufficient to only test the first nodes of two
-paths for equality.
+Note that even though both hierarchies are themselves required to be well
+formed, the order defined by hierarchy H1 might still be in conflict with the
+order of hierarchy H2. However, if both hierarchies can be understood to form
+a forest of hierarchies, then it would be sufficient to only test the first
+nodes of two paths for equality.
 
 Note that an arbitrary **subset** of a hierarchy is neither guaranteed to be
 a hierarchy, nor a forest. That is because an arbitrary subset is not required
