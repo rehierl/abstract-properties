@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# about the description "reversed scope"
+# about the description "reversed scopes"
 
 Note that the description of "reversed scopes" is in regards to upward-closed
 open intervals (i.e. `[*,n]`), in contrary to the definiton of default scopes

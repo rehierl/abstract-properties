@@ -12,7 +12,7 @@ which will be referred to as **the T-Hrs isomorphism**.
 
 Note that a hierarchy of reversed scopes (Hrs) is defined as a setup of sets
 such that the related-to operator is based on the **subset-of** operator,
-and such that the sets in it are either related ex-or overlap with each other
+and such that the sets in it are either related with ex-or overlap each other
 (i.e. the **RE-OV** case). Furthermore, each set in Hrs is required to have
 one and only one characteristic element **CE**.
 

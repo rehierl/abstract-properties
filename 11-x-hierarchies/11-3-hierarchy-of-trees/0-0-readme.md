@@ -12,9 +12,9 @@ will be referred to as **the T-Ht isomorphism**.
 
 Note that a hierarchy of trees (Ht) is defined as a setup of induced subtrees
 such that the related-to operator is based on the **supertree-of** operator,
-and such that its trees are either disjoint ex-or related with each other
-(i.e. the **DI-RE** case). Furthermore, the characteristic element **CE**
-of each induced subtree is required to be its root node.
+and such that its trees are either disjoint ex-or related with each other (i.e.
+the **DI-RE** case). Furthermore, the characteristic element **CE** of each
+induced subtree is required to be its root node.
 
 Note that the induced subtree that has the source tree's root as its root is
 an element in Ht. That is, the source tree T is itself a tree in Ht. Because

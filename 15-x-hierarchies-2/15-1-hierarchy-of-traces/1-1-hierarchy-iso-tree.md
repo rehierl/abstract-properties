@@ -43,7 +43,7 @@ of pre-order traces. After all, each tree `T` is isomorphic to a hierarchy of
 scopes `Hs` - i.e. the T-Hs isomorphism.
 
 <!-- ======================================================================= -->
-## decoding a doctree's child order
+## decoding the doctree's child order
 
 Recall that the child order of a doctree is embedded into the pre-order trace
 of its root, and also partially into the pre-order traces of every other node.

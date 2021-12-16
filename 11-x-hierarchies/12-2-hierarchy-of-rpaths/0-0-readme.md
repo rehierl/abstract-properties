@@ -6,7 +6,7 @@ T <-> Hrp
 ```
 
 A tree (T) can be used to form a hierarchy of rooted paths (Hrp) such that
-the source ree can be recreated based on the relationships between its paths.
+the source tree can be recreated based on the relationships between its paths.
 That is, each tree is isomorphic to a hierarchy of rooted paths, which will
 be referred to as **the T-Hrp isomorphism**.
 
