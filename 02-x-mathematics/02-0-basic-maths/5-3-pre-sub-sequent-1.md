@@ -6,12 +6,12 @@
 s := (.., x, .., e, .., y, ..)
      |<----------|---------->|
         "current" element e
-     presequent     subsequent
+      presequent | subsequent
 ```
 
 With each sequence a notion of "order" is associated. That is because when
 focussing on an element `e` at a specific index, one can determine all the
-other elements that appear before (e.g. `x`) or after (e.g. `y`) the gvien
+other elements that appear before (e.g. `x`) or after (e.g. `y`) the given
 element.
 
 * `(x presequent-to e) := (idx(x) < idx(e))`
@@ -85,7 +85,7 @@ with each other (thus the description as "partial").
 ## issues with presequent/subsequent
 
 The issue with these "notions" is however, if the elements within a sequence
-are allowed to appear multiple times. Since the descriptions "presequent" and
+are allowed to appear more than once. Since the descriptions "presequent" and
 "subsequent" then allow to derive seemingly conflicting statements.
 
 ```
@@ -110,8 +110,9 @@ to ignore that idx(e) always returns the index of the 1st occurrence).
 
 Based on that, and even though both components in the sequence hold the exact
 same element `e` (i.e. `e` is identical to itself), one would have to treat
-each occurrence of `e` within the sequence differently. For example by
-suffixing the element reference with an index-of-occurrence.
+each occurrence of `e` within the sequence differently - e.g. as distinct
+instances of the same element - e.g. by suffixing the element reference with
+an index-of-occurrence.
 
 * `e1` := the 1st occurrence of `e` in `s`
 * `eN` := the n-th occurrence of `e` in `s`

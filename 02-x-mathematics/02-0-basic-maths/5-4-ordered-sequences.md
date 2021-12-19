@@ -27,7 +27,7 @@ sequences can therefore also be described as **ordered sequences**, or as
 
 * `(s(i) < s(j)) := (i < j)` for `(i,j in [1,#s])`
 
-Note that sequences that contain elements more than once, may be described
+Note that sequences which contain elements more than once, may be described
 as **non-ordered** or as **non-linear sequences**. Based on that, one can
 highlight that these sequences do in general not correspond with total orders.
 
@@ -38,8 +38,8 @@ out that each of these sequences are understood to define total orders of
 elements. As such, ordered sequences can be understood to be closely related
 to ordered sets of elements. (see - **order theory**).
 
-Note that, similar to describing a set as a "simple set" or an "ordered set",
-a sequence that does not disallow repeated occurrences (i.e. elements may appear
+Note that, similar to describing a set as a "simple set" or as an "ordered
+set", a sequence that allows repeated occurrences (i.e. elements may appear
 more than once), may be described as **a simple sequence**.
 
 <!-- ======================================================================= -->
@@ -67,9 +67,7 @@ element is retained. That is, every other occurence of an element is dropped.
 * `(#s == #E(s))` is not true
 * `(#R(s) == #E(s))` is true
 
-Note that the reduce() operation is understood to return a subsequence to the
-source sequence.
-
-With that operation in mind, one can detect potential issues by comparing the
-length values of the source sequence with the length value of its reduced
-sequence; i.e. there is a potential issue if `(#reduce(s) < #s)` is true.
+Note that the reduce() operation is understood to return a sub-sequence of the
+source sequence. With that in mind, one can detect potential issues by comparing
+the length values of the source sequence with the length value of its reduced
+sequence - i.e. there is a potential issue if `(#reduce(s) < #s)` is true.
