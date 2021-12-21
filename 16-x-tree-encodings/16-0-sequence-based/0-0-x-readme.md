@@ -3,25 +3,28 @@
 # sequence-based tree encodings
 
 Each path over a tree, as an ordered sequence of nodes, can be understood to
-encode a path graph and therefore a linear subtree of the source tree. After
-all, any two adjacent nodes within a path can be understood to define an edge.
+encode a path graph and thus a linear subtree of the source tree. After all,
+any two adjacent nodes in a path can be understood to define an edge. Because
+of that, this kind of encoding may be described as a **path-based encoding**.
 
-Note that such an encoding can be described as an **explicit encoding** since
-the definition of the edges are more or less directly encoded. That is, these
-definitions can be read as-is, which is why the definition of the edges do not
-have to be derived from some other implicit/embedded encoding such as a
+Note that since the definition of each edge is more or less directly encoded,
+each edge can be read as-is. That is, the definition of the edges do not first
+have to be decoded from some other implicit/embedded encoding such as a
 compressed data stream.
 
-An alternative is to associate a trace of nodes with a sequence of index values
-such that each index in it references the **child-of** the corresponding node.
-Since this encoding can be described as a deflated version of the path-based
-encoding, this **reference-based encoding** is of limited use. After all, it
-only allows to define one child per parent.
+An alternative would be to associate a trace of nodes with a sequence of index
+values such that each index in it points to the **child** of the corresponding
+node entry. This **reference-based encoding** scheme is however of limited use
+since (by default) it only supports one child per node.
 
-Another alternative is to associate a trace of nodes with a sequence of index
-values such that each index in it references the **parent-of** a node. Since
-this encoding can be used to define any node tree, including an associated
-child order, it will be assumed as the **default encoding** of a tree.
+A different alternative would be to associate a trace of nodes with a sequence
+of indexes such that each index points to the **parent** of a node entry. Since
+this encoding can be used to define any node tree, including the child order
+of a document tree, it will be assumed as the **default encoding** of a tree.
 
-Note that many more explicit encodings are obviously possible.
-Amongst these are adjacency matrices and explicit lists of edge definitions.
+Note that many more explicit encodings are obviously possible. Amongst these
+are adjacency matrices and explicit lists of edge definitions, each of which
+has its particular advantages and disadvantages in regards to accessing the
+data stored within it. With that in mind, the focus of the above default
+encoding is on serializing and deserializing the structure of a tree in a
+single sequence of numerical values.
