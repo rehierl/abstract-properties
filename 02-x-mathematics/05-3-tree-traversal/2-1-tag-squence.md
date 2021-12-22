@@ -6,7 +6,7 @@ A document tree can be serialized in to a character-based sequence of strings,
 if the enter- and exit-events are used to produce start-tags `<$name $attribs>`
 and end-tags `<$name>` as roughly outlined below.
 
-```
+```js
 tagSequenceOf(root) being
   sequence = ()
 

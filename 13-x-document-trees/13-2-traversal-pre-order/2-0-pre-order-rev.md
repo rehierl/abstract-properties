@@ -2,7 +2,7 @@
 <!-- ======================================================================= -->
 # the reversed pre-order tree traversal (R)
 
-```
+```js
 //- the default pre-order traversal
 traverseInPreOrderR(node) begin
   visit(node)

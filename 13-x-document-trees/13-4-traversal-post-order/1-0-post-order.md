@@ -2,7 +2,7 @@
 <!-- ======================================================================= -->
 # the default post-order tree traversal (D)
 
-```
+```js
 //- the default post-order traversal
 traverseInPostOrder(node) begin
   for(child in node.childNodes) begin

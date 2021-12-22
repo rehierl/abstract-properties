@@ -8,7 +8,7 @@ is appended to the sequence at the time it is being visited. Because of that,
 such a trace of nodes reflects the path the traversal algorithm took through
 the tree when visiting each node one after another.
 
-```
+```js
 preOrderTraceOf(root) begin
   trace = ()
 

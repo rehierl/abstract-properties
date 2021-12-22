@@ -2,7 +2,7 @@
 <!-- ======================================================================= -->
 # the (default) level-order tree traversal
 
-```
+```js
 //- the default level-order traversal
 traverseInLevelOrder(root) begin
   queue = new Queue()

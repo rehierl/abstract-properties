@@ -38,7 +38,7 @@ execution may loosely be described as "overall in child order".
 Note that both rules effectively describe how to form new sequences of sbilings,
 based on a node and two input sequences, by adding an additional edge in between
 the last node of one sequence and the first node of the other. As such, one may
-describe the embedding of an additional edge as an **ordering rule**. That may
+describe the embedding of an additional edge as an **ordering rule** that may
 or may not be paired with a particular **order of execution**.
 
 Note that the **pre-order** and the **level-order** tree traversals are the
@@ -47,5 +47,5 @@ corresponds with a hierarchy of scopes, whereas the level-order traversal is
 overall a sequence of disjoint child orders and thus non-hierarchical.
 
 Note that an **in-order** tree traversal is not in the focus of this discussion.
-That is because such a traversal will visit a node after its first child, which
-is why such a traversal is not order-preserving.
+That is because such a traversal is not order-preserving since it will visit
+a node after its first child.

@@ -39,13 +39,13 @@ is why only root nodes may have such an invalid parent reference.
 
 Note that the index values in `d` are lower than the corresponding values in
 `r`. Because of that, this scheme may be described as being **backward-oriented**.
-Hence, an index value of `0`, as the only invalid index allowed, would be
+An index value of `0`, as the only invalid index allowed, would therefore be
 appropriate for the invalid reference (x), which would then overall be a
 constant reference.
 
 Note that, as before, the orientation greatly **depends on the tree traversal**
-algorithm that was used to form the above sequences, which will in general be a
-"root to leaf" oriented traversal (i.e. in tree order).
+algorithm that was used to form the above sequences, which will in general be
+a "root to leaf" oriented traversal (i.e. in tree order).
 
 <!-- ======================================================================= -->
 ## pro - one parent only

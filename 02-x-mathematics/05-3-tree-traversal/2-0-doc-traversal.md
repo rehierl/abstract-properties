@@ -7,7 +7,7 @@ the document tree must be traversed in document order. That traversal order is,
 as can be seen below, a combination of the default pre-order and post-order
 tree traversal.
 
-```
+```js
 traverseInDocOrder(node) begin
   onEnter(node)
 

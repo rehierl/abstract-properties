@@ -2,7 +2,7 @@
 <!-- ======================================================================= -->
 # the reversed post-order tree traversal (R)
 
-```
+```js
 //- the reversed post-order traversal
 traverseInPostOrderRev(node) begin
   for(child in node.childNodesRev) begin

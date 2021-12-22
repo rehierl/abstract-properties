@@ -13,7 +13,7 @@ if one is available.
 <!-- ======================================================================= -->
 ## pre-order tree traversal
 
-```
+```js
 //- the default pre-order tree traversal
 traverseInPreOrder(node) begin
   visit(node)
@@ -34,13 +34,12 @@ is **order preserving**.
 
 Note that "a pre-order tree traversal" must not be confused with "the preorder
 of an ordered set of elements". The former does not define an actual ordered
-set of elements, whereas the latter is in regards to a reflexive transitive
-order relation.
+set of elements, whereas the latter is in regards to an order relation.
 
 <!-- ======================================================================= -->
 ## post-order tree traversal
 
-```
+```js
 //- the default post-order tree traversal
 traverseInPostOrder(node) begin
   for(child in node.childNodes) begin
@@ -54,16 +53,16 @@ The (default) post-order tree traversal will visit a node after all of its
 descendant nodes have been be visited. Hence, the description as post-order
 (i.e. "post-" as in "last").
 
-Note that the (default) post-order tree traversal will not visit the nodes in
-tree order (ancestors before descendants). That is because the descendants of
-a node will be visited before the node is being visited. Consequently, and
+Note that the (default) post-order tree traversal will *not* visit the nodes
+in tree order (ancestors before descendants). That is because the descendants
+of a node will be visited before the node is being visited. Consequently, and
 even though the child order (if one exists) is preserved, the overall tree
 traversal is **not order preserving**.
 
 <!-- ======================================================================= -->
 ## in-order tree traversal
 
-```
+```js
 //- the default in-order tree traversal
 traverseInOrder(node) begin
   visit(node.leftChild)
@@ -72,7 +71,7 @@ traverseInOrder(node) begin
 end
 ```
 
-The (default) in-order tree traversal in general applies only to binary trees
+The (default) in-order tree traversal in general only applies to binary trees
 (two child nodes only). It will visit a node after its 1st has been visited
 and before its 2nd child will be visited. Hence, the description as in-order
 (i.e. "in-" as in "in between").
@@ -83,12 +82,16 @@ child will be visited before a node itself will be visited. Consequently,
 and even though the child order (if one exists) is preserved, the overall
 tree traversal is **not order preserving**.
 
-```
+```js
 //- a modified in-order tree traversal
 traverseInOrderMod(node) begin
   for(child in node.childNodes) begin
+    //- before each child
     visit(node)
+    //- visit the current child
     traverseInOrderMod(child)
+    //- and/or after each child
+    visit(node)
   end
 end
 ```
