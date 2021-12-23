@@ -1,6 +1,4 @@
 
-- continue here ...
-
 showcase - Hpre-ser
 - since that allows to directly transition
   to the length-based encoding
@@ -20,3 +18,7 @@ implementations
 - a stack-of-stacks is consistent with the scope closing order
 - if exit-events of multiple scopes match the same end-tag?
 - hint - last opened, first closed - a consequence of DI-RE
+
+an order-preserving tree traversal must be used
+- no operation executed while traversing a tree
+  may produce conflicting results

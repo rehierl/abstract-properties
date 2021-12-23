@@ -12,8 +12,8 @@ child order, and ends in leaf `l`.
 * `trace(T) := (r, fc, .., lc, .., l)`
 
 Note that no clarification can be made in regards to leaf `l`. That is because,
-depending on the tree's structure, leaf `l` can be a descendant of any child of
-the tree's root.
+depending on the tree's structure, leaf `l` can be a descendant of any child
+of the tree's root.
 
 <!-- ======================================================================= -->
 ## node levels

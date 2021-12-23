@@ -7,6 +7,10 @@ todo, about
   a hierarchy of traces and
   a sequence of length values
 
+an in-order tree traversal
+- visits a node multiple times
+- e.g. count the descendants
+
 pre-order
 - in regards to streaming large documents
 - expands the distance between a node and its next sibling

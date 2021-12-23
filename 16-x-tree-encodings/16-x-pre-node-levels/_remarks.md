@@ -35,7 +35,6 @@ level values vs. rank values
 
 question ?!?
 - is there a transition from DI-RE to RE-OV
--
 
 a generalized point-of-view
 - level values allow to form groups of elements

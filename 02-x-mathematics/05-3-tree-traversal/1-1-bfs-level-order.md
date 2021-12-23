@@ -9,15 +9,15 @@ specified root node.
 ```js
 //- the default level-order tree traversal
 traverseBFS(root) begin
-  queue = new Queue()
-  queue.enqueue(root)
+  next = new Queue()
+  next.enqueue(root)
 
-  while (not queue.isEmpty) begin
-    node = queue.dequeue()
+  while (next.isEmpty() == false) begin
+    node = next.dequeue()
     visit(node)
 
     for (child in node.childNodes) begin
-      queue.enqueue(child)
+      next.enqueue(child)
     end
   end
 end

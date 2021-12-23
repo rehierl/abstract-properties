@@ -1,6 +1,20 @@
 
-<!-- ======================================================================= -->
-## level-order
+# level order
+
+a level-order encoding (lvl-co)
+- group-ids in order to denote a child order
+
+note that ..
+- all child orders are substrings to the level-order trace
+- compression - e.g. a sequence of (count,parent) intervals
+- two numbers per non-empty child order
+
+grouping
+- using group-ids as the elements in a sequence
+  allows to group the actual elements, which
+  can be identified by the corresponding index
+
+# level-order
 
 - a parent may have any number of child nodes
 - no child at all, one child only, ..

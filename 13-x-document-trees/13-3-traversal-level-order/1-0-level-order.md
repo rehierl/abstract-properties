@@ -5,15 +5,18 @@
 ```js
 //- the default level-order traversal
 traverseInLevelOrder(root) begin
-  queue = new Queue()
-  queue.enqueue(root)
+  next = new Queue()
+  next.enqueue(root)
 
-  while (not queue.isEmpty) begin
-    node = queue.dequeue()
+  while (next.isEmpty() == false) begin
+    node = next.dequeue()
+
+    //- visit the current node
     visit(node)
 
-    for (child in node.childNodes) begin
-      queue.enqueue(child)
+    //- visit the child nodes
+    for (child in next.childNodesFTL) begin
+      next.enqueue(child)
     end
   end
 end
@@ -49,8 +52,8 @@ n -|-> (ns .. ls)     =>     -> n × (ns .. ls) × (fc .. lc)
 Note that the level-order tree traversal is included as a dual counterpart to
 the pre-order rule. However, even though it is order-preserving, it is not in
 the focus of this discussion. That is because it does not keep a node and its
-descendants in close proximity. Because of that, it does not contain a hierarchy
-of substrings.
+descendants in close proximity. Because of that, it does not contain a
+hierarchy of substrings.
 
 <!-- ======================================================================= -->
 ## order of execution

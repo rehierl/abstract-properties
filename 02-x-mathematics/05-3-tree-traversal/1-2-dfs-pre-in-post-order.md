@@ -77,19 +77,19 @@ and before its 2nd child will be visited. Hence, the description as in-order
 (i.e. "in-" as in "in between").
 
 Note that the (default) in-order tree traversal will not visit the nodes in
-tree order (ancestors before descendants). That is because a node's first
-child will be visited before a node itself will be visited. Consequently,
-and even though the child order (if one exists) is preserved, the overall
-tree traversal is **not order preserving**.
+tree order (ancestors before descendants). That is because a node's first child
+will be visited before a node itself will be visited. Consequently, and even
+though the child order (if one exists) is preserved, the overall tree traversal
+is **not order preserving**.
 
 ```js
-//- a modified in-order tree traversal
-traverseInOrderMod(node) begin
+//- the default in-order tree traversal
+traverseInOrder(node) begin
   for(child in node.childNodes) begin
     //- before each child
     visit(node)
     //- visit the current child
-    traverseInOrderMod(child)
+    traverseInOrder(child)
     //- and/or after each child
     visit(node)
   end

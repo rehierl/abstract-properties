@@ -12,7 +12,7 @@ the tree when visiting each node one after another.
 preOrderTraceOf(root) begin
   trace = ()
 
-  traversInPreOrder(node) begin
+  traverseInPreOrder(node) begin
     trace.append(node)
 
     for (child in node.childNodes) begin

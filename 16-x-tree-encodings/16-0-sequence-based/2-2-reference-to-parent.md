@@ -27,15 +27,15 @@ Furthermore, `(#r == #N)` is at this point not (yet) required to be true.
 Note that, due to its versatility (as discussed below), this encoding scheme
 can be understood as **the default explicit encoding scheme**.
 
-Recall that "a parent" (not "the") is defined as the source of an incoming
-edge. Because of that, any node may in general be associated with any number
-of such edges, which is why one can by default not speak of "the parent" of
-a node since in general, more than one such node may exist for any given node.
+Recall that "a parent" (not "the") is defined as the source of an incoming edge.
+Because of that, any node may in general be associated with any number of such
+edges, which is why one can by default not speak of "the parent" of a node
+since in general, more than one such node may exist for any given node.
 
-Recall that an index value (x) is used to denote an invalid index such that
-it does not map to any node in `n`. In regards to this encoding scheme, such
-an index is used to denote that the corresponding node has no parent, which
-is why only root nodes may have such an invalid parent reference.
+Recall that an index value (x) is used to denote an invalid index such that it
+does not map to any node in `n`. In regards to this encoding scheme, such an
+index is used to denote that the corresponding node has no parent, which is
+why only root nodes may have such an invalid parent reference.
 
 Note that the index values in `d` are lower than the corresponding values in
 `r`. Because of that, this scheme may be described as being **backward-oriented**.

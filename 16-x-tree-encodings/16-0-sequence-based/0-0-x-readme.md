@@ -22,9 +22,9 @@ of indexes such that each index points to the **parent** of a node entry. Since
 this encoding can be used to define any node tree, including the child order
 of a document tree, it will be assumed as the **default encoding** of a tree.
 
-Note that many more explicit encodings are obviously possible. Amongst these
-are adjacency matrices and explicit lists of edge definitions, each of which
-has its particular advantages and disadvantages in regards to accessing the
-data stored within it. With that in mind, the focus of the above default
-encoding is on serializing and deserializing the structure of a tree in a
-single sequence of numerical values.
+Note that more explicit encodings are obviously possible. Amongst these are
+adjacency matrices and explicit lists of edge definitions, each of which
+has its particular advantages and disadvantages in regards to processing
+the data stored within. With that in mind, the focus of the parent-based
+default encoding scheme is on serializing and deserializing the structure
+of a tree in a single sequence of numerical values.

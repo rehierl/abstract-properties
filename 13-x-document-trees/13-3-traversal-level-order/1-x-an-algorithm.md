@@ -21,20 +21,20 @@ Note that the algorithm is queue-based.
 ```js
 traceInLevelOrder(tree) begin
   r = root(tree)
-  next = queue()
-  next.append(r)
+  next = new Queue()
+  next.enqueue(r)
   t = ()
 
   while(next.isEmpty() == false) begin
     //- pop and "visit" the next node
-    n = next.pop()
+    n = next.dequeue()
 
     //- visit node n
     t = t.append(n)
 
     //- append the child nodes (in order)
     for (co=co(n), i=1; (i<=co.length); i++) begin
-      next.append(co[i])
+      next.enqueue(co[i])
     end
   end
 
