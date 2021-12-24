@@ -1,4 +1,8 @@
 
+child order
+- including the parent as first node
+- would more closely match the concept of scope
+
 showcase - Hpre-ser
 - since that allows to directly transition
   to the length-based encoding

@@ -5,41 +5,49 @@
 ```
        a           reversed post-order
 ---------------    ----------------------------------------
- b    c      h     i  h  g  f  e  d  c  b  a - n, nodes
-    -----   ---    1  2  3  4  5  6  7  8  9 - r, node.id
-    d   e    i     2  9  5  5  7  7  9  9  x - d, parent.id
+ b    c      h     i  h  g  f  e  d  c  b  a - n, trace
+    -----   ---    1  2  3  4  5  6  7  8  9 - r, node.idx
+    d   e    i     2  9  5  5  7  7  9  9  x - d, parent.idx
       -----
       f   g
 ```
 
-Note that these sequences can be formed by the following algorithm.
+<!-- ======================================================================= -->
+## encoding
+
+The above sequences can be formed by the following algorithm.
 
 ```js
-//- the default post-order traversal
-traverseInPreOrder(root) begin
+encode(root) begin
   n=(), r=(), d=()
 
-  visitInPreOrderLTF(node) begin
+  visitInPostOrderLTF(node) begin
     //- visit the child nodes
     for (child in node.childNodesLTF) begin
-      visitInPreOrderLTF(child)
+      visitInPostOrderLTF(child)
     end
 
     //- visit the current node
     n.append(node)
-    node.id = n.length
-    r.append(node.id)
+    node.idx = n.length
   end
 
-  visitInPreOrderLTF(root)
+  visitInPostOrderLTF(root)
 
   for (node in n) begin
-    d.append(node.parentNode.id)
+    r.append(node.idx)
+    d.append(node.parentNode.idx)
   end
 
-  return n,r,d
+  return n,d
 end
 ```
 
 <!-- ======================================================================= -->
-## remarks
+## decoding
+
+Note that, as above, this decoding algorithm would only differ from the
+algorithm of the default traversal in the expression that adds the current
+node as a child to its parent. Hence, no pseudocode will be listed.
+
+* `.addAsFirstChild()` instead of `.addAsLastChild()`
