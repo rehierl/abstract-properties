@@ -45,9 +45,9 @@ i  h  g  f  e  d  c  b  a - n, trace           <-|
 ## overall remarks
 
 Note that each parent reference can be described as the instance of an abstract
-property that was used to **mark** (or color, highlight) all those nodes that
-belong to the same child order. This is most visible in the sequence of parent
-references of the level-order tree traversal.
+property that was used to **mark** (or group, color, highlight) all those nodes
+that belong to the same child order. This is most visible in the sequence of
+parent references of the level-order tree traversal.
 
 Note that the default pre-order (PRE) trace is equal to reversed sequence of
 the reversed post-order (POSTR) trace. Similar to that, the default post order

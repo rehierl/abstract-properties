@@ -12,6 +12,10 @@
       f   g
 ```
 
+Recall that a level-order trace can be described as a sequence of child orders,
+which is why each child order is a substring to the corresponding trace of
+nodes.
+
 <!-- ======================================================================= -->
 ## encoding
 
