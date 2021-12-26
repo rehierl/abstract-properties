@@ -3,23 +3,23 @@
 # the parent-based encoding, in default post-order
 
 ```
-       a           default post-order
----------------    -----------------------------------------
- b    c      h     b  d  f  g  e  c  i  h  a - n, trace
-    -----   ---    1  2  3  4  5  6  7  8  9 - r, node.idx
-    d   e    i     9  6  5  5  6  9  8  9  x - d, parent.idx
-      -----
-      f   g
+default post-order (POST)                           a
+-----------------------------------------    ---------------
+b  d  f  g  e  c  i  h  a - n, trace          b    c      h
+1  2  3  4  5  6  7  8  9 - r, node.idx          -----   ---
+9  6  5  5  6  9  8  9  x - par, parent.idx      d   e    i
+                                                   -----
+                                                   f   g
 ```
 
 <!-- ======================================================================= -->
 ## encoding
 
-The above sequences can be formed by the following algorithm.
+Sequences `n`, `r` and `par` can be formed as follows.
 
 ```js
 encode(root) begin
-  n=(), r=(), d=()
+  n=(), r=(), par=()
 
   visitInPostOrderFTL(node) begin
     //- visit the child nodes
@@ -36,10 +36,12 @@ encode(root) begin
 
   for (node in n) begin
     r.append(node.idx)
-    d.append(node.parentNode.idx)
+
+    parRef = node.parentNode.idx
+    par.append(parRef)
   end
 
-  return n,d
+  return n,par
 end
 ```
 
@@ -59,39 +61,39 @@ the computational complexity compared to LVL, PRE and PRER.
 The encoded tree can be recreated as follows.
 
 ```js
-decode(n, d) begin
-  assert((0 < #n) and (#n == #d))
-  assert(d[#d] <= 0)
+decode(n, par) begin
+  assert((0 < #n) and (#n == #par))
+  assert(par[#par] <= 0)
   nodes=(), roots=()
 
   //- first, create all node objects
-  for(i=1 to #n) begin
+  for (i=1 to #n) begin
     current = new Node(n[i])
     nodes.add(current)
   end
 
   //- interconnect the node objects
-  for(i=1 to #n) begin
+  for (i=1 to #n) begin
     current = nodes[i]
-    parentRef = d[i]
+    parRef = par[i]
 
     //- a root node
-    if (parentRef > #n) begin
+    if (parRef > #n) begin
       roots.add(current)
       continue
     end
 
     //- an invalid reference
-    if (parentRef <= 0) begin
+    if (parRef <= 0) begin
       assert(false)
     end
 
     //- a cyclic graph
-    if (parentRef >= i) begin
+    if (parRef >= i) begin
       assert(false)
     end
 
-    parent = nodes[parentRef]
+    parent = nodes[parRef]
     parent.addAsLastChild(current)
   end
 

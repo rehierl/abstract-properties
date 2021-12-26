@@ -3,23 +3,23 @@
 # the parent-based encoding, in reversed post-order
 
 ```
-       a           reversed post-order
----------------    ----------------------------------------
- b    c      h     i  h  g  f  e  d  c  b  a - n, trace
-    -----   ---    1  2  3  4  5  6  7  8  9 - r, node.idx
-    d   e    i     2  9  5  5  7  7  9  9  x - d, parent.idx
-      -----
-      f   g
+reversed post-order (POSTR)                         a
+-----------------------------------------    ---------------
+i  h  g  f  e  d  c  b  a - n, trace          b    c      h
+1  2  3  4  5  6  7  8  9 - r, node.idx          -----   ---
+2  9  5  5  7  7  9  9  x - par, parent.idx      d   e    i
+                                                   -----
+                                                   f   g
 ```
 
 <!-- ======================================================================= -->
 ## encoding
 
-The above sequences can be formed by the following algorithm.
+Sequences `n`, `r` and `par` can be formed as follows.
 
 ```js
 encode(root) begin
-  n=(), r=(), d=()
+  n=(), r=(), par=()
 
   visitInPostOrderLTF(node) begin
     //- visit the child nodes
@@ -36,10 +36,12 @@ encode(root) begin
 
   for (node in n) begin
     r.append(node.idx)
-    d.append(node.parentNode.idx)
+
+    parRef = node.parentNode.idx
+    par.append(parRef)
   end
 
-  return n,d
+  return n,par
 end
 ```
 

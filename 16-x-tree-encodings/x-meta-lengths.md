@@ -16,3 +16,9 @@ pre-order
 - expands the distance between a node and its next sibling
 - which increases the total number of descendants
 - not accurate - there may be descendants behind a last child
+
+sequences can be used to define trees (?)
+- nested intervals - (f: Index -> Length)
+- (a,b) = the pre-order trace of (a) has length (b)
+- i.e. stretches over the next (b) nodes
+- i.e. a length-based encoding

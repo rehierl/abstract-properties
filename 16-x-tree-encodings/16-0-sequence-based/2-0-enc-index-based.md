@@ -131,5 +131,6 @@ by the index of the corresponding node in `n`.
 Note that, since a path more or less directly defines the edges in a path
 graph, that kind of encoding may be described as a **direct encoding**, or
 as an **explicit encoding**. That is because the edges in such an encoding
-do not first have to be derived - e.g. from an implicit/embedded encoding
-such as compressed data.
+do not first have to be derived - from an **embedded encoding** such as
+compressed data - or an **implicit encoding** such as a sequence of level
+values.

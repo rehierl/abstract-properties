@@ -3,29 +3,34 @@
 # the parent-based encoding, in level order
 
 ```
-       a           level-order
----------------    ----------------------------------------x
- b    c      h     a  b  c  h  d  e  i  f  g - n, trace
-    -----   ---    1  2  3  4  5  6  7  8  9 - r, node.idx
-    d   e    i     x  1  1  1  3  3  4  6  6 - d, parent.idx
-      -----
-      f   g
+default level-order (LEVEL)                         a
+-----------------------------------------    ---------------
+a  b  c  h  d  e  i  f  g - n, trace          b    c      h
+1  2  3  4  5  6  7  8  9 - r, node.idx          -----   ---
+x  1  1  1  3  3  4  6  6 - par, parent.idx      d   e    i
+                                                   -----
+                                                   f   g
 ```
 
 Recall that a level-order trace can be described as a sequence of child orders,
 which is why each child order is a substring to the corresponding trace of
 nodes.
 
+Note that the first node of a default level-order trace is always the tree's
+root. In contrary to that, the last node of such a trace is not necessarily
+a descendant of the root's last child. That is because the last node may be
+a descendant of any child of tree's root.
+
 <!-- ======================================================================= -->
 ## encoding
 
-The above sequences can be formed by the following algorithm.
+Sequences `n`, `r` and `par` can be formed as follows.
 
 ```js
 encode(root) begin
   next = new Queue()
   next.enqueue(root)
-  n=(), r=(), d=()
+  n=(), r=(), par=()
 
   while (next.isEmpty() == false) begin
     //- pop the node from the front
@@ -33,9 +38,12 @@ encode(root) begin
 
     //- visit the current node
     n.append(node)
+
     node.idx = n.length
     r.append(node.idx)
-    d.append(node.parentNode.idx)
+
+    parRef = node.parentNode.idx
+    par.append(parRef)
 
     //- visit the child nodes
     for (child in node.childNodesFTL) begin
@@ -44,25 +52,29 @@ encode(root) begin
     end
   end
 
-  //- sequences n,r,d are now complete
+  //- sequences n,r,par are now complete
   //- sequence 'r' is not required
-  return n,d
+  return n,par
 end
 ```
 
-Note that the expression `node.idx = n.length` is used to associate the
-reference value of the current node with its node object. Based on that,
-and given the node object, one can retrieve the value of the corresponding
-reference.
+Note that the expression `n.append(node)` must be understood such that some
+node definition is appended to sequence `n`, rather than an actual node object.
+This definition can then be used to recreate each node using expressions such
+as `new Node(n[i])` - see below.
 
-Note that this approach is used by the above pseudocode for its simplcitiy.
-A clean approach would however require to store object-to-value pairs in a
-separate hashtable since the corresponding values would then be automatically
-dropped once the encoding process is done.
+Note that the expression `node.idx = n.length` is used to associate the 1-based
+index value as a new property to the corresponding node object. Based on that,
+and given a node, one can retrieve the value of the node's parent reference.
+
+Note that this JavaScript-based approach is used by the above pseudocode for
+its simplcitiy. A clean approach would require to store object-to-value pairs
+in a separate hashtable since the corresponding values will then be dropped
+automatically, once the encoding process is done.
 
 Note that the document tree's root obviously has no parent of its own. Hence,
-the `d.append(node.parentNode.idx)` line will usually trigger an error. As a
-matter of clarity, this line is kept as is.
+the `node.parentNode.idx` line will usually trigger an error. As a matter of
+clarity, this line is kept as is.
 
 <!-- ======================================================================= -->
 ## decoding
@@ -70,9 +82,9 @@ matter of clarity, this line is kept as is.
 The encoded tree can be recreated as follows.
 
 ```js
-decode(n, d) begin
-  assert((0 < #n) and (#n == #d))
-  assert(d[1] <= 0)
+decode(n, par) begin
+  assert((0 < #n) and (#n == #par))
+  assert(par[1] <= 0)
   nodes=(), roots=()
 
   for (i=1 to #n) begin
@@ -80,25 +92,25 @@ decode(n, d) begin
     //  to create actual node objects
     current = new Node(n[i])
     nodes.add(current)
-    parentRef = d[i]
+    parRef = par[i]
 
-    if (parentRef <= 0) begin
+    if (parRef <= 0) begin
       //- an invalid parent reference
       //- treat the current node as a root
       roots.add(current)
       continue
     end
 
-    if (parentRef > #n) or (parentRef >= i) begin
+    if (parRef > #n) or (parRef >= i) begin
       //- the parent reference of the current node
       //  is forward-oriented, which indicates a
       //  serious input error, or a cyclic graph
       assert(false)
     end
 
-    //- (parentRef in (0,i)) is guaranteed to be true
+    //- (parRef in (0,i)) is guaranteed to be true
     //- the first reference must have been invalid
-    parent = nodes[parentRef]
+    parent = nodes[parRef]
 
     //- add the current node as a child to the end
     //  of the parent's list of child nodes

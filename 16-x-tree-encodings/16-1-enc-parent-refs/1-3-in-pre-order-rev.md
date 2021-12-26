@@ -3,30 +3,33 @@
 # the parent-based encoding, in reversed pre-order
 
 ```
-       a           reversed pre-order
----------------    -----------------------------------------
- b    c      h     a  h  i  c  e  g  f  d  b - n, trace
-    -----   ---    1  2  3  4  5  6  7  8  9 - r, node.idx
-    d   e    i     x  1  2  1  4  5  5  4  1 - d, parent.idx
-      -----
-      f   g
+reversed pre-order (PRER)                           a
+-----------------------------------------    ---------------
+a  h  i  c  e  g  f  d  b - n, trace          b    c      h
+1  2  3  4  5  6  7  8  9 - r, node.idx          -----   ---
+x  1  2  1  4  5  5  4  1 - par, parent.idx      d   e    i
+                                                   -----
+                                                   f   g
 ```
 
 <!-- ======================================================================= -->
 ## encoding
 
-The above sequences can be formed by the following algorithm.
+Sequences `n`, `r` and `par` can be formed as follows.
 
 ```js
 encode(root) begin
-  n=(), r=(), d=()
+  n=(), r=(), par=()
 
   visitInPreOrderLTF(node) begin
     //- visit the current node
     n.append(node)
+
     node.idx = n.length
     r.append(node.idx)
-    d.append(node.parentNode.idx)
+
+    parRef = node.parentNode.idx
+    par.append(parRef)
 
     //- visit the child nodes
     for (child in node.childNodesLTF) begin
@@ -35,7 +38,7 @@ encode(root) begin
   end
 
   visitInPreOrderLTF(root)
-  return n,d
+  return n,par
 end
 ```
 
