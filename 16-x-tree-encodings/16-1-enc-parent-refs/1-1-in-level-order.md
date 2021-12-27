@@ -13,8 +13,7 @@ x  1  1  1  3  3  4  6  6 - par, parent.idx      d   e    i
 ```
 
 Recall that a level-order trace can be described as a sequence of child orders,
-which is why each child order is a substring to the corresponding trace of
-nodes.
+which is why each child order is a substring to the trace of nodes.
 
 Note that the first node of a default level-order trace is always the tree's
 root. In contrary to that, the last node of such a trace is not necessarily
@@ -33,27 +32,21 @@ encode(root) begin
   n=(), r=(), par=()
 
   while (next.isEmpty() == false) begin
-    //- pop the node from the front
     node = next.dequeue()
-
-    //- visit the current node
     n.append(node)
 
+    //- visit the current node
     node.idx = n.length
     r.append(node.idx)
-
     parRef = node.parentNode.idx
     par.append(parRef)
 
-    //- visit the child nodes
+    //- plan the visit of each child
     for (child in node.childNodesFTL) begin
-      //- append the node to the end
       next.enqueue(child)
     end
   end
 
-  //- sequences n,r,par are now complete
-  //- sequence 'r' is not required
   return n,par
 end
 ```
@@ -84,36 +77,32 @@ The encoded tree can be recreated as follows.
 ```js
 decode(n, par) begin
   assert((0 < #n) and (#n == #par))
-  assert(par[1] <= 0)
+  assert(par[1] <= 0)//- must be a root
   nodes=(), roots=()
 
   for (i=1 to #n) begin
-    //- use the node definitions in 'n'
-    //  to create actual node objects
     current = new Node(n[i])
-    nodes.add(current)
+    nodes.append(current)
     parRef = par[i]
 
+    //- a root node
     if (parRef <= 0) begin
-      //- an invalid parent reference
-      //- treat the current node as a root
-      roots.add(current)
+      roots.append(current)
       continue
     end
 
-    if (parRef > #n) or (parRef >= i) begin
-      //- the parent reference of the current node
-      //  is forward-oriented, which indicates a
-      //  serious input error, or a cyclic graph
+    //- an invalid reference
+    if (parRef > #n) begin
       assert(false)
     end
 
-    //- (parRef in (0,i)) is guaranteed to be true
-    //- the first reference must have been invalid
-    parent = nodes[parRef]
+    //- a cyclic graph
+    if (parRef >= i) begin
+      assert(false)
+    end
 
-    //- add the current node as a child to the end
-    //  of the parent's list of child nodes
+    //- parRef in [1,i]
+    parent = nodes[parRef]
     parent.addAsLastChild(current)
   end
 
@@ -123,13 +112,14 @@ end
 ```
 
 Note that, since the level-order trace of a document tree can be described
-as a sequence of disjoint child orders, certain improvements are obviously
-possible. However, the point of this discussion is, at this point not on
-highly efficient implementations, which is why the above pseudocode is
-identical to that of the pre-order traversal.
+as a sequence of disjoint child orders, certain improvements are possible.
+However, the point of this discussion is not on efficiency, which is why
+the pseudocode is **identical to that of the pre-order traversal**.
 
 Note that the first index of an array in a real-world implementation has
-in general a value of 0/zero - i.e. a zero-based arrays. However, in this
+in general a value of 0/zero - i.e. zero-based arrays. However, in this
 discussion, any index-order is assumed to have an index value of 1/one as
-its first index - i.e. one-based sequences. Based on that, the invalid
-reference (x) is assumed to be 0/zero (or negative).
+its first index - i.e. one-based sequences.
+
+Note that, in the context of a backward-oriented encoding, the invalid
+reference (x) is assumed to have a value of `0/zero`.

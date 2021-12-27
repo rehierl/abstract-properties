@@ -36,7 +36,7 @@ encode(root) begin
     node.lvl = (level + 1)
     lvl.append(node.lvl)
 
-    //- visit the child nodes
+    //- plan the visit of each child
     for (child in node.childNodesFTL) begin
       next.enqueue(child)
     end
@@ -54,8 +54,8 @@ As a matter of clarity, this line is kept as is.
 ## decoding
 
 Note that the sequence of level values produced by a level-order traversal
-**can not be used to decode the document tree**. That is because one can
-not reliably tell to which parent a node in the sequence belongs.
+**can not be used to decode a document tree**. That is because one can not
+reliably tell to which parent a node in the sequence belongs.
 
 * nodes `e` and `i` have distinct parents, while being on the same level
 * node `e` - parent index `3` and node level `3`

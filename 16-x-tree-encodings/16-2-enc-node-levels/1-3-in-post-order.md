@@ -12,7 +12,7 @@ b  d  f  g  e  c  i  h  a - n, trace           b    c      h
                                                     f   g
 ```
 
-Note that pseudocode for the reversed version will not be specified.
+Note that no pseudocode for the reversed versions will be provided.
 
 <!-- ======================================================================= -->
 ## encoding
@@ -49,15 +49,48 @@ end
 <!-- ======================================================================= -->
 ## decoding
 
-Note that the sequence of level values in post-order can not be used to easily
-decode the document tree. That is because once a given node is reached, one
-simply does not have the necessary information that would allow to directly
-determine the current node's parent. After all, the amount of child nodes of
-any node is unrestricted, which is why on can not determine the parent of a
-node amongst those nodes that are subsequent to the current node.
+The encoded tree can be recreated as follows.
 
-Note however that it would in general be possible to lookup the current node's
-parent, assumed that a presequent pass has pre-created all the nodes, which
-would then allow to maintain a to-be-resolved list of nodes per node level.
-However, this would require an additional complexity that is beyond the scope
-of this discussion.
+```js
+decode(n, lvl) begin
+  assert((0 < #n) and (#n == #lvl))
+  assert(lvl[#n] == 1)//- must be a root
+  nodes=(), roots=(), rp=()
+
+  for (i=#n to #1) begin
+    current = new Node(n[i])
+    nodes.append(current)
+
+    level = lvl[i]
+    assert(level >= 1)
+    current.lvl = level
+
+    //- if the current node is a root
+    if (level == 1) begin
+      roots.append(current)
+      rp.setLast(level, current)
+      continue
+    end
+
+    //- assert that the input level does
+    //  not exceed the range [1,#rp+1]
+    //- level values are no rank values!
+    parent = rp.currentLast
+    assert(level <= (parent.lvl+1))
+
+    //- the node is a child to a node in rp
+    parent = rp[level-1]
+    parent.addAsFirstChild(current)
+    rp.setLast(level, current)
+  end
+
+  return roots
+end
+```
+
+Note that, since the ancestors of a node appear subsequent to it, the sequence
+of level values must be read in reverse from last to first. That is because
+ancestors will then be encountered before any of their descendants. After all,
+the tree order is still a suborder to the reversed POST and POSTR traces.
+
+* hence the `.addAsFirstChild()` method call

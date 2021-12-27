@@ -45,8 +45,9 @@ end
 <!-- ======================================================================= -->
 ## decoding
 
-Note that, as above, this decoding algorithm would only differ from the
-algorithm of the default traversal in the expression that adds the current
-node as a child to its parent. Hence, no pseudocode will be listed.
+Note that, like the encoding algorithm, the decoding algorithm would only
+differ from the algorithm of the default traversal in the expression that
+adds the current node as a child to its parent. Hence, no pseudocode will
+be provided.
 
 * `.addAsFirstChild()` instead of `.addAsLastChild()`

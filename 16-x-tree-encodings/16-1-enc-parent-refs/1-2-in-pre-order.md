@@ -54,17 +54,17 @@ The encoded tree can be recreated as follows.
 ```js
 decode(n, par) begin
   assert((0 < #n) and (#n == #par))
-  assert(par[1] <= 0)
+  assert(par[1] <= 0)//- must be a root
   nodes=(), roots=()
 
   for (i=1 to #n) begin
     current = new Node(n[i])
-    nodes.add(current)
+    nodes.append(current)
     parRef = par[i]
 
     //- a root node
     if (parRef <= 0) begin
-      roots.add(current)
+      roots.append(current)
       continue
     end
 
@@ -78,6 +78,7 @@ decode(n, par) begin
       assert(false)
     end
 
+    //- parRef in [1,i]
     parent = nodes[parRef]
     parent.addAsLastChild(current)
   end
@@ -86,4 +87,8 @@ decode(n, par) begin
 end
 ```
 
-Note that this pseudocode is identical to that of the level-order traversal.
+Recall that the PRE and PRER traversals are backward-oriented. That is, each
+node `c` has a parent `p` that is presequent to it in trace `n`. After all,
+the tree order is a suborder to the corresponding trace.
+
+* `(p presequent-to c)` is true for `(p ancestor-of c)`

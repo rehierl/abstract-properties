@@ -12,7 +12,7 @@ x  1  1  3  3  5  5  1  8 - par, parent.idx       d   e    i
                                                     f   g
 ```
 
-Note that pseudocode for the reversed version will not be specified.
+Note that no pseudocode for the reversed versions will be provided.
 
 <!-- ======================================================================= -->
 ## encoding
@@ -67,7 +67,7 @@ decode(n, lvl) begin
 
   for (i=1 to #n) begin
     current = new Node(n[i])
-    nodes.add(current)
+    nodes.append(current)
 
     level = lvl[i]
     assert(level >= 1)
@@ -75,19 +75,18 @@ decode(n, lvl) begin
 
     //- if the current node is a root
     if (level == 1) begin
-      roots.add(current)
+      roots.append(current)
       rp.setLast(level, current)
       continue
     end
 
     //- assert that the input level does
-    //  not exceed valid limits
+    //  not exceed the range [1,#rp+1]
     //- level values are no rank values!
     parent = rp.currentLast
     assert(level <= (parent.lvl+1))
 
-    //- the current node is now guaranteed to
-    //  be a child of one of the nodes in 'rp'
+    //- the node is a child to a node in rp
     parent = rp[level-1]
     parent.addAsLastChild(current)
     rp.setLast(level, current)
@@ -97,17 +96,10 @@ decode(n, lvl) begin
 end
 ```
 
-Recall that the PRE and the PRER traversal is backward-oriented. That is, each
-node `c` has a parent `p` that is presequent to it in the sequence of node
-definitions `n`. After all, the tree order is as a suborder embedded into the
-corresponding traces.
-
-* `(p presequent-to c)` for `(p ancestor-of c)` is true
-
-Note that sequence `rp` is intended to maintain a rooted path as a sequence of
-nodes. Usually, this would be implemented as a stack of nodes. However, since
-a stack maintains its elements in reverse, this option was not chosen as a
-matter of clarity.
+Note that sequence `rp` is intended to maintain a rooted path as a sequence
+of nodes. Usually, this would be implemented as a stack of nodes. However,
+since a stack maintains its elements in reverse, this option was not chosen
+as a matter of clarity.
 
 Note that expression `rp.setLast(level, current)` is expected to first ensure
 that the array's capacity is such that the given node can be set at the
@@ -119,4 +111,4 @@ which can be retrieved via the expression `rp.currentLast`.
 Note that the above decoding algorithm is **similar to rank-based algorithms**.
 That is because the current node, assuming all is in order, always is a child
 to one of the nodes in the current rooted path. (More detailed explanations
-will follow eventually ..).
+will follow eventually at some point).

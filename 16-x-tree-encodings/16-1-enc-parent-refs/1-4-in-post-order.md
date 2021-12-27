@@ -30,13 +30,13 @@ encode(root) begin
     //- visit the current node
     n.append(node)
     node.idx = n.length
+    r.append(node.idx)
   end
 
   visitInPostOrderFTL(root)
 
-  for (node in n) begin
-    r.append(node.idx)
-
+  for (idx=1 to #n) begin
+    node = n[idx]
     parRef = node.parentNode.idx
     par.append(parRef)
   end
@@ -63,23 +63,17 @@ The encoded tree can be recreated as follows.
 ```js
 decode(n, par) begin
   assert((0 < #n) and (#n == #par))
-  assert(par[#par] <= 0)
+  assert(par[#par] > #n)//- must be a root
   nodes=(), roots=()
 
-  //- first, create all node objects
-  for (i=1 to #n) begin
+  for (i=#n to 1) begin
     current = new Node(n[i])
-    nodes.add(current)
-  end
-
-  //- interconnect the node objects
-  for (i=1 to #n) begin
-    current = nodes[i]
+    nodes.append(current)
     parRef = par[i]
 
     //- a root node
     if (parRef > #n) begin
-      roots.add(current)
+      roots.append(current)
       continue
     end
 
@@ -89,18 +83,27 @@ decode(n, par) begin
     end
 
     //- a cyclic graph
-    if (parRef >= i) begin
+    if (parRef <= i) begin
       assert(false)
     end
 
+    //- parRef in [i,#n]
     parent = nodes[parRef]
-    parent.addAsLastChild(current)
+    parent.addAsFirstChild(current)
   end
 
   return roots
 end
 ```
 
-Note that, as before, since the parent references are forwards-oriented,
-a first pass is used to pre-create all the node objects such that they are
-accessible by the second pass.
+Recall that the POST and POSTR traversals are forward-oriented. That is,
+each node `c` has a parent `p` that is subsequent to it in the trace of
+nodes `n`.
+
+* `(p subsequent-to c)` is true for `(p ancestor-of c)`
+
+Note that, even though the tree order is no suborder to the corresponding
+trace, it still is a suborder to the reversed trace.
+
+Note that, in the context of a forward-oriented encoding, the invalid
+reference (x) is assumed to have a positive value of `#n+1`.

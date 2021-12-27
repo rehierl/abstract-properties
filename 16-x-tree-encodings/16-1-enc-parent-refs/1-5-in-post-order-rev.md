@@ -30,13 +30,13 @@ encode(root) begin
     //- visit the current node
     n.append(node)
     node.idx = n.length
+    r.append(node.idx)
   end
 
   visitInPostOrderLTF(root)
 
-  for (node in n) begin
-    r.append(node.idx)
-
+  for(idx=1 to #n) begin
+    node = n[idx]
     parRef = node.parentNode.idx
     par.append(parRef)
   end
