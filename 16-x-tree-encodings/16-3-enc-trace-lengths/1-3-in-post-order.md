@@ -12,6 +12,8 @@ b  d  f  g  e  c  i  h  a - n, trace           b    c      h
 1  1  1  1  3  5  1  2  9 - len, node.len           f   g
 ```
 
+Note that no pseudocode for the reversed versions will be provided.
+
 <!-- ======================================================================= -->
 ## encoding - TODO
 
@@ -40,8 +42,10 @@ encode(root) begin
       nc[level] = nc[level] + nc[level+1]
     end
 
-    //- visit the current node
+    //- visit the node
     n.append(node)
+
+    //- write the node count
     count = nc[level]
     len.append(count)
 
@@ -54,12 +58,46 @@ encode(root) begin
 end
 ```
 
-Note that a stack of counter values (i.e. `nc`, read as "node count" ) is used
-to determine the node count of each node, one node at a time.
+Note that a hashtable of counter values (i.e. `nc`, read as "node count" )
+is used to determine the node count of each node, one node at a time.
 
 Note that, compared to the pre-order version, this post-order version is
 straight forward since a node and its node count will be appended to the
-corresponding sequences only once the node's scope is being exited.
+corresponding sequences once the node's scope is being exited.
 
 <!-- ======================================================================= -->
 ## decoding - TODO
+
+The encoded tree can be recreated as follows.
+
+```js
+decode(n, len) begin
+  assert((0 < #n) and (#n == #len))
+  assert(len[#n] == #n)//- must be a root
+  assert(len[1] == 1)//- must be a leaf
+  nodes=(), roots=()
+  rp = new RootedPath()
+
+  for (i=#n to 1) begin
+    node = new Node(n[i])
+    nodes.append(node)
+
+    count = len[i]
+    rp.push(node, count)
+
+    if (#rp == 1) begin
+      roots.append(node)
+    end
+
+    if (#rp > 1) begin
+      parent = rp.parent()
+      parent.addAsFirstChild(node)
+    end
+
+    rp.pop()
+  end
+
+  assert(#rp == 0)
+  return roots
+end
+```

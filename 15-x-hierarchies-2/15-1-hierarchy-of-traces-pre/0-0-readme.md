@@ -11,7 +11,7 @@ based on the relationships between its traces. That is, each document tree is
 isomorphic to a hierarchy of pre-order traces, which will be referred to as
 **the T-Hpre isomorphism**.
 
-## no Hs-Hpre isomophism, (Hpre -> Hs) only
+## (Hpre -> Hs) only
 
 ```
 DT <-> Hpre -> Hs <-> T

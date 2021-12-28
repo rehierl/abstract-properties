@@ -3,13 +3,13 @@
 # the parent-based encoding, in reversed post-order
 
 ```
-reversed post-order (POSTR)                         a
------------------------------------------    ---------------
-i  h  g  f  e  d  c  b  a - n, trace          b    c      h
-1  2  3  4  5  6  7  8  9 - r, node.idx          -----   ---
-2  9  5  5  7  7  9  9  x - par, parent.idx      d   e    i
-                                                   -----
-                                                   f   g
+reversed post-order (POSTR)                          a
+-------------------------------------------   ---------------
+i  h  g  f  e  d  c  b  a - n, trace           b    c      h
+1  2  3  4  5  6  7  8  9 - r, node.idx           -----   ---
+2  9  5  5  7  7  9  9  x - par, parent.idx       d   e    i
+                                                    -----
+                                                    f   g
 ```
 
 <!-- ======================================================================= -->
@@ -27,7 +27,7 @@ encode(root) begin
       visitInPostOrderLTF(child)
     end
 
-    //- visit the current node
+    //- visit the node
     n.append(node)
     node.idx = n.length
     r.append(node.idx)
@@ -36,8 +36,8 @@ encode(root) begin
   visitInPostOrderLTF(root)
 
   for(idx=1 to #n) begin
-    node = n[idx]
-    parRef = node.parentNode.idx
+    parent = n[idx].parentNode
+    parRef = parent ? parent.idx : #n+1
     par.append(parRef)
   end
 

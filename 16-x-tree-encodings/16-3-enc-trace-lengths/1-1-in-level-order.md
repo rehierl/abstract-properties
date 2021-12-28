@@ -46,7 +46,7 @@ encode(root) begin
     while (next.isEmpty() == false) begin
       node = next.dequeue()
 
-      //- visit the current node
+      //- visit the node
       n.append(node)
       len.append(node.len)
 
@@ -57,8 +57,7 @@ encode(root) begin
     end
   end
 
-  //- ensure that all length values are available
-  //  as .len properties attached to each node
+  //- pre-determine all length values
   count = countNodes(root)
 
   visitInLevelOrder(root)
@@ -67,13 +66,14 @@ end
 ```
 
 Note that the computational complexity is improved at the cost of increased
-storage requirements (see `node.len`).
+storage requirements - i.e. `node.len`. Without that storage property, the
+algorithm would have exponential runtime complexity.
 
 <!-- ======================================================================= -->
 ## decoding
 
 Note that the sequence of length values produced by a level-order traversal
 **can not be used to decode a document tree**. That is because one can not
-reliabley tell to which parent a node in the sequence belongs, which is
-why one can not determine the relationship of one length value with that
-of a subsequent node.
+reliabley tell to which parent a node in the sequence belongs, which is why
+one can not determine the relationship of one length value with that of a
+subsequent node.

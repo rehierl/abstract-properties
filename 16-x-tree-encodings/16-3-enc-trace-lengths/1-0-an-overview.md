@@ -55,9 +55,9 @@ Note that encoding and decoding algorithms are provided as follows.
 -      | LEVEL  | PRE    | PRER   | POST   | POSTR
 ---------------------------------------------------
 encode | O(3*N) | O(N)   | -      | O(N)   | -
-decode | N.A.   | TODO   | -      | TODO   | -
+decode | N.A.   | O(N)   | -      | O(N)   | -
 ```
 
-TODO - Note that the pseudocodes in this chapter need to be verified, which is
-especially true for the decoding algorithms. At this point they seem as if they
-could do what they are supposed to do.
+TODO - Note that the pseudocodes in this chapter need to be verified, which
+is especially true for the decoding algorithms. At this point they seem as
+if they could do what they are supposed to do.

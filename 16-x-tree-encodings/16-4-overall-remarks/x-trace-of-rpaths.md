@@ -16,7 +16,7 @@ traceOfRps(root) begin
   end
 
   visitInPreOrder(node) begin
-    //- visit the current node
+    //- visit the node
     rpath = ()
     pathOf(rpath, node)
     trace.append(rpath)

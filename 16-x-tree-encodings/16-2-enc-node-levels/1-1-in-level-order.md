@@ -12,7 +12,7 @@ x  1  1  1  3  3  4  6  6 - par, parent.idx       d   e    i
                                                     f   g
 ```
 
-Note that the level values are monotone increasing with each subsequent node.
+Note that the level values in a level-order trace are monotone increasing.
 
 * `(n[i].lvl <= n[j].lvl)` is true for `(1 <= i) && (i < j) && (j <= #n)`
 
@@ -29,10 +29,11 @@ encode(root) begin
 
   while (next.isEmpty() == false) begin
     node = next.dequeue()
-    n.append(node)
 
-    //- visit the current node
-    level = node.parentNode.lvl
+    //- visit the node
+    n.append(node)
+    parent = node.parentNode
+    level = parent ? parent.lvl : 0
     node.lvl = (level + 1)
     lvl.append(node.lvl)
 
@@ -45,10 +46,6 @@ encode(root) begin
   return n,lvl
 end
 ```
-
-Note that, as before, the document tree's root obviously has no parent of its
-own, which is why `node.parentNode.lvl` will in general trigger an error.
-As a matter of clarity, this line is kept as is.
 
 <!-- ======================================================================= -->
 ## decoding

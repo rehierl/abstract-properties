@@ -15,14 +15,14 @@ if the following requirments are met.
 * (R1) `S` has one and only one root.
 
 <!-- ======================================================================= -->
-## document tree (DT) <=> hierarchy of rscopes (HrsSer)
+## document tree (DT) <=> hierarchy of rscopes (HrsPre)
 
 Recall that, in the context of this dicsussion, the pre-order traversal and
 its trace of nodes, is the default. That is because it is order-preserving
 in regards to the tree order and also the child order of a document tree.
 
 <!-- ======================================================================= -->
-## (DTU => HrsSer)
+## (DTU => HrsPre)
 
 Given a document tree `T(N,E)`, one can form a hierarchy of scopes `S` by
 appending the sets of nodes of each rooted path `rp(n)` to a sequence of sets
@@ -33,7 +33,7 @@ tree, one first replaces each node `n` in that trace by the corresponding
 rooted path `rp(n)` over DTU, which will yield a sequence `s` of all rooted
 paths in pre-order. After that, one needs to replace each path in `s` by the
 set of nodes, which will yield the serialized hierarchy of reversed scopes
-(HrsSer).
+(HrsPre).
 
 * `t := pre(r)` for `(r == RN(DTU))`
 * `s := ( rp(t[i]) | (i in [1,#t]) )`
@@ -42,7 +42,7 @@ set of nodes, which will yield the serialized hierarchy of reversed scopes
 Note the set-builder like sequence-based notation.
 
 <!-- ======================================================================= -->
-## (HrsSer => DTU)
+## (HrsPre => DTU)
 
 Since a serialized hierarchy of reversed scopes `S`, if formed as described
 above, is an ordered sequence of scopes, one can derive the unordered document

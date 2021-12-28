@@ -3,13 +3,13 @@
 # the parent-based encoding, in reversed pre-order
 
 ```
-reversed pre-order (PRER)                           a
------------------------------------------    ---------------
-a  h  i  c  e  g  f  d  b - n, trace          b    c      h
-1  2  3  4  5  6  7  8  9 - r, node.idx          -----   ---
-x  1  2  1  4  5  5  4  1 - par, parent.idx      d   e    i
-                                                   -----
-                                                   f   g
+reversed pre-order (PRER)                            a
+-------------------------------------------   ---------------
+a  h  i  c  e  g  f  d  b - n, trace           b    c      h
+1  2  3  4  5  6  7  8  9 - r, node.idx           -----   ---
+x  1  2  1  4  5  5  4  1 - par, parent.idx       d   e    i
+                                                    -----
+                                                    f   g
 ```
 
 <!-- ======================================================================= -->
@@ -22,12 +22,10 @@ encode(root) begin
   n=(), r=(), par=()
 
   visitInPreOrderLTF(node) begin
-    //- visit the current node
+    //- visit the node
     n.append(node)
-
     node.idx = n.length
     r.append(node.idx)
-
     parRef = node.parentNode.idx
     par.append(parRef)
 

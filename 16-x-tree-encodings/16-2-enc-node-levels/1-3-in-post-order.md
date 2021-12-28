@@ -33,7 +33,7 @@ encode(root) begin
       visitInPreOrderFTL(child)
     end
 
-    //- visit the current node
+    //- visit the node
     n.append(node)
     lvl.append(level)
 
@@ -58,30 +58,30 @@ decode(n, lvl) begin
   nodes=(), roots=(), rp=()
 
   for (i=#n to #1) begin
-    current = new Node(n[i])
-    nodes.append(current)
+    node = new Node(n[i])
+    nodes.append(node)
 
     level = lvl[i]
     assert(level >= 1)
-    current.lvl = level
+    node.lvl = level
 
-    //- if the current node is a root
+    //- if the node is a root
     if (level == 1) begin
-      roots.append(current)
-      rp.setLast(level, current)
+      roots.append(node)
+      rp.setLast(level, node)
       continue
     end
 
     //- assert that the input level does
     //  not exceed the range [1,#rp+1]
     //- level values are no rank values!
-    parent = rp.currentLast
-    assert(level <= (parent.lvl+1))
+    last = rp.currentLast
+    assert(level <= (last.lvl+1))
 
     //- the node is a child to a node in rp
     parent = rp[level-1]
-    parent.addAsFirstChild(current)
-    rp.setLast(level, current)
+    parent.addAsFirstChild(node)
+    rp.setLast(level, node)
   end
 
   return roots

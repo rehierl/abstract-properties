@@ -3,13 +3,13 @@
 # the parent-based encoding, in default post-order
 
 ```
-default post-order (POST)                           a
------------------------------------------    ---------------
-b  d  f  g  e  c  i  h  a - n, trace          b    c      h
-1  2  3  4  5  6  7  8  9 - r, node.idx          -----   ---
-9  6  5  5  6  9  8  9  x - par, parent.idx      d   e    i
-                                                   -----
-                                                   f   g
+default post-order (POST)                            a
+-------------------------------------------   ---------------
+b  d  f  g  e  c  i  h  a - n, trace           b    c      h
+1  2  3  4  5  6  7  8  9 - r, node.idx           -----   ---
+9  6  5  5  6  9  8  9  x - par, parent.idx       d   e    i
+                                                    -----
+                                                    f   g
 ```
 
 <!-- ======================================================================= -->
@@ -27,7 +27,7 @@ encode(root) begin
       visitInPostOrderFTL(child)
     end
 
-    //- visit the current node
+    //- visit the node
     n.append(node)
     node.idx = n.length
     r.append(node.idx)
@@ -36,8 +36,8 @@ encode(root) begin
   visitInPostOrderFTL(root)
 
   for (idx=1 to #n) begin
-    node = n[idx]
-    parRef = node.parentNode.idx
+    parent = n[idx].parentNode
+    parRef = parent ? parent.idx : #n+1
     par.append(parRef)
   end
 
@@ -45,13 +45,13 @@ encode(root) begin
 end
 ```
 
-Note that, since this traversal will visit a node only after all of its
-descendants in the unordered document tree (DTU) have been visited, parent
-nodes have in general no id associated once a child is being visited. To
-circumvent this issue, a second pass over all the nodes may be used in
-order to fill the sequence of parent references.
+Note that, since this traversal will visit a node after all of its descendants
+in the unordered document tree (DTU) have been visited, parent nodes have no
+index associated once a child is being visited. To circumvent this issue, a
+second pass over all the nodes may be used in order to populate the sequence
+of parent references.
 
-Note that alternative methods are possible which can be used to circumvent a
+Note that alternative methods are possible, which can be used to circumvent a
 second pass. However, all alternatives have in common that they will increase
 the computational complexity compared to LVL, PRE and PRER.
 
@@ -67,13 +67,13 @@ decode(n, par) begin
   nodes=(), roots=()
 
   for (i=#n to 1) begin
-    current = new Node(n[i])
-    nodes.append(current)
+    node = new Node(n[i])
+    nodes.append(node)
     parRef = par[i]
 
     //- a root node
     if (parRef > #n) begin
-      roots.append(current)
+      roots.append(node)
       continue
     end
 
@@ -89,7 +89,7 @@ decode(n, par) begin
 
     //- parRef in [i,#n]
     parent = nodes[parRef]
-    parent.addAsFirstChild(current)
+    parent.addAsFirstChild(node)
   end
 
   return roots

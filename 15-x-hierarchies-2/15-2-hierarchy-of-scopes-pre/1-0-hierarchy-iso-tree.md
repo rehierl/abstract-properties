@@ -15,14 +15,14 @@ if the following requirements are met.
 * (R1) `S` has one and only one root.
 
 <!-- ======================================================================= -->
-## document tree (DT) <=> hierarchy of scopes (HsSer)
+## document tree (DT) <=> hierarchy of scopes (HsPre)
 
 Recall that, in the context of this dicsussion, the pre-order traversal and
 its trace of nodes, is the default. That is because it is order-preserving
 in regards to the tree order and also the child order of a document tree.
 
 <!-- ======================================================================= -->
-## (DTU => HsSer)
+## (DTU => HsPre)
 
 Given a document tree `T(N,E)`, one can form a hierarchy of scopes `S` by
 appending the sets of nodes of each induced subtree `T[n]` to a sequence
@@ -33,7 +33,7 @@ tree, one first replaces each node in that trace by the corresponding induced
 subtree `T[n]` over DTU, which will yield a sequence `s` of all the induced
 subtrees in pre-order. After that, one merely needs to replace each tree in
 `s` by the tree's set of nodes, which will yield the serialized hierarchy
-of scopes (HsSer).
+of scopes (HsPre).
 
 * `t := pre(r)` for `(r == RN(DTU))`
 * `s := ( DTU[i] | (i in [1,#t]) )`
@@ -43,7 +43,7 @@ of scopes (HsSer).
 Note the set-builder like sequence-based notation.
 
 <!-- ======================================================================= -->
-## (HsSer => DTU)
+## (HsPre => DTU)
 
 Since a serialized hierarchy of scopes `S`, if formed as described above, is
 an ordered sequence of scopes, one can derive the unordered document tree DTU

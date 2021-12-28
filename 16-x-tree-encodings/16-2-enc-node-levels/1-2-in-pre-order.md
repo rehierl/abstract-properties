@@ -28,7 +28,7 @@ encode(root) begin
     //- enter the node's type-1 scope
     level = (level + 1)
 
-    //- visit the current node
+    //- visit the node
     n.append(node)
     lvl.append(level)
 
@@ -47,9 +47,9 @@ end
 ```
 
 Note that the level of a node is equal to the number of open scopes. Because
-of that, the level of a node increases by one each time a scope is entered
+of that, the level of a node increases by one each time a scope is entered,
 and decreases by one each time a scope is exited. Because of that, there is
-no issue in regards to having to determine the parent's node level of a node.
+no issue when having to determine the level of a root node.
 
 * `level+1` each time a scope is entered
 * `level-1` each time a scope is exited
@@ -66,30 +66,30 @@ decode(n, lvl) begin
   nodes=(), roots=(), rp=()
 
   for (i=1 to #n) begin
-    current = new Node(n[i])
-    nodes.append(current)
+    node = new Node(n[i])
+    nodes.append(node)
 
     level = lvl[i]
     assert(level >= 1)
-    current.lvl = level
+    node.lvl = level
 
-    //- if the current node is a root
+    //- if the node is a root
     if (level == 1) begin
-      roots.append(current)
-      rp.setLast(level, current)
+      roots.append(node)
+      rp.setLast(level, node)
       continue
     end
 
     //- assert that the input level does
     //  not exceed the range [1,#rp+1]
     //- level values are no rank values!
-    parent = rp.currentLast
-    assert(level <= (parent.lvl+1))
+    last = rp.currentLast
+    assert(level <= (last.lvl+1))
 
     //- the node is a child to a node in rp
     parent = rp[level-1]
-    parent.addAsLastChild(current)
-    rp.setLast(level, current)
+    parent.addAsLastChild(node)
+    rp.setLast(level, node)
   end
 
   return roots
@@ -98,17 +98,15 @@ end
 
 Note that sequence `rp` is intended to maintain a rooted path as a sequence
 of nodes. Usually, this would be implemented as a stack of nodes. However,
-since a stack maintains its elements in reverse, this option was not chosen
-as a matter of clarity.
+since a stack maintains its elements in reverse, one needs to think of `rp`
+as a simple hashtable.
 
-Note that expression `rp.setLast(level, current)` is expected to first ensure
-that the array's capacity is such that the given node can be set at the
-specified level. Furthermore, the expression is expected to set the current
-node at the specified level. Finally, the specified level is used to update
-the rooted path such that the node being set is treated as the new last node,
-which can be retrieved via the expression `rp.currentLast`.
+Note that expression `rp.setLast(level, node)` is expected to set the given
+node at the specified level. Furthermore, the call is expected to maintain a
+reference of the node that was set last, and which can be retrieved via the
+rooted path's `.currentLast` property.
 
 Note that the above decoding algorithm is **similar to rank-based algorithms**.
 That is because the current node, assuming all is in order, always is a child
 to one of the nodes in the current rooted path. (More detailed explanations
-will follow eventually at some point).
+will follow eventually).
