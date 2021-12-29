@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# the level-based encoding, in pre-order
+# the level-based encoding, in default pre-order
 
 ```
 default pre-order (PRE)                              a
@@ -46,10 +46,11 @@ encode(root) begin
 end
 ```
 
-Note that the level of a node is equal to the number of open scopes. Because
+Note that the level of a node is equal to the number of nodes in its rooted
+path, which is why a level value reflects the number of open scopes. Because
 of that, the level of a node increases by one each time a scope is entered,
-and decreases by one each time a scope is exited. Because of that, there is
-no issue when having to determine the level of a root node.
+and decreases by one each time a scope is exited. Consequently, there is no
+issue when having to determine the level of a root.
 
 * `level+1` each time a scope is entered
 * `level-1` each time a scope is exited
@@ -60,10 +61,12 @@ no issue when having to determine the level of a root node.
 The encoded tree can be recreated as follows.
 
 ```js
+//- assuming 'n' is in pre-order
 decode(n, lvl) begin
   assert((0 < #n) and (#n == #lvl))
   assert(lvl[1] == 1)//- must be a root
-  nodes=(), roots=(), rp=()
+  nodes=(), roots=()
+  rp = new RootedPath()
 
   for (i=1 to #n) begin
     node = new Node(n[i])
@@ -82,9 +85,7 @@ decode(n, lvl) begin
 
     //- assert that the input level does
     //  not exceed the range [1,#rp+1]
-    //- level values are no rank values!
-    last = rp.currentLast
-    assert(level <= (last.lvl+1))
+    assert(level <= (#rp+1))
 
     //- the node is a child to a node in rp
     parent = rp[level-1]
@@ -96,17 +97,16 @@ decode(n, lvl) begin
 end
 ```
 
-Note that sequence `rp` is intended to maintain a rooted path as a sequence
-of nodes. Usually, this would be implemented as a stack of nodes. However,
-since a stack maintains its elements in reverse, one needs to think of `rp`
-as a simple hashtable.
+Note that the rooted path `rp` is no simple stack, but a stack with extended
+functionality. This additional functionality has the purpose of reducing a
+path if the next subsequent level is lower than the previous level value.
 
 Note that expression `rp.setLast(level, node)` is expected to set the given
 node at the specified level. Furthermore, the call is expected to maintain a
 reference of the node that was set last, and which can be retrieved via the
 rooted path's `.currentLast` property.
 
-Note that the above decoding algorithm is **similar to rank-based algorithms**.
-That is because the current node, assuming all is in order, always is a child
-to one of the nodes in the current rooted path. (More detailed explanations
-will follow eventually).
+Note the similarity with **rank-based algorithms**, which is because the
+current node, assuming all is in order, always is a child to one of the
+nodes in the current rooted path. (More detailed explanations will follow
+eventually).

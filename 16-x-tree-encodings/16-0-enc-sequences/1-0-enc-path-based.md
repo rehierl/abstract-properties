@@ -12,7 +12,7 @@ elements in it.
 * `E := { (s[i],s[i+1]) | (i in [1,#s-1]) }`
 * `sem(G) := (a parent-of b)`
 
-Note that `s[i]` defines the parent of `s[i+1]`.
+Note that `s[i]` defines a parent of `s[i+1]`.
 
 Note that in this kind of encoding, it is the index-order of a sequence that
 needs to be understood to define the relationships between the elements in it.
@@ -24,8 +24,8 @@ the linear order of succession.
 <!-- ======================================================================= -->
 ## reversing the process of forming paths
 
-Recall that two edges in a graph can be said to form a path, if the sink
-vertex of one edge (e.g. `(a,b)`) is also the source vertex of another edge
+Recall that two edges in a graph can be said to form a path, if the sink vertex
+of one edge (e.g. `b` in `(a,b)`) is also the source vertex of another edge
 (e.g. `(b,c)`). Based on that, paths of vertices can be formed over the edges
 of a graph, which can be expressed as sequences of vertices (e.g. `(a,b,c)`).
 
@@ -39,8 +39,9 @@ edge that has the next subsequent vertex as its sink.
 * `E := { (s[i],s[i+1]) | (i in [1,#s-1]) }`
 
 Note that the edges defined by a sequence do not differenciate between distinct
-**element instances**. That is, all the instances of one element are treated
-as a reference to the same element.
+**element instances**, each of which can be described as the combination of an
+element and its position. That is, each instance of an element is treated as a
+reference to the same base element.
 
 <!-- ======================================================================= -->
 ## the issue with - repeating elements
@@ -53,7 +54,7 @@ a° -> b -> c
 ```
 
 Difficulties arise as soon as elements appear more than once. However, for as
-long as there are no other elements in between the repetitions of one element,
+long as there are no other elements in between the occurrences of an element,
 there isn't much of an issue. That is because such repetitions only define
 loops - visualized as (°).
 
@@ -66,18 +67,17 @@ a -> b -|-> c
 ```
 
 Since this kind of encoding does not differenciate between element instances,
-each of which can be described as the combination of an element and its
-position, element (b) is defined to be presequent and also subsequent to itself.
-Also, element (c) can be understood to be subsequent and also presequent to (b).
+element (b) is defined to be presequent and also subsequent to itself. Also,
+element (c) can be understood to be subsequent and also presequent to (b).
 
-The relationships between the elements pose are conflicting, if the repetitions
-of one element are interleaved by one or more other elements. That is because
-such **repetitions add cycles** to the graph of a sequence, which can be said
-to **break the linear order of succession**.
+The relationships between the elements are conflicting, if the repetitions of
+one element are interleaved by one or more other elements. That is because such
+**repetitions add cycles** to the graph of a sequence, which can be said to
+**break the linear order of succession**.
 
-Note that the edges are always oriented from one element towards the last
-element of a sequence. Because of that, the only way to define an backwards
-oriented edge is to repeat an element as a next subsequent element.
+Note that the edges are always oriented from one element towards those elements
+that are subsequent to it. Because of that, the only way to define backwards
+oriented edges is to repeat one or more elements.
 
 <!-- ======================================================================= -->
 ## types of partial orders covered
@@ -88,7 +88,7 @@ transitive closure of a graph defined by a sequence that has repeating
 elements is **no partial order relation**.
 
 In contrary to that, any ordered sequence can be understood to define
-**a total order relation**. Consequently, and in order to disallow
-repeating elements, **ordered sequences** had to be defined.
+**a total order relation**. Consequently, **ordered sequences** had to
+be defined in order to exclude repeating elements.
 
 * `(E(s) == #s)` is required to be true for ordered sequences

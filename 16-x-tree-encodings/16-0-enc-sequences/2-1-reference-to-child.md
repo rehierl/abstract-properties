@@ -8,11 +8,11 @@ s := (a,b,c,d)   =>   n := (a,b,c,d)   =>   n := (a,b,c,d) - node definitions
                                             d := (2,3,4,x) - child nodes
 ```
 
-As mentioned before, a sequence of nodes `s` allows to form a sequence of nodes
-`n` and a sequence of references `r`. In addition to that, a second sequence
-of references `d` can be defined such that it holds the index of a child of the
-corresponding node in `r`. Combined, sequences `r` and `d` can be understood to
-define a set of edges `E` and therefore to define a graph `G(N,E)`.
+As mentioned before, a sequence of nodes `s` allows to form a sequence of node
+definitions `n` and a sequence of references `r`. In addition to that, a second
+sequence of references `d` can be defined such that it holds the index of a
+child of the corresponding node in `r`. Combined, sequences `r` and `d` can be
+understood to define a set of edges `E` and therefore to define a graph `G(N,E)`.
 
 * `N := { r[i] | (i in [1,#r]) }`
 * `E := { (r[i],d[i]) | (d[i] in [1,#r]) and (i in [1,#r]) }`
@@ -20,6 +20,10 @@ define a set of edges `E` and therefore to define a graph `G(N,E)`.
 
 Note that `r[i]` defines the parent of `d[i]`.
 Furthermore, `(#r == #N)` is at this point not (yet) required to be true.
+
+Note that `G` is strictly speaking a graph of index values such that each index
+in it corresponds with a node in `n`. As a matter of simplification, and as can
+be seen above, these index values will in general be treated as actual nodes.
 
 <!-- ======================================================================= -->
 ## remarks
@@ -34,17 +38,17 @@ the first (i.e. a value of `0`), or to just after the last node (i.e. a value
 of `#n+1`) in `n`.
 
 Note that, in this encoding scheme, sequence `r` can in general be described as
-a sequence of parent nodes, even though one node (i.e. `r[4]`) is not defined
-as a parent. After all, it is associated with an invalid child reference.
+a sequence of parent nodes, even though one node (e.g. `r[4]`) is not defined
+as a parent. After all, it is associated with the invalid child reference (x).
 
-Note that the index values in `d` are greater than the corresponding index in
+Note that each index value in `d` is greater than the corresponding index in
 `r`. Because of that, this scheme may be described as being **forward-oriented**.
 Hence, an index value of `#n+1` would be appropriate for the invalid reference
-index (x), which would then overall be a non-constant reference.
+(x), which would then be an overall non-constant reference.
 
 Note that this orientation greatly **depends on the tree traversal** algorithm
-that was used to form the above sequences, which will in general be a "root to
-leaf" oriented traversal (i.e. in tree order).
+that was used to form the sequences, which will in general be a "root to leaf"
+oriented traversal (i.e. in tree order).
 
 <!-- ======================================================================= -->
 ## con - any number of child nodes
@@ -61,9 +65,9 @@ s := (a,b,c,d)   =>   n := (a,b,c,d)
 ```
 
 However, if it would be allowed for `r` to deviate from that index-order, at
-the cost of always having to specify sequences `n` and `r`, then that sequence
-may even end up being shorter in length. That is because leaf nodes would no
-longer have to be specified.
+the cost of always having to specify all the sequences, then sequence `r` may
+even end up being shorter in length. That is because leaf nodes would no longer
+have to be specified.
 
 ```
 a                n := (a,b,c,d,e,f)
@@ -87,16 +91,17 @@ s := (a,b,c,d)   =>   n := (a,b,c,d)
 
 If one assumes the general case (i.e. `r` corresponds with the index-order of
 `n`), then `r` can be omitted. However, as discussed above, the sequence of
-child references `d` can then only be used to define a path graph, ...
+child references `d` can then only be used to define a path graph, or a forest
+of paths.
 
 ```
 s := (a,b)   =>   n := (a,b,c,d)
 t := (c,d)        d := (2,x,4,x)
 ```
 
-... or a forest of paths. Because of that, this encoding scheme could still be
-used to encode the child order of a document tree. After all, the sequences of
-child nodes of a parent are disjoint.
+Because of that, this encoding scheme could still be used to explicitly encode
+the child order of a document tree. After all, the sequences of child nodes of
+a parent are disjoint.
 
 Note that this encoding scheme could not be used to encode the rooted paths of
 a tree since these paths are coupled with each other via some non-empty prefix.
@@ -110,30 +115,26 @@ s := (a,b,c,d)   =>   n := (a,b,c,d)
                       d := (2,3,4,x)
 ```
 
-Note that the following considerations are based on the above sequences, not
-on actual implementations. That is, concrete implementations would have to
-be taken into account in order to tell if the issues mentioned here could be
-mitigated or even avoided entirely.
-
 **implementations - writer code**
 
 Assuming that `s` is the trace of some tree traversal, the code of a writer
 will always have to ensure that the current node being visited has an index
-in `n`. This is done by simply appending the node to `n` and its index to `r`.
+in `n`. This is done by simply appending the node to `n` and its index to
+`r` while that node is being visited.
 
 Likewise, and while iterating over the child nodes of a parent, a writer will
 also have to ensure that each child already has an index in `n` such that it
 can be referenced in `d`.
 
 Note that having to double-check the references of each node will make
-implementations needlessly and inefficient.
+implementations needlessly complicated.
 
 **implementations - reader code**
 
 A reader will have less of an issue, if the sequence of nodes `n` is first
 processed in order to create a sequence of node objects. This however has
-in general the same issue as having to display large image files - i.e. the
-actual display is delayed until all the data has is available to be processed.
+in general the same issue as having to display large image files - i.e.
+the actual display must be delayed until all the data is available.
 
 Note that it is however possible to pre-render large image files in low
 resolution. This however makes definitions and implementations needlessly

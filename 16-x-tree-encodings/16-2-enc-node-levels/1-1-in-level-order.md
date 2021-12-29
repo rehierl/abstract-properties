@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# the level-based encoding, in level order
+# the level-based encoding, in default level-order
 
 ```
 default level-order (LEVEL)                          a

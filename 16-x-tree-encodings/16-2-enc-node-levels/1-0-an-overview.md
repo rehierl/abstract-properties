@@ -4,7 +4,7 @@
 
 The following summarizes the sequences produced by the main tree traversal
 algorithms when outputting the node level of a node instead of its parent
-references. This encoding scheme will be referred to as the
+reference. This encoding scheme will be referred to as the
 **level-based implicit encoding scheme**.
 
 ```

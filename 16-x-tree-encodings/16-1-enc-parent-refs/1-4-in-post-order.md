@@ -48,12 +48,12 @@ end
 Note that, since this traversal will visit a node after all of its descendants
 in the unordered document tree (DTU) have been visited, parent nodes have no
 index associated once a child is being visited. To circumvent this issue, a
-second pass over all the nodes may be used in order to populate the sequence
-of parent references.
+second pass over all the nodes is used in order to first determine all node
+references.
 
-Note that alternative methods are possible, which can be used to circumvent a
-second pass. However, all alternatives have in common that they will increase
-the computational complexity compared to LVL, PRE and PRER.
+Note that alternative methods are possible, which can be used to circumvent
+a second pass. However, all alternatives have in common that they will still
+have an increased computational complexity compared to LEVEL, PRE and PRER.
 
 <!-- ======================================================================= -->
 ## decoding
@@ -61,6 +61,7 @@ the computational complexity compared to LVL, PRE and PRER.
 The encoded tree can be recreated as follows.
 
 ```js
+//- assuming 'n' is in post-order
 decode(n, par) begin
   assert((0 < #n) and (#n == #par))
   assert(par[#par] > #n)//- must be a root
@@ -96,14 +97,15 @@ decode(n, par) begin
 end
 ```
 
-Recall that the POST and POSTR traversals are forward-oriented. That is,
-each node `c` has a parent `p` that is subsequent to it in the trace of
-nodes `n`.
+Recall that the POST traversal is forward-oriented. That is, each node `c`
+has a parent `p` that is subsequent to it in the trace of nodes `n`.
 
 * `(p subsequent-to c)` is true for `(p ancestor-of c)`
 
 Note that, even though the tree order is no suborder to the corresponding
-trace, it still is a suborder to the reversed trace.
+trace, it still is a suborder to the reversed trace. However, the doctree's
+child order is no suborder to the reversed trace since subsequent siblings
+appear first.
 
 Note that, in the context of a forward-oriented encoding, the invalid
-reference (x) is assumed to have a positive value of `#n+1`.
+reference (x) is assumed to have a non-constant positive value of `#n+1`.

@@ -4,7 +4,7 @@
 
 The following summarizes the sequences produced by the main tree traversal
 algorithms when outputting the number of nodes in the scope of a node instead
-of its parent references. This encoding scheme will be referred to as the
+of its parent reference. This encoding scheme will be referred to as the
 **length-based implicit encoding scheme**.
 
 ```
@@ -58,6 +58,6 @@ encode | O(3*N) | O(N)   | -      | O(N)   | -
 decode | N.A.   | O(N)   | -      | O(N)   | -
 ```
 
-TODO - Note that the pseudocodes in this chapter need to be verified, which
+TODO - Note that the algorithms in this chapter need to be verified, which
 is especially true for the decoding algorithms. At this point they seem as
-if they could do what they are supposed to do.
+if they could do what they are intended to do.

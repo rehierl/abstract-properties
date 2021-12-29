@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# the length-based encoding, in pre-order order
+# the length-based encoding, in default pre-order
 
 ```
 default pre-order (PRE)                              a
@@ -34,6 +34,7 @@ encode(root) begin
 
     //- initialize the node count to an invalid
     //  value, which will be replaced on exit
+    //- stored in len[node.idx]
     len.append(0)
 
     //- initialize the node counter for the
@@ -50,7 +51,7 @@ encode(root) begin
       nc[level] = nc[level] + nc[level+1]
     end
 
-    //- write the node count
+    //- overwrite the preset node count
     count = nc[level]
     len[node.idx] = count
 
@@ -63,19 +64,19 @@ encode(root) begin
 end
 ```
 
-Note that a hashtable of counter values (i.e. `nc`, read as "node count" )
-is used to determine the node count of each node, one node at a time.
+Note that a hashtable of counter values `nc` (read as "node count") is used
+to determine the node count of each node, one node at a time.
 
 Note that the post-order version is straight forward since the node count of
 a node will be available when the node and its node count need to be written
-to the corresponding sequences. In contrary to that, this pre-order version
+to the corresponding sequences. In contrary to that, the pre-order version
 requires to memorize the index of a node such that its initialized node count
-can be replaced by its final node count.
+can be replaced by its final value.
 
-Note that the above pseudocode incorporates aspects of a pre-order, of an
-in-order and also aspects of a post-order traversal. That is because certain
-operations must be executed before visit of its first child, during the visit
-of its child nodes, and also after the visit of its last child.
+Note that the above pseudocode incorporates aspects of a pre-order, aspects of
+an in-order and also aspects of a post-order traversal. That is because some
+operations must be executed before the visit of its first child, some during
+the visit of its child nodes, and some after the visit of its last child.
 
 <!-- ======================================================================= -->
 ## decoding - TODO
@@ -83,8 +84,10 @@ of its child nodes, and also after the visit of its last child.
 The encoded tree can be recreated as follows.
 
 ```js
+//- assuming 'n' is in pre-order
 decode(n, len) begin
   assert((0 < #n) and (#n == #len))
+  //- assuming a single document tree
   assert(len[1] == #n)//- must be a root
   assert(len[#n] == 1)//- must be a leaf
   nodes=(), roots=()
@@ -117,21 +120,20 @@ end
 Note that the rooted path `rp` is no simple stack, but a stack with extended
 functionality. This additional functionality has the purpose of counting down
 the length values, which is used to keep track of the nodes in the rooted
-path.
+path. This allows to determine the parent node of the next subsequent node.
 
-Recall that the scope of a node and its pre-order trace of nodes have the same
-sets of nodes. Because of that, the node's scope appears as a substring to the
-document tree's pre-order trace. Hence, the length value of a node counts the
-number of nodes, beginning with the current node, that are part of the node's
-scope.
+Recall that the scope of a node and its pre-order trace have the same sets of
+nodes. Because of that, the node's scope appears as a substring to the document
+tree's pre-order trace `n`. Hence, the length value of a node is equal to the
+length of the node's pre-order trace `pre(n)`.
 
-* `s(n) := len[i,i+N-1]` for `(len[i] == N)` and `(i in [1,#len])`
+* `pre(n) := n[i,i+N-1]` assuming `(len[i] == N)` and `(i in [1,#len])`
 
 Note that the first length entry must therefore be equal to the length of the
 sequence of length values - i.e. `(len[1] == #len)`. That is because the scope
-of a root includes all the nodes. Likewise, the last length entry must have a
-value of one - i.e. `(len[#len] == 1)`. That is because the scope of a leaf
-only contains the corresponding leaf.
+of a root includes all the nodes. Likewise, the last entry must have a value
+of one - i.e. `(len[#len] == 1)`. That is because the scope of a leaf only
+contains the leaf itself.
 
 Note that the above pseudocode is only artificially reduced to a single tree.
 That is, the entry assertions are in general not required.

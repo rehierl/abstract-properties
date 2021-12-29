@@ -2,23 +2,23 @@
 <!-- ======================================================================= -->
 # the RootedPath helper class
 
-In order to decode a sequence of length values, one must count down the current
-values in order to keep track of the nodes in the current rooted path. Overall,
-this can be done using a stack-based approach, which can be assumed to be
-implemented by the following `RootedPath` helper class.
+In order to decode a **sequence of length values**, one must count down the
+current node counts in order to keep track of the nodes in the current rooted
+path. Overall, this can be done using a stack-based approach, which can be
+assumed to be implemented by the following `RootedPath` helper class.
 
 ```js
 class RootedPath begin
-  //- a stack used to maintain the
+  //- a stack, used to maintain the
   //  entries in the current path
   stack = ()
 
-  //- the functionality of this class
-  //  instances is as can be seen below
+  //- the functionality of instances of
+  //  this class is as can be seen below
 end//- class
 ```
 
-The path's last node (i.e. the current node) can be retrieved using ...
+The path's last node can be retrieved using ...
 
 ```js
 function current() begin
@@ -59,6 +59,10 @@ function push(node, count) begin
   end
 end
 ```
+
+Note that the node count of a descendant must be smaller or equal to the
+node counts of all of its ancestors. Hence the comparison with the remaining
+node count of the stack's current last node.
 
 The most important method is the `pop()` function, which must reduce the node
 count of the current node by one, and also the node counts of its ancestors.

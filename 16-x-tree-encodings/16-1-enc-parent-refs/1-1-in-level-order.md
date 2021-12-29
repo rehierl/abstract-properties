@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# the parent-based encoding, in level order
+# the parent-based encoding, in default level-order
 
 ```
 default level-order (LEVEL)                          a
@@ -13,13 +13,13 @@ x  1  1  1  3  3  4  6  6 - par, parent.idx       d   e    i
 ```
 
 Recall that a level-order trace is such that each child order is a substring
-to the trace, which is why such a trace can be described as a sequence of
-child orders.
+(i.e. not just a suborder) to the trace, which is why such a trace can be
+described as a sequence of child orders.
 
 Note that the first node of a default level-order trace is always the tree's
 root. In contrary to that, the last node of such a trace is not necessarily
 a descendant of the root's last child. That is because the last node may be
-a descendant of any child of tree's root.
+a descendant of any node that is a child to tree's root.
 
 <!-- ======================================================================= -->
 ## encoding
@@ -59,13 +59,13 @@ This definition can then be used to recreate each node using expressions such
 as `new Node(n[i])` - see below.
 
 Note that the expression `node.idx = n.length` is used to associate the 1-based
-index value as a new property to the corresponding node object. Based on that,
-and given a node, one can determine the value of the node's parent reference.
+index value as a new property to the corresponding node object. Based on such
+a property one can determine the value of the node's parent index/reference.
 
 Note that this JavaScript-based approach is used by the above pseudocode for
 its simplcitiy. A clean approach would require to store object-value pairs
-in a separate hashtable since the corresponding values will then be dropped
-once the encoding process is done.
+in a separate hashtable. That is because the corresponding pairs will then
+be dropped once the encoding process is done.
 
 <!-- ======================================================================= -->
 ## decoding
@@ -73,6 +73,7 @@ once the encoding process is done.
 The encoded tree can be recreated as follows.
 
 ```js
+//- assuming 'n' is in level-order
 decode(n, par) begin
   assert((0 < #n) and (#n == #par))
   assert(par[1] <= 0)//- must be a root
@@ -110,8 +111,8 @@ end
 
 Note that, since the level-order trace of a document tree can be described
 as a sequence of child orders, certain improvements are possible. However,
-since the point of this discussion is not on efficiency, this pseudocode is
-kept **identical to that of the pre-order traversal**.
+since the point of this discussion is not on efficiency, this pseudocode
+is kept as-is - i.e. **identical to that of the pre-order traversal**.
 
 Note that the first index of an array in a real-world implementation has
 in general a value of 0/zero - i.e. zero-based arrays. However, in this
@@ -119,4 +120,4 @@ discussion, any index-order is assumed to have an index value of 1/one as
 its first index - i.e. one-based sequences.
 
 Note that, in the context of a backward-oriented encoding, the invalid
-reference (x) is assumed to have a value of `0/zero`.
+reference (x) is assumed to have a constant value of `0/zero`.

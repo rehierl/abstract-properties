@@ -3,7 +3,7 @@
 # the parent-based encoding (PAR)
 
 The following summarizes the sequences produced by the main tree traversal
-algorithms in regards to the default **parent-based explicit encoding scheme**
+algorithms in regards to the default **parent-based explicit encoding scheme**,
 and in regards to a document tree whose nodes are labeled in pre-order.
 
 ```

@@ -9,8 +9,8 @@ of that, this kind of encoding may be described as a **path-based encoding**.
 
 Note that since the definition of each edge is more or less directly encoded,
 each edge can be read as-is. That is, the definition of the edges do not first
-have to be decoded from some other implicit/embedded encoding such as a
-compressed data stream.
+have to be decoded from some other implicit or some embedded encoding, the
+latter of which would be the case when reading a compressed data stream.
 
 An alternative would be to associate a trace of nodes with a sequence of index
 values such that each index in it points to the **child** of the corresponding
@@ -18,13 +18,13 @@ node entry. This **reference-based encoding** scheme is however of limited use
 since (by default) it only supports one child per node.
 
 A different alternative would be to associate a trace of nodes with a sequence
-of indexes such that each index points to the **parent** of a node entry. Since
-this encoding can be used to define any node tree, including the child order
-of a document tree, it will be assumed as the **default encoding** of a tree.
+of index values such that each index points to the **parent** of a node entry.
+Since this encoding can be used to encode any node tree, including a child
+order, it will be assumed as **the default explicit encoding** of a tree.
 
 Note that more explicit encodings are obviously possible. Amongst these are
-adjacency matrices and explicit lists of edge definitions, each of which
-has its particular advantages and disadvantages in regards to processing
-the data stored within. With that in mind, the focus of the parent-based
-default encoding scheme is on serializing and deserializing the structure
-of a tree in a single sequence of numerical values.
+adjacency matrices and explicit lists of edge definitions, each of which has
+its particular advantages and disadvantages in regards to processing the data
+stored within. With that in mind, the focus of the parent-based default encoding
+scheme is on serializing and deserializing the structure of a tree in a single
+sequence of numerical values.

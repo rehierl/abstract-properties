@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# the level-based encoding, in post-order
+# the level-based encoding, in default post-order
 
 ```
 default post-order (POST)                           a
@@ -52,10 +52,12 @@ end
 The encoded tree can be recreated as follows.
 
 ```js
+//- assuming 'n' is in post-order
 decode(n, lvl) begin
   assert((0 < #n) and (#n == #lvl))
   assert(lvl[#n] == 1)//- must be a root
-  nodes=(), roots=(), rp=()
+  nodes=(), roots=()
+  rp = new RootedPath()
 
   for (i=#n to #1) begin
     node = new Node(n[i])
@@ -68,15 +70,14 @@ decode(n, lvl) begin
     //- if the node is a root
     if (level == 1) begin
       roots.append(node)
+      rp[level] = node
       rp.setLast(level, node)
       continue
     end
 
     //- assert that the input level does
     //  not exceed the range [1,#rp+1]
-    //- level values are no rank values!
-    last = rp.currentLast
-    assert(level <= (last.lvl+1))
+    assert(level <= (#rp+1))
 
     //- the node is a child to a node in rp
     parent = rp[level-1]

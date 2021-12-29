@@ -51,6 +51,7 @@ end
 The encoded tree can be recreated as follows.
 
 ```js
+//- assuming 'n' is in level-order
 decode(n, par) begin
   assert((0 < #n) and (#n == #par))
   assert(par[1] <= 0)//- must be a root
@@ -86,8 +87,8 @@ decode(n, par) begin
 end
 ```
 
-Recall that the PRE and PRER traversals are backward-oriented. That is, each
-node `c` has a parent `p` that is presequent to it in trace `n`. After all,
-the tree order is a suborder to the corresponding trace.
+Recall that the PRE traversal is backward-oriented. That is, each node `c` has
+a parent `p` that is presequent to it in trace `n`. After all, the tree order
+is a suborder to the corresponding trace.
 
 * `(p presequent-to c)` is true for `(p ancestor-of c)`

@@ -49,7 +49,7 @@ end
 ## decoding
 
 Note that, as above, this decoding algorithm would only differ from the
-algorithm of the default traversal in the expression that adds the current
-node as a child to its parent. Hence, no pseudocode will be listed.
+algorithm of the default traversal (POST) in the expression that adds the
+current node as a child to its parent. Hence, no pseudocode will be listed.
 
 * `.addAsFirstChild()` instead of `.addAsLastChild()`

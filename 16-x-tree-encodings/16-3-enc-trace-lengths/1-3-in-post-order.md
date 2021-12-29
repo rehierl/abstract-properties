@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# the length-based encoding, in post-order
+# the length-based encoding, in default post-order
 
 ```
 default post-order (POST)                            a
@@ -58,8 +58,8 @@ encode(root) begin
 end
 ```
 
-Note that a hashtable of counter values (i.e. `nc`, read as "node count" )
-is used to determine the node count of each node, one node at a time.
+Note that a hashtable of counter values `nc` (read as "node count") is
+used to determine the node count of each node, one node at a time.
 
 Note that, compared to the pre-order version, this post-order version is
 straight forward since a node and its node count will be appended to the
@@ -71,8 +71,10 @@ corresponding sequences once the node's scope is being exited.
 The encoded tree can be recreated as follows.
 
 ```js
+//- assuming 'n' is in post-order
 decode(n, len) begin
   assert((0 < #n) and (#n == #len))
+  //- assuming a single document tree
   assert(len[#n] == #n)//- must be a root
   assert(len[1] == 1)//- must be a leaf
   nodes=(), roots=()

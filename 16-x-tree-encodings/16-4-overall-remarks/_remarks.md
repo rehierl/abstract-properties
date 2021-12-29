@@ -1,21 +1,23 @@
 
+an order-preserving tree traversal must be used
+- no operation executed while traversing a tree
+  may produce conflicting results
+
 child order
 - include the parent as a first node ?
 - seems to cause some issues when forming scopes -
   these must not contain the parent/defining node
 - might more closely match the concept of scopes
 - more similar to A*() and D*()
+- see the parent-based encoding
 
-implementations
-- a stack of stacks of open scopes
-- relevant with hierarchies of sections/scopes
-- a stack-of-stacks is consistent with the scope closing order
-- if exit-events of multiple scopes match the same end-tag?
-- hint - last opened, first closed - a consequence of DI-RE
-
-an order-preserving tree traversal must be used
-- no operation executed while traversing a tree
-  may produce conflicting results
+rooted paths
+- stack-based implementations
+- a stack is consistent with the scope closing order
+- last opened, first closed - a consequence of DI-RE
+- what if exit-events of multiple scopes match the same end-tag?
+- first the scope with the last defining node?
+- issue with different types of sections - section, ha
 
 # variations
 
@@ -64,7 +66,7 @@ corresponds with a height-map
 - seems like that would be helpful for explanations
 - could be transformed into a length-based encoding?
 
-# meta - level vs. rank values
+# level vs. rank values
 
 node levels as rank values
 - a non-tag based notation
