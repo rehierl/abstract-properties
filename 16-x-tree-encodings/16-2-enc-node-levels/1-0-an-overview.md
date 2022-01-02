@@ -4,7 +4,7 @@
 
 The following summarizes the sequences produced by the main tree traversal
 algorithms when outputting the node level of each node. This encoding scheme
-will be referred to as the **level-based implicit encoding scheme**.
+will be referred to as **the level-based implicit encoding scheme**.
 
 ```
 default level-order (LEVEL)                          a
@@ -55,3 +55,7 @@ decode | N.A.   | O(N)   | -      | O(N)   | -
 Note that no decoding algorithm can be provided for the level-order traversal.
 That is because the sequence of level values in level-order is does not allow
 to reliably determine the parent of a node.
+
+Note that no encoding and decoding algorithms will be provided for the reversed
+pre-order and the reversed post-order tree traversals. That is because these
+merel differ in the order in which child nodes are visited/appended.

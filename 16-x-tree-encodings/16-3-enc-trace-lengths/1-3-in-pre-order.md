@@ -12,16 +12,14 @@ x  1  1  3  3  5  5  1  8 - par, parent.idx       d   e    i
 9  1  5  1  3  1  1  2  1 - len, node.len           f   g
 ```
 
-Note that no pseudocode for the reversed versions will be provided.
-
 <!-- ======================================================================= -->
-## encoding - TODO
+## encoding
 
 Sequences `n` and `len` can be formed as follows.
 
 ```js
 encode(root) begin
-  n=(), len=(), nc=()
+  n=(), len=(), rp=(), nc=()
   level = 0
 
   visitInPreOrderFTL(node) begin
@@ -30,7 +28,8 @@ encode(root) begin
 
     //- visit the node
     n.append(node)
-    node.idx = n.length
+    offset = n.length
+    rp[level] = offset
 
     //- initialize the node count to an invalid
     //  value, which will be replaced on exit
@@ -52,8 +51,9 @@ encode(root) begin
     end
 
     //- overwrite the initialized node count
-    count = nc[level]
-    len[node.idx] = count
+    offset = rp[level]
+    length = nc[level]
+    len[index] = length
 
     //- exit the node's type-1 scope
     level = (level - 1)
@@ -64,8 +64,10 @@ encode(root) begin
 end
 ```
 
-Note that a hashtable of counter values `nc` (read as "node count") is used
-to determine the node count of each node.
+Note that **a hashtable** of offset values `rp` (read as "rooted path") is
+used to maintain the offset indexes of the nodes in the current rooted path.
+Likewise, a hashtable of counter values `nc` (read as "node count") is used
+to sum up the node count of each node.
 
 Note that the post-order version is straight forward since the node count of
 a node will be available when the node and its node count need to be appended
@@ -79,7 +81,16 @@ operations must be executed before the visit of its first child, some during
 the visit of its child nodes, and some after the visit of its last child.
 
 <!-- ======================================================================= -->
-## decoding - TODO
+## encoding (2)
+
+Note that one is in general not required to explicitly count the nodes. That
+is because the final length of a trace can be derived from the index of its
+first node and the index of its last node.
+
+- see the end-based encoding scheme
+
+<!-- ======================================================================= -->
+## decoding
 
 The encoded tree can be recreated as follows.
 

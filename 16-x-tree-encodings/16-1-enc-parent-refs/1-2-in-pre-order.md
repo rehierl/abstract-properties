@@ -12,9 +12,9 @@ x  1  1  3  3  5  5  1  8 - par, parent.idx       d   e    i
                                                     f   g
 ```
 
-Note that the document tree is such that its nodes are labeled with alphabetical
-letters in ascending order with regards to the pre-order tree traversal. Because
-of that, sequence `n` contains the first 9/nine letters in ascending order.
+Note that the document tree is such that its nodes are labeled with letters in
+ascending order with regards to the pre-order tree traversal. Because of that,
+sequence `n` contains the first 9/nine letters in ascending order.
 
 <!-- ======================================================================= -->
 ## encoding

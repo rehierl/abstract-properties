@@ -21,20 +21,16 @@ rooted paths
 
 # variations
 
-- many more variations possible, can't cover them all
-- as can be seen from the post-order length- and
-  level-based encoding and decoding pseudocodes
-- Hpost, HsPost, HrsPost, also PRE-POSTR and POST-PRER
+- many variations are possible, can't cover them all
+- e.g. the post-order length- and level-based encodings
 
-the core purpose of these encodings ..
+purpose of these encodings ..
 - Hlen represents HsPre, Hlvl represents HrsPre
 - is to simplify discussions by reducing the amount
-  of variations that one needs to keep in mind
+  of variations one needs to keep in mind
 - is to allow to easily visualize scopes
-
-Hpost, Hcin
-- might want to flesh out the post-order traces?
-- like Hpre, the hierarchy of pre-order traces
+- the focus will be on sequences of
+  level and length values in pre-order
 
 # length values, Hlen
 

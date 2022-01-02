@@ -4,7 +4,7 @@
 
 The following summarizes the sequences produced by the main tree traversal
 algorithms when outputting the parent reference of each node. This encoding
-scheme will be referred to as the **parent-based explicit encoding scheme**.
+scheme will be referred to as **the parent-based explicit encoding scheme**.
 
 ```
 default level-order (LEVEL)                          a

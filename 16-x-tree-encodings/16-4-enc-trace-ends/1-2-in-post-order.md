@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# the length-based encoding, in default post-order
+# the end-based encoding, in default post-order
 
 ```
 default post-order (POST)                            a
@@ -10,42 +10,45 @@ b  d  f  g  e  c  i  h  a - n, trace           b    c      h
 9  6  5  5  6  9  8  9  x - par, parent.idx       d   e    i
 2  3  4  4  3  2  3  2  1 - lvl, node.lvl           -----
 1  1  1  1  3  5  1  2  9 - len, node.len           f   g
+1  2  3  4  3  2  7  7  1 - fst, node.fst
 ```
+
+Note that the index associated with a node marks the index of the first node of
+the node's pre-order trace. Because of that, the sequence of end indexes `end`
+is referred to as **the sequence of first indexes** `fst` in the context of a
+post-order tree traversal.
 
 <!-- ======================================================================= -->
 ## encoding
 
-Sequences `n` and `len` can be formed as follows.
+Sequences `n` and `fst` can be formed as follows.
 
 ```js
 encode(root) begin
-  n=(), len=(), nc=()
+  n=(), fst=(), rp=()
   level = 0
 
   visitInPreOrderFTL(node) begin
     //- enter the node's type-1 scope
     level = (level + 1)
 
-    //- initialize the node counter for the
-    //  current node - by counting itself
-    nc[level] = 1
+    //- keep track of the index of the first
+    //  node in the scope of the current node
+    //- none of these nodes have been appended
+    //  to 'n', which is why (+1) is a must
+    rp[level] = (n.length + 1)
 
     //- visit the child nodes
     for (child in node.childNodesFTL) begin
       visitInPreOrderFTL(child)
-
-      //- add the number of nodes of the
-      //  induced subtree T[child] to the
-      //  node count of the current node
-      nc[level] = nc[level] + nc[level+1]
     end
 
     //- visit the node
+    //- count = (last-first+1)
     n.append(node)
-
-    //- write the node count
-    count = nc[level]
-    len.append(count)
+    first = rp[level]
+    last = n.length
+    fst[last] = first
 
     //- exit the node's type-1 scope
     level = (level - 1)
@@ -56,22 +59,6 @@ encode(root) begin
 end
 ```
 
-Note that **a hashtable** of counter values `nc` (read as "node count")
-is used to sum up the node count of each node.
-
-Note that, compared to the pre-order version, this post-order version is
-straight forward since a node and its node count will be appended to the
-corresponding sequences once the node's scope is being exited.
-
-<!-- ======================================================================= -->
-## encoding (2)
-
-Note that one is in general not required to explicitly count the nodes. That
-is because the final length of a trace can be derived from the index of its
-first node and the index of its last node.
-
-- see the end-based encoding scheme
-
 <!-- ======================================================================= -->
 ## decoding
 
@@ -79,10 +66,10 @@ The encoded tree can be recreated as follows.
 
 ```js
 //- assuming 'n' is in post-order
-decode(n, len) begin
-  assert((0 < #n) and (#n == #len))
+decode(n, fst) begin
+  assert((0 < #n) and (#n == #fst))
   //- assuming a single document tree
-  assert(len[#n] == #n)//- must be a root
+  assert(len[#n] == #1)//- must be a root
   assert(len[1] == 1)//- must be a leaf
   nodes=(), roots=()
   rp = new RootedPath()
@@ -91,7 +78,11 @@ decode(n, len) begin
     node = new Node(n[i])
     nodes.append(node)
 
-    count = len[i]
+    first = fst[i]
+    last = i
+    assert(first >= 1)
+    assert(first <= i)
+    count = (last - first + 1)
     rp.push(node, count)
 
     if (#rp == 1) begin
@@ -110,3 +101,7 @@ decode(n, len) begin
   return roots
 end
 ```
+
+Note that, since the node count can be derived from the current last index
+(`i`) and the corresponding first index (`fst[i]`), the decoding algorithm
+is a minor modification of the length-based decoding algorithm.

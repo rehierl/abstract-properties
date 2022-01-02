@@ -12,8 +12,6 @@ x  1  1  3  3  5  5  1  8 - par, parent.idx       d   e    i
                                                     f   g
 ```
 
-Note that no pseudocode for the reversed versions will be provided.
-
 <!-- ======================================================================= -->
 ## encoding
 

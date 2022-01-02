@@ -12,8 +12,6 @@ b  d  f  g  e  c  i  h  a - n, trace           b    c      h
                                                     f   g
 ```
 
-Note that no pseudocode for the reversed versions will be provided.
-
 <!-- ======================================================================= -->
 ## encoding
 

@@ -12,14 +12,14 @@ that no excessive runtime complexity is required.
 
 ```
            | S1    | S2     | S3      | S4       | S5        | S6
-=========================================================================
+==========================================================================
  A         | sA: A | sA: AB | sA: ABC | sA: ABCD | sA: ABCDE | sA: ABCDEF
 ---------  |       | sB: B  | sB: BC  | sB: BCD  | sB: BCDE  | sF: F
  B     F   |       |        | sC: C   | sD: D    | sD: DE    |
 ------     |       |        |         |          | sE: E     |
  C  D      |
    ---     | set of finished traces (Hpre)
-    E      ==============================================================
+    E      ===============================================================
            |       |        | tC: C   |          | tE: E     | tF: F
            |       |        |         |          | tD: DE    | tA: ABCDEF
            |       |        |         |          | tB: BCDE  |
@@ -52,12 +52,12 @@ Note that the following general steps will be repeated for each node `X`:
 ## a stack of open scopes (Si)
 
 ```
- S3     |   -->   | S4            S5       |    -->    | S6
-============================     ==================================
-sA: ABC | sA: ABC | sA: ABCD     sA: ABCDE | sA: ABCDE | sA: ABCDEF
-sB: BC  | sB: BC  | sB: BCD      sB: BCDE  |           | sF: F
-sC: C   |         | sD: D        sD: DE    |           |
-        |         |              sE: E     |           |
+  S3     |   -->   | S4              S5       |    -->    | S6
+==============================     ====================================
+ sA: ABC | sA: ABC | sA: ABCD       sA: ABCDE | sA: ABCDE | sA: ABCDEF
+ sB: BC  | sB: BC  | sB: BCD        sB: BCDE  |           | sF: F
+ sC: C   |         | sD: D          sD: DE    |           |
+         |         |                sE: E     |           |
 ```
 
 As described above, each node `n` will be appended to all the sequences of each
@@ -77,15 +77,15 @@ as **a stack of open scopes**.
 ## a stack of node counts (Ci)
 
 ```
- C3       |    -->    | C4        | C5        |    -->    | C6
-======================================================================
-n:  ABC   | n:  ABC   | n:  ABCD  | n:  ABCDE | n:  ABCDE | n:  ABCDEF
-cA: (1,3) | cA: (1,3) | cA: (1,4) | cA: (1,5) | cA: (1,5) | cA: (1,6)
-cB: (2,2) | cB: (2,2) | cB: (2,3) | cB: (2,4) |           | cF: (6,1)
-cC: (3,1) |           | cD: (4,1) | cD: (4,2) |           |
-          |           |           | cE: (5,1) |           |
-======================================================================
-  len: (x,x,1,x,x,x) >|               len: (x,4,1,2,1,x) >|
+  C3       |    -->    | C4        | C5        |    -->    | C6
+========================================================================
+ n:  ABC   | n:  ABC   | n:  ABCD  | n:  ABCDE | n:  ABCDE | n:  ABCDEF
+ cA: (1,3) | cA: (1,3) | cA: (1,4) | cA: (1,5) | cA: (1,5) | cA: (1,6)
+ cB: (2,2) | cB: (2,2) | cB: (2,3) | cB: (2,4) |           | cF: (6,1)
+ cC: (3,1) |           | cD: (4,1) | cD: (4,2) |           |
+           |           |           | cE: (5,1) |           |
+========================================================================
+   len: (x,x,1,x,x,x) >|               len: (x,4,1,2,1,x) >|
 ```
 
 Since the trace of each node `pre(n)` is a substring to all of the traces of
