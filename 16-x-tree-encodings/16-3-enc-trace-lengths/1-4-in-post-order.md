@@ -58,8 +58,8 @@ encode(root) begin
 end
 ```
 
-Note that a hashtable of counter values `nc` (read as "node count") is
-used to determine the node count of each node, one node at a time.
+Note that a hashtable of counter values `nc` (read as "node count") is used
+to determine the node count of each node, one node at a time.
 
 Note that, compared to the pre-order version, this post-order version is
 straight forward since a node and its node count will be appended to the

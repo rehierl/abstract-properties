@@ -13,13 +13,13 @@ x  1  1  1  3  3  4  6  6 - par, parent.idx       d   e    i
 ```
 
 Recall that a level-order trace is such that each child order is a substring
-(i.e. not just a suborder) to the trace, which is why such a trace can be
-described as a sequence of child orders.
+(i.e. not just a suborder) to the level-order trace, which is why such a trace
+can be described as a sequence of child orders.
 
-Note that the first node of a default level-order trace is always the tree's
-root. In contrary to that, the last node of such a trace is not necessarily
-a descendant of the root's last child. That is because the last node may be
-a descendant of any node that is a child to tree's root.
+Note that the first node of a default level-order trace is the tree's root. In
+contrary to that, the last node of such a trace is not necessarily a descendant
+of the root's last child. That is because the last node may be a descendant of
+any node that is a child to tree's root.
 
 <!-- ======================================================================= -->
 ## encoding
@@ -109,15 +109,15 @@ decode(n, par) begin
 end
 ```
 
-Note that, since the level-order trace of a document tree can be described
-as a sequence of child orders, certain improvements are possible. However,
-since the point of this discussion is not on efficiency, this pseudocode
+Note that, since the level-order trace of a document tree can be described as
+a sequence of child orders, certain improvements are possible. However, since
+the focus of this discussion is on simplicity, not on efficiency, this code
 is kept as-is - i.e. **identical to that of the pre-order traversal**.
 
-Note that the first index of an array in a real-world implementation has
-in general a value of 0/zero - i.e. zero-based arrays. However, in this
-discussion, any index-order is assumed to have an index value of 1/one as
-its first index - i.e. one-based sequences.
+Note that the first index of an array in a real-world implementation has in
+general a value of `0/zero` - i.e. **zero-based arrays**. However, in this
+discussion, any index-order is assumed to have an index value of `1/one` as
+its first index - i.e. **one-based sequences**.
 
-Note that, in the context of a backward-oriented encoding, the invalid
-reference (x) is assumed to have a constant value of `0/zero`.
+Note that, in the context of a backward-oriented encoding, the value of an
+invalid reference (x) is assumed to have the constant value `0/zero`.

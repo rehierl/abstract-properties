@@ -54,11 +54,10 @@ Note that the sequence of level values produced by a level-order traversal
 **can not be used to decode a document tree**. That is because one can not
 reliably tell to which parent a node in the sequence belongs.
 
-* nodes `e` and `i` have distinct parents, while being on the same level
 * node `e` - parent index `3` and node level `3`
 * node `i` - parent index `4` and node level `3`
+* i.e. despite being on the same level, `e` and `i` have distinct parents
 
-Note that, in order to be able to decode a tree from its sequence of level
-values, the level values of the child nodes of a parent must be separated
-from the level values of the child nodes of a subsequent parent, which the
-pre-order traversal will do.
+Note that, in order to allow to decode a tree from its sequence of level values,
+the level values of child nodes must be separated from the level values of child
+nodes that belong to a subsequent parent, which the pre-order traversal will do.

@@ -12,7 +12,7 @@ x  1  1  1  3  3  4  6  6 - par, parent.idx       d   e    i
 9  1  5  2  1  3  1  1  1 - len, node.len           f   g
 ```
 
-Note that the length values in default level-order are not monotone decreasing.
+Note that the length values in level-order are not monotone decreasing.
 
 <!-- ======================================================================= -->
 ## encoding - TODO
@@ -24,16 +24,16 @@ encode(root) begin
   n=(), len=()
 
   //- recursively determine #D*(n)
-  countNodes(node) begin
+  nodeCountOf(node) begin
     //- count the node itself
     count = 1
 
     //- visit the child nodes
     for (child in node.childNodes) begin
-      count = count + countNodes(child)
+      count = count + nodeCountOf(child)
     end
 
-    //- store the node count with each node
+    //- store the node count of each node
     node.len = count
     return count
   end
@@ -58,7 +58,7 @@ encode(root) begin
   end
 
   //- pre-determine all node counts
-  count = countNodes(root)
+  count = nodeCountOf(root)
 
   visitInLevelOrder(root)
   return n,len
@@ -66,9 +66,10 @@ end
 ```
 
 Note that the computational complexity is improved at the cost of increased
-storage requirements - i.e. `node.len`. Without that storage property, the
-algorithm would have exponential runtime complexity since one would have to
-determine the node count of a node with each visit.
+storage requirements - i.e. `node.len`. Without that additional property,
+the algorithm would have an exponential runtime since one would then have
+to determine the node count of each node by traversing the corresponding
+induced subtree.
 
 <!-- ======================================================================= -->
 ## decoding
@@ -77,7 +78,7 @@ Note that the sequence of length values produced by a level-order traversal
 **can not be used to easily decode a document tree**. That is because one
 can not reliably tell to which parent a node in the level-order trace belongs.
 
-Note that the node count of a node must be such that its value minus one is
-the sum of lengths of one or more complete child orders. With that in mind
+Note that the node count of a node is such that its value minus one is the
+sum of the lengths of one or more complete child orders. With that in mind
 one could imagine a sequence of child orders for which it is not possible to
-uniquely resolve these sums - i.e. there might be more than one possibility.
+uniquely resolve such a sum - i.e. there might be more than one possibility.

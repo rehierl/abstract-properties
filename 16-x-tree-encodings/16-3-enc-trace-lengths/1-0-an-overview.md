@@ -3,8 +3,8 @@
 # the length-based encoding (LEN)
 
 The following summarizes the sequences produced by the main tree traversal
-algorithms when outputting the number of nodes in the scope of a node instead
-of its parent reference. This encoding scheme will be referred to as the
+algorithms when outputting the number of nodes in the scope of each node.
+This encoding scheme will be referred to as the
 **length-based implicit encoding scheme**.
 
 ```
@@ -49,7 +49,7 @@ i  h  g  f  e  d  c  b  a - n, trace
 1  2  1  1  3  1  5  1  9 - len, node.len
 ```
 
-Note that encoding and decoding algorithms are provided as follows.
+Note that the encoding and decoding algorithms are provided as follows.
 
 ```
 -      | LEVEL  | PRE    | PRER   | POST   | POSTR
@@ -57,6 +57,10 @@ Note that encoding and decoding algorithms are provided as follows.
 encode | O(3*N) | O(N)   | -      | O(N)   | -
 decode | N.A.   | O(N)   | -      | O(N)   | -
 ```
+
+Note that no decoding algorithm can be provided for the level-order traversal.
+That is because the sequence of level values in level-order is does not allow
+to reliably determine the parent of a node.
 
 TODO - Note that the algorithms in this chapter need to be verified, which
 is especially true for the decoding algorithms. At this point they seem as

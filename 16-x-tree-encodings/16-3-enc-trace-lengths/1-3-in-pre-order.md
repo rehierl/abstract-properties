@@ -37,8 +37,8 @@ encode(root) begin
     //- stored in len[node.idx]
     len.append(0)
 
-    //- initialize the node counter for the
-    //  current node - by counting itself
+    //- initialize the counter for the current
+    //  node - by including/counting itself
     nc[level] = 1
 
     //- visit the child nodes
@@ -51,7 +51,7 @@ encode(root) begin
       nc[level] = nc[level] + nc[level+1]
     end
 
-    //- overwrite the preset node count
+    //- overwrite the initialized node count
     count = nc[level]
     len[node.idx] = count
 
@@ -65,13 +65,13 @@ end
 ```
 
 Note that a hashtable of counter values `nc` (read as "node count") is used
-to determine the node count of each node, one node at a time.
+to determine the node count of each node.
 
 Note that the post-order version is straight forward since the node count of
-a node will be available when the node and its node count need to be written
+a node will be available when the node and its node count need to be appended
 to the corresponding sequences. In contrary to that, the pre-order version
 requires to memorize the index of a node such that its initialized node count
-can be replaced by its final value.
+can be replaced by the final value.
 
 Note that the above pseudocode incorporates aspects of a pre-order, aspects of
 an in-order and also aspects of a post-order traversal. That is because some
@@ -109,6 +109,9 @@ decode(n, len) begin
       parent.addAsLastChild(node)
     end
 
+    //- reduce the node count of each node
+    //  and pop all the nodes that have a
+    //  remaining node count of 0/zero
     rp.pop()
   end
 
@@ -119,21 +122,25 @@ end
 
 Note that the rooted path `rp` is no simple stack, but a stack with extended
 functionality. This additional functionality has the purpose of counting down
-the length values, which is used to keep track of the nodes in the rooted
-path. This allows to determine the parent node of the next subsequent node.
+the length values, which is used to keep track of the nodes in the current
+rooted path, which allows to determine the parent of the next subsequent node.
 
 Recall that the scope of a node and its pre-order trace have the same sets of
-nodes. Because of that, the node's scope appears as a substring to the document
-tree's pre-order trace `n`. Hence, the length value of a node is equal to the
-length of the node's pre-order trace `pre(n)`.
+nodes. Because of that, the scope of a node can be described to appear as a
+substring to the document tree's pre-order trace `n`. Hence, the length value
+of a node `x` is equal to the length of the node's pre-order trace `pre(x)`.
 
-* `pre(n) := n[i,i+N-1]` assuming `(len[i] == N)` and `(i in [1,#len])`
+* `pre(x) := n[i,i+N-1]` is true assuming ..
+* `(n[i] == x)` and `(len[i] == N)` for `(i in [1,#len])`
 
-Note that the first length entry must therefore be equal to the length of the
-sequence of length values - i.e. `(len[1] == #len)`. That is because the scope
-of a root includes all the nodes. Likewise, the last entry must have a value
-of one - i.e. `(len[#len] == 1)`. That is because the scope of a leaf only
+Note that the first length entry must be equal to the length of the sequence
+of length values - i.e. `(len[1] == #len)`. That is because the scope of a
+root includes all the nodes. Likewise, the last entry must have a value of
+one - i.e. `(len[#len] == 1)`. That is because the scope of a leaf only
 contains the leaf itself.
 
-Note that the above pseudocode is only artificially reduced to a single tree.
-That is, the entry assertions are in general not required.
+Note that, due to the entry assertions, the above pseudocode is artificially
+reduced to a single tree. That is, the 2nd and 3rd entry assertions must be
+altered or dropped if the sequence of length values defines the structure of
+a forest of trees. That is because no length value can then be equal to the
+length of the sequence of length values.

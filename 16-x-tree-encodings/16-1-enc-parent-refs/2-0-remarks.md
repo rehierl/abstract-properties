@@ -28,7 +28,7 @@ Note however that the parent references can be transformed based on the sequence
 lengths. This allows to state that even these sequences still correspond with
 each other.
 
-* with `d*[i] := (#d+1-d[i])` ..
+* with `d*[i] := (#d+1-d[i])` ...
 * `PRE(x,1,1,3,3,5,5,1,8) <=> POSTR*(8,1,5,5,3,3,1,1,x)`
 * `POST(9,6,5,5,6,9,8,9,x) <=> PRER*(x,9,8,9,6,5,5,6,9)`
 

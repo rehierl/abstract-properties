@@ -3,9 +3,9 @@
 # the RootedPath helper class
 
 In order to decode a **sequence of level values**, one must maintain a rooted
-path in order to be able to determine the parent node of a subsequent child.
-Overall, this can be done using a stack-based approach, which can be assumed
-to be implemented by the following `RootedPath`helper class.
+path which allows to determine the parent of a subsequent node. Overall, this
+can be done using a stack-based approach, which can be assumed to be implemented
+by the following helper class.
 
 ```js
 class RootedPath begin
@@ -23,12 +23,11 @@ class RootedPath begin
 
   //- the functionality of instances of
   //  this class is as can be seen below
-end//-class
+end
 ```
 
-The path's length (aka. max level) can be access
-using the following method. (Note - not equal to
-'stack.size()' or the like).
+The path's length (aka. max level) can be accessed using the following method.
+(Note - not the same as 'stack.size()' or the like).
 
 ```js
 //- accessible via the "#path" syntax
@@ -37,8 +36,7 @@ function length() begin
 end
 ```
 
-The following method provides random access to
-any node in the current rooted path.
+The following method provides random access to any node in the current path.
 
 ```js
 //- accessible via the "path[index]" syntax
@@ -65,8 +63,8 @@ function setLast(level, node) begin
     stack[level] = node
   end
 
-  //- any nodes at indexes (level < i)
-  //  will be ignored past that point
+  //- nodes at indexes (i > level) will
+  //  be ignored from this point forward
   currentLast = level
 end
 ```

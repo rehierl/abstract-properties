@@ -50,7 +50,8 @@ Note that the level of a node is equal to the number of nodes in its rooted
 path, which is why a level value reflects the number of open scopes. Because
 of that, the level of a node increases by one each time a scope is entered,
 and decreases by one each time a scope is exited. Consequently, there is no
-issue when having to determine the level of a root.
+issue when having to determine the level of a root. That is because one no
+longer requires a parent reference in order to determine the level of a node.
 
 * `level+1` each time a scope is entered
 * `level-1` each time a scope is exited
