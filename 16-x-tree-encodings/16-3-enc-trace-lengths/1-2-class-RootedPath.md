@@ -40,8 +40,8 @@ function parent() begin
 end
 ```
 
-The most fundamental method is the following function, which is used to
-register the next node with its initial node count.
+The most basic method is the following function, which is used to register the
+next node with its initial node count.
 
 ```js
 function push(node, count) begin
@@ -61,16 +61,15 @@ end
 ```
 
 Note that the node count of a descendant must be smaller or equal to the node
-counts of its ancestors. Hence the assertion with the remaining node count of
-the stack's current last node.
+counts of its ancestors. Hence the assertion in regards to the remaining node
+count of the stack's current last node.
 
-The most important method is however the following function, which must reduce
-the node count of the current node by one, and also the node counts of each of
-its ancestors.
+More important is however the following function, which must reduce the node
+count of the current node by one, and also the node count of each ancestor.
 
 ```js
 function pop() begin
-  //- first reduce all node counts
+  //- first reduce all node counts by 1/one
   for (i=stack.size to 1) begin
     stack[i].remaining -= 1
   end
@@ -87,5 +86,5 @@ end
 
 Note that this function can be optimized, if one realizes that not all node
 counts have to be reduced with each call. That is, the node count of a parent
-only has to be updated if the node count of its child reached a value of zero.
-As a matter of clarity, the above pseudocode is kept as is.
+only has to be updated if the node count of its child has reached a value of
+zero. As a matter of simplicity, the above pseudocode is kept as is.

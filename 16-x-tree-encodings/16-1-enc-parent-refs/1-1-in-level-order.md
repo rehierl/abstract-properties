@@ -12,9 +12,9 @@ x  1  1  1  3  3  4  6  6 - par, parent.idx       d   e    i
                                                     f   g
 ```
 
-Recall that a level-order trace is such that each child order is a substring
-(i.e. not just a suborder) to the level-order trace, which is why such a trace
-can be described as a sequence of child orders.
+Recall that a level-order trace is such that the child order of each parent is
+a substring (i.e. not just a suborder) to the level-order trace, which is why
+such a trace can be described as a sequence of child orders.
 
 Note that the first node of a default level-order trace is the tree's root. In
 contrary to that, the last node of such a trace is not necessarily a descendant
@@ -27,30 +27,31 @@ any node that is a child to tree's root.
 Sequences `n`, `r` and `par` can be formed as follows.
 
 ```js
-encode(root) begin
-  next = new Queue()
-  next.enqueue(root)
-  n=(), r=(), par=()
+export function encodeLEVEL(root) {
+  let next = new cQueue();
+  next.enqueue(root);
+  let n=[], r=[], par=[];
 
-  while (next.isEmpty() == false) begin
-    node = next.dequeue()
+  while(next.hasNext) {
+    let node = next.dequeue();
 
     //- visit the node
-    n.append(node)
-    node.idx = n.length
-    r.append(node.idx)
-    parent = node.parentNode
-    parRef = parent ? parent.idx : 0
-    par.append(parRef)
+    n.push(node);
+    node.ref = n.length;
+    r.push(node.ref);
+
+    let parent = node.parentNode;
+    let parRef = parent ? parent.ref : 0;
+    par.push(parRef);
 
     //- plan the visit of each child
-    for (child in node.childNodesFTL) begin
-      next.enqueue(child)
-    end
-  end
+    for(let child of node.childNodesFTL) {
+      next.enqueue(child);
+    }
+  }
 
-  return n,par
-end
+  return { n, par };
+}
 ```
 
 Note that the expression `n.append(node)` must be understood such that some
@@ -62,10 +63,14 @@ Note that the expression `node.idx = n.length` is used to associate the 1-based
 index value as a new property to the corresponding node object. Based on such
 a property one can determine the value of the node's parent index/reference.
 
-Note that this JavaScript-based approach is used by the above pseudocode for
-its simplcitiy. A clean approach would require to store object-value pairs
-in a separate hashtable. That is because the corresponding pairs will then
-be dropped once the encoding process is done.
+Note that this JavaScript-based approach is used for its simplcitiy. A better
+approach would require to store object-value pairs in a separate hashtable.
+That is because the corresponding pairs will then be dropped once the encoding
+process is done.
+
+Note that, since sequence `r` will not be returned, subsequent algorithms will
+omit this sequence entirely. After all, it merely holds the index values of
+the nodes in the order in which they will be appended to sequence `n`.
 
 <!-- ======================================================================= -->
 ## decoding
@@ -73,40 +78,42 @@ be dropped once the encoding process is done.
 The encoded tree can be recreated as follows.
 
 ```js
-//- assuming 'n' is in level-order
-decode(n, par) begin
-  assert((0 < #n) and (#n == #par))
-  assert(par[1] <= 0)//- must be a root
-  nodes=(), roots=()
+//- same as decodePRE()
+//- assuming `n` is in level-order
+export function decodeLEVEL(n, par) {
+  let len = n.length;
+  util.assert(0 < len);
+  util.assert(len == par.length);
+  util.assert(par[0] <= 0);//- a root
+  let nodes=[], roots=[];
 
-  for (i=1 to #n) begin
-    node = new Node(n[i])
-    nodes.append(node)
-    parRef = par[i]
+  for(let i=0; i<len; i++) {//- i in [0,#n)
+    let node = new cNode(n[i]);
+    nodes.push(node);
+    let ref = par[i];
 
-    //- a root node
-    if (parRef <= 0) begin
-      roots.append(node)
-      continue
-    end
+    //- a root
+    if(ref <= 0) {
+      roots.push(node);
+      continue;
+    }
 
-    //- an invalid reference
-    if (parRef > #n) begin
-      assert(false)
-    end
+    //- invalid reference
+    if(ref > n.length) {
+      util.assert(false);
+    }
 
     //- a cyclic graph
-    if (parRef >= i) begin
-      assert(false)
-    end
+    if((ref-1) >= i) {
+      util.assert(false);
+    }
 
-    //- parRef in [1,i]
-    parent = nodes[parRef]
-    parent.addAsLastChild(node)
-  end
+    let parent = nodes[ref-1];
+    parent.addAsLastChild(node);
+  }
 
-  return roots
-end
+  return roots;
+}
 ```
 
 Note that, since the level-order trace of a document tree can be described as
@@ -116,8 +123,8 @@ is kept as-is - i.e. **identical to that of the pre-order traversal**.
 
 Note that the first index of an array in a real-world implementation has in
 general a value of `0/zero` - i.e. **zero-based arrays**. However, in this
-discussion, any index-order is assumed to have an index value of `1/one` as
-its first index - i.e. **one-based sequences**.
+discussion, the index-order of any sequence is assumed to have an index value
+of `1/one` as its first index - i.e. **one-based sequences**.
 
 Note that, in the context of a backward-oriented encoding, the value of an
-invalid reference (x) is assumed to have the constant value `0/zero`.
+invalid reference (x) is assumed to have a constant value of `0/zero`.

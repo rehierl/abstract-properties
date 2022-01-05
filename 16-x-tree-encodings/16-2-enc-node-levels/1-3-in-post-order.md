@@ -54,8 +54,8 @@ The encoded tree can be recreated as follows.
 decode(n, lvl) begin
   assert((0 < #n) and (#n == #lvl))
   assert(lvl[#n] == 1)//- must be a root
-  nodes=(), roots=()
-  rp = new RootedPath()
+  nodes=(), roots=(), rp=()
+  last = 0
 
   for (i=#n to #1) begin
     node = new Node(n[i])
@@ -65,22 +65,21 @@ decode(n, lvl) begin
     assert(level >= 1)
     node.lvl = level
 
+    //- assert that the input level does
+    //  not exceed the range [1,#rp+1]
+    assert(level <= (last+1))
+    rp[level] = node
+    last = level
+
     //- if the node is a root
     if (level == 1) begin
       roots.append(node)
-      rp[level] = node
-      rp.setLast(level, node)
       continue
     end
-
-    //- assert that the input level does
-    //  not exceed the range [1,#rp+1]
-    assert(level <= (#rp+1))
 
     //- the node is a child to a node in rp
     parent = rp[level-1]
     parent.addAsFirstChild(node)
-    rp.setLast(level, node)
   end
 
   return roots

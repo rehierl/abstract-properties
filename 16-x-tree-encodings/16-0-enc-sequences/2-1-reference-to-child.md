@@ -11,19 +11,28 @@ s := (a,b,c,d)   =>   n := (a,b,c,d)   =>   n := (a,b,c,d) - node definitions
 As mentioned before, a sequence of nodes `s` allows to form a sequence of node
 definitions `n` and a sequence of references `r`. In addition to that, a second
 sequence of references `d` can be defined such that it holds the index of a
-child of the corresponding node in `r`. Combined, sequences `r` and `d` can be
-understood to define a set of edges `E` and therefore to define a graph `G(N,E)`.
+child of the corresponding node in `r`.
+
+Note that ..
+
+* `n` is expected to be an ordered sequence
+* `(#r >= #n)` is expected to be true
+* `(#r == #n)` is not (yet) required to be true
+* `(#r == #d)` must be true
+* `(r[i] in [1,#n])` and `(d[i] in [1,#n])` must be true
+* `(r[i] != d[i]` must be true - i.e. no loops
+* `r[i]` is defines the parent of `d[i]`
+
+Combined, sequences `r` and `d` can be understood to define a set of edges `E`
+and therefore to define a graph `G(N,E)`.
 
 * `N := { r[i] | (i in [1,#r]) }`
-* `E := { (r[i],d[i]) | (d[i] in [1,#r]) and (i in [1,#r]) }`
+* `E := { (r[i],d[i]) | (d[i] in [1,#n]) and (i in [1,#r]) }`
 * `sem(G) := (a parent-of b)`
 
-Note that `r[i]` defines the parent of `d[i]`.
-Furthermore, `(#r == #N)` is at this point not (yet) required to be true.
-
 Note that `G` is strictly speaking a graph of index values such that each index
-in it corresponds with a node in `n`. As a matter of simplification, and as can
-be seen above, these index values will in general be treated as actual nodes.
+in it corresponds with a node in `n`. As a matter of simplification these index
+values will in general be treated as actual nodes.
 
 <!-- ======================================================================= -->
 ## remarks
@@ -32,29 +41,32 @@ Note that, due to its shortcomings (as discussed below), this encoding scheme
 will not be discussed in detail. It needs to be understood as a transitional
 encoding from the path-based to a parent-based encoding.
 
-Note that an index value (x) may be used to denote an invalid index such that
-it does not map to any node in `n`. This value will usually point to just before
-the first (i.e. a value of `0`), or to just after the last node (i.e. a value
-of `#n+1`) in `n`.
-
-Note that, in this encoding scheme, sequence `r` can in general be described as
-a sequence of parent nodes, even though one node (e.g. `r[4]`) is not defined
-as a parent. After all, it is associated with the invalid child reference (x).
-
 Note that each index value in `d` is greater than the corresponding index in
 `r`. Because of that, this scheme may be described as being **forward-oriented**.
 Hence, an index value of `#n+1` would be appropriate for the invalid reference
 (x), which would then be an overall non-constant reference.
 
-Note that this orientation greatly **depends on the tree traversal** algorithm
-that was used to form the sequences, which will in general be a "root to leaf"
-oriented traversal (i.e. in tree order).
+* `forward-oriented := (r[i] < d[i])` for all `(i in [1,#r])`
+
+Note that the orientation **depends on the tree traversal** algorithm that was
+used to form the sequences, which will in general be a "root to leaf" oriented
+traversal (i.e. in tree order).
+
+Note that, in this encoding scheme, sequence `r` can in general be described
+as a sequence of parent nodes, even though one node (e.g. `r[4]` from above)
+is not defined as a parent. After all, it is associated with an invalid child
+reference (x).
+
+Note that an index value (x) may be used to denote an invalid index such that
+it does not map to any node in `n`. This value will usually point to before
+the first (i.e. a constant value of `0`), or to after the last node (i.e. a
+non-constant value of `#n+1`) in `n`.
 
 <!-- ======================================================================= -->
 ## con - any number of child nodes
 
-Since each node in a tree may in general have any number of child nodes, it is
-quite obvious why this encoding scheme has significant drawbacks. After all,
+Since each node in a tree may in general have any number of child nodes, it
+is quite obvious why this encoding scheme has significant drawbacks. After all,
 it expects each node to have either no, or one child only. That is, if `r` is
 required to correspond with the index-order of `n`.
 
@@ -99,9 +111,9 @@ s := (a,b)   =>   n := (a,b,c,d)
 t := (c,d)        d := (2,x,4,x)
 ```
 
-Because of that, this encoding scheme could still be used to explicitly encode
-the child order of a document tree. After all, the sequences of child nodes of
-a parent are disjoint.
+Despite that, this encoding scheme could still be used to explicitly encode the
+child order of a document tree. After all, the sequences of child nodes of a
+parent are disjoint.
 
 Note that this encoding scheme could not be used to encode the rooted paths of
 a tree since these paths are coupled with each other via some non-empty prefix.
@@ -123,11 +135,10 @@ in `n`. This is done by simply appending the node to `n` and its index to
 `r` while that node is being visited.
 
 Likewise, and while iterating over the child nodes of a parent, a writer will
-also have to ensure that each child already has an index in `n` such that it
-can be referenced in `d`.
-
-Note that having to double-check the references of each node will make
-implementations needlessly complicated.
+also have to ensure that each child has an index in `n` such that it can be
+referenced in `d`. However, since the child of a parent has then not yet been
+visited, implementations will have to delay writing the child references until
+the child nodes are being visited.
 
 **implementations - reader code**
 

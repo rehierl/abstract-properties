@@ -24,7 +24,13 @@ encode(root) begin
   n=(), len=()
 
   //- recursively determine #D*(n)
+  //- used to pre-determine all node counts
   nodeCountOf(node) begin
+    //- if the result is already available
+    if (node.len !== undefined) begin
+      return node.len
+    end
+
     //- count the node itself
     count = 1
 
@@ -57,28 +63,25 @@ encode(root) begin
     end
   end
 
-  //- pre-determine all node counts
   count = nodeCountOf(root)
-
   visitInLevelOrder(root)
   return n,len
 end
 ```
 
 Note that the computational complexity is improved at the cost of increased
-storage requirements - i.e. `node.len`. Without that additional property,
-the algorithm would have an exponential runtime since one would then have
-to determine the node count of each node by traversing the corresponding
-induced subtree.
+storage requirements - i.e. `node.len`. Without that property, the algorithm
+would have exponential runtime since one would then have to determine the
+node count of each node by traversing the corresponding induced subtree.
 
 <!-- ======================================================================= -->
 ## decoding
 
 Note that the sequence of length values produced by a level-order traversal
 **can not be used to easily decode a document tree**. That is because one
-can not reliably tell to which parent a node in the level-order trace belongs.
+can not reliably tell the parent a node has in the level-order trace.
 
 Note that the node count of a node is such that its value minus one is the
-sum of the lengths of one or more complete child orders. With that in mind
-one could imagine a sequence of child orders for which it is not possible to
+sum of the node counts in one or more child orders. With that in mind one
+could imagine a sequence of child orders for which it is not possible to
 uniquely resolve such a sum - i.e. there might be more than one possibility.

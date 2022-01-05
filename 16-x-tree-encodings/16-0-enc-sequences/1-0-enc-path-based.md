@@ -17,10 +17,6 @@ Note that `s[i]` defines a parent of `s[i+1]`.
 Note that in this kind of encoding, it is the index-order of a sequence that
 needs to be understood to define the relationships between the elements in it.
 
-Recall that the definition of **ordered sequences** was introduced since
-repeating elements, which can be understood to add cycles to a graph, break
-the linear order of succession.
-
 <!-- ======================================================================= -->
 ## reversing the process of forming paths
 
@@ -30,6 +26,7 @@ of one edge (e.g. `b` in `(a,b)`) is also the source vertex of another edge
 of a graph, which can be expressed as sequences of vertices (e.g. `(a,b,c)`).
 
 * `s := (a,b,c)` => is understood to define edges `(a,b)` and `(b,c)`
+* `aPc` is understood to be true
 
 The process of forming paths can be understood to be reversible. That is, one
 can derive edges from any sequence `s`, by assuming that an edge is defined
@@ -54,9 +51,9 @@ a° -> b -> c
 ```
 
 Difficulties arise as soon as elements appear more than once. However, for as
-long as there are no other elements in between the occurrences of an element,
-there isn't much of an issue. That is because such repetitions only define
-loops - visualized as (°).
+long as there are no other elements in between the occurrences of the same
+element, there isn't much of an issue. That is because such repetitions only
+define loops - visualized as (°).
 
 ```
 s := (a,b,c,b,d)
@@ -70,10 +67,12 @@ Since this kind of encoding does not differenciate between element instances,
 element (b) is defined to be presequent and also subsequent to itself. Also,
 element (c) can be understood to be subsequent and also presequent to (b).
 
+* `(a presequent-to b), (b subsequent-to a) := aPb`
+
 The relationships between the elements are conflicting, if the repetitions of
 one element are interleaved by one or more other elements. That is because such
-**repetitions add cycles** to the graph of a sequence, which can be said to
-**break the linear order of succession**.
+**repetitions add cycles** to the graph of a sequence, which can be understood
+to **break the linear order of succession**.
 
 Note that the edges are always oriented from one element towards those elements
 that are subsequent to it. Because of that, the only way to define backwards
@@ -88,7 +87,7 @@ transitive closure of a graph defined by a sequence that has repeating
 elements is **no partial order relation**.
 
 In contrary to that, any ordered sequence can be understood to define
-**a total order relation**. Consequently, **ordered sequences** had to
+**a total order relation**, which is why **ordered sequences** had to
 be defined in order to exclude repeating elements.
 
 * `(E(s) == #s)` is required to be true for ordered sequences

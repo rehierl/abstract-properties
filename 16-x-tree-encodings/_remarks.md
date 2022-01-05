@@ -1,14 +1,16 @@
 
+- continue here ...
+
 an order-preserving tree traversal must be used
 - no operation executed while traversing a tree
   may produce conflicting results
 
 child order
 - include the parent as a first node ?
-- seems to cause some issues when forming scopes -
-  these must not contain the parent/defining node
 - might more closely match the concept of scopes
-- more similar to A*() and D*()
+- seems to cause some issues when forming scopes
+- which must not contain the parent/defining node
+- still more similar to A*() and D*()
 - see the parent-based encoding
 
 rooted paths
@@ -74,3 +76,9 @@ level values vs. rank values
 - if generated, they can be relied upon
 - not much different to rank values
 - level values are absolute
+
+- in regards to the level-based encoding
+Note the similarity with **rank-based algorithms**, which is because the
+current node, assuming all is in order, always is a child to one of the
+nodes in the current rooted path. (More detailed explanations will follow
+eventually).

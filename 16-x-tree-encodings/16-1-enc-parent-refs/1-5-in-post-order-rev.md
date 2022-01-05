@@ -15,41 +15,83 @@ i  h  g  f  e  d  c  b  a - n, trace           b    c      h
 <!-- ======================================================================= -->
 ## encoding
 
-Sequences `n`, `r` and `par` can be formed as follows.
+Sequences `n` and `par` can be formed as follows.
 
 ```js
-encode(root) begin
-  n=(), r=(), par=()
+export function encodePOSTR(root) {
+  let nodes=[], n=[], par=[];
 
-  visitInPostOrderLTF(node) begin
+  function visitPostLTF(node) {
     //- visit the child nodes
-    for (child in node.childNodesLTF) begin
-      visitInPostOrderLTF(child)
-    end
+    for(let child of node.childNodesLTF) {
+      visitPostLTF(child);
+    }
 
     //- visit the node
-    n.append(node)
-    node.idx = n.length
-    r.append(node.idx)
-  end
+    nodes.push(node);
+    n.push(node.def());
+    node.ref = n.length;
+  }
 
-  visitInPostOrderLTF(root)
+  visitPostLTF(root);
+  let len = nodes.length;
 
-  for(idx=1 to #n) begin
-    parent = n[idx].parentNode
-    parRef = parent ? parent.idx : #n+1
-    par.append(parRef)
-  end
+  for(let i=0; i<len; i++) {//- i in [0,#n)
+    let parent = nodes[i].parentNode;
+    let parRef = parent ? parent.ref : len+1;
+    par.push(parRef);
+  }
 
-  return n,par
-end
+  return { n, par };
+}
 ```
 
 <!-- ======================================================================= -->
 ## decoding
 
+The encoded tree can be recreated as follows.
+
+```js
+//- assuming `n` is in reversed post-order
+export function decodePOSTR(n, par) {
+  let len = n.length;
+  util.assert(0 < len);
+  util.assert(len == par.length);
+  util.assert(par[len-1] >= len);//- a root
+  let nodes=[], roots=[];
+
+  for(let i=len-1; i>=0; i--) {//- i in [0,#n)
+    let node = new cNode(n[i]);
+    nodes[i] = node;//- hashtable!
+    let ref = par[i];
+
+    //- a root
+    if(ref > len) {
+      roots.push(node);
+      continue;
+    }
+
+    //- invalid reference
+    if(ref <= 0) {
+      util.assert(false);
+    }
+
+    //- a cyclic graph
+    if((ref-1) <= i) {
+      util.assert(false);
+    }
+
+    //- (ref-1) in (i,#n)
+    let parent = nodes[ref-1];
+    parent.addAsLastChild(node);
+  }
+
+  return roots;
+}
+```
+
 Note that, as above, this decoding algorithm would only differ from the
 algorithm of the default traversal (POST) in the expression that adds the
-current node as a child to its parent. Hence, no pseudocode will be listed.
+current node as a child to its parent.
 
-* `.addAsFirstChild()` instead of `.addAsLastChild()`
+* note - `.addAsLastChild()` instead of `.addAsFirstChild()`

@@ -27,7 +27,7 @@ has in `n`, one transforms the former sequence of nodes `s` into
 nodes `n` can in general be described as an associated **a data sequence**.
 
 * `(s[i] == n[j])` is true for any `(i in [1,#s])` and `(j := r[i])`
-* `(#r == #s)` must obviously be true
+* `(#r == #s)` must in general be true
 
 Note that the sequence of nodes `n` may in general still contain each node
 more than once. In such a case, sequence `n` can be reduced to an ordered
@@ -37,11 +37,11 @@ sequence of nodes while adjusting the references in `r` accordingly.
 ## general remarks
 
 Note that for each sequence of node references there must be one or more data
-sequences which allow to "decode" the references in it. However, and since the
-focus of this discussion is on the definition of structure, the actual node
-definitions are considered non-relevant in the context of this discussion.
+sequences which allow to "decode" the references in it. However, and since
+the focus of this discussion is on the definition of structure, the actual
+node definitions are considered secondary to the context of this discussion.
 Hence, an actual node sequence is only assumed to exist as an associated data
-sequence, which subsequent discussions will in general ignore.
+sequence, which subsequent discussions will in general mostly ignore.
 
 ```
 s := (a,b,c,b,d)   =>   n := (c,d,a,b)
@@ -53,7 +53,7 @@ node definitions are required to appear in any particular order. That is, for
 as long as the node references in `r` match the corresponding definition in
 `n`. However, since a document tree must in general be processed in a specific
 order, one will in general encounter sequences which contain their elements
-in some particular order.
+in some specific order.
 
 ```
 r := (1,2,3,2,4)
@@ -63,7 +63,7 @@ r := (1,2,3,2,4)
         |-> 4
 ```
 
-Note that the transition towards references has no substantial effect on
+Note that the transition towards node references has no substantial effect on
 the difficulties a path-based encoding has with repeating elements. That is,
 even repeating references will add cycles to a graph.
 
@@ -81,12 +81,12 @@ s := (a,b,c,d,e)   =>   n := (a,b,c,d,e)
                         r := (1,2,3,4,5)
 ```
 
-Even though there is in general no requirement in regards to the length of a
+Even though there is no overall requirement in regards to the length of a
 sequence of references `r`, it is in general expected that each node definition
 in `n` is referenced at least once, which is why sequence `r` is expected to
 hold at least `#n` references.
 
-* for `N := { n[r[i]] | (i in [1,#r]) }`
+* for `N := { n[j] | (j := r[i]), (i in [1,#r]) }`
 * `(#N == #n)` and `(#n <= #r)` are both expected to be true
 
 Note that set `N` is the set of nodes in `n` for which there is at least one
@@ -94,14 +94,15 @@ reference in `r`. Simply put, `N` is the set of all referenced nodes.
 
 Despite `r` not being upward-restricted in length, any reference in `r` must
 be a valid reference to some node in `n`. Exceptions may be defined such that
-some invalid references are allowed, which may denote root nodes or leaf nodes.
+some invalid references are allowed, which will be used to denote root nodes
+or leaf nodes.
 
 * `(r[i] in [1,#n])` must be true for any `(i in [1,#r])`
 
 <!-- ======================================================================= -->
 ## the general case
 
-The following discussions will focus on the traversals of document trees which
+The following discussions will focus on the traversal of document trees, which
 are used to write node references (r), node definitions (n) and additional data
 values (d) to sequences in the order in which the nodes are visited.
 
@@ -126,7 +127,7 @@ of this discussion, the sole focus of the following content will be on data
 sequences `d` that hold one value per node, each of which can be identified
 by the index of the corresponding node in `n`.
 
-* node `n[i]` must be understood to be associated with data value `d[i]`
+* node `n[i]` is associated with data value `d[i]`
 
 <!-- ======================================================================= -->
 ## explicit vs. implicit encodings

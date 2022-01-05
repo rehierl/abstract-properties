@@ -45,11 +45,12 @@ end
 ```
 
 Note that the level of a node is equal to the number of nodes in its rooted
-path, which is why a level value reflects the number of open scopes. Because
-of that, the level of a node increases by one each time a scope is entered,
-and decreases by one each time a scope is exited. Consequently, there is no
-issue when having to determine the level of a root. That is because one no
-longer requires a parent reference in order to determine the level of a node.
+path, which is why a level value reflects the number of open scopes a the
+time a node is being visited. Because of that, the level of a node increases
+by one each time a scope is entered, and decreases by one each time a scope
+is exited. Consequently, there is no issue when having to determine the level
+of a root. That is because one does not require access to a parent object in
+order to determine the level of a node.
 
 * `level+1` each time a scope is entered
 * `level-1` each time a scope is exited
@@ -64,8 +65,8 @@ The encoded tree can be recreated as follows.
 decode(n, lvl) begin
   assert((0 < #n) and (#n == #lvl))
   assert(lvl[1] == 1)//- must be a root
-  nodes=(), roots=()
-  rp = new RootedPath()
+  nodes=(), roots=(), rp=()
+  last = 0
 
   for (i=1 to #n) begin
     node = new Node(n[i])
@@ -75,37 +76,26 @@ decode(n, lvl) begin
     assert(level >= 1)
     node.lvl = level
 
+    //- assert that the input level does
+    //  not exceed the valid range [1,#rp+1]
+    assert(level <= (last+1))
+    rp[level] = node
+    last = level
+
     //- if the node is a root
     if (level == 1) begin
       roots.append(node)
-      rp.setLast(level, node)
       continue
     end
-
-    //- assert that the input level does
-    //  not exceed the range [1,#rp+1]
-    assert(level <= (#rp+1))
 
     //- the node is a child to a node in rp
     parent = rp[level-1]
     parent.addAsLastChild(node)
-    rp.setLast(level, node)
   end
 
   return roots
 end
 ```
 
-Note that the rooted path `rp` is no simple stack, but a stack with extended
-functionality. This additional functionality has the purpose of reducing a
-path if the next subsequent level is lower than the previous level value.
-
-Note that expression `rp.setLast(level, node)` is expected to set the given
-node at the specified level. Furthermore, the call is expected to maintain a
-reference of the node that was set last, and which can be retrieved via the
-rooted path's `.currentLast` property.
-
-Note the similarity with **rank-based algorithms**, which is because the
-current node, assuming all is in order, always is a child to one of the
-nodes in the current rooted path. (More detailed explanations will follow
-eventually).
+Note that the rooted path `rp` is used as a hashtable. That is, considerations
+in regards to some capacity can be ignored at this point.

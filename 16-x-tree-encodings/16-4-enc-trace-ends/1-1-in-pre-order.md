@@ -13,13 +13,15 @@ x  1  1  3  3  5  5  1  8 - par, parent.idx       d   e    i
 9  2  7  4  7  6  7  9  9 - lst, node.lst
 ```
 
-Note that the index associated with a node marks the index of the last node of
-the node's pre-order trace. Because of that, the sequence of end indexes `end`
-is referred to as **the sequence of last indexes** `lst` in the context of a
-pre-order tree traversal.
+Note that the index associated with a node marks the index of the last node
+of the node's pre-order trace. Hence, **the sequence of end indexes** `end`
+will be referred to as **the sequence of last indexes** `lst` in the context
+of a pre-order tree traversal.
 
-Note that the values of the last node indexes are either self-references or
-forward-oriented references.
+Note that the values of the last node indexes are either self-references (e.g.
+node `b`) or forward-oriented references (e.g. node `c`). Furthermore, each
+pair of first-index and last-index matches the semantics of a pair of start-tag
+and end-tag.
 
 <!-- ======================================================================= -->
 ## encoding
@@ -28,7 +30,7 @@ Sequences `n` and `lst` can be formed as follows.
 
 ```js
 encode(root) begin
-  n=(), lst=(), rp=()
+  n=(), lst=()
   level = 0
 
   visitInPreOrderFTL(node) begin
@@ -36,11 +38,8 @@ encode(root) begin
     level = (level + 1)
 
     //- visit the node
+    first = (n.length + 1)
     n.append(node)
-
-    //- initialize the last index component
-    //  for the current node
-    rp[level] = n.length
     lst.append(0)
 
     //- visit the child nodes
@@ -48,9 +47,7 @@ encode(root) begin
       visitInPreOrderFTL(child)
     end
 
-    //- overwrite the initialized index
-    //- count = (last-first+1)
-    first = rp[level]
+    //- overwrite the initial last index
     last = n.length
     lst[first] = last
 
@@ -114,5 +111,5 @@ end
 ```
 
 Note that, since the node count can be derived from the current first index
-(`i`) and the corresponding last index (`lst[i]`), the decoding algorithm
-is a minor modification of the length-based decoding algorithm.
+(`i`) and the corresponding last index (`lst[i]`), the decoding algorithm is
+a minor modification of the length-based decoding algorithm.

@@ -19,30 +19,30 @@ sequence `n` contains the first 9/nine letters in ascending order.
 <!-- ======================================================================= -->
 ## encoding
 
-Sequences `n`, `r` and `par` can be formed as follows.
+Sequences `n` and `par` can be formed as follows.
 
 ```js
-encode(root) begin
-  n=(), r=(), par=()
+export function encodePRE(root) {
+  let n=[], par=[];
 
-  visitInPreOrderFTL(node) begin
+  function visitPreFTL(node) {
     //- visit the node
-    n.append(node)
-    node.idx = n.length
-    r.append(node.idx)
-    parent = node.parentNode
-    parRef = parent ? parent.idx : 0
-    par.append(parRef)
+    n.push(node.def());
+    node.ref = n.length;
+
+    let parent = node.parentNode;
+    let parRef = parent ? parent.ref : 0;
+    par.push(parRef);
 
     //- visit the child nodes
-    for (child in node.childNodesFTL) begin
-      visitInPreOrderFTL(child)
-    end
-  end
+    for(let child of node.childNodesFTL) {
+      visitPreFTL(child);
+    }
+  }
 
-  visitInPreOrderFTL(root)
-  return n,par
-end
+  visitPreFTL(root);
+  return { n, par };
+}
 ```
 
 <!-- ======================================================================= -->
@@ -51,40 +51,42 @@ end
 The encoded tree can be recreated as follows.
 
 ```js
-//- assuming 'n' is in level-order
-decode(n, par) begin
-  assert((0 < #n) and (#n == #par))
-  assert(par[1] <= 0)//- must be a root
-  nodes=(), roots=()
+//- same as decodeLEVEL()
+//- assuming `n` is in pre-order
+export function decodePRE(n, par) {
+  let len = n.length;
+  util.assert(0 < len);
+  util.assert(len == par.length);
+  util.assert(par[0] <= 0);//- a root
+  let nodes=[], roots=[];
 
-  for (i=1 to #n) begin
-    node = new Node(n[i])
-    nodes.append(node)
-    parRef = par[i]
+  for(let i=0; i<len; i++) {//- i in [0,#n)
+    let node = new cNode(n[i]);
+    nodes.push(node);
+    let ref = par[i];
 
-    //- a root node
-    if (parRef <= 0) begin
-      roots.append(node)
-      continue
-    end
+    //- a root
+    if(ref <= 0) {
+      roots.push(node);
+      continue;
+    }
 
-    //- an invalid reference
-    if (parRef > #n) begin
-      assert(false)
-    end
+    //- invalid reference
+    if(ref > n.length) {
+      util.assert(false);
+    }
 
     //- a cyclic graph
-    if (parRef >= i) begin
-      assert(false)
-    end
+    if((ref-1) >= i) {
+      util.assert(false);
+    }
 
-    //- parRef in [1,i]
-    parent = nodes[parRef]
-    parent.addAsLastChild(node)
-  end
+    let parent = nodes[ref-1];
+    parent.addAsLastChild(node);
+  }
 
-  return roots
-end
+  return roots;
+}
 ```
 
 Recall that the pre-order tree traversal is backward-oriented. That is, each

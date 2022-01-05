@@ -15,38 +15,39 @@ b  d  f  g  e  c  i  h  a - n, trace           b    c      h
 <!-- ======================================================================= -->
 ## encoding
 
-Sequences `n`, `r` and `par` can be formed as follows.
+Sequences `n` and `par` can be formed as follows.
 
 ```js
-encode(root) begin
-  n=(), r=(), par=()
+export function encodePOST(root) {
+  let nodes=[], n=[], par=[];
 
-  visitInPostOrderFTL(node) begin
+  function visitPostFTL(node) {
     //- visit the child nodes
-    for (child in node.childNodesFTL) begin
-      visitInPostOrderFTL(child)
-    end
+    for(let child of node.childNodesFTL) {
+      visitPostFTL(child);
+    }
 
     //- visit the node
-    n.append(node)
-    node.idx = n.length
-    r.append(node.idx)
-  end
+    nodes.push(node);
+    n.push(node.def());
+    node.ref = n.length;
+  }
 
-  visitInPostOrderFTL(root)
+  visitPostFTL(root);
+  let len = nodes.length;
 
-  for (idx=1 to #n) begin
-    parent = n[idx].parentNode
-    parRef = parent ? parent.idx : #n+1
-    par.append(parRef)
-  end
+  for(let i=0; i<len; i++) {//- i in [0,#n)
+    let parent = nodes[i].parentNode;
+    let parRef = parent ? parent.ref : len+1;
+    par.push(parRef);
+  }
 
-  return n,par
-end
+  return { n, par };
+}
 ```
 
 Note that, since this traversal will visit a node after all of its descendants
-(in DTU) have been visited, parent nodes have no index associated whil a child
+(in DTU) have been visited, parent nodes have no index associated while a child
 is being visited. To circumvent this issue, a second pass over all the nodes
 is used in order to first determine all the node references.
 
@@ -61,40 +62,42 @@ tree traversals.
 The encoded tree can be recreated as follows.
 
 ```js
-//- assuming 'n' is in post-order
-decode(n, par) begin
-  assert((0 < #n) and (#n == #par))
-  assert(par[#par] > #n)//- must be a root
-  nodes=(), roots=()
+//- assuming `n` is in post-order
+export function decodePOST(n, par) {
+  let len = n.length;
+  util.assert(0 < len);
+  util.assert(len == par.length);
+  util.assert(par[len-1] >= len);//- a root
+  let nodes=[], roots=[];
 
-  for (i=#n to 1) begin
-    node = new Node(n[i])
-    nodes.append(node)
-    parRef = par[i]
+  for(let i=len-1; i>=0; i--) {//- i in [0,#n)
+    let node = new cNode(n[i]);
+    nodes[i] = node;//- hashtable!
+    let ref = par[i];
 
-    //- a root node
-    if (parRef > #n) begin
-      roots.append(node)
-      continue
-    end
+    //- a root
+    if(ref > len) {
+      roots.push(node);
+      continue;
+    }
 
-    //- an invalid reference
-    if (parRef <= 0) begin
-      assert(false)
-    end
+    //- invalid reference
+    if(ref <= 0) {
+      util.assert(false);
+    }
 
     //- a cyclic graph
-    if (parRef <= i) begin
-      assert(false)
-    end
+    if((ref-1) <= i) {
+      util.assert(false);
+    }
 
-    //- parRef in [i,#n]
-    parent = nodes[parRef]
-    parent.addAsFirstChild(node)
-  end
+    //- (ref-1) in (i,#n)
+    let parent = nodes[ref-1];
+    parent.addAsFirstChild(node);
+  }
 
-  return roots
-end
+  return roots;
+}
 ```
 
 Recall that the post-order tree traversal is forward-oriented. That is, each

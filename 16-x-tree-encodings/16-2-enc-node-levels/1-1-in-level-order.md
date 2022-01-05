@@ -14,7 +14,7 @@ x  1  1  1  3  3  4  6  6 - par, parent.idx       d   e    i
 
 Note that the level values in a level-order trace are monotone increasing.
 
-* `(n[i].lvl <= n[j].lvl)` is true for `(1 <= i) && (i < j) && (j <= #n)`
+* `(lvl[i] <= lvl[j])` is true for `(1 <= i) && (i < j) && (j <= #n)`
 
 <!-- ======================================================================= -->
 ## encoding

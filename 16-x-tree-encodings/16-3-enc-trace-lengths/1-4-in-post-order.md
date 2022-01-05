@@ -19,33 +19,29 @@ Sequences `n` and `len` can be formed as follows.
 
 ```js
 encode(root) begin
-  n=(), len=(), nc=()
+  n=(), len=()
   level = 0
 
   visitInPreOrderFTL(node) begin
     //- enter the node's type-1 scope
     level = (level + 1)
 
-    //- initialize the node counter for the
-    //  current node - by counting itself
-    nc[level] = 1
+    //- keep track of the index of the first
+    //  node in the current scope
+    //- none of these nodes have been appended
+    //  to 'n', which is why (+1) is required
+    first = (n.length + 1)
 
     //- visit the child nodes
     for (child in node.childNodesFTL) begin
       visitInPreOrderFTL(child)
-
-      //- add the number of nodes of the
-      //  induced subtree T[child] to the
-      //  node count of the current node
-      nc[level] = nc[level] + nc[level+1]
     end
 
     //- visit the node
     n.append(node)
-
-    //- write the node count
-    count = nc[level]
-    len.append(count)
+    last = n.length
+    length = (last - first + 1)
+    len.append(length)
 
     //- exit the node's type-1 scope
     level = (level - 1)
@@ -56,21 +52,9 @@ encode(root) begin
 end
 ```
 
-Note that **a hashtable** of counter values `nc` (read as "node count")
-is used to sum up the node count of each node.
-
 Note that, compared to the pre-order version, this post-order version is
 straight forward since a node and its node count will be appended to the
 corresponding sequences once the node's scope is being exited.
-
-<!-- ======================================================================= -->
-## encoding (2)
-
-Note that one is in general not required to explicitly count the nodes. That
-is because the final length of a trace can be derived from the index of its
-first node and the index of its last node.
-
-- see the end-based encoding scheme
 
 <!-- ======================================================================= -->
 ## decoding

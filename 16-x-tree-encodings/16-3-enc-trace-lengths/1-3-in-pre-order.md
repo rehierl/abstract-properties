@@ -50,7 +50,7 @@ encode(root) begin
       nc[level] = nc[level] + nc[level+1]
     end
 
-    //- overwrite the initialized node count
+    //- overwrite the initial node count
     offset = rp[level]
     length = nc[level]
     len[index] = length
@@ -71,7 +71,7 @@ to sum up the node count of each node.
 
 Note that the post-order version is straight forward since the node count of
 a node will be available when the node and its node count need to be appended
-to the corresponding sequences. In contrary to that, the pre-order version
+to the corresponding sequences. In contrary to that, this pre-order version
 requires to memorize the index of a node such that its initialized node count
 can be replaced by the final value.
 
@@ -83,11 +83,46 @@ the visit of its child nodes, and some after the visit of its last child.
 <!-- ======================================================================= -->
 ## encoding (2)
 
+Sequences `n` and `len` can be formed as follows.
+
+```js
+encode(root) begin
+  n=(), len=()
+  level = 0
+
+  visitInPreOrderFTL(node) begin
+    //- enter the node's type-1 scope
+    level = (level + 1)
+
+    //- visit the node
+    first = (n.length + 1)
+    n.append(node)
+    len.append(0)
+
+    //- visit the child nodes
+    for (child in node.childNodesFTL) begin
+      visitInPreOrderFTL(child)
+    end
+
+    //- overwrite the initial node count
+    last = n.length
+    length = (last - first + 1)
+    len[first] = length
+
+    //- exit the node's type-1 scope
+    level = (level - 1)
+  end
+
+  visitInPreOrderFTL(root)
+  return n,len
+end
+```
+
 Note that one is in general not required to explicitly count the nodes. That
 is because the final length of a trace can be derived from the index of its
 first node and the index of its last node.
 
-- see the end-based encoding scheme
+* `length = (last - first + 1)`
 
 <!-- ======================================================================= -->
 ## decoding

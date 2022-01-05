@@ -3,7 +3,7 @@
 # the length-based encoding (LEN)
 
 The following summarizes the sequences produced by the main tree traversal
-algorithms when outputting the number of nodes in the scope of each node.
+algorithms when outputting the number of nodes in the scope of a node.
 This encoding scheme will be referred to as
 **the length-based implicit encoding scheme**.
 
@@ -58,10 +58,10 @@ encode | O(3*N) | O(N)   | -      | O(N)   | -
 decode | N.A.   | O(N)   | -      | O(N)   | -
 ```
 
-TODO - Note that the algorithms in this chapter need to be verified, which
-is especially true for the decoding algorithms. At this point they seem as
-if they could do what they are intended to do.
-
 Note that no decoding algorithm can be provided for the level-order traversal.
 That is because the sequence of level values in level-order is does not allow
 to reliably determine the parent of a node.
+
+TODO - Note that the algorithms in this chapter need to be verified, which is
+especially true for the decoding algorithms. At this point they seem as if they
+could do what they are intended to do.

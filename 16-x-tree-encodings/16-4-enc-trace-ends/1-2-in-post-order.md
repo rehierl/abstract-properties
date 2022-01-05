@@ -13,10 +13,10 @@ b  d  f  g  e  c  i  h  a - n, trace           b    c      h
 1  2  3  4  3  2  7  7  1 - fst, node.fst
 ```
 
-Note that the index associated with a node marks the index of the first node of
-the node's pre-order trace. Because of that, the sequence of end indexes `end`
-is referred to as **the sequence of first indexes** `fst` in the context of a
-post-order tree traversal.
+Note that the index associated with a node marks the index of the first node
+of the node's pre-order trace. Hence, **the sequence of end indexes** `end`
+will be referred to as **the sequence of first indexes** `fst` in the context
+of a post-order tree traversal.
 
 <!-- ======================================================================= -->
 ## encoding
@@ -25,7 +25,7 @@ Sequences `n` and `fst` can be formed as follows.
 
 ```js
 encode(root) begin
-  n=(), fst=(), rp=()
+  n=(), fst=()
   level = 0
 
   visitInPreOrderFTL(node) begin
@@ -33,10 +33,10 @@ encode(root) begin
     level = (level + 1)
 
     //- keep track of the index of the first
-    //  node in the scope of the current node
+    //  node in the current scope
     //- none of these nodes have been appended
-    //  to 'n', which is why (+1) is a must
-    rp[level] = (n.length + 1)
+    //  to 'n', which is why (+1) is required
+    first = (n.length + 1)
 
     //- visit the child nodes
     for (child in node.childNodesFTL) begin
@@ -44,11 +44,8 @@ encode(root) begin
     end
 
     //- visit the node
-    //- count = (last-first+1)
     n.append(node)
-    first = rp[level]
-    last = n.length
-    fst[last] = first
+    fst.append(first)
 
     //- exit the node's type-1 scope
     level = (level - 1)

@@ -11,19 +11,19 @@ s := (a,b,c,d)   =>   n := (a,b,c,d)   =>   n := (a,b,c,d) - node definitions
 As before, a sequence of nodes `s` allows to form a sequence of node definitions
 `n` and a sequence of references `r`. In addition to that, a second sequence of
 references `d` can be defined such that it holds the index of a parent of the
-corresponding node in `r`.  Combined, sequences `r` and `d` can be understood
-to define a set of edges `E` and therefore to define a graph `G(N,E)`.
+corresponding node in `r`.
+
+Note that ..
+
+* same base expectations as with the child-based encoding
+* `d[i]` defines the parent of `r[i]`
+
+Combined, sequences `r` and `d` can be understood to define a set of edges `E`
+and therefore to define a graph `G(N,E)`.
 
 * `N := { r[i] | (i in [1,#r] }`
-* `E := { (d[i],r[i]) | (d[i] in [1,#r]) and (i in [1,#r]) }`
+* `E := { (d[i],r[i]) | (d[i] in [1,#n]) and (i in [1,#r]) }`
 * `sem(G) := (a parent-of b)`
-
-Note that `d[i]` defines the parent of `r[i]`.
-Furthermore, `(#r == #N)` is at this point not (yet) required to be true.
-
-Note that `G` is strictly speaking a graph of index values such that each index
-in it corresponds with a node in `n`. As a matter of simplification, and as can
-be seen above, these index values will in general be treated as actual nodes.
 
 <!-- ======================================================================= -->
 ## remarks
@@ -36,20 +36,18 @@ Because of that, any node may in general be associated with any number of such
 edges, which is why one can by default not speak of "the parent" of a node
 since in general, more than one such node may exist for any given node.
 
-Recall that an index value (x) is used to denote an invalid index such that it
-does not map to any node in `n`. In regards to this encoding scheme, such an
-index is used to denote that the corresponding node has no parent, which is
-why only root nodes may be associated with such an invalid parent reference.
-
 Note that the index values in `d` are lower than the corresponding values in
 `r`. Because of that, this scheme may be described as being **backward-oriented**.
 An index value of `0`, as the only invalid index allowed, would therefore be
 appropriate for the invalid reference (x), which would then be an overall
 constant reference.
 
-Note that, as before, the orientation greatly **depends on the tree traversal**
-that was used to form the sequences, which will in general be a "root to leaf"
-oriented traversal (i.e. in tree order).
+* `backward-oriented := (d[i] < r[i])` for all `(i in [1,#r])`
+
+Recall that an index value (x) is used to denote an invalid index such that it
+does not map to any node in `n`. In regards to this encoding scheme, such an
+index is used to denote that the corresponding node has no parent, which is
+why only root nodes may be associated with such an invalid parent reference.
 
 <!-- ======================================================================= -->
 ## pro - one parent only
@@ -66,9 +64,9 @@ s := (a,b,c,d)   =>   n := (a,b,c,d)
 
 Even though this encoding scheme would also allow `r` to deviate from the
 index-order of `n`, e.g. in order to not having to specify root nodes, one
-will usually choose not to do so. That is because, compared to leaf nodes,
-root nodes are few, which is why sticking with the index-order of `n`
-allows to not explicitly specify `r` - i.e. sequence `r` can be omitted.
+will usually choose not to do so. That is because compared to leaf nodes,
+root nodes are few, which is why sticking with the index-order of `n` allows
+to not having to explicitly specify `r` - i.e. sequence `r` can be omitted.
 
 ```
 a -|-> b      d -|-> e      =>   n := (a,b,c,d,e,f)
@@ -99,15 +97,14 @@ a -|-> b      d -|-> e      =>   n := (a,b,c,d,e,f)
 ```
 
 As can be seen two components are defined, one of which is cyclic since path
-`p := (d,f,d)` connects node `d` with itself. Despite not being a tree, this
-encoding scheme can be used to encode all of the edges while sticking to the
-index-order of `n`.
+`p := (d,f,d)` connects node `d` with itself. Despite that, this encoding can
+be used to encode all of the edges while sticking to the index-order of `n`.
 
-However, and since this encoding scheme is by default backwards-oriented,
-such cycles can be detected with ease. That is because there must then be an
-edge that is oriented against the default orientation - i.e. `(4,6)`. Hence,
-verifying that each parent index in `d` is lower than the current index
-in `r` allows to detect cycles.
+However, since this encoding scheme is by default backwards-oriented, cycles
+can be detected with ease. That is because there must then be an edge that is
+oriented against the default orientation - i.e. `(4,6)`. Hence, verifying that
+each parent index in `d` is lower than the current index in `r` allows to
+detect cycles.
 
 * `(d[i] < r[i])` must be true for any `(i in [1,#n])`
 
@@ -148,8 +145,8 @@ has an index in `n`. This is done by simply appending the node to `n` and its
 index to `r`.
 
 However, and in contrary to before, it is guaranteed that the parent of a child
-already has an index in `n`. That is because no child will appear presequent to
-any of its ancestors.
+already has an index in `n` by the time its child nodes will be visited. That
+is because no child will appear presequent to its ancestors.
 
 **implementations - reader code**
 
