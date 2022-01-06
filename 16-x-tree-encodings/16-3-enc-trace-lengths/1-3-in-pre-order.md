@@ -13,55 +13,48 @@ x  1  1  3  3  5  5  1  8 - par, parent.idx       d   e    i
 ```
 
 <!-- ======================================================================= -->
-## encoding
+## encoding (v1)
 
 Sequences `n` and `len` can be formed as follows.
 
 ```js
-encode(root) begin
-  n=(), len=(), rp=(), nc=()
-  level = 0
+export function encodePREv1(root) {
+  let n=[], len=[], nc=[];
+  let level = 0;
 
-  visitInPreOrderFTL(node) begin
+  function visitPreFTL(node) {
     //- enter the node's type-1 scope
-    level = (level + 1)
+    level = (level + 1);
 
     //- visit the node
-    n.append(node)
-    offset = n.length
-    rp[level] = offset
-
-    //- initialize the node count to an invalid
-    //  value, which will be replaced on exit
-    //- stored in len[node.idx]
-    len.append(0)
+    n.push(node.def());
+    let first = n.length-1;
 
     //- initialize the counter for the current
     //  node - by including/counting itself
-    nc[level] = 1
+    nc[level] = 1;
 
     //- visit the child nodes
-    for (child in node.childNodesFTL) begin
-      visitInPreOrderFTL(child)
+    for(let child of node.childNodesFTL) {
+      visitPreFTL(child);
 
       //- add the number of nodes of the
       //  induced subtree T[child] to the
       //  node count of the current node
-      nc[level] = nc[level] + nc[level+1]
-    end
+      nc[level] = nc[level] + nc[level+1];
+    }
 
-    //- overwrite the initial node count
-    offset = rp[level]
-    length = nc[level]
-    len[index] = length
+    //- replace the initial node count
+    let length = nc[level];
+    len[first] = length;
 
     //- exit the node's type-1 scope
-    level = (level - 1)
-  end
+    level = (level - 1);
+  }
 
-  visitInPreOrderFTL(root)
-  return n,len
-end
+  visitPreFTL(root);
+  return { n, len };
+}
 ```
 
 Note that **a hashtable** of offset values `rp` (read as "rooted path") is
@@ -81,41 +74,40 @@ operations must be executed before the visit of its first child, some during
 the visit of its child nodes, and some after the visit of its last child.
 
 <!-- ======================================================================= -->
-## encoding (2)
+## encoding (v2)
 
 Sequences `n` and `len` can be formed as follows.
 
 ```js
-encode(root) begin
-  n=(), len=()
-  level = 0
+export function encodePREv2(root) {
+  let n=[], len=[];
+  let level = 0;
 
-  visitInPreOrderFTL(node) begin
+  function visitPreFTL(node) {
     //- enter the node's type-1 scope
-    level = (level + 1)
+    level = (level + 1);
 
     //- visit the node
-    first = (n.length + 1)
-    n.append(node)
-    len.append(0)
+    n.push(node.def());
+    let first = n.length-1;
 
     //- visit the child nodes
-    for (child in node.childNodesFTL) begin
-      visitInPreOrderFTL(child)
-    end
+    for(let child of node.childNodesFTL) {
+      visitPreFTL(child);
+    }
 
-    //- overwrite the initial node count
-    last = n.length
-    length = (last - first + 1)
-    len[first] = length
+    //- determine the length
+    let last = n.length-1;
+    let length = (last - first + 1);
+    len[first] = length;
 
     //- exit the node's type-1 scope
-    level = (level - 1)
-  end
+    level = (level - 1);
+  }
 
-  visitInPreOrderFTL(root)
-  return n,len
-end
+  visitPreFTL(root);
+  return { n, len };
+}
 ```
 
 Note that one is in general not required to explicitly count the nodes. That
@@ -130,40 +122,41 @@ first node and the index of its last node.
 The encoded tree can be recreated as follows.
 
 ```js
-//- assuming 'n' is in pre-order
-decode(n, len) begin
-  assert((0 < #n) and (#n == #len))
-  //- assuming a single document tree
-  assert(len[1] == #n)//- must be a root
-  assert(len[#n] == 1)//- must be a leaf
-  nodes=(), roots=()
-  rp = new RootedPath()
+//- assuming `n` is in pre-order
+export function decodePRE(n, len) {
+  let num = n.length;
+  util.assert(0 < num);
+  util.assert(num == len.length);
+  util.assert(len[0] == num);//- a root
+  util.assert(len[num-1] == 1);//- a leaf
+  let nodes=[], roots=[];
+  let rp = new cRootedPath();
 
-  for (i=1 to #n) begin
-    node = new Node(n[i])
-    nodes.append(node)
+  for(let i=0; i<num; i++) {//- i in [0,#n)
+    let node = new cNode(n[i]);
+    nodes.push(node);
 
-    count = len[i]
-    rp.push(node, count)
+    let count = len[i];
+    rp.push(node, count);
 
-    if (#rp == 1) begin
-      roots.append(node)
-    end
+    if(rp.length == 1) {
+      roots.push(node);
+    }
 
-    if (#rp > 1) begin
-      parent = rp.parent()
-      parent.addAsLastChild(node)
-    end
+    if(rp.length > 1) {
+      let parent = rp.parentNode;
+      parent.addAsLastChild(node);
+    }
 
     //- reduce the node count of each node
     //  and pop all the nodes that have a
     //  remaining node count of 0/zero
-    rp.pop()
-  end
+    rp.pop();
+  }
 
-  assert(#rp == 0)
-  return roots
-end
+  util.assert(rp.length == 0);
+  return roots;
+}
 ```
 
 Note that the rooted path `rp` is no simple stack, but a stack with extended

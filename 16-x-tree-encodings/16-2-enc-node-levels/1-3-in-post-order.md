@@ -18,30 +18,30 @@ b  d  f  g  e  c  i  h  a - n, trace           b    c      h
 Sequences `n` and `lvl` can be formed as follows.
 
 ```js
-encode(root) begin
-  n=(), lvl=()
-  level = 0
+export function encodePOST(root) {
+  let n=[], lvl=[];
+  let level = 0;
 
-  visitInPreOrderFTL(node) begin
+  function visitPostFTL(node) {
     //- enter the node's type-1 scope
-    level = (level + 1)
+    level = (level + 1);
 
     //- visit the child nodes
-    for (child in node.childNodesFTL) begin
-      visitInPreOrderFTL(child)
-    end
+    for(let child of node.childNodesFTL) {
+      visitPostFTL(child);
+    }
 
     //- visit the node
-    n.append(node)
-    lvl.append(level)
+    n.push(node.def());
+    lvl.push(level);
 
     //- exit the node's type-1 scope
-    level = (level - 1)
-  end
+    level = (level - 1);
+  }
 
-  visitInPreOrderFTL(root)
-  return n,lvl
-end
+  visitPostFTL(root);
+  return { n, lvl };
+}
 ```
 
 <!-- ======================================================================= -->
@@ -50,40 +50,42 @@ end
 The encoded tree can be recreated as follows.
 
 ```js
-//- assuming 'n' is in post-order
-decode(n, lvl) begin
-  assert((0 < #n) and (#n == #lvl))
-  assert(lvl[#n] == 1)//- must be a root
-  nodes=(), roots=(), rp=()
-  last = 0
+//- assuming `n` is in post-order
+export function decodePOST(n, lvl) {
+  let len = n.length;
+  util.assert(0 < len);
+  util.assert(len == lvl.length);
+  util.assert(lvl[len-1] == 1);//- a root
+  let nodes=[], roots=[], rp=[]
+  let last = 0;
 
-  for (i=#n to #1) begin
-    node = new Node(n[i])
-    nodes.append(node)
+  for(let i=len-1; i>=0; i--) {//- i in [0,#n)
+    let node = new cNode(n[i]);
+    nodes[i] = node;//- hashtable!
 
-    level = lvl[i]
-    assert(level >= 1)
-    node.lvl = level
+    let level = lvl[i];
+    util.assert(level >= 1);
+    node.lvl = level;
 
     //- assert that the input level does
-    //  not exceed the range [1,#rp+1]
-    assert(level <= (last+1))
-    rp[level] = node
-    last = level
+    //  not exceed the valid range [1,#rp+1]
+    util.assert(level <= (last+1));
+    rp[level-1] = node;
+    last = level;
 
     //- if the node is a root
-    if (level == 1) begin
-      roots.append(node)
-      continue
-    end
+    if(level == 1) {
+      roots.push(node);
+      continue;
+    }
 
-    //- the node is a child to a node in rp
-    parent = rp[level-1]
-    parent.addAsFirstChild(node)
-  end
+    //- the node is a child
+    let parent = rp[level-2];
+    parent.addAsFirstChild(node);
+  }
 
-  return roots
-end
+  return roots;
+}
 ```
 
 Note that, since the ancestors of a node appear subsequent to it, the sequence
@@ -91,4 +93,4 @@ of level values must be read in reverse from last to first. That is because
 ancestors will then be encountered before any of their descendants. After all,
 the tree order is still a suborder to the reversed POST and POSTR traces.
 
-* hence the `.addAsFirstChild()` method call
+* hence `.addAsFirstChild()`

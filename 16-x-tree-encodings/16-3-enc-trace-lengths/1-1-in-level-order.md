@@ -15,58 +15,59 @@ x  1  1  1  3  3  4  6  6 - par, parent.idx       d   e    i
 Note that the length values in level-order are not monotone decreasing.
 
 <!-- ======================================================================= -->
-## encoding - TODO
+## encoding
 
 Sequences `n` and `len` can be formed as follows.
 
 ```js
-encode(root) begin
-  n=(), len=()
+export function encodeLEVEL(root) {
+  let n=[], len=[];
 
   //- recursively determine #D*(n)
   //- used to pre-determine all node counts
-  nodeCountOf(node) begin
+  function nodeCountOf(node) {
     //- if the result is already available
-    if (node.len !== undefined) begin
+    if(node.len !== undefined) {
       return node.len
-    end
+    }
 
     //- count the node itself
-    count = 1
+    let count = 1;
 
-    //- visit the child nodes
-    for (child in node.childNodes) begin
-      count = count + nodeCountOf(child)
-    end
+    //- visit all child nodes
+    for(let child of node.childNodes) {
+      count = count + nodeCountOf(child);
+    }
 
-    //- store the node count of each node
-    node.len = count
-    return count
-  end
+    //- store the result of each node
+    node.len = count;
+    return count;
+  }
 
-  //- traverse in level order
-  visitInLevelOrder(node) begin
-    next = new Queue()
-    next.enqueue(root)
+  //- traverse the tree in level-order
+  function visitLevelFTL(node) {
+    let next = new cQueue();
+    next.enqueue(root);
 
-    while (next.isEmpty() == false) begin
-      node = next.dequeue()
+    while(next.hasNext) {
+      let node = next.dequeue();
 
       //- visit the node
-      n.append(node)
-      len.append(node.len)
+      n.push(node.def());
+      len.push(node.len);
 
       //- plan the visit of each child
-      for (child in node.childNodesFTL) begin
-        next.enqueue(child)
-      end
-    end
-  end
+      for(let child of node.childNodesFTL) {
+        next.enqueue(child);
+      }
+    }
+  }
 
-  count = nodeCountOf(root)
-  visitInLevelOrder(root)
-  return n,len
-end
+  let count = nodeCountOf(root);
+  visitLevelFTL(root);
+
+  return { n, len };
+}
 ```
 
 Note that the computational complexity is improved at the cost of increased

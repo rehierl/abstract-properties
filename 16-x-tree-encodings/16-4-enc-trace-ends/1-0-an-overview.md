@@ -66,7 +66,3 @@ decode | N.A.   | O(N)   | -      | O(N)   | -
 Note that neither an encoding nor a decoding algorithm can be provided for the
 level-order tree traversal. That is because the trace of a node is in general
 no substring to the level-order trace of a tree.
-
-TODO - Note that the algorithms in this chapter need to be verified, which is
-especially true for the decoding algorithms. At this point they seem as if they
-could do what they are intended to do.

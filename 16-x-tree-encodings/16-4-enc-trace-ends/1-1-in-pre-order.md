@@ -29,35 +29,36 @@ and end-tag.
 Sequences `n` and `lst` can be formed as follows.
 
 ```js
-encode(root) begin
-  n=(), lst=()
-  level = 0
+//- note - 1/one-based sequences
+//- note - 0/zero-based arrays
+export function encodePRE(root) {
+  let n=[], lst=[];
+  let level = 0;
 
-  visitInPreOrderFTL(node) begin
+  function visitPreFTL(node) {
     //- enter the node's type-1 scope
-    level = (level + 1)
+    level = (level + 1);
 
     //- visit the node
-    first = (n.length + 1)
-    n.append(node)
-    lst.append(0)
+    n.push(node.def());
+    let first = n.length-1;
 
     //- visit the child nodes
-    for (child in node.childNodesFTL) begin
-      visitInPreOrderFTL(child)
-    end
+    for(let child of node.childNodesFTL) {
+      visitPreFTL(child);
+    }
 
-    //- overwrite the initial last index
-    last = n.length
-    lst[first] = last
+    //- determine the length
+    let last = n.length-1;
+    lst[first] = last+1;
 
     //- exit the node's type-1 scope
-    level = (level - 1)
-  end
+    level = (level - 1);
+  }
 
-  visitInPreOrderFTL(root)
-  return n,lst
-end
+  visitPreFTL(root);
+  return { n, lst };
+}
 ```
 
 Note that a node counter **hashtable** `nc` is not required, since the sequence
@@ -70,44 +71,42 @@ Because of that, there is no need to explicitly count the nodes in `D*(n)`.
 The encoded tree can be recreated as follows.
 
 ```js
-//- assuming 'n' is in pre-order
-decode(n, lst) begin
-  assert((0 < #n) and (#n == #lst))
-  //- assuming a single document tree
-  assert(lst[1] == #n)//- must be a root
-  assert(lst[#n] == #n)//- must be a leaf
-  nodes=(), roots=()
-  rp = new RootedPath()
+//- assuming `n` is in pre-order
+export function decodePRE(n, lst) {
+  let len = n.length;
+  util.assert(0 < len);
+  util.assert(len == lst.length);
+  util.assert(lst[0] == len);//- a root
+  util.assert(lst[len-1] == len);//- a leaf
+  let nodes=[], roots=[];
+  let rp = new cRootedPath();
 
-  for (i=1 to #n) begin
-    node = new Node(n[i])
-    nodes.append(node)
+  for(let i=0; i<len; i++) {//- i in [0,#n)
+    let node = new cNode(n[i]);
+    nodes.push(node);
 
-    first = i
-    last = lst[i]
-    assert(last >= i)
-    assert(last <= #n)
-    count = (last - first + 1)
-    rp.push(node, count)
+    let first = i;
+    let last = lst[i]-1;
+    util.assert(last >= i);
+    util.assert(last < len);
+    let count = (last - first + 1);
+    rp.push(node, count);
 
-    if (#rp == 1) begin
-      roots.append(node)
-    end
+    if(rp.length == 1) {
+      roots.push(node);
+    }
 
-    if (#rp > 1) begin
-      parent = rp.parent()
-      parent.addAsLastChild(node)
-    end
+    if(rp.length > 1) {
+      let parent = rp.parentNode;
+      parent.addAsLastChild(node);
+    }
 
-    //- reduce the node count of each node
-    //  and pop all the nodes that have a
-    //  remaining node count of 0/zero
-    rp.pop()
-  end
+    rp.pop();
+  }
 
-  assert(#rp == 0)
-  return roots
-end
+  util.assert(rp.length == 0);
+  return roots;
+}
 ```
 
 Note that, since the node count can be derived from the current first index

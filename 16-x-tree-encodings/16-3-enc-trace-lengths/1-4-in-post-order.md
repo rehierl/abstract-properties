@@ -18,38 +18,39 @@ b  d  f  g  e  c  i  h  a - n, trace           b    c      h
 Sequences `n` and `len` can be formed as follows.
 
 ```js
-encode(root) begin
-  n=(), len=()
-  level = 0
+export function encodePOST(root) {
+  let n=[], len=[];
+  let level = 0;
 
-  visitInPreOrderFTL(node) begin
+  function visitPostFTL(node) {
     //- enter the node's type-1 scope
-    level = (level + 1)
+    level = (level + 1);
 
     //- keep track of the index of the first
     //  node in the current scope
-    //- none of these nodes have been appended
-    //  to 'n', which is why (+1) is required
-    first = (n.length + 1)
+    //- none of these nodes have been appended to
+    //  'n', which is why the first node will be
+    //  located at the 0-based index (n.length-1+1)
+    let first = (n.length);
 
     //- visit the child nodes
-    for (child in node.childNodesFTL) begin
-      visitInPreOrderFTL(child)
-    end
+    for(let child of node.childNodesFTL) {
+      visitPostFTL(child);
+    }
 
     //- visit the node
-    n.append(node)
-    last = n.length
-    length = (last - first + 1)
-    len.append(length)
+    n.push(node.def());
+    let last = n.length-1;
+    let length = (last - first + 1);
+    len.push(length);
 
     //- exit the node's type-1 scope
-    level = (level - 1)
-  end
+    level = (level - 1);
+  }
 
-  visitInPreOrderFTL(root)
-  return n,len
-end
+  visitPostFTL(root);
+  return { n, len };
+}
 ```
 
 Note that, compared to the pre-order version, this post-order version is
@@ -62,35 +63,36 @@ corresponding sequences once the node's scope is being exited.
 The encoded tree can be recreated as follows.
 
 ```js
-//- assuming 'n' is in post-order
-decode(n, len) begin
-  assert((0 < #n) and (#n == #len))
-  //- assuming a single document tree
-  assert(len[#n] == #n)//- must be a root
-  assert(len[1] == 1)//- must be a leaf
-  nodes=(), roots=()
-  rp = new RootedPath()
+//- assuming `n` is in post-order
+export function decodePOST(n, len) {
+  let num = n.length;
+  util.assert(0 < num);
+  util.assert(num == len.length);
+  util.assert(len[num-1] == num);//- a root
+  util.assert(len[1] == 1);//- a leaf
+  let nodes=[], roots=[];
+  let rp = new cRootedPath();
 
-  for (i=#n to 1) begin
-    node = new Node(n[i])
-    nodes.append(node)
+  for(let i=num-1; i>=0; i--) {//- i in [0,#n)
+    let node = new cNode(n[i]);
+    nodes[i] = node;//- hashtable!
 
-    count = len[i]
-    rp.push(node, count)
+    let count = len[i];
+    rp.push(node, count);
 
-    if (#rp == 1) begin
-      roots.append(node)
-    end
+    if(rp.length == 1) {
+      roots.push(node);
+    }
 
-    if (#rp > 1) begin
-      parent = rp.parent()
-      parent.addAsFirstChild(node)
-    end
+    if(rp.length > 1) {
+      let parent = rp.parentNode;
+      parent.addAsFirstChild(node);
+    }
 
-    rp.pop()
-  end
+    rp.pop();
+  }
 
-  assert(#rp == 0)
-  return roots
-end
+  util.assert(rp.length == 0);
+  return roots;
+}
 ```

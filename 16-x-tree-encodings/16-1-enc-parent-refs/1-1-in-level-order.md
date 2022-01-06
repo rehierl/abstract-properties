@@ -36,7 +36,7 @@ export function encodeLEVEL(root) {
     let node = next.dequeue();
 
     //- visit the node
-    n.push(node);
+    n.push(node.def());
     node.ref = n.length;
     r.push(node.ref);
 

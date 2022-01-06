@@ -22,29 +22,31 @@ Note that the level values in a level-order trace are monotone increasing.
 Sequences `n` and `lvl` can be formed as follows.
 
 ```js
-encode(root) begin
-  next = new Queue()
-  next.enqueue(root)
-  n=(), lvl=()
+export function encodeLEVEL(root) {
+  let next = new cQueue();
+  next.enqueue(root);
+  let n=[], lvl=[];
 
-  while (next.isEmpty() == false) begin
-    node = next.dequeue()
+  while(next.hasNext) {
+    let node = next.dequeue();
 
     //- visit the node
-    n.append(node)
-    parent = node.parentNode
-    level = parent ? parent.lvl : 0
-    node.lvl = (level + 1)
-    lvl.append(node.lvl)
+    n.push(node.def());
+    node.ref = n.length;
+
+    let parent = node.parentNode;
+    let level = parent ? parent.lvl : 0;
+    node.lvl = (level + 1);
+    lvl.push(node.lvl);
 
     //- plan the visit of each child
-    for (child in node.childNodesFTL) begin
-      next.enqueue(child)
-    end
-  end
+    for(let child of node.childNodesFTL) {
+      next.enqueue(child);
+    }
+  }
 
-  return n,lvl
-end
+  return { n, lvl };
+}
 ```
 
 <!-- ======================================================================= -->
