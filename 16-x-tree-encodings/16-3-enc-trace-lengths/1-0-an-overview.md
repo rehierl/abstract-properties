@@ -2,10 +2,7 @@
 <!-- ======================================================================= -->
 # the length-based encoding (LEN)
 
-The following summarizes the sequences produced by the main tree traversal
-algorithms when outputting the number of nodes in the scope of a node.
-This encoding scheme will be referred to as
-**the length-based implicit encoding scheme**.
+The following provides an overview of the sequences produced.
 
 ```
 default level-order (LEVEL)                          a
@@ -49,7 +46,7 @@ i  h  g  f  e  d  c  b  a - n, trace
 1  2  1  1  3  1  5  1  9 - len, node.len
 ```
 
-Note that the encoding and decoding algorithms are provided as follows.
+Note that encoding and decoding algorithms are provided as follows.
 
 ```
 -      | LEVEL  | PRE    | PRER   | POST   | POSTR

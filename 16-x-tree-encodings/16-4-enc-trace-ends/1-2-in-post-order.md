@@ -26,11 +26,11 @@ Sequences `n` and `fst` can be formed as follows.
 ```js
 export function encodePOST(root) {
   let n=[], fst=[];
-  let level = 0;
+  //let level = 0;
 
   function visitPostFTL(node) {
     //- enter the node's type-1 scope
-    level = (level + 1);
+    //level = (level + 1);
 
     //- keep track of the index of the first
     //  node in the current scope
@@ -50,7 +50,7 @@ export function encodePOST(root) {
     fst[last] = first+1;
 
     //- exit the node's type-1 scope
-    level = (level - 1);
+    //level = (level - 1);
   }
 
   visitPostFTL(root);

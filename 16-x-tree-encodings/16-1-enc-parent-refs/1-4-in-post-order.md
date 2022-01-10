@@ -51,11 +51,6 @@ Note that, since this traversal will visit a node after all of its descendants
 is being visited. To circumvent this issue, a second pass over all the nodes
 is used in order to first determine all the node references.
 
-Note that alternative methods are possible, which can be used to circumvent
-a second pass. However, all alternatives have in common that they will increase
-the algorithm's computational complexity compared to the LEVEL, PRE and PRER
-tree traversals.
-
 <!-- ======================================================================= -->
 ## decoding
 

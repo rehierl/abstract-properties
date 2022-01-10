@@ -13,12 +13,49 @@ x  1  1  3  3  5  5  1  8 - par, parent.idx       d   e    i
 ```
 
 <!-- ======================================================================= -->
-## encoding
+## encoding (v1)
 
 Sequences `n` and `lvl` can be formed as follows.
 
 ```js
-export function encodePRE(root) {
+export function encodePREv1(root) {
+  let n=[], lvl=[], rp=[];
+
+  function visitPreFTL(node) {
+    //- enter the node's type-1 scope
+    //- push the current node onto the rooted path
+    rp.push(node);
+
+    //- visit the node
+    n.push(node.def());
+    lvl.push(rp.length);
+
+    //- visit the child nodes
+    for(let child of node.childNodesFTL) {
+      visitPreFTL(child);
+    }
+
+    //- exit the node's type-1 scope
+    //- pop the current node from the rooted path
+    node = rp.pop();
+  }
+
+  visitPreFTL(root);
+  return { n, lvl };
+}
+```
+
+Note that the actual rooted path of the current node is not required. That is,
+one will always only require length of that path - i.e. the number of nodes in
+it. Hence, one can maintain a primitive level value instead.
+
+<!-- ======================================================================= -->
+## encoding (v2)
+
+Sequences `n` and `lvl` can be formed as follows.
+
+```js
+export function encodePREv2(root) {
   let n=[], lvl=[];
   let level = 0;
 
@@ -45,12 +82,12 @@ export function encodePRE(root) {
 ```
 
 Note that the level of a node is equal to the number of nodes in its rooted
-path, which is why a level value reflects the number of open scopes a the
+path, which is why a level value reflects the number of open scopes at the
 time a node is being visited. Because of that, the level of a node increases
 by one each time a scope is entered, and decreases by one each time a scope
 is exited. Consequently, there is no issue when having to determine the level
-of a root. That is because one does not require access to a parent object in
-order to determine the level of a node.
+of a root since one does not require access to a parent object in order to
+determine the level of a node.
 
 * `level+1` each time a scope is entered
 * `level-1` each time a scope is exited

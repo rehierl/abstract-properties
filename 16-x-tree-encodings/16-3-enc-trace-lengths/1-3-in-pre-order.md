@@ -81,11 +81,11 @@ Sequences `n` and `len` can be formed as follows.
 ```js
 export function encodePREv2(root) {
   let n=[], len=[];
-  let level = 0;
+  //let level = 0;
 
   function visitPreFTL(node) {
     //- enter the node's type-1 scope
-    level = (level + 1);
+    //level = (level + 1);
 
     //- visit the node
     n.push(node.def());
@@ -102,7 +102,7 @@ export function encodePREv2(root) {
     len[first] = length;
 
     //- exit the node's type-1 scope
-    level = (level - 1);
+    //level = (level - 1);
   }
 
   visitPreFTL(root);
@@ -115,6 +115,11 @@ is because the final length of a trace can be derived from the index of its
 first node and the index of its last node.
 
 * `length = (last - first + 1)`
+
+Note that the index of the first node is held by a local variable, that is
+maintained on the inner function's local stack. If one would want to implement
+this encoding in a non-recursive fashion, one would have to use an explicit
+stack (i.e. a rooted path) of offsets.
 
 <!-- ======================================================================= -->
 ## decoding

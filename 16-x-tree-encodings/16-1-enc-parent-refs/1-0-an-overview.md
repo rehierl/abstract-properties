@@ -2,9 +2,7 @@
 <!-- ======================================================================= -->
 # the parent-based encoding (PAR)
 
-The following summarizes the sequences produced by the main tree traversal
-algorithms when outputting the parent reference of each node. This encoding
-scheme will be referred to as **the parent-based explicit encoding scheme**.
+The following provides an overview of the sequences produced.
 
 ```
 default level-order (LEVEL)                          a
@@ -38,7 +36,7 @@ i  h  g  f  e  d  c  b  a - n, trace            <-|
 2  9  5  5  7  7  9  9  x - par, parent.idx
 ```
 
-Note that the encoding and decoding algorithms are provided as follows.
+Note that encoding and decoding algorithms are provided as follows.
 
 ```
 -      | LEVEL  | PRE    | PRER   | POST   | POSTR

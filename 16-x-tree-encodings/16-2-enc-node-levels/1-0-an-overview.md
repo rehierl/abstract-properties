@@ -2,9 +2,7 @@
 <!-- ======================================================================= -->
 # the level-based encoding (LVL)
 
-The following summarizes the sequences produced by the main tree traversal
-algorithms when outputting the node level of each node. This encoding scheme
-will be referred to as **the level-based implicit encoding scheme**.
+The following provides an overview of the sequences produced.
 
 ```
 default level-order (LEVEL)                          a
@@ -43,7 +41,7 @@ i  h  g  f  e  d  c  b  a - n, trace
 3  2  4  4  3  3  2  2  1 - lvl, node.lvl
 ```
 
-Note that the encoding and decoding algorithms are provided as follows.
+Note that encoding and decoding algorithms are provided as follows.
 
 ```
 -      | LEVEL  | PRE    | PRER   | POST   | POSTR

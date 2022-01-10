@@ -2,10 +2,7 @@
 <!-- ======================================================================= -->
 # the end-based encoding (END)
 
-The following summarizes the sequences produced by the main tree traversal
-algorithms when outputting the index of the first/last node in the trace of
-a node. This encoding scheme will be referred to as
-**the end-based implicit encoding scheme**.
+The following provides an overview of the sequences produced.
 
 ```
 default level-order (LEVEL)                          a

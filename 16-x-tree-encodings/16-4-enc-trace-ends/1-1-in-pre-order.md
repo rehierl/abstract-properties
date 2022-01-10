@@ -18,10 +18,10 @@ of the node's pre-order trace. Hence, **the sequence of end indexes** `end`
 will be referred to as **the sequence of last indexes** `lst` in the context
 of a pre-order tree traversal.
 
-Note that the values of the last node indexes are either self-references (e.g.
-node `b`) or forward-oriented references (e.g. node `c`). Furthermore, each
-pair of first-index and last-index matches the semantics of a pair of start-tag
-and end-tag.
+Note that the values of the last node indexes are either self-references
+(e.g. node `b`) or forward-oriented references (e.g. node `c`). Furthermore,
+each pair of first-index and last-index matches the semantics of a pair of
+start-tag and end-tag.
 
 <!-- ======================================================================= -->
 ## encoding
@@ -33,11 +33,11 @@ Sequences `n` and `lst` can be formed as follows.
 //- note - 0/zero-based arrays
 export function encodePRE(root) {
   let n=[], lst=[];
-  let level = 0;
+  //let level = 0;
 
   function visitPreFTL(node) {
     //- enter the node's type-1 scope
-    level = (level + 1);
+    //level = (level + 1);
 
     //- visit the node
     n.push(node.def());
@@ -53,7 +53,7 @@ export function encodePRE(root) {
     lst[first] = last+1;
 
     //- exit the node's type-1 scope
-    level = (level - 1);
+    //level = (level - 1);
   }
 
   visitPreFTL(root);
