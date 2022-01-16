@@ -1,5 +1,4 @@
 
-<!-- ======================================================================= -->
 # the parent-based encoding (PAR)
 
 The following focusses on howto implement a parent-based encoding in the context

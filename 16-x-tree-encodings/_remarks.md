@@ -1,55 +1,15 @@
 
-# variations
-
-many variations are possible, can't cover them all
-- e.g. level-, pre-, post-order versions of encodings
-- e.g. different kinds of encodings
-- e.g. different implementation of each encoding
-- focus on the pre-order traversal
-
-purpose of these encodings ..
-- Hlen represents HsPre, Hlvl represents HrsPre
-- to simplify discussions by reducing the amount
-  of variations one needs to keep in mind
-- is to allow to easily visualize scopes
-- the focus will be on sequences of
-  level and length values in pre-order
-
-stack-based implementations
-- a stack is consistent with the scope closing order
-- last opened, first closed - a consequence of DI-RE
-- open/enter a scope => push an item
-- close/exit a scope => pop an item
-- one usually does not care about the first/root node
-- one usually focusses on the last/current node
-- one might update the next-to-last/parent node
-- in short - rooted paths
-
-# level values, Hlvl
-
-- a hierarchy of level values
-- explain - Hlvl <-> Hrp <-> HrsPre
-- explain - Hlvl -> Hlen
-
-the last element of a rooted path
-- is the path's CE - `ce(s) = s[#s]`
-- `#s` tells where to place the next element
-- `#s` is the element's node level
-
 # length values, Hlen
 
-- a hierarchy of length values
 - each value counts the number of nodes in the node's scope
 - each value reflects the length of the node's pre-order trace
-- explain - Hlen <-> Hpre <-> HsPre
-- explain - Hlen -> Hlvl
+- allows to easily visualize scopes
 
-Hlen - in pre-order
-- in regards to streaming large documents
+streaming large documents
 - each node can be treated as a root
 - can decode one level at a time
   by skipping over descendants
-- can decode in parallel
+- can decode concurrently, in parallel
 
 Hlen - corresponds with a height-map
 - seems like that would be helpful for explanations
@@ -69,10 +29,10 @@ level values vs. rank values
 - level values are absolute
 
 in regards to the level-based encoding
-- Note the similarity with rank-based algorithms, which is because the
-- current node, assuming all is in order, always is a child to one of
-- the nodes in the current rooted path. (More detailed explanations will
-- follow eventually).
+- Note the similarity with rank-based algorithms, which is
+- because the current node, assuming all is in order, always
+- is a child to one of the nodes in the current rooted path.
+- detailed explanations will follow eventually
 
 # meta, next-level
 

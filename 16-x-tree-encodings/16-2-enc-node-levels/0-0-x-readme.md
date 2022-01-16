@@ -1,5 +1,4 @@
 
-<!-- ======================================================================= -->
 # the level-based encoding (LVL)
 
 The following focusses on howto implement a level-based encoding such that the

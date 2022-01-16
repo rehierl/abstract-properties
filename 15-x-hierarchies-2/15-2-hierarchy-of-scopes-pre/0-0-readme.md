@@ -11,11 +11,7 @@ its scopes. However, in order to encode the doctree's child order, the scopes
 of HsPre must be provided as an **ordered sequence of scopes** such that the
 child order can be derived from it. Based on that, each document tree is
 isomorphic to a (serialized) hierarchy of scopes, which will be referred to
-as **the DT-HsPre isomorphism**.
-
-Note that, depending on a given context, the DT-HsPre isomorphism may simply
-be **referred to as the T-Hs isomorphism**. After all, in order to fully
-recreate a document tree, its child order must be available.
+as **the DT-HsPre isomorphism**, or simply as **the DT-Hs isomorphism**.
 
 Recall that a hierarchy of scopes (Hs) is defined as a setup of sets such that
 the related-to operator is based on the **superset-of** operator, and such that

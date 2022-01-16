@@ -1,5 +1,4 @@
 
-<!-- ======================================================================= -->
 # the end-based encoding (END)
 
 The following focusses on howto implement and end-based encoding such that the

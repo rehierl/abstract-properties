@@ -1,4 +1,7 @@
 
+- as an example for explicit sets/sequences of complex elements
+- e.g. sets/sequences of (reversed) scopes
+
 <!-- ======================================================================= -->
 # a pre-order trace of rooted paths
 

@@ -1,5 +1,4 @@
 
-<!-- ======================================================================= -->
 # sequence-based tree encodings
 
 Each path over a tree, as an ordered sequence of nodes, can be understood to

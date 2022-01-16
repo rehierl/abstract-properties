@@ -1,5 +1,4 @@
 
-<!-- ======================================================================= -->
 # the length-based encoding (LEN)
 
 The following focusses on howto implement a length-based encoding such that the
