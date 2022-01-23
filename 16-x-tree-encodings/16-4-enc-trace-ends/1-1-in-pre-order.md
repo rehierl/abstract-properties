@@ -78,34 +78,50 @@ export function decodePRE(n, lst) {
   util.assert(len == lst.length);
   util.assert(lst[0] == len);//- a root
   util.assert(lst[len-1] == len);//- a leaf
-  let nodes=[], roots=[];
-  let rp = new cRootedPath();
+  let nodes=[], roots=[], rp=[];
 
   for(let i=0; i<len; i++) {//- i in [0,#n)
-    let node = new cNode(n[i]);
-    nodes.push(node);
+    let current = new cNode(n[i]);
+    nodes.push(current);
 
     let first = i;
     let last = lst[i]-1;
     util.assert(last >= i);
     util.assert(last < len);
+
     let count = (last - first + 1);
-    rp.push(node, count);
+    current.count = count;
+    current.remaining = count;
+    let pLen = rp.length;
 
-    if(rp.length == 1) {
-      roots.push(node);
+    if(pLen == 0) {
+      roots.push(current);
     }
 
-    if(rp.length > 1) {
-      let parent = rp.parentNode;
-      parent.addAsLastChild(node);
+    if(pLen > 0) {
+      let parent = rp[pLen-1];
+      util.assert(count <= parent.remaining);
+      parent.addAsLastChild(current);
     }
 
-    rp.pop();
+    rp.push(current);
+    pLen = rp.length;
+
+    //- first, reduce all node counts
+    for(let i=0; i<pLen; i++) {
+      rp[i].remaining--;
+    }
+
+    //- then, pop entries if necessary
+    for(let i=pLen-1; i>=0; i--) {
+      if(rp[i].remaining > 0) break;
+      rp.pop();
+    }
   }
 
   util.assert(rp.length == 0);
-  return roots;
+  util.assert(roots.length == 1);
+  return roots[0];
 }
 ```
 

@@ -134,40 +134,47 @@ export function decodePRE(n, len) {
   util.assert(num == len.length);
   util.assert(len[0] == num);//- a root
   util.assert(len[num-1] == 1);//- a leaf
-  let nodes=[], roots=[];
-  let rp = new cRootedPath();
+  let nodes=[], roots=[], rp=[];
 
   for(let i=0; i<num; i++) {//- i in [0,#n)
-    let node = new cNode(n[i]);
-    nodes.push(node);
+    let current = new cNode(n[i]);
+    nodes.push(current);//- hashtable!
 
     let count = len[i];
-    rp.push(node, count);
+    current.count = count;
+    current.remaining = count;
+    let pLen = rp.length;
 
-    if(rp.length == 1) {
-      roots.push(node);
+    if(pLen == 0) {
+      roots.push(current);
     }
 
-    if(rp.length > 1) {
-      let parent = rp.parentNode;
-      parent.addAsLastChild(node);
+    if(pLen > 0) {
+      let parent = rp[pLen-1];
+      util.assert(count <= parent.remaining);
+      parent.addAsLastChild(current);
     }
 
-    //- reduce the node count of each node
-    //  and pop all the nodes that have a
-    //  remaining node count of 0/zero
-    rp.pop();
+    rp.push(current);
+    pLen = rp.length;
+
+    //- first, reduce all node counts
+    for(let i=0; i<pLen; i++) {
+      rp[i].remaining--;
+    }
+
+    //- then, pop entries if necessary
+    for(let i=pLen-1; i>=0; i--) {
+      if(rp[i].remaining > 0) break;
+      rp.pop();
+    }
   }
 
   util.assert(rp.length == 0);
-  return roots;
+  util.assert(roots.length == 1);
+  return roots[0];
 }
 ```
-
-Note that the rooted path `rp` is no simple stack, but a stack with extended
-functionality. This additional functionality has the purpose of counting down
-the length values, which is used to keep track of the nodes in the current
-rooted path, which allows to determine the parent of the next subsequent node.
 
 Recall that the scope of a node and its pre-order trace have the same sets of
 nodes. Because of that, the scope of a node can be described to appear as a

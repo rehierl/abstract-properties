@@ -2,41 +2,6 @@
 - as an example for explicit sets/sequences of complex elements
 - e.g. sets/sequences of (reversed) scopes
 
-<!-- ======================================================================= -->
-# a pre-order trace of rooted paths
-
-A trace of rooted paths in pre-order can be formed as follows.
-
-```js
-traceOfRps(root) begin
-  trace = ()
-
-  pathOf(rpath, node) begin
-    if (node !== root) begin
-      pathOf(rpath, node.parent)
-    end
-    rpath.append(node)
-  end
-
-  visitInPreOrder(node) begin
-    //- visit the node
-    rpath = ()
-    pathOf(rpath, node)
-    trace.append(rpath)
-
-    //- visit the child nodes
-    for(child in node.childNodesFTL) begin
-      visitInPreOrder(child)
-    end
-  end
-
-  visitInPreOrder(root)
-  return trace
-end
-```
-
-<!-- ======================================================================= -->
-
 Note that ...
 
 * since the rooted paths are in pre-order,
