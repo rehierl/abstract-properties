@@ -6,21 +6,23 @@ forming a sequence of pre-order traces. The only difference is that one
 maintains a rooted path of simple sets, each of which must be extended by
 the node that is being visited.
 
-Likewise, forming a document tree from a sequence of scopes differs first and
-foremost in regards to the elements within the rooted path being maintained.
-Because of that, the main difference to the decoding algorithm for a hierarchy
-of pre-order traces are the operations used to reduce the rooted path being
-maintained in order to determine the parent of the current node.
+Likewise, forming a document tree from a sequence of scopes differs first
+and foremost in regards to the elements in the current rooted path. Because
+of that, the main difference to the decoding algorithm for a hierarchy of
+traces are the operations used to reduce the rooted path in order to determine
+the parent of the current node.
 
 Note that the characteristic element (CE) of the current scope can not be
-easily determined. That is because one would have to know all the subsets
-to that scope, which are unavailable , while the scope of the current node
-is being processed. That is, the orientation of scopes in the context of
-the decoding algorithm (in pre-order) are **forwards-oriented** and thus
-to some extent against the general processing order since the knowledge
-that is available at a certain point in time is defined by past events.
+easily determined. That is because one would have to know all of the subsets
+of that scope, which are unavailable while the scope of the current node is
+being processed. That is, the orientation of scopes in the context of the
+decoding algorithm (in pre-order) are **forwards-oriented** and thus to some
+extent against the general processing order - since the knowledge that is
+available at a certain point in time is defined by past events, not by future
+events.
 
 ```js
+//- (Hs -> Tree)
 export function decodeHs(n, hs) {
   let len = n.length;
   util.assert(0 < len);
@@ -28,7 +30,7 @@ export function decodeHs(n, hs) {
   let all = hs[0];//- the root's scope
   util.assert(all.size == len);
   let nodes=[], roots=[];
-  let rp=[], sCur;
+  let rp=[], scope;
 
   for(let i=0; i<len; i++) {//- i in [0,#n)
     let current = new cNode(n[i]);
@@ -37,18 +39,18 @@ export function decodeHs(n, hs) {
 
     //- sCur must have the current node
     //  as its characteristic element CE
-    sCur = hs[i];
-    util.assert(sCur.size > 0);
-    util.assert(sCur.has(i+1));
-    current.scope = sCur;
+    scope = hs[i];
+    util.assert(scope.size > 0);
+    util.assert(scope.has(i+1));
+    current.scope = scope;
 
     //- reduce the rooted path
-    let pLen = reduceRp(sCur, rp);
+    let pLen = reduceRp(scope, rp);
 
     //- if the node is a root
     if(pLen == 0) {
-      rp.push(current);
       roots.push(current);
+      rp.push(current);
       continue;
     }
 
@@ -57,6 +59,7 @@ export function decodeHs(n, hs) {
     let parent = rp[pLen-1];
     parent.addAsLastChild(current);
     rp.push(current);
+    continue;
   }
 
   util.assert(roots.length == 1);

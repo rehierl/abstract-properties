@@ -20,7 +20,7 @@ the overall intention is to communicate ..
 # todos
 
 the readme files
-- all are more or less "initialized"
+- are all more or less "initialized"
 - they need to be fleshed out at some point
 
 wikipedia links

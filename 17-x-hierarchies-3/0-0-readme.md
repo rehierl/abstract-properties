@@ -10,9 +10,10 @@ will therefore **focus on** the pre-order versions of the level-based and the
 length-based encodings in an attempt to recap the most important aspects of
 both encodings.
 
-Note that, from this point forward, the **pre-order** traversal will be assumed
-as the default traversal algorithm. Hence, this particular tree traversal will
-be mentioned explicitly only for clarification purposes.
+Note that, from this point forward, and due to its order-preserving nature,
+the **pre-order** traversal will be assumed as the default traversal algorithm.
+Hence, this particular tree traversal will be mentioned explicitly only for
+clarification purposes.
 
-Note that the intent behind these restricitions is to simplify discussions by
-reducing the amount of variations one needs to keep in mind.
+Note that the overall intent is to simplify discussions by reducing the amount
+of variations one needs to keep in mind.

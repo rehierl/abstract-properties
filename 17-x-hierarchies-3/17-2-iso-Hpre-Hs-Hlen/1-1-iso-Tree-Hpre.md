@@ -2,19 +2,19 @@
 # the DT-Hpre isomorphism
 
 Forming a sequence of pre-order traces from a document tree is almost straight
-forward since one needs to maintain a rooted path of sequences such that the
-next node being visited can be appended to each sequence in it. Once the scope
-of a node has been exited, the node's pre-order trace can be written to the
-hierarchy of pre-order traces (Hpre) at the corresponding position.
+forward since one needs to maintain a rooted path of traces such that the next
+node being visited can be appended to each trace. Once the scope of a node has
+been exited, the node's pre-order trace can be written to the hierarchy of
+traces (Hpre) at the corresponding position.
 
-Note that the process of writing a sequence to a position that is presequent to
+Note that the process of writing a trace to a position that is presequent to
 the position of the current node, will make the process difficult to implement
 for very large documents. This aspect can however be ignored, since (A) this
-hierarchy is of theoretical nature, and (B) the context of this discussion is
-on document trees of limited size. That is, all sequences can be formed and
-updated in memory.
+is discussion is of theoretical nature, and (B) the context of this discussion
+is on trees of limited size. That is, all sequences can be maintained in memory.
 
 ```js
+//- (Tree -> Hpre)
 export function encodeHpre(root) {
   let n=[], hpre=[], rp=[];
 
@@ -51,9 +51,8 @@ export function encodeHpre(root) {
 
 Forming a document tree from a sequence of pre-order traces is more challenging.
 That is because unlike hierarchies of rooted paths, there is no direct method
-which would allow to easily maintain a current rooted path. That path however
-must be maintained since one must be able to determine the parent of the next
-current node.
+which would allow to easily maintain a rooted path. That path however must be
+maintained since one must be able to determine the parent of the current node.
 
 Recall that the characteristic element (CE) of a pre-order trace is its very
 first node. That is, the first node of a trace determines the node that trace
@@ -62,6 +61,7 @@ of a trace in the hierarchy of pre-order traces (Hpre). After all, that
 sequence is expected to provide all traces in pre-order.
 
 ```js
+//- (Hpre -> Tree)
 export function decodeHpre(n, hpre) {
   let len = n.length;
   util.assert(0 < len);
@@ -70,28 +70,28 @@ export function decodeHpre(n, hpre) {
   util.assert(pre.length == len);
   util.assert(pre[0] == 1);//- the root
   let nodes=[], roots=[];
-  let rp=[], tCur;
+  let rp=[], trace;
 
   for(let i=0; i<len; i++) {//- i in [0,#n)
     let current = new cNode(n[i]);
-    current.ref = (i+1);
+    current.ref = (i+1);//- 1-based
     nodes.push(current);
 
     //- tCur must have the current node
     //  as its characteristic element CE
     //- as its first element
-    tCur = hpre[i];
-    util.assert(tCur.length > 0);
-    util.assert(tCur[0] == (i+1));
-    current.trace = tCur;
+    trace = hpre[i];
+    util.assert(trace.length > 0);
+    util.assert(trace[0] == (i+1));
+    current.trace = trace;
 
     //- reduce the rooted path
-    let pLen = reduceRp(tCur, rp);
+    let pLen = reduceRp(trace, rp);
 
     //- if the node is a root
     if(pLen == 0) {
-      rp.push(current);
       roots.push(current);
+      rp.push(current);
       continue;
     }
 
@@ -100,6 +100,7 @@ export function decodeHpre(n, hpre) {
     let parent = rp[pLen-1];
     parent.addAsLastChild(current);
     rp.push(current);
+    continue;
   }
 
   util.assert(roots.length == 1);
@@ -107,17 +108,12 @@ export function decodeHpre(n, hpre) {
 }
 ```
 
-Note that the efficiency of the encoding algorithm can be improved, if the
-trace of the node whose scope is being exited, is appended to the next trace
-in the rooted path being maintained. In other words, it is not necessary to
-append the current node to all the traces in that rooted path.
-
 As before with a hierarchy of rooted paths, the rooted path being maintained
 must be reduced such that the resulting path ends in the parent of the current
-node/trace. This process is however more or less straight forward since the
-current trace must be a substring to the parent's trace. Because of that, all
-the nodes whose traces are no super-strings to the current trace need to be
-removed from the rooted path being maintained.
+node. This process is however more or less straight forward since the current
+trace must be a substring to the parent's trace. Because of that, all the nodes
+whose traces are no super-strings to the current trace need to be removed from
+the current rooted path.
 
 ```js
 function reduceRp(tCur, rp) {
