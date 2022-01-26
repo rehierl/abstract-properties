@@ -1,75 +1,43 @@
 
-- bullet points on what is to follow
+* a never ending work in progress ...
+* overall, it is best to read the source code in a multi-tab text editor
 
-alternative titles
-- reinventing the wheel
-- generic properties, a bottom up approach
-- partial orders are anything but theoretical
-- total orders are specialized partial orders
-- an order-/intervall-based point of view
-- an "ordered tree" is just another un-ordered tree
-- a tag soup ain't no (fucking) node tree
-- trees - no more than 4 types of properties are possible
-- lists - no more than 2 types of properties are possible
-- the ha-div-ha issue, an inconsistentcy of scopes
+immediate todos
+* point out the semi-official corner stones
+* some "polishing work" - readmes, wiki links, etc.
 
-science is ..
-- some say science is to see what others see, and to think of something new
-- the issue here is however not with "something new", since the fundamental
-  knowledge required in order to develop a consistent design (to html's
-  outline algorithm) is already known
-- this ain't quantum physics, and it ain't rocket science
-- this is about simple sets of elements (aka. scopes)
-- hence, the following statement seems to be more appropriate:
-- science is to see what others see, and to accept it for what it is
+## a little bit of private history ...
 
-a wasteful/painful experience
-- based on what i have learned from analyzing the w3c's outline algorithm,
-  which resulted in having to learn about its several issues and therefore
-  learning about what not to do.
-- based on what i have learned from trying to develop my own design, which
-  resulted in refreshing my memory of what i was taught about mathematics,
-  and drowning in all the aspects that might or might not be involved.
-- based on what i have learned from trying to summarize the relevant
-  aspects, which resulted in realizing fundamental key aspects.
-- based on what i have learned while trying to accept just how hard
-  we have managed to fuck it up, which resulted in increasing my
-  understanding of key aspects one tiny step at a time.
+This repository is overall a complete rework of the **node-tree-outliner**
+(archived) and several other repositories (public and non-public) I had
+created on the HTML outliner issue.
 
-based on all of that ...
-- here is yet another attempt to sum it all up ...
-- the base concept of properties/scope/context
-- order theory as its foundation, graph theory as a
-  consequence, category theory to bind it all together
-- define node orders by adding sets of edges, one set at a time
-- the resulting node orders allow to define types of scopes,
-  which in turn allow to define types of properties
-- only 4 types of properties are possible
-- the big issue is with inconsistent scopes
-- only 3 types make sense in the context of a tag-based syntax
-- the big issue is with the general awareness of partial orders,
-  or more accurately .. the lack of it .. i.e. in general unaware
+* 2017-06 to 2017-07 - html-outliner-impl - A failed attempt to implement the
+  official outline algorithm using JavaScript.
+* 2017-06 to 2018-01 - html-outliner-spec - An analytical approach to translate
+  the official specification into pseudocode, which made several formal issues
+  in the official design painly obvious.
+* 2018-10 to 2019-04 - node-tree-outliner - In essence my first attempt on a
+  bottom-up approach to grasp the formal/mathematical aspects one needs to
+  be aware of when trying to develop a consistent alternative. Unfortunately,
+  at that time, I was still unable to reach the level of abstraction that is
+  required to see the forest amongst all those darn trees.
+* 2019-04 to 2019-05 - ordered-trees - This non-public repository more or less
+  reflects a transition from a graph-based point of view towards an order-based
+  point of view. That is, I did start to realize that "ordered trees" don't
+  actually exist. This change in perspective did eventually open my eyes to an
+  interval-based point of view on scopes, and consequently on the abstraction
+  of the overall concept of properties.
+* in 2019-08 - archived the online repositories
+* in 2019-08 - brainstorming-notes - In essence a summary of all the off-topic
+  notes I had on the overall topic/issue. Mostly extracted from the repositories
+  mentioned above.
+* 2021-07 to 2022-01 (and counting) - abstract-properties - This repository
+  does in essence provide a consistent base concept in terms of abstract
+  properties whose scopes can be described as open intervals over the
+  appropriate base order, linear or otherwise.
 
-this is from a developer for developers
-- true mathematicians will have to live with some "cringe"
-- be lenient in regards to explanations
-- be strict in regards to fundamental considerations
-
-this is still as serious as it can get
-- this is an issue of significant importance
-- the tag-based syntax is an application of an abstract system
-  of generic properties, which itself is an application of
-  partial orders (order theory)
-- this isn't just about html/xml/..
-- this isn't just about the tag-based syntax
-- this is about the evolution of our ability to write, an
-  ability that is critical to the evolution of the human race
-- so no, this does not just concern those with disabilities,
-  this concerns every single human being with or without
-  disabilities, including all the future generations
-- this is about our ability to use partial orders to our advantage
-- this is about the general awareness of (partial node) orders
-- this is about the responsibility of experts, and because of that ..
-- this is about the responsibility of the scientific community
-- so yes, this is about the evolution of the human race,
-  in more ways than most are aware of
+So yes, I have managed to waste several years of my life trying to figure out
+how to explain the formal/mathematical aspects related to HTML's unresolved
+outliner issue, initially without even realizing that something like Order
+Theory (OT) could already exist ...

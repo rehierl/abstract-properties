@@ -1,31 +1,9 @@
 
 # How to transform Hlvl into Hlen
 
-```
-default pre-order (PRE)                              a
--------------------------------------------   ---------------
-a  b  c  d  e  f  g  h  i - n, trace           b    c      h
-1  2  3  4  5  6  7  8  9 - r, node.idx           -----   ---
-0  1  1  3  3  5  5  1  8 - par, parent.idx       d   e    i
-1  2  2  3  3  4  4  2  3 - lvl, node.lvl           -----
-9  1  5  1  3  1  1  2  1 - len, node.len           f   g
-9  2  7  4  7  6  7  9  9 - lst, node.lst
--------------------------------------------
-               6  7       - lv-4
-         4  5  5  5     9 - lv-3
-   2  3  3  3  3  3  8  8 - lv-2
-1  1  1  1  1  1  1  1  1 - lv-1
-0  1  2  3  4  5  6  7  8 - index
-```
-
-Note that the tree's pre-order trace covers the top-most nodes of the sequence
-of rooted paths. That is, one can visually (i.e. literally) read the sequence
-of pre-order traces from the sequence of rooted paths (of node references)
-visualized above.
-
 Similar to forming Hlvl from Hlen, forming a sequence of length values (Hlen)
-from a sequence of level values (Hlvl) is a process that decodes Hlvl and one
-that writes Hlen without having to actually create the document tree.
+from a sequence of level values (Hlvl) is the process that decodes Hlvl and
+writes Hlen without having to actually create the document tree.
 
 Note that each length entry in `len` must be initialized since the actual
 length value will only be available once the type-1 scope of the corresponding
