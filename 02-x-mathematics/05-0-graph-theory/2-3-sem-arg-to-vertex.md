@@ -94,8 +94,8 @@ equal (i.e. un-oriented semantics).
 
 Based on that, an edge `e` is said to have **consistently oriented semantics**,
 if the orientation of `sem(e)` corresponds with the orientation of that edge.
-Conversely, edge `e` is said to have inconsistently oriented semantics, if that
-is not the case (e.g. `sem(g)`).
+Conversely, edge `e` is said to have inconsistently oriented semantics, if
+that is not the case (e.g. `sem(g)`).
 
 Note that, as a general rule of thumb, semantics can be considered consistent,
 if they allow to read an edge "as is". That is, if the vertex order of an edge

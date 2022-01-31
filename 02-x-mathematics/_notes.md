@@ -1,4 +1,18 @@
 
+- thoughts to take care of ..
+
+# fundamental concepts
+
+container types are based upon components
+- interconnected components
+- an order over the components of a container
+- the order of a simple set is ... total!
+
+point out the similarties between the operators
+- defined for sets and sequences
+- i.e. subset-of, substring-of
+- lost thought - the quantififers ?!?
+
 # graph theory (GT)
 
 semantics of an edge
@@ -19,14 +33,14 @@ hereditary (graph) properties
 
 bipartite graph
 - V is a union of two disjoint subsets
-- bends the rules of an endo-relation
-- i.e. a simple binary relation
+- bends the definition of an endo-relation
+- i.e. more of a binary relation
 
 graph theory seems to focus on edges
 - disconnected vertices (seem) to be (mostly) ignored
 - e.g. the (standard) definition of a complement graph
 
 graph theory seems to treat vertices and edges
-  as being mostly independent from one another
+as being mostly independent from one another
 - i.e. vertices may be (almost) arbitrarily connected
 - i.e. there is (some) degree of freedom in choosing the edges

@@ -8,7 +8,8 @@
          |--> disjoint-to  |--> overlaps      |--> equal-to
 ```
 
-The following operators are largely equal/similar to the set-based operators.
+The following is a summary of those operators that are similar to those that
+are used to describe the relationships between two simple sets.
 
 Note that `disjoint-to` and `subgraph-of` have strict definitions. That is,
 a graph either contains all of the vertices and edges of the other (i.e.

@@ -67,18 +67,18 @@ with a semantical expression, are its edges `(e in E)`:
 
 For edge `e := (a,b)`, one might define `sem(e)` as:
 
-0. `a` is equal to `b`
-1. `a` is smaller than `b`
-2. `a` is subsequent to `b`
-3. `a` is an element of `b`
-4. `a` is a subset of `b`
-5. `a` is a multiple of `b`
-6. `b` is a multiple of `a`
+* `a` is equal to `b`
+* `a` is smaller than `b`
+* `a` is subsequent to `b`
+* `a` is an element of `b`
+* `a` is a subset of `b`
+* `a` is a multiple of `b`
+* `b` is a multiple of `a`
 
-Note that expressions (5) and (6) are strictly speaking distinct from one
+Note that the latter two expressions are strictly speaking distinct from one
 another since both build opon a different order of agruments. That is, the
-order of arguments, in which these are taken from an edge, is relevant to
-an expression.
+order in which the arguments are taken from an edge, is relevant to a
+semantical expression.
 
 Note that the **characteristic function** of a relation `R()` can be used to
 determine whether or not an edge exists that connects both of its arguments.

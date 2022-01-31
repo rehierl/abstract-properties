@@ -52,8 +52,9 @@ pairs of consecutive vertices.
 
 An uni-directional path may be referred to as **consistent with** (or as
 **in the direction of**) `G`, if each pair `(vi,vi+1)` is an edge in `E`.
-In contrary to that, a path may be referred to as being uni-directional but **inverted** (or **converse**), if each pair `(vi,vi+1)` represents an edge
-in the inverted (aka. converse) graph - i.e. `(e in conv(G))`.
+In contrary to that, a path may be referred to as being uni-directional
+but **inverted** (or **converse**), if each pair `(vi,vi+1)` represents
+an edge in the inverted (aka. converse) graph - i.e. `(e in conv(G))`.
 
 A path may be referred to as being **multi-directional**, if it contains pairs
 of consecutive vertices such that `(vi,vi+1)` and/or `(vi+1,vi)` in `G`. Put
@@ -101,7 +102,7 @@ Based on the above, each graph `G` can be understood to be associated with the
 set of all possible paths `P` that can be formed over its edges. A graph can
 thus be described as a triplet of sets: `G := (V,E,P)`.
 
-Note that any path in `(P0 + P1)` may be referred to as a **degenerated path**.
+Note that any path in `(P1 + P2)` may be referred to as a **degenerated path**.
 That is, because such a path does not contain any consecutive pair of vertices.
 
 Note that, if a discussion is in regards to multiple graphs, a specific set

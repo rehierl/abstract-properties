@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# graphs
+# graph-based visualizations
 
 The following is a barebone introduction to graph-based visualizations,
 intended to allow to read/understand subsequent visualizations of relations.

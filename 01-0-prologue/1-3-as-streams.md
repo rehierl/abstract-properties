@@ -35,7 +35,7 @@ section begins and with which node it ends. These states, and the corresponding
 state changes, can be said to form **a stream-based perspective**.
 
 Note that the stream-based perspective is the reason as to why a section
-can be **visualized by underlining all the nodes in its scope**.
+can be **visualized by simply underlining all the nodes in its scope**.
 
 Note that any node that is reached while a heading's section counts as being
 open is understood to be a node in that section, including the heading and
@@ -43,9 +43,9 @@ all of its descendants. Put differently, a section is said to contain all
 the nodes that will be visited while the section counts as being open.
 
 Note that, since a section counts as being open as soon as the section's
-heading is reached, no section can therefore truly be empty. However, one
-can still describe a section as being empty, if it does not contain any
-meaningful content.
+heading is reached, no section can truly be empty. However, one can still
+describe a section as being empty, if said section does not contain any
+meaningful content (e.g. whitespace only).
 
 Note that the perspective which is based on a section's first and last node
 may be referred to as **the scope-based perspective**. This in order to
@@ -81,12 +81,12 @@ that, the removal-based perspective can be said to define two intervals:
 (e.g. `prefix := (-inf,h)`), and (2) no node belongs to a section once
 the section counts as being closed (e.g. `suffix := (nL,+inf)`).
 
-Since only a prefix and/or suffix is removed from the document order, a section
-is a **substring of nodes** over the document order. Based on that, a section
+Since only a prefix and/or suffix is removed from the document order, a
+section is a **substring of nodes** to that order. Based on that, a section
 may also be described as **an ordered sequence of nodes**.
 
 Note that, since no section is truly empty, and since any section is a substring
-over the document order, any section can be understood to be associated with an
+to the document order, any section can be understood to be associated with an
 **offset and a length** value.
 
 <!-- ======================================================================= -->
@@ -104,20 +104,20 @@ gaps). That is, such nodes/gaps are not supported.
 
 Likewise, since a section is opened as soon as its heading (h) is reached and
 closed as soon as the implementation has moved past the section's last node
-(nL), these two nodes and all the other nodes in between are counted towards
-the heading's section. That is, the above stream-based perspective does also
-not support any gaps.
+(nL), these two nodes and all the other nodes in between count towards the
+heading's section. That is, the above stream-based perspective does also not
+support any gaps.
 
-Due to the above, a heading and all the nodes up until a section's very last
-node form **a composite unit of consecutive nodes**. As such, and in regards
-to a document order, a section can be described as **a sub-stream of nodes**.
+Due to the above, a heading and all the nodes until a section's last node
+form **a composite unit of consecutive nodes**. As such, and in regards to
+a document order, a section can be described as **a sub-stream of nodes**.
 
 Note that, the support of nodes in between a section's heading and its last
 node that do not count towards that section (nodes 'x' and 'y') would require
 clear definitions in order to allow implementations to detect and thus allow
 to skip/ignore these nodes in regards to the corresponding section. However,
-such definitions seem futile since one could argue that the nodes below a
-gap effectively form a new section which, as a matter of clarity, should be
+such definitions seem futile since one could always argue that the nodes below
+a gap effectively form a new section which, as a matter of clarity, should be
 introduced as such.
 
 <!-- ======================================================================= -->
@@ -125,34 +125,33 @@ introduced as such.
 
 Note that the issue is not exactly to determine with which node a section does
 end, but rather having to **determine when no more nodes will be encountered**
-that count towards a given section. The difference is subtle but still critical!
+that count towards a given section. The difference is subtle but critical!
 
 Note that, since an implementation is required to perform operations when the
 scope of a section is entered, and when its scope is exited, a section can be
-said to be **associated with open/close- or enter/exit-events**. For obvious
-reasons, both of these enter- and its exit-events must be triggered for each
-existing section: (1) if the enter-event isn't triggered, then an implementation
-is will remain unaware that the section even exists, and (2) if the exit-event
-isn't triggered, then an implementation will continue to associate nodes with a
-section even when that section no longer counts as being open for associations.
-Because of that, clear definitions are required such that an implementation
-knows when to trigger the corresponding events.
+said to be **associated with open/close- or enter/exit-events**. Both of these
+events must be triggered for each existing section: (1) if the enter-event
+isn't triggered, then an implementation is remain unaware that the section even
+exists, and (2) if the exit-event isn't triggered, then an implementation will
+continue to associate nodes with a section even if that section no longer counts
+as being open for associations. Because of that, clear definitions are required
+such that an implementation knows when to trigger the corresponding events.
 
 Note that the above states are **not required to be explicit**. For example,
 a set of section objects may be restricted to all those sections that still
 count as being open. In such a case, the "closed" state of a section could be
 implemented by simply removing a section object from "a set of open sections".
 Implemented as such, the closed state is then ambiguous since an implementation
-can then in general not distinguish between "unknown" and "closed" sections.
-This issue can however be resolved, if an implementation also maintains "a
-set of all (known) sections", regardless of which states they are in.
+can then in general not distinguish between "unknown" and "closed". This issue
+can however be resolved, if an implementation also maintains "a set of known
+sections", regardless of which states they are in.
 
 Note that, since an implementation will in general **create a section object**
 as soon as the section's heading is reached, an implementation can be understood
 to associate each node in that section with its section object. With that in
 mind, a section object can be understood as **a node property**. Based on that,
 the section object can be understood to **emanate** from its heading (as a
-node property), and to be **passed on** to all of those nodes (one node after
+node property), and to be **passed on** to all the nodes (one node after
 another) that are within the section's scope.
 
 Note that, if implemented as described above, then a subsequent implementation
@@ -161,6 +160,7 @@ will have to do is to determine if the corresponding section object is set as a
 node property. Based on that, such properties can be seen as **stored results**.
 
 Note that it is in principle non-relevant in which order the nodes in a scope
-are associated. That is because these properties can be understood to represent
-simple truth values (i.e. inside-of/outside-of) which are set on all the nodes
-in a scope. As such, these properties do not maintain an order of association.
+will be associated. That is because these properties can be understood to
+represent simple truth-based values (i.e. inside-of/outside-of) which are set
+on all the nodes in a scope. As such, these properties do not reflect an order
+of association in any way.

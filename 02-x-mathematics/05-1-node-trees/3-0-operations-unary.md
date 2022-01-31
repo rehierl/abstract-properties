@@ -75,3 +75,6 @@ will end up with multiple incoming edges and therefore with more than one
 parent node.
 
 * iteratively adds edge `aEc` for any pair of adjacent edges `aEb` and `bEc`
+
+Note that the transitive closure of a tree results in a strict partial order
+relation.

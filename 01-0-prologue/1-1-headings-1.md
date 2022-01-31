@@ -2,15 +2,16 @@
 <!-- ======================================================================= -->
 # An introduction to headings and sections
 
-Authors use **headings** to group content into **sections**. Since the placement
-of each heading defines a new section, and since a section can not exist without
-a heading, both can be said to be **associated** or **related** with each other.
+Authors use **headings** to group content into **sections**. Since the
+placement of each heading defines a new section, and since a section can
+not exist without a heading, both can be said to be **associated with**
+or **related to** each other.
 
 Note that since the most common elements used to form sections are headings,
 the following content will, for the sake of simplicity, initially refer to
 headings as the main elements that can be used to group content. One must
-however keep in mind that headings are not the only elements possible that
-can be used to form sections.
+however keep in mind that headings are not the only elements that can be
+used to form sections.
 
 ```
 above-below
@@ -20,9 +21,9 @@ A
 B
 ```
 
-And here is where it begins: The only means an author has to state which nodes
-are grouped into a section is by the placement of a heading. The order that is
-in general agreed upon can be expressed by the following statements:
+The only means an author has to state which nodes are grouped into a section
+is by the placement of a heading. The order that is in general agreed upon
+can be expressed by the following statements:
 
 - **S0** - Sections exist as associated content.
 - **S1** - **The nodes above a heading do not belong to its section.**
@@ -33,16 +34,17 @@ is because of that in regards to the structural relationship between a heading
 and its section. S0 therefore needs to be understood to state that the
 structural relationship between a heading and its section can not be ignored.
 
-S1 is obviously a clear instruction since none-of the nodes above a heading
-belong to its section. Note that this clarity is a consequence of placing a
-heading just above the content it is associated with.
+S1 is a clear instruction since none-of the nodes above a heading belong to
+its section. Note that this clarity is a consequence of placing a heading
+just above the content it is associated with.
 
-S2 is not as clear as S1 since it does not clarify which nodes are included
-and which ones are not. However, one can state that a non-empty section has
+S2 is not as clear since it does not clarify which nodes are included and
+which ones are not. However, one can state that a non-empty section has
 **a first and a last node** and includes **every other node in between**.
-Because of that, a heading's section can be understood to consist of distinct
-consecutive nodes (i.e. **no gaps**, **no holes**). That is, sections are not
-arbitrary groups of nodes in the sense that they consist of random nodes.
+Because of that, the section of a heading can be understood as a stream of
+distinct consecutive nodes (i.e. there are **no gaps** - i.e. a section has
+**no holes**). That is, sections are not arbitrary groups of nodes, they do
+not consist of randomly selected nodes.
 
 Hence, by placing a heading an author uses structure to express which nodes
 belong to a section and which ones don't. That is, an author uses the
@@ -50,24 +52,24 @@ belong to a section and which ones don't. That is, an author uses the
 her intent.
 
 The core purpose of an outline algorithm is therefore to read these structural
-relationships in order to determine to which section (or multiples thereof) a
-node within a document belongs.
+relationships in order to determine to which section (or multiples thereof)
+each node in a document belongs.
 
 <!-- ======================================================================= -->
 ## the document order
 
-In general, a document has a beginning and an end, and therefore like a section
-a first and a last node. And since a document has no gaps, the nodes in a
+Any non-empty document has a beginning and an end, and therefore like a section
+a first and a last node. And since a document has no gaps, the nodes of a
 document appear one after another in a consecutive order.
 
-For any two nodes in a document one can state which node is first and which is
-last. Because of that, a document is a flat **list of nodes**, that can be
-described as **a sequence of nodes**, or as **a string of nodes**.
+For any two nodes in a document one can state which node is first and which
+is last. Because of that, a document is a flat/linear **list of nodes** that
+can be described as **a sequence of nodes**, or as **a string of nodes**.
 
-Note that, similar to the components in a sequence, a document consists of
-**distinct nodes**. Hence, any document can be said to define a simple set
-of nodes and can therefore be described as *a sequence of distinct nodes*.
-(Note that these will in general be referred to as **ordered sequences**).
+Note that, similar to the components/slots in a sequence, a document consists
+of **distinct nodes**. Hence, any document can be described to define a simple
+set of nodes and can therefore be described as *a sequence of distinct nodes*.
+(Note that such sequences will be referred to as **ordered sequences**).
 
 ```
 n1.............. h T nX ......... nZ
@@ -80,16 +82,17 @@ that node order defines which nodes are above a heading, it may also be referred
 to as **the document order**, or as **the above-of/below-of node order**.
 
 Similar to a document, a section has a first and a last node, and contains
-all the nodes in between. Because of that, a section can be described as
-**a substring of nodes** to the document order. As such, a section is a
-total suborder that is embedded into the document order.
+every other node in between. Because of that, a section can be described as
+**a substring of nodes** to the document order. As such, a section is as a
+total suborder embedded into the document order.
 
 <!-- ======================================================================= -->
 ## there is no trivial answer
 
-The focus at this point is on statement S1 which can be rephrased as follows:
+The focus at this point is on statement S1, which can be rephrased as follows:
 
-- **S1** - Node `n` does not belong to section `h`, if `(n above-of h)` is true.
+- **S1** - Node `n` does not belong to the section of heading `h`,
+  if `(n above-of h)` is true.
 
 Since a human only needs to "just look at the placement" of a node in order
 to determine if it is above or below a heading, one might assume that an
@@ -112,9 +115,10 @@ nodes `A`, `h` and `B` as the child nodes of a common parent node `p`.
 
 So how can an implementation determine if a node is above or below a heading?
 That is, how can an implementation determine if the expression `(A above-of h)`
-is true or not? And what is the meaning of that "above" in the context of a
-node tree? After all, node `A` is a sibling of `h` and therefore not strictly
-"above of" it.
+is true or not? And what is the meaning of "above" in the context of a node
+tree? After all, node `A` is a sibling of `h` and therefore not strictly
+"above of" it. Likewise, node `B` is also a sibling of `h` and also neither
+strictly "above of" nor "below of" it.
 
 Note that parent node `p` "clearly" appears to be above heading `h`, which
 would suggest that the answer in regards to the first question, at least in
