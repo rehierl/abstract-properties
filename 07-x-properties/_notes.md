@@ -2,4 +2,4 @@
 # abstract properties
 
 eventually provide formal definitions
-- in the context of a final summary
+- in the context of an overall summary

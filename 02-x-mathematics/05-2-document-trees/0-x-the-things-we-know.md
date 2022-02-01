@@ -2,6 +2,7 @@
 <!-- ======================================================================= -->
 # the things we know
 
+- fits as "meta" into the overall context
 - the words we use are in regards to the "things" we know
 - but how does one describe what one does not know?
 - how does one describe what is "new"?

@@ -1,16 +1,13 @@
 
 * still a work in progress ...
-* point out the semi-official corner stones
-* more "polishing work" - readmes
-* thin out the refs/wiki links
 
-# abstract
+## abstract
 
-* provide an "abstract" in this readme
+* provide an "abstract" ...
 
-# overall notes
+## overall notes
 
-It is recommended to download the repository and to read the source code in a
+It is recommended to download the repository and to read the source in a
 multi-tab text editor such as [Visual Studio Code](https://code.visualstudio.com/),
 [Atom](https://atom.io/), or [NetBeans](https://netbeans.apache.org/).
 
@@ -19,6 +16,6 @@ one must use words that already have a meaning. Because of that, it won't work
 without inaccuracies, or even confusion. Readers are therefore advised to not
 read between the lines, but to try to recognize patterns amongst the noise.
 
-I am aware that this content is far from paper-grade quality. When reading one
-therefore needs to keep in mind that my focus is on consistency and overall
-common aspects, not so much on minor issues such as typos.
+I am aware that this content is far from paper-grade quality. One should
+therefore keep in mind that my focus is on consistency and overall common
+aspects, not so much on minor issues such as typos.

@@ -38,8 +38,3 @@ bipartite graph
 graph theory seems to focus on edges
 - disconnected vertices (seem) to get (mostly) ignored
 - e.g. the (standard) definition of a complement graph
-
-# document trees
-
-- flesh out "the things we know"
-- fits as "meta" into the overall context

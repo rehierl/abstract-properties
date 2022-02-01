@@ -5,14 +5,10 @@ note to self ..
 
 # todos
 
-- continue here ...
-- chapter 17 - finish the remarks
+- more "polishing work" - readmes
+- thin out the wikipedia links
+- provide an "abstract" in the readme
+- flesh out "the things we know" in 05-02
+- chapter 17 - flesh out the remarks
 - the focus is on rooted paths
-
-wikipedia links
-- copy wikipedia links from the maths repo
-- i.e. the "_wikipedia.md" files
-
-the readme files
-- are all more or less "initialized"
-- they need to be fleshed out at some point
+- chapter 18 - flesh out the epilogue

@@ -1,2 +1,3 @@
 
 # a little bit of public history ...
+- i.e. semi-official corner stones
