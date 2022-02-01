@@ -70,7 +70,7 @@ such a sequence is associated with a total order. That is because the pair of
 words "linear" and "sequence" consists of words that are quite similar in that
 regards.
 
-In addition to that, the linguisitic proximity to ordered sets would be lost.
+In addition to that, the linguisitic reference to ordered sets would be lost.
 Because of that, one would scrap the whole point of describing an "ordered
 sequence" as an "ordered sequence".
 

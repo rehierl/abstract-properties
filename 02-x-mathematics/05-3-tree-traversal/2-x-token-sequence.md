@@ -1,6 +1,8 @@
 
-- note - an old variation of the document traversal
-- seems to be of no more use
+- a past variation of the document traversal
+- might still turn out to be of some use
+- when having to explain how a tag soup is read
+- a token sequence does allow to use pointers/cursors
 
 <!-- ======================================================================= -->
 # Token sequence

@@ -4,53 +4,53 @@
 
 A document tree can be serialized in to a character-based sequence of strings,
 if the enter- and exit-events are used to produce start-tags `<$name $attribs>`
-and end-tags `<$name>` as roughly outlined below.
+and end-tags `<$name>` as outlined below.
 
 ```js
-tagSequenceOf(root) being
+tagSequenceOf(root) {
   sequence = ()
 
-  onEnter(node) begin
-    name = node.tagName.toLowerCase
+  onEnter(node) {
+    name = node.tagName
     attribtues = node.attributes.toString
     sequence.add("<%s %s>", name, attributes)
-  end
+  }
 
-  onExit(node) begin
-    name = node.tagName.toLowerCase
+  onExit(node) {
+    name = node.tagName
     sequence.add("</%s>", name)
-  end
+  }
 
-  traverseDocTree(node) begin
+  traverseDocTree(node) {
     onEnter(node)
 
-    for(child in node.childNodes) begin
+    for(child in node.childNodes) {
       traverseDocTree(child)
-    end
+    }
 
     onExit(node)
-  end
+  }
 
   traverseDocTree(root)
   return sequence
-end
+}
 ```
 
 Note that, if all tags within the produced trace of tags are concatenated in
 order of appearance, the result can informally be described as **tag soup**.
 
-Note that any tag produced will reflect the corresponding enter-/exit-event.
-Also, only the enter-event is being used to enrich the start-tag with the
-attributes of a node. As such, a start-tag can be understood to provide all
-the definitions that are required to reproduce a node while recreating the
-node tree from the tag sequence. Consequently, a tag soup can be assumed to
-be in enter-order and, as such, to reflect a pre-order tree traversal.
+Note that any tag produced will reflect the corresponding event. Also, only
+the enter-event is being used to enrich a tag with the attributes of a node.
+As such, a start-tag can be understood to provide all the definitions that
+are required to reproduce a node while recreating the node tree from the tag
+sequence. Consequently, a tag soup can be assumed to be in enter-order and,
+as such, to reflect a pre-order tree traversal.
 
-Note that this does seem to suggest, that an enter-event corresponds with the
-visit of a node. Consequently, one can assume that even a tag sequence is first
-and foremost in pre-order.
+Note that this does seem to suggest, that an enter-event corresponds with
+the visit of a node. Consequently, one can assume that even a tag sequence
+is first and foremost in pre-order.
 
 Note that, since a tag sequence seems to be in pre-order, this can also be
-understood to suggest that no operation may be executed that is in regards
-to that particular node. After all, that node has then already been
-visited/processed.
+understood to suggest that no operation may be executed in regards to a
+node during the exit-event of that particular node. After all, that node
+has then already been visited/processed.

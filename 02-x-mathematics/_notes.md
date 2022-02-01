@@ -21,7 +21,6 @@ semantics of an edge
 - that is, if semantics are transitive, then the
   resulting graph is itself transitive
 - e.g. parent-of vs. ancestor-of
-- there isn't much of a difference to order theory
 
 graph property
 - should probably have an explanation
@@ -37,10 +36,10 @@ bipartite graph
 - i.e. more of a binary relation
 
 graph theory seems to focus on edges
-- disconnected vertices (seem) to be (mostly) ignored
+- disconnected vertices (seem) to get (mostly) ignored
 - e.g. the (standard) definition of a complement graph
 
-graph theory seems to treat vertices and edges
-as being mostly independent from one another
-- i.e. vertices may be (almost) arbitrarily connected
-- i.e. there is (some) degree of freedom in choosing the edges
+# document trees
+
+- flesh out "the things we know"
+- fits as "meta" into the overall context

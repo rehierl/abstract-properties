@@ -9,20 +9,20 @@ such a trace of nodes reflects the path the traversal algorithm took through
 the tree when visiting each node one after another.
 
 ```js
-preOrderTraceOf(root) begin
+preOrderTraceOf(root) {
   trace = ()
 
-  traverseInPreOrder(node) begin
+  traverseInPreOrder(node) {
     trace.append(node)
 
-    for (child in node.childNodes) begin
+    for (child in node.childNodes) {
         traverseInPreOrder(child)
-    end
-  end
+    }
+  }
 
   traverseInPreOrder(root)
   return trace
-end
+}
 ```
 
 Even though any tree traversal can be used to produce a trace of nodes, the
@@ -37,5 +37,5 @@ the resulting trace of nodes can even be described as the trace of the root
 Note that, like any other ordered sequence, a trace of nodes corresponds with a
 total order over the nodes of the tree that was traversed. As such, the process
 of creating a trace of nodes corresponds with **a linear extension** of the
-tree's node order, which can also be described as **a topological sorting**
-or as **a topological ordering**.
+tree's node order, which can also be described as **a topological sorting** or
+as **a topological ordering**.

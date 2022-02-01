@@ -15,12 +15,12 @@ if one is available.
 
 ```js
 //- the default pre-order tree traversal
-traverseInPreOrder(node) begin
+traverseInPreOrder(node) {
   visit(node)
-  for(child in node.childNodes) begin
+  for(child in node.childNodes) {
     traverseInPreOrder(child)
-  end
-end
+  }
+}
 ```
 
 The (default) pre-order tree traversal will visit a node before any of its
@@ -41,12 +41,12 @@ set of elements, whereas the latter is in regards to an order relation.
 
 ```js
 //- the default post-order tree traversal
-traverseInPostOrder(node) begin
-  for(child in node.childNodes) begin
+traverseInPostOrder(node) {
+  for(child in node.childNodes) {
     traverseInPostOrder(child)
-  end
+  }
   visit(node)
-end
+}
 ```
 
 The (default) post-order tree traversal will visit a node after all of its
@@ -64,11 +64,11 @@ traversal is **not order preserving**.
 
 ```js
 //- the default in-order tree traversal
-traverseInOrder(node) begin
+traverseInOrder(node) {
   visit(node.leftChild)
   visit(node)
   visit(node.rightChild)
-end
+}
 ```
 
 The (default) in-order tree traversal in general only applies to binary trees
@@ -84,16 +84,16 @@ is **not order preserving**.
 
 ```js
 //- the default in-order tree traversal
-traverseInOrder(node) begin
-  for(child in node.childNodes) begin
+traverseInOrder(node)
+  for(child in node.childNodes) {
     //- before each child
     visit(node)
     //- visit the current child
     traverseInOrder(child)
     //- and/or after each child
     visit(node)
-  end
-end
+  }
+}
 ```
 
 Note that variations are possible which allow to traverse generic trees (any

@@ -77,16 +77,14 @@ can be discarded.
 <!-- ======================================================================= -->
 ## implicit vs. explicit child order
 
-In cases where a child order is defined based upon dedicated child nodes
-(such as in binary trees), or based upon a plane tree (such as a document
-tree), the corresponding child order can be described as being **explicit**
-or **persistent**.
+In cases where a child order is defined based upon dedicated child nodes (such
+as in binary trees), or based upon a plane tree (such as a document tree), the
+corresponding child order can be described as **explicit** or **persistent**.
 
-If, in contrary to that, the child order is a mere consequence of our
-inability to read/write trees with no child order whatsoever, then the
-corresponding child order can be described as being **implicit**
-or **temporary**.
+If, in contrary to that, the child order is a mere consequence of our inability
+to read/write trees with no child order whatsoever, then the corresponding child
+order can be described as **implicit** or **temporary**.
 
 Note that the latter includes those orders that result from randomly iterating
-over the child nodes of a tree that has no such child order. That is because
-such a temporary order must be understood to have no further meaning.
+over the nodes of a tree that has no explicit child order. That is because such
+a temporary order must be understood to have no further meaning.
