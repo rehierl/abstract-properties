@@ -1,6 +1,4 @@
 
-- thoughts to take care of ..
-
 # fundamental concepts
 
 container types are based upon components

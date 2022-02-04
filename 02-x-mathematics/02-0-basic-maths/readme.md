@@ -21,6 +21,6 @@ context, an interval can implicitly be understood as the short-hand definition
 of a complex construct (e.g. a substring), which must be induced from a more
 complex construct based on a fixed known rule.
 
-Note that an interval-based perspective allows for a more abstract point
-on the definitions of the terms **prefix**, **infix** and **suffix**. This
-abstract point of view allows to use these terms with non-linear orders.
+Note that an interval-based perspective allows for a more abstract point of
+view on the definitions of **prefix**, **infix** and **suffix**. This abstract
+point of view allows to use these terms with non-linear orders.
