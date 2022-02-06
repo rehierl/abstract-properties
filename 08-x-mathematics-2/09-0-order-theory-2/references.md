@@ -1,5 +1,5 @@
 
-# mathematics / order theory (2)
+# mathematics / order theory
 
 * [wikipedia, predicate](https://en.wikipedia.org/wiki/Predicate_(mathematical_logic))
 * [wikipedia, canonical form](https://en.wikipedia.org/wiki/Canonical_form)

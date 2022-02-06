@@ -5,10 +5,18 @@ note to self ..
 
 # todos
 
-- more "polishing work" - readmes
-- thin out the wikipedia links
+- more "polishing work" - readmes.md
 - provide an "abstract" in the readme
 - flesh out "the things we know" in 05-02
-- chapter 17 - flesh out the remarks
+
+there is no more chapter 10
+- will have to update the index order
+
+flesh out chapter 17
 - the focus is on rooted paths
-- chapter 18 - flesh out the epilogue
+
+flesh out the epilogue
+- arXiv.org - has no Order Theory category
+
+thin out the wikipedia links
+- see the references.md files in mathematics

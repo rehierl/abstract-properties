@@ -3,7 +3,7 @@
 # trees in (descriptive) set theory (DST)
 
 One kind of "well-behaved" sets in DST is
-analogous to the concept of node trees in Graph theory:
+analogous to the concept of node trees in Graph Theory:
 
 A tree `T` in DST is a collection of sequences `S` over a set of elements `N`
 such that every prefix `p` of each sequence in `T` is also a sequence in `T`.

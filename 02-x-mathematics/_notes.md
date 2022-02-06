@@ -21,15 +21,17 @@ semantics of an edge
 - e.g. parent-of vs. ancestor-of
 
 graph property
-- should probably have an explanation
 - describes the general characteristic of a graph
 - e.g. each node has a unique rooted path
+- should probably have an explanation
 
 hereditary (graph) properties
 - applies to any subgraph
 
 bipartite graph
-- V is a union of two disjoint subsets
+- the set of vertices is a union of two disjoint subsets
+- the edges lead from one subset to the other
+- all the edges begin in the same subset
 - bends the definition of an endo-relation
 - i.e. more of a binary relation
 

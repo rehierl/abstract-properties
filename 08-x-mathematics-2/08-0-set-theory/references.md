@@ -26,6 +26,7 @@ hereditary sets
 * [wikipedia, transitive set](https://en.wikipedia.org/wiki/Transitive_set)
 
 ## (naive) set theory (NST)
+- TODO - relocate to basic maths
 
 * [wikipedia, naive set theory](https://en.wikipedia.org/wiki/Naive_set_theory)
 

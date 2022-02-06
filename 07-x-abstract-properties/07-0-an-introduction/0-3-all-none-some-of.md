@@ -12,8 +12,8 @@
 |---------------------|
 ```
 
-In the end, developers will want to make use of the relationships between the
-nodes of a document and the sections it contains.
+In the end, developers will want to take advantage of the relationships between
+the nodes of a document and the sections it contains.
 
 For example, developers of web browsers and developers of editing software will
 want to fold and unfold the contents of a section in order to limit the amount
@@ -21,19 +21,19 @@ of information that is being displayed. In general, these kind of operations
 are implemented based on hiding and re-displaying the nodes within a section.
 
 At the very core of any operation is however the ability to reliably determine
-if a given node is within a particular section or not. Because of that, a clear
-definition of which nodes are affected by a sectioning node must be provided.
+if a given node is within a particular section. Clear definitions of which nodes
+are affected by a sectioning node must therefore be provided at some point.
 
 Once such definitions are available, an implementation can determine all of
-the nodes within a section and execute some operation on them. Based on that,
-an implementation can in theory be understood to first preselect all the nodes
-that will be affected, and then to execute the operation on that group of nodes.
+the nodes in a section and execute some operation on them. Based on that, an
+implementation can in theory be understood to first preselect all the nodes
+that will be affected, and then to execute the operation on that selection.
 
 Note that such a group of nodes will in general be referred to as the **scope**
 of an operation. Similar to that, one can speak of "the scope of an abstract
 property", or of "the section of a heading". That is, the terms "scope" and
 "section" can both be understood to denote some **area of effect (aoe)** and
-can as such be understood to refer to all of the nodes within that group.
+can as such be understood to refer to all the nodes in that group.
 
 Critical to the definition of an operation is therefore a clear and unambiguous
 definition of its scope. After all, an operation is in general required to have
@@ -46,7 +46,7 @@ which can be relied upon - results that can be taken advantage of.
 |- document/visit order -- none-/all-/some-of --------->|
 ```
 
-In most cases an operation is not intended to affect all of the nodes within a
+In most cases an operation is not intended to affect all of the nodes in a
 document (**all-of**). Similar to that, an operation that does not affect any
 node at all, is of not much use (**none-of**), since such an operation would
 then have no effect at all. Because of that, an operation will in general have
@@ -78,7 +78,7 @@ declared as an existing "thing" (e.g. by some node `d`). One can therefore
 assume that the scope of an operation always has a well known starting point,
 which will be referred to as its **defining node**.
 
-Based on that one can conclude, that the scope of an operation can not include
+Based on that, one can conclude that the scope of an operation can not include
 any of the nodes that were visited before the operation's defining nodes was
 visited (i.e. none-of those nodes that are presequent to the defining node).
 Because of that, the scope of an operation can only be a subset of those nodes
@@ -86,8 +86,8 @@ that are subsequent to the operation's defining node.
 
 Note that this observation has no effect on the none-of quantifier. However,
 in regards to the all-of and some-of quantifiers, this can be understood as
-a restriction that results from having to visit the nodes of a document in a
-particular order.
+**a restriction** that results from having to visit the nodes of a document
+in a particular order.
 
 ```
 |- document/visit order -- d -------------------------->|
@@ -95,8 +95,10 @@ particular order.
 |- some-of -------------------------------------------->|
 ```
 
-Note that the above already effectively describes how a some-of quantifier
-can be defined in terms of a none-of and an all-of quantifier.
+As can be seen above, such a restriction has the effect of providing a method
+for defining a some-of quantifier in terms of a none-of and an all-of quantifier.
+
+* some-of := (none-of + all-of)
 
 <!-- ======================================================================= -->
 
@@ -107,15 +109,17 @@ can be defined in terms of a none-of and an all-of quantifier.
 ```
 
 If neither none-of nor all-of the nodes that can possibly be affected by an
-operation are to be included within a scope, one can assume that the scope
-may only extend over the first few nodes that are subsequent to `d`. That is,
-the operation's scope can be assumed to begin with the defining node up to
-and including to some last node `l`. Based on that, a scope can be assumed
-to contain all-of the nodes within a certain range `[d,l]`, but none-of the
-nodes after that.
+operation are to be included in a scope, one can assume that the a scope may
+only extend over the first few nodes that are subsequent to a defining node
+`d`. That is, the operation's scope can be assumed to begin with the defining
+node up to and including to some last node `l`. Based on that, a scope can
+be assumed to contain all-of the nodes within a certain range `[d,l]`, but
+none-of the nodes after that.
+
+* some-of := (all-of + none-of)
 
 This leaves one remaining question unanswered: At what point does the scope
-of an operation end, assumed that the operation is not supposed to affect
+of an operation **end**, assumed that the operation is not supposed to affect
 all-of the nodes that are subsequent to a defining node?
 
 Due to the above, the difficult part is on providing unambiguous defintions
@@ -125,8 +129,8 @@ does one reliably define "include these, but not the others", based on an
 abstract concept of "a document" that is purely theoretical in the context
 of a definition/specification?
 
-The only means a definition has in that regards are the **formal rules** any
-document is expected to follow. Because of that, all definitions must be based
-upon such rules. These rules must therefore be known to those who develop a
-design and to those who use it. These formal rules can therefore be described
-**as a language that is used to communicate a design** and its definitions.
+The only means one has to make such a definition are the **formal rules** any
+document is expected to follow. These rules must therefore be known to those
+who develop a design and also to those who use it. These formal rules can
+therefore be described **as a language that is used to communicate a design**
+and its definitions.

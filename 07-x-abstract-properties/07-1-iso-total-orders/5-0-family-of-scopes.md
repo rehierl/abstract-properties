@@ -2,7 +2,7 @@
 <!-- ======================================================================= -->
 # a family of scopes
 
-It should be obvious at this point, that not any family of sets corresponds
+It should be obvious at this point that not any family of sets corresponds
 with a total order of elements and also with an ordered sequence.
 
 ```

@@ -1,19 +1,18 @@
 
-# set theory (ST)
-- an introduction to set theory
+# mathematics / set theory (ST)
 
 Note that this chapter is similar to the chapter on Category theory (CT).
-It mainly as a pointer to a particular area of Mathematics (i.e. ST),
-which is overall a higher level of abstraction and as such fundamental
-to the overall discussion.
+It mainly serves as a pointer to a particular area of Mathematics (i.e. ST),
+which is overall a higher level of abstraction and as such fundamental to
+the overall discussion.
 
 <!-- ======================================================================= -->
 ## (naive) set theory (NST)
 
 Thus far, it should be obvious that Mathematics is a lot more than just about
 numbers or functions. After all, in all previous chapters there have hardly
-been any calculations, if any at all. Instead, the focus of those chapters
-was on sets of elements, and the relationships between these sets, defined and
+been any calculations, if any at all. Instead, the focus of all chapters was
+on sets of elements, and the relationships between these sets, defined and
 visualized in terms of graphs and orders. Because of that, most definitions
 used in naive set theory have already been introduced and used throughout
 previous chapters.
