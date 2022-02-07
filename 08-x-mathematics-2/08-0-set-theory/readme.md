@@ -6,6 +6,10 @@ It mainly serves as a pointer to a particular area of Mathematics (i.e. ST),
 which is overall a higher level of abstraction and as such fundamental to
 the overall discussion.
 
+Note that, as mentioned below, the analogous counter parts of node trees in
+AST and in DST are both based on partial orders and are as such constructs
+of Order Theory.
+
 <!-- ======================================================================= -->
 ## (naive) set theory (NST)
 
@@ -54,10 +58,3 @@ Note that trees in DST are seen as collections of sequences such that every
 prefix of a sequence in it also belongs to the collection. Consequently, and
 as before, even in DST trees are seen as partially ordered sets that have
 certain requirements associated with them (e.g. a set of all rooted paths).
-
-<!-- ======================================================================= -->
-## remark
-
-Note that, as mentioned above, the analogous counter parts of node trees in
-AST and in DST are both based on partial orders and as such constructs of
-Order Theory.

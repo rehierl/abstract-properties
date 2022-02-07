@@ -40,7 +40,8 @@ give a general impression.
 
 The **height** of an element `t` in a tree `T` is defined as the **order type**
 of `ht(t,T)`. That is, the height of `t` is defined as the number of elements
-that are less than `t`. Because of that, the height of a root `(r in T)` is 0.
+that are less than `t`. Because of that, the height of a root `(r in T)` is
+zero.
 
 Note that this definition is "inverse" to the height of a node in a node tree.
 That is because the height of a node in such a tree is defined as the length
