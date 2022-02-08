@@ -85,6 +85,15 @@ if both are coupled-with but not related-to each other.
 * alternatively - `(A overlaps B) := (A coupled-with B) and (A unrelated-to B)`
 * note - none is a subset of the other
 
+Note that the "overlaps" relationship can be understood to be closely related
+to the **some-of** quantifier. That is, both sets must share some, but not all
+of their elements. Put differently, both sets must be such that some-of their
+elements must be no elements of the other. Because of that, the "overlaps"
+relationship is more difficult to define than for example the "subset-of"
+relationship, which can be understood to be closely related to the **all-of**
+quantifier. Similar to that, the "disjoint" relationship can be understood to
+be closely related to the **none-of** quantifier.
+
 <!-- ======================================================================= -->
 ## set-based operations
 

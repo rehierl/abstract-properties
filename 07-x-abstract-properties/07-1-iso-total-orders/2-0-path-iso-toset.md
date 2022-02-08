@@ -2,8 +2,8 @@
 <!-- ======================================================================= -->
 # path graph <=> node order
 
-Given a non-empty path graph `s := (N,E)` one can easily form a node order
-by defining the order operator based on the paths that can be formed over `s`.
+Given a non-empty path graph `s := (N,E)` one can easily form a node order by
+defining the order operator based on the paths that can be formed over `s`.
 
 * `Q := (N,<)` such that `N := V(s)`
 * `(a < b) := (p := [a,..,b] in P over s) and (#p > 1)`

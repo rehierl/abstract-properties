@@ -2,11 +2,11 @@
 <!-- ======================================================================= -->
 # ordered sequences <=> path graph
 
-Given a non-empty ordered sequence `s` ..
+Given a non-empty ordered sequence `s`, ..
 
 * `s := (n1, n2, n3, n4, n5, n6)`
 
-one can easily form a path graph using the default edge-based semantics.
+.. one can easily form a path graph using the default edge-based semantics.
 
 * `P := (N,E)` such that `N := E(s)` and
 * `E := { (a,b) | (a next-presequent-to b) }`

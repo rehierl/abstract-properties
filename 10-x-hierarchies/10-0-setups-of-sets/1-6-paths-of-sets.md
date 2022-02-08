@@ -31,8 +31,8 @@ Based on the definition of rooted paths, **a path** can be formed from set
 <!-- ======================================================================= -->
 ## path-based definitions
 
-Since paths can be formed in the context of a partial setup of sets, path-based
-defintions such as the following can be introduced.
+Since paths can be formed in the context of a partial setup of sets,
+path-based defintions such as the following can be introduced.
 
 * `(a connected-to b)` := true if `aPb` or `bPa`
 * `level(s) := #rp(s)` - the level of set `s`

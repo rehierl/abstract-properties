@@ -88,8 +88,8 @@ to be the case.
 * `(#A* > 0)` and `(#D* > 0)` are both always true
 
 Note that, `D*` is different to `D` isofar as `D` may in general have any
-number of roots (aka. maximal sets). In contrary to that, and since `s` is
-a superset to each set in `D`, sub-setup `D*` has a greatest set and
+number of roots (aka. maximal sets). In contrary to that, and since `s`
+is a superset to each set in `D`, sub-setup `D*` has a greatest set and
 therefore **one and only one root**.
 
 * `(#RS(A*) == 1)`, `(#LS(D*) == 1)`
