@@ -1,4 +1,7 @@
 
+Note that the **related-to** operator in this sub-chapter must be understood
+to be defined based on the **superset-of** operator.
+
 - (a < b), (a -> b) := (a superset-of b)
 - (a < b), (down -> up) := "a" is down, "b" is up
 

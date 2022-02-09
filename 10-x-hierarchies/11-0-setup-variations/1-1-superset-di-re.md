@@ -1,8 +1,8 @@
 
 <!-- ======================================================================= -->
-# superset, DI xor RE
+# superset, DI ex-or RE
 
-- assume each si to be a unique set of elements
+- assume each `si` to be a unique set of elements
 - (si -> sj) := (si superset-of sj)
 
 ```
@@ -26,16 +26,16 @@ s1 -|-> s2
 - each set may have multiple child sets
 
 ```
-! invalid !
+invalid (!)
 ===========
 s1 -|-> s3
 s2 -|
 ```
 
-- s1 and s2 would both have to be supersets to s3
-- s1 and s2 would be related and not disjoint - error
+- s1 and s2 would both have to be supersets of s3
+- s1 and s2 would have to be related and not disjoint - error
 - it is not possible for a set to have disjoint supersets
-- supersets are by definition related - rooted paths
+- supersets are by definition related -> rooted paths
 - each set has no more than one parent set
 
 <!-- ======================================================================= -->

@@ -24,3 +24,6 @@ chapter uses the underlying concept of scopes in order to introduce two core
 **isomorphisms**: (1) Any ordered sequence `s` is isomorphic to a (total)
 family of scopes `S`, and (2) any node tree `T` is isomorphic to a (partial)
 family of scopes `S`.
+
+Recall the non-standard definitions of **characteristic subset (CSS)** and
+**characteristic element (CE)** in the context of simple sets.

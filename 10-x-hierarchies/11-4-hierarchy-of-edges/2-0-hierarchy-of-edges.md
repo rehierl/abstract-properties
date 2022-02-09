@@ -43,3 +43,10 @@ description "root edge".
 
 Note that even the edges in a hierarchy may be disjoint (DI), related (RE),
 or even overlap (OV) each other - i.e. still the DI-RE-OV case.
+
+<!-- ======================================================================= -->
+## remarks
+
+Note that a hierarchy of edges must have at least a root edge. Because of that,
+a hierarchy must always have two or more nodes, which is why a hierarchy can
+only correspond with **a tree of two or more nodes**.

@@ -117,15 +117,22 @@ the set difference will be empty if `s` is a subset to `t`.
 <!-- ======================================================================= -->
 ## characteristic subset (css)
 
-Note that all the elements within a set difference `(s \ t)` are distinct from
-all the other elements in `t`. Put differently, the elements within a set
-difference distiguish `s` from `t`, which is why they can be described as being
-unique to `s`. Based on that, the set difference `(s \ t)` may also be referred
-to as the **characteristic subset** `css(s)` of `s` in regards to `t`.
+Note that all the elements in a set difference `(s \ t)` are distinct from all
+the other elements in `t`. Put differently, the elements in a set difference
+distiguish `s` from `t`, which is why they can be described as being unique
+to `s`. Based on that, the set difference `(s \ t)` will be referred to
+as the **characteristic subset (CSS)** `css(s)` of `s` in regards to `t`.
+In addition to that, each element in `css(s)` will be referred to as a
+**characteristic element (CE)** of `s`.
 
 * `css(s), css(s, t) := (s \ t)`
 
-Note that the set difference is in general also known as a **relative complement**.
+Note that a set `s` can be said to have a characteristic element `e`,
+if `css(s)` has that element as its one and only element.
+
+* `ce(s) := e` iff `(css(s) == {e})` is true
+
+Note that the set difference is in general known as the **relative complement**.
 
 <!-- ======================================================================= -->
 ## overlap

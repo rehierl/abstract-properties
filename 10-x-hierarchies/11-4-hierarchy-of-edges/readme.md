@@ -8,8 +8,8 @@ T <-> He
 A tree (T) of **two or more nodes** can be used to form a hierarchy of edges
 (He) - in essence, a tree's set of edges E(T) - such that the source tree
 can be recreated based on the relationships between the edges in it. That is,
-each tree is isomorphic to a hierarchy of edges, which will be referred to
-as **the T-He isomorphism**.
+each tree is isomorphic to a hierarchy of edges, which will be referred to as
+**the T-He isomorphism**.
 
 Note that a hierarchy of edges (He) is defined as a setup of 2-element strings
 such that the related-to operator is defined based on **being able to form a path**
@@ -42,6 +42,6 @@ T <-> He <-> Hrp
 |<------------>|
 ```
 
-A hierarchy of edges (He) is isomorphic to a hierarchy of rooted paths (Hrp)
-of two or more paths. After all, the set of rooted paths over a tree (T) cover
-all the edges in it.
+A hierarchy of edges (He) is isomorphic to a hierarchy of rooted paths (Hrp) of
+two or more paths. After all, the set of rooted paths over a tree (T) cover all
+the edges in it.

@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# subset, DI xor RE
+# subset, DI ex-or RE
 
 - assume each si to be a unique set of elements
 - (si -> sj) := (si subset-of sj)
@@ -26,7 +26,7 @@ s2 -|
 - each set may have multiple parent sets
 
 ```
-! invalid !
+invalid (!)
 ===========
 s1 -|-> s2
     |-> s3

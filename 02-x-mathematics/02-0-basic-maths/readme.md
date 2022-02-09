@@ -5,8 +5,8 @@ Recall that container types in mathematics are based on **components**,
 which can be described as slots, each of which can hold one element only.
 
 Note that there are certain **non-standard** definitions such as **E()**,
-**ordered sequences** and **presequent**, which will be used throughout
-this entire repository.
+**ordered sequences**, **presequent** and **characteristic subset css()**,
+which will be used throughout this entire repository.
 
 Note the **all-of**, **none-of** and **some-of** quantifiers, which have
 their footing in the relationships between sets of elements. These have

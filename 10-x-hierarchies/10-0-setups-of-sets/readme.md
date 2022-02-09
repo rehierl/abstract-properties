@@ -17,8 +17,8 @@ order relation.
 Note that the subset-of operator is considered to be **oriented** since it
 allows to determine which set is super-ordinate (i.e. more significant) or
 sub-ordinate (i.e. less significant) to the other. In contrary to that, the
-related-to operator does not allow to distinguish both input sets in such a
-way.
+related-to operator does not allow to distinguish both input sets in such
+a way.
 
 From the types of relationships that are possible between any two distinct
 sets in a setup one can state that any two such sets are either disjoint (DI),
@@ -26,10 +26,10 @@ related (RE), ex-or both sets overlap (OV) each other - in short **DI-RE-OV**.
 One core aspect when defining the characteristics of a setup therefore is to
 state which types of relationships are allowed, and which ones are not.
 
-For example, **a partial setup** is (by default) such that any two sets
-must either be disjoint ex-or related with each other - the **DI-RE** case.
-In contrary to that, **a total setup** is such that any two sets must be
-related with each other - the **RE-only** case.
+For example, **a partial setup** is (by default) such that any two sets must
+either be disjoint ex-or related with each other - the **DI-RE** case. In
+contrary to that, **a total setup** is such that any two sets must be related
+with each other - the **RE-only** case.
 
 Note that **tree-based terms** such as "ancestor" (i.e. a superset), "parent"
 (i.e. the least significant superset), "root" (i.e. the most significant
@@ -44,9 +44,9 @@ the corresponding setup.
 Note that, in a partial setup, `A(s)` can in general be described as
 **a total subsetup** which may or may not have a root set, and which may or
 may not have one and only one leaf set. In contrary to that, `D(s)` can in
-general be described as **a partial subsetup** which may have any number
-of root sets and also any number of leaf sets. Despite their differences,
-`A(s)` and also `D(s)` can both be described as **downward-total subsetups**.
+general be described as **a partial subsetup** which may have any number of
+root sets and also any number of leaf sets. Despite their differences, `A(s)`
+and also `D(s)` can both be described as **downward-total setups**.
 
 Note that, including the input sets `s` in `A*(s)` and `D*(s)`, guarantees
 that both sets always have one and only one root set. However, even though
