@@ -14,6 +14,14 @@ the process-based point of view
 
 ## variations
 
+related ex-or idc (= "i don't care")
+- introduce an idc case?
+- till now the focus is on di-re xor re-ov
+- i.e. the unrelated case is fixed to one case only!
+- i.e. the unrelated case must be one or the other
+- what if you just don't care about the alternate case?
+- i.e. if (di) ex-or (ov) ?
+
 variations of partial orders (posets)
 - posets allow more than containment orders can support
 - with superset-of/subset-of, with (di and/or ov),

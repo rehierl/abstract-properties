@@ -2,8 +2,9 @@
 <!-- ======================================================================= -->
 # superset, DI ex-or RE
 
+- (si -> sj) := (si **superset-of** sj)
+- if two sets are unrelated, then both must be **disjoint**
 - assume each `si` to be a unique set of elements
-- (si -> sj) := (si superset-of sj)
 
 ```
 possible
@@ -26,26 +27,21 @@ s1 -|-> s2
 - each set may have multiple child sets
 
 ```
-invalid (!)
-===========
+error (!)
+==========
 s1 -|-> s3
 s2 -|
 ```
 
 - s1 and s2 would both have to be supersets of s3
-- s1 and s2 would have to be related and not disjoint - error
-- it is not possible for a set to have disjoint supersets
-- supersets are by definition related -> rooted paths
-- each set has no more than one parent set
+- s1 and s2 can not be disjoint error (!)
+- a set can not have two disjoint supersets
 
 <!-- ======================================================================= -->
 ## remarks
 
-- does not support parallel subcomponents
-- does not support all partial orders
-
-prefix/suffix order
-
-- unique rooted paths
-- is downward total, a prefix-order, unique rooted paths
-- not upward total
+- downward-total, not upward-total
+- a set can not have disjoint ancestors
+- rooted paths are guaranteed to be unique
+- a set may have disjoint descendants
+- can not support all partial orders

@@ -1,49 +1,42 @@
 
-Note that the **related-to** operator in this sub-chapter must be understood
-to be defined based on the **superset-of** operator.
+The **related-to** operator in this sub-chapter
+is defined based on the superset-of operator.
 
-- (a < b), (a -> b) := (a superset-of b)
+- (a < b), (a -> b) := (a **superset-of** b)
 - (a < b), (down -> up) := "a" is down, "b" is up
 
-<!-- ======================================================================= -->
+# DI-RE, partial
+
+- allows multiple roots
+- allows disconnected items
+- **downward-total, not upward-total**
+- a set can not have disjoint ancestors
+- guaranteed unique rooted paths
+- a set may have disjoint descendants
+- does not allow parallel subcomponents
+- can not support all partial orders
+
+example
+- the scopes in a tree/forest
+- superset-of is consistent, subset-of is not
+
+# RE-OV, partial
+
+- allows multiple roots
+- allows disconnected items
+- **not downward-total, not upward-total**
+- a set may have overlapping ancestors
+- a set may have multiple rooted paths
+- a set may have overlapping descendants
+- parallel sub-components are possible
+- seems to support all partial orders
+- e.g. ?!?
+
 # DI-RE-OV, partial
 
-DI-RE summary
+- e.g. ?!?
 
-- a node tree, **a partial setup**
-- no parallel sub-components
-- does not support all partial orders
-- downward total, unique rooted paths, prefix-order
-
-RE-OV summary
-
-- unclear if more than one component is possible ?
-  e.g. not if rooted paths from a forest - disjoint
-- parallel sub-components are possible ?!?
-- seems to support all partial orders
-- rooted paths are not necessarily unique
-- possibly upward-total - e.g. rps of a tree
-- possibly? - downward-total
-- e.g. the rooted paths of a tree
-
-DI-RE-OV summary
-
-- e.g. all the rooted paths in a forest
-
-<!-- ======================================================================= -->
 # RE-only, total
 
-```
-possible
-==============
-s1 -> s2 -> s3
-```
-
-- s1 superset-of s2 superset-of s3
-- (#s1 > #s2 > #s2) - is true
-
-remarks
-
-- a node tree, **a total setup**
-- must have one root set only
-- must have one leaf set only
+- must have one root and one leaf set only
+- e.g. the scopes in a path

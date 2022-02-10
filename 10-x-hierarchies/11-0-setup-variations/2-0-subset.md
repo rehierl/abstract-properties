@@ -1,50 +1,42 @@
 
-Note that the **related-to** operator in this sub-chapter must be understood to
-be defined based on the **subset-of** operator.
+The **related-to** operator in this sub-chapter
+is defined based on the subset-of operator.
 
-- (a < b), (a -> b) := (a subset-of b)
+- (a < b), (a -> b) := (a **subset-of** b)
 - (a < b), (down -> up) := "a" is down, "b" is up
 
-<!-- ======================================================================= -->
-# DI-RE-OV, partial
+# DI-RE, partial
 
-DI-RE summary
+- allows multiple roots
+- allows disconnected items
+- **upward-total, not downward-total**
+- a set can have disjoint ancestors
+- multiple rooted paths are possible
+- a set can not have disjoint descendants
+- does not allow parallel subcomponents
+- can not support all partial orders
+- e.g. ?!?
 
-- no node tree (!)
-- no parallel sub-components
-- does not support all partial orders
-- several roots, non-unique rooted paths
-- upward-total, suffix-order
+# RE-OV, partial
 
-RE-OV summary
-
-- unclear if more than one component is possible ?
-  e.g. not if rooted paths from a forest - disjoint
+- allows multiple roots
+- allows disconnected items
+- **not downward-total, not upward-total**
+- a set may have overlapping ancestors
+- a set may have multiple rooted paths
+- a set may have overlapping descendants
 - parallel sub-components are possible
 - seems to support all partial orders
-- rooted paths are not necessarily unique
-- possibly downward-total - e.g. rps of a tree
-- possibly? - upward-total
-- e.g. the rooted paths of a tree
 
-DI-RE-OV summary
+example
+- the reversed scopes in a tree
+- subset-of is consistent, superset-of is not
 
-- e.g. all the rooted paths in a forest
+# DI-RE-OV, partial
 
-<!-- ======================================================================= -->
+- e.g. the reversed scopes in a forest
+
 # RE-only, total
 
-```
-possible
-==============
-s1 -> s2 -> s3
-```
-
-- s1 subset-of s2 subset-of s3
-- (#s1 < #s2 < #s3) - is true
-
-remarks
-
-- a node tree, **total setup**
-- must have one root set only
-- must have one leaf set only
+- must have one root and one leaf set only
+- e.g. the reversed scopes in a path
