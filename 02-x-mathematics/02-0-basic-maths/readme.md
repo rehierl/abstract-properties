@@ -1,7 +1,7 @@
 
 # mathematics / basic concepts
 
-Recall that container types in mathematics are based on **components**,
+Recall that **container types** in mathematics are based on **components**,
 which can be described as slots, each of which can hold one element only.
 
 Note that there are certain **non-standard** definitions such as **E()**,

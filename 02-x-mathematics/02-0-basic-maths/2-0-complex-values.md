@@ -1,7 +1,7 @@
 
-# container types
+# complex values
 
-Containers (aka. complex values) are formed by grouping components without
+**Containers** (aka. complex values) are formed by grouping components without
 providing external access to these components. With no further definition,
 the components within a complex value may hold elements/values of any kind.
 

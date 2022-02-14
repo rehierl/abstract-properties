@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# the document tree order
+# the ordered document tree
 
 For as long as a doctree is considered to be associated with an external child
 order (i.e. an unordered doctree), nothing needs to be done since the formal
@@ -19,7 +19,7 @@ edges as **a set of complex edges**, each of which has a parent as its source
 and an ordered sequence of siblings as its sink. That is, the sink of an edge
 no longer is a single node, but an ordered sequence of nodes.
 
-* `T(N,E)` where `E := { (p,CO(p)) | (p in PN) }`
+* `T(N,E)` where `E := { (p,co(p)) | (p in PN) }`
 * e.g. `E := { (1, (2,3) ) }`
 
 Note that this definition reflects the general practice to implement trees
@@ -44,17 +44,18 @@ sets of simple edges such that both sets have homogenous semantics.
 * `E1 := {(1,2),(1,3)}` where `sem(E1) := (a parent-of b)`
 * `E2 := {(2,3)}` where `sem(E2) := (a previous-sibling-of b)`
 
-The definition of a set of complex edges is thus superficial and can therefore
-not be used to truly embed a child order into a node tree.
+The definition of a set of complex edges is therefore only superficial since
+it does not truly embed the child order of a document tree into its node order.
 
 <!-- ======================================================================= -->
 ## embedding a child order (1)
 
 Recall that a **parent** is defined as a node that is the source of an edge,
-and a **child** as a node that is the sink of an edge. Also, a **tree** is
-defined as a graph such that it has one root and a unique rooted path for
-each node in it. Defined as such, each child in a tree always has one parent
-only. That is because otherwise not all nodes would have a unique rooted path.
+and that a **child** is defined as a node that is the sink of an edge. Also,
+a **tree** is defined as a graph that is required to have one root and a
+unique rooted path for each node in it. Defined as such, each child in a tree
+always has one parent only since otherwise not all nodes would have a unique
+rooted path.
 
 ```
 graph T1        associated expressions

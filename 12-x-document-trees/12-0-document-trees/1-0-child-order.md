@@ -2,18 +2,17 @@
 <!-- ======================================================================= -->
 # child order
 
-As mentioned before, a tree `T(N,E)` is defined as a tuple of two simple sets:
-A set of nodes `N` and a set edges `E` over `N×N`. Based on that, any parent
-`p` in a tree can be understood to be associated with a simple set of child
-nodes `c(p)` which can be formed from `E`.
+As mentioned before, any parent `p` in a tree can be understood to be associated
+with a simple set of child nodes `c(p)` that can be formed from the set of edges
+`E` of a node tree `T(N,E)`.
 
 * `c(p) := { c | pEc }`
 * `(c child-of p) := (c in c(p))`
 * `(a sibling-of b) := (pEa and pEb)`
 
-Based on the above, **no tree can be described as having a child order**.
-That is because the set of child nodes of a parent is defined based on a
-simple set of edges that does not define any order over the edges in it.
+Based on that, **no tree can be described as having a child order**. After
+all, the set of child nodes of a parent is defined based on a simple set of
+edges which can not define any order over the edges in it.
 
 However, due to the limitations of real world applications, trees can only
 be processed one node at a time. A tree can therefore be understood to have
@@ -24,31 +23,31 @@ be processed.
 * `trace(T), t(T) := (n1,..,nZ)`
 * `(#t == #N)` is true
 
-Since `t` is an ordered sequence over the nodes `N` of a tree, any child can
-be understood to have a unique index associated with it - its index in the
-tree's trace of nodes. Based on that, any parent can be understood to have a
-first and a last child, and therefore to have a child order associated with it.
+Since `t` is an ordered sequence over all the nodes in `N`, any child can be
+understood to have a unique index associated with it - its index in the tree's
+trace of nodes. Based on that, any parent can be understood to have a first
+and a last child, and therefore to have a child order associated with it.
 
-**The child order of a parent CO(p)** can be defined as an induced subsequence
+**The child order of a parent co(p)** can be defined as an induced subsequence
 (i.e. a total suborder) to the tree's trace of nodes, induced by the parent's
 set of child nodes. As such, the child order of a parent can be described as
 "an ordered sequence of child nodes", or as **an ordered sequence of siblings**.
 
-* `CO(p) := t[c(p)] := (c1,..,cZ)`
+* `co(p) := t[c(p)] := (c1,..,cZ)`
 
-Note that `CO(p)` is not required to be a substring of `t(T)`, which is
-consistent with the removal-based mathematical definition of "sub-sequence".
+Note that `co(p)` is not required to be a substring of `t(T)`,
+which is consistent with the removal-based definition of "sub-sequence".
 
-**The child order of a tree CO(T)** can be defined as a simple set of non-empty
-child orders, one for each parent node. Put differently, and since each total
-order corresponds with an ordered sequence, the child order of a tree is a set
-of ordered sequences of siblings.
+**The child order of a tree co(T)** can be defined as a simple set of child
+orders, one for each parent. Put differently, and since each total order
+corresponds with an ordered sequence, the child order of a tree can be
+described as **a set of ordered sequences** of siblings.
 
-* `CO(T) := { t[c(p)] | (p in PN) }`
+* `co(T) := { t[c(p)] | (p in PN) }`
 
-Note that the child order of a parent is disjoint to the child order of another
-parent. As such, the child order of a tree can be described as a forest of
-pairwise disjoint child orders.
+Note that the child order of a parent is disjoint to the child order of every
+other parent. As such, the child order of a tree can be described as a forest
+of pairwise disjoint child orders.
 
 Note that, if a child order is associated with a tree, then a child order is
 associated with all of its parent nodes. That is, there is no tree such that
@@ -58,34 +57,38 @@ each parent has a child order associated with it, ex-or none at all.
 <!-- ======================================================================= -->
 ## the cover relation of a child order
 
-Since the child order of a parent node can be described as an induced ordered
-sequence of siblings, a parent can be understood to be associated with an order
-relation that formalizes its child order. That is, for a parent node `p` and
-its ordered sequence of child nodes `CO(p) := (c1,..,c2)` one can define the
+Since the child order of a parent can be described as an ordered sequence
+of siblings, a parent can be understood to be associated with an order
+relation that formalizes its child order. That is, for a parent node `p`
+and its sequence of child nodes `co(p) := (c1,..,c2)` one can define the
 cover relation `R(p)` of its order relation as follows:
 
-* `R(p) := CO(V,E)` where `V := c(p)` and ..
+* `R(p) := co(V,E)` where `V := c(p)` and ..
 * `E := { (a,b) | (a next-presequent-to b) }`
 * `(a next-presequent-to b) := (idx(a) == idx(b)-1)`
-* note - `idx()` is in regards to `CO(p)`
+* note - `idx()` is in regards to `co(p)`
 
-Note that `R(p)` is a cover relation since its set of edges is not transitive.
-Despite that, and as a matter of convenience, subsequent discussions will treat
-such a cover relation as being synonymous to the underlying transitive order
-relation. That is, the focus will be on transitively reduced sets of edges.
+Note that `R(p)` is defined as a **cover relation** since its set of edges
+is not transitive. Despite that, and as a matter of convenience, subsequent
+discussions will treat the cover relation of a child order as being synonymous
+to the underlying transitive **order relation**. That is, the focus will be
+on transitively reduced sets of edges rather than on actual order relations.
 
-As a matter of consequence, the child order `R(T)` of a tree `T(N,E)` can be
-defined as the cover relation of an actual order relation:
+As a matter of consequence, the child order `R(T)` of a tree `T(N,E)`
+can be defined as the cover relation of an actual order relation:
 
-* `R(T) := CO(V,E)` where `V := CN(T)` and ..
+* `R(T) := R(N,E)` where `V := ` and ..
 * `E := { e | (e in R(p)) for (p in PN) }`
+* `PN` - all nodes that are parent nodes to some child in `T`
 
-That is, a tree which has a child order associated with it can be described
+That is, a tree that has a child order associated with it can be described
 as being accompanied by a cover relation such that it contains an edge for
 each pair of adjacent siblings.
 
-Note that it is these edges that must be embedded into the tree order of a
-document tree.
+Note that `R(T)` defines the child order of a tree `co(T)` as a combined
+relation (i.e. not a set of disjoint relations). Based on that definition,
+the child order of a tree can be understood to consist of
+**one joint set of edges** `E(R)`.
 
 <!-- ======================================================================= -->
 ## first/last/next/previous sibling

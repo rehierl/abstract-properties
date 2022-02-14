@@ -38,3 +38,10 @@ bipartite graph
 graph theory seems to focus on edges
 - disconnected vertices (seem) to get (mostly) ignored
 - e.g. the (standard) definition of a complement graph
+
+# tree order
+
+Note that the DOM specification treats the "tree order" description as being
+synonymous to the "pre-order node order" (i.e. the doctree's pre-order trace
+of nodes). That is, the DOM spec uses that description to refer to a total
+node order, which is more than just misleading.
