@@ -13,6 +13,12 @@ polishing
 bigger
 - resolve the _notes.md files
 - flesh out "the things we know" in 05-02
-- flesh out chapter 17 - the focus is on rooted paths
-- epilogue, arXiv.org - has no Order Theory category
-- reduce the wiki links - the references.md files
+- flesh out the last chapter - the focus is on rooted paths
+- epilogue, arXiv.org - had no Order Theory category
+- reduce the wiki links - i.e. the references.md files
+
+# beyond
+
+a mental image
+- to visualize non-linear orders/scopes
+- reissverschluss (de)

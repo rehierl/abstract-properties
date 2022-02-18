@@ -3,16 +3,16 @@
 # child order
 
 As mentioned before, any parent `p` in a tree can be understood to be associated
-with a simple set of child nodes `c(p)` that can be formed from the set of edges
-`E` of a node tree `T(N,E)`.
+with a simple set of child nodes `c(p)`, which can be derived from the set of
+edges `E` of the corresponding node tree `T(N,E)`.
 
 * `c(p) := { c | pEc }`
 * `(c child-of p) := (c in c(p))`
-* `(a sibling-of b) := (pEa and pEb)`
+* `(a sibling-of b) := (pEa and pEb)` for some `(p in N)`
 
 Based on that, **no tree can be described as having a child order**. After
 all, the set of child nodes of a parent is defined based on a simple set of
-edges which can not define any order over the edges in it.
+edges, which does not support any order over the edges in it.
 
 However, due to the limitations of real world applications, trees can only
 be processed one node at a time. A tree can therefore be understood to have

@@ -132,8 +132,3 @@ order ensures that the resulting graph is once again a proper node tree.
 Note that, since there is no edge that connects the former next sibling of
 a node with its former first child, the tree order of an ordered doctree has
 **no child order**.
-
-Note that, due to the above, the old definition of the description as
-**ordered tree** (i.e. a tree that has some external child order associated
-with it) is misleading. After all, no node tree will ever be such that it has
-a child order. Because of that, **this definition must be deprecated (!)**.
