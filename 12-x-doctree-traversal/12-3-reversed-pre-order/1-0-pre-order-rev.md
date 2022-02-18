@@ -4,12 +4,13 @@
 
 ```js
 //- the default pre-order traversal
-traverseInPreOrderR(node) begin
-  visit(node)
-  for(child in node.childNodesRev) begin
+traverseInPreOrderR(node) {
+  visit(node);
+
+  for(child in node.childNodesRev) {
     traverseInPreOrderR(child)
-  end
-end
+  }
+}
 ```
 
 Note that the reversed pre-order tree traversal is such that the document tree's

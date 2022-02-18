@@ -4,12 +4,12 @@
 
 ```js
 //- the reversed post-order traversal
-traverseInPostOrderRev(node) begin
-  for(child in node.childNodesRev) begin
-    traverseInPostOrderRev(child)
-  end
-  visit(node)
-end
+traverseInPostOrderRev(node) {
+  for(child in node.childNodesRev) {
+    traverseInPostOrderRev(child);
+  }
+  visit(node);
+}
 ```
 
 Note that the reversed post-order trace will contain a node after all of its

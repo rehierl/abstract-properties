@@ -4,12 +4,13 @@
 
 ```js
 //- the default pre-order traversal
-traverseInPreOrderD(node) begin
-  visit(node)
-  for(child in node.childNodes) begin
-    traverseInPreOrderD(child)
-  end
-end
+traverseInPreOrderD(node) {
+  visit(node);
+
+  for(child in node.childNodes) {
+    traverseInPreOrderD(child);
+  }
+}
 ```
 
 Note that the pre-order trace will contain the nodes in tree order (i.e.

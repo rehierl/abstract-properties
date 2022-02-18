@@ -10,7 +10,7 @@ to the ordered doctree.
 
 In addition to that, the embedding of a doctree's child order has the effect
 of reducing the overall amount of incomparable nodes. That is, fewer nodes
-remain such that no path can be formed in between two such nodes.
+remain such that no path can be formed between both nodes.
 
 Based on that, one can assume that even more node orders can be embedded until
 no more incomparable nodes remain. That is, until the resulting node order is
@@ -37,28 +37,29 @@ the ordering is equal to the rooted path of its only leaf.
 ## partial/linear extension
 
 Recall that a trace of nodes is an ordered sequence of nodes such that it
-contains each node of a tree once and once only. Because of that, a trace
-of nodes, based on its total index order, can be understood to define a
-total order over the tree's set of nodes.
+contains each node once and only once. Because of that, and based on its
+total index order, a trace of nodes can be understood to define a total
+order over the tree's set of nodes.
 
-With that in mind, the embedding of the child order of a doctree (T1) into
-the unordered doctree can be described as **a partial extension** since the
-resulting ordered doctree (T2) will in general not correspond with a total
-node order (i.e. no path graph). Despite that, the resulting node tree is
-order preserving.
+With that in mind, the embedding of the child order of a doctree into the
+unordered doctree (DTU) can be described as **a partial extension** since
+the resulting ordered doctree (DTO) will in general not correspond with a
+total node order (i.e. no path graph). Despite that, the resulting node
+tree is order preserving.
 
-* `aPb -> aQb` for `(P over T1)` and `(Q over T2)`
+* `aPb -> aQb` for `(P over DTU)` and `(Q over DTO)`
+* In words: There is a path `aQb` for any path `aPb`.
 
-Since the embedding of the child order has the effect of reducing the amount
-of incomparable nodes, one can embed even more node orders. Such an embedding
-can be described as **a linear extension**, if the resulting node order is
-total. Put differently, if the resulting node tree is a path graph.
+Since the embedding of the child order has the effect of only reducing the
+amount of incomparable nodes, one can embed even more node orders. Such an
+embedding can be described as **a linear extension**, if the resulting node
+order is total. Put differently, if the resulting node tree is a path graph.
 
 Note that the difference between "topological ordering" and "linear extension"
 is the overall context of both descriptions. That is, "topological ordering"
-is in regards to graphs and "linear extension" in regards to partial orders.
+is in regards to graphs and "linear extension" in regards to node orders.
 Because of that, both descriptions can be understood to refer to the same
-"thing" in regards to a specific context.
+"thing" with a certain point of view in mind.
 
 <!-- ======================================================================= -->
 ## requirements

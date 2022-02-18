@@ -7,39 +7,39 @@ trace of an ordered doctree `t(N,E)` (i.e. nodes `N`, complex edges `E`)
 can be formed as follows:
 
 ```js
-traceInLevelOrder(tree) begin
-  t = () × root(tree)
-  for(i = 1 to #N) begin
-    t = t × co(t[i])
-  end
-  return t
-end
+traceInLevelOrder(tree) {
+  t = () × root(tree);
+  for(i = 1 to #N) {
+    t = t × co(t[i]);
+  }
+  return t;
+}
 ```
 
 Note that the algorithm is queue-based.
 
 ```js
-traceInLevelOrder(tree) begin
-  r = root(tree)
-  next = new Queue()
-  next.enqueue(r)
-  t = ()
+traceInLevelOrder(tree) {
+  r = root(tree);
+  next = new Queue();
+  next.enqueue(r);
+  t = ();
 
-  while(next.isEmpty() == false) begin
+  while(next.isEmpty() == false) {
     //- pop and "visit" the next node
-    n = next.dequeue()
+    n = next.dequeue();
 
     //- visit node n
-    t = t.append(n)
+    t = t.append(n);
 
     //- append the child nodes (in order)
-    for (co=co(n), i=1; (i<=co.length); i++) begin
-      next.enqueue(co[i])
-    end
-  end
+    for (co=co(n), i=1; (i<=co.length); i++) {
+      next.enqueue(co[i]);
+    }
+  }
 
-  return t
-end
+  return t;
+}
 ```
 
 Given a tree and its set of complex edges,

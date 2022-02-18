@@ -1,6 +1,20 @@
 
 # ordered document trees
 
+```
+DTU                 + CO            = DTO
+==========================================================================
+         p          | embedding the |
+         |          | child order   | long pattern:
+ -----------------  |               | p -> (fs .. ps) -> n -|-> (ns .. ls)
+ | .. |  |  | .. |  |               |                       |-> (fc .. lc)
+ fs  ps  n  ns  ls  |      =>       |
+         |          |               | reduced pattern:      in short:
+      -------       |               | n -|-> (ns .. ls)     n -|-> s
+      | ... |       | a partial     |    |-> (fc .. lc)        |-> c
+      fc   lc       | extension     |
+```
+
 Recall the introduction to document trees in "mathematics / node trees"
 (i.e. chapter 05-02), which introduces critical **non-standard definitions**.
 
@@ -32,12 +46,13 @@ joint set of Edges `E` that contains all the edges in each child order `co(p)`.
 * `CO(N,E)` where `E := { e | (e in co(p)) and (p in PN) }`
 
 With the above in mind, all the edges in the child order of a document tree
-can be embedded into the set of edges of the unordered document tree `DTU(N,E)`.
+can be embedded into the set of edges of **the unordered document tree (DTU)**.
 What results is a graph that no longer satisfies the requirements of a node
-tree since nodes may in general have more than one incoming edge and thus
-more than one parent node. However, transitively reducing the extended set
-of edges `TR(E)` will yield a new set of edges that does once again satisfy
-the requirements of a node tree.
+tree since nodes then have more than one incoming edge and thus more than one
+parent. However, transitively reducing the extended set of edges `TR(E)` will
+yield a new set of edges that does once again satisfy the requirements of a
+node tree. The resulting node tree is referred to as
+**the ordered document tree (DTO)**.
 
 * `DTO(N,E)` where `E := TR( E(DTU) + E(CO) )`
 
@@ -48,28 +63,16 @@ and since each tree corresponds with an actual (partial) order relation over
 its nodes, the subsequent transitive reduction can be described as a matter
 of consequence.
 
-```
-DTU                 + CO          = DTO
-========================================================================
-         p          | embedding a |
-         |          | child order | long pattern:
- -----------------  |             | p -> (fs .. ps) -> n -|-> (ns .. ls)
- | .. |  |  | .. |  |             |                       |-> (fc .. lc)
- fs  ps  n  ns  ls  |     =>      |
-         |          |             | reduced pattern:      in short:
-      -------       |             | n -|-> (ns .. ls)     n -|-> s
-      | ... |       | a partial   |    |-> (fc .. lc)        |-> c
-      fc   lc       | extension   |
-```
+Note that the overall transition from `DTU` to `DTO` is **an order embedding**.
+Also, the overall transition can be described as **a partial extension**
+of the document tree's tree order. This in contrary to "a linear extension".
+After all, an ordered document tree is in general still no path graph.
 
-Note that the overall transition from `DTU` to `DTO` can be described
-as **an order embedding**. Also, the overall transition can be described
-as **a (partial) extension** of the document tree's tree order.
-After all, the node order of the ordered document tree is such that
-**no node has more than two child nodes**, its former next sibling (ns)
-and its former first child (fs).
+Note that the node order of the ordered document tree is such that
+**no node has more than two child nodes**,
+its former next sibling (ns) and its former first child (fs).
 
 Note also that the ordered document tree itself, even though the child order
-of the document tree is embedded into it, still **has no child order**. That
-is because no path can be formed in between a node's former next sibling and
-its former first child.
+of the document tree is embedded into it, still **has no child order**.
+That is because no path can be formed between a node's former next sibling
+and its former first child.

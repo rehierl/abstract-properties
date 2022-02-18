@@ -18,8 +18,8 @@ can be understood to represent **a vertical point of view**.
 * `s := (s1,..,sN)` <=> `rp := (r,c,..,l)`
 
 In contrary to that, an ordered sequence can also be understood to define
-a child order. That is, each element in it can be seen as the child of a
-virtual root node, which is why an ordered sequence can be described as
+a child order. That is, each element in it can be seen as the child of
+some virtual root, which is why an ordered sequence can be described as
 **a sequence of siblings**. This **child/sibling-based perspective** can
 therefore be understood to represent **a horizontal point of view**.
 
@@ -28,18 +28,17 @@ therefore be understood to represent **a horizontal point of view**.
 Note that, in the context of this discussion, the description as "a sequence
 of siblings" must be understood with **a more general point of view** in mind.
 That is, a sequence of siblings is not necessarily a sequence such that each
-node in it is a sibling according to the current node order in question.
-Instead, that description focusses more on some common characteristic of the
-nodes contained within such an ordered sequence - e.g. "siblings in the
-previous node order".
+node in it is a sibling according to the node order in question. Instead, that
+description focusses more on some common characteristic of the nodes contained
+within such an ordered sequence.
 
 Based on the above, a rooted path can also be described as the concatenation
 of one or more child orders.
 
 * `s := (s1,..,sN)` <=> `rp := (r) × (c) × .. × (l)`
 
-Also note that embedding a child order into a tree which has one parent node
-only (i.e. its root), will turn the tree into a path graph that corresponds
+Also note that embedding a child order into a tree which only has one parent
+node (i.e. its root), will turn the tree into a path graph that corresponds
 with an ordered sequence.
 
 * `{(r,c1),..,(r1,cN)}` + `{(c1,c2),..,(cN-1,cN)}` => `{(r,c1),(c1,c2),..}`

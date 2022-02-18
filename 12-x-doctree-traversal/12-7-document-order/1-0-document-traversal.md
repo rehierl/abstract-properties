@@ -2,10 +2,10 @@
 <!-- ======================================================================= -->
 # the document traversal
 
-Recall that the document order of a document is understood as a total order
-over the nodes in it. In addition to that, the content of a document tree is
-serialized using the tag-based syntax, which is generated using the following
-base algorithm.
+Recall that the document order of a document tree is understood as a total
+order over the nodes in it. In addition to that, the content of a document
+tree can be serialized into characters using the tag-based syntax, which
+is generated using the following base algorithm.
 
 ```js
 //- the basic document tree traversal
@@ -37,19 +37,19 @@ be described as an event-driven process.
 Note that start-tags can be described to represent an **enter-order** (i.e. a
 sequence of enter events) and the end-tags an **exit-order** (i.e. a sequence
 of exit events). Based on that, the tag soup of a document can be understood
-to describe a sequence of enter- and exit events.
+to define a sequence of enter- and exit events.
 
 Note that, since each enter-event is paired with an exit-event, the tag-based
 syntax can be understood to support **a stream-based point of view**. That is
-because each pair of tags can be understood to represent a sub-stream of nodes.
+because each pair of tags can be understood to define a sub-stream of nodes.
 
 Since an implementation must be able to determine whether or not a given node
 is located within the scope of a property (e.g. within the scope of a section),
-a clear understanding of the meaning of the start-tags and the end-tags is
-critical. After all, how is one to tell the context of a node, if one can not
-pinpoint its exact location?
+a clear understanding of the meaning of the start-tags and end-tags is critical.
+After all, how is one to tell the context of a node, if one can not pinpoint
+its exact location?
 
 Note that, as a matter of simplification, subsequent discussions will assume
 that any node and its scope can be expressed in terms of a pair of tags. That
-is, the tag soup of a document must be understood as a pure sequence of start-
-and end-tags.
+is, the tag soup of a document must be understood as a theoretical and pure
+sequence of start- and end-tags.

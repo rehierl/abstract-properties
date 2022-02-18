@@ -6,61 +6,61 @@ Given the api definitions below, the pre-order trace of a document tree
 `t(N,E)` (i.e. nodes `N`, complex edges `E`) can be formed as follows:
 
 ```js
-traceInPreOrder(tree) begin
-  t = () × root(tree)
-  for(i = 1 to #N) begin
-    t = prefix(t,i) × co(t[i]) × suffix(t,i+1)
-  end
-  return t
-end
+traceInPreOrder(tree) {
+  t = () × root(tree);
+  for(i = 1 to #N) {
+    t = prefix(t,i) × co(t[i]) × suffix(t,i+1);
+  }
+  return t;
+}
 ```
 
 A less mathematical recursive implementation could be as follows.
 
 ```js
-traceInPreOrder(tree) begin
-  t = ()
+traceInPreOrder(tree) {
+  t = ();
 
-  visitInPreOrder(node) begin
+  visitInPreOrder(node) {
     //- visit node 'n'
-    t.append(node)
+    t.append(node);
 
     //- recursively visilt all child nodes
-    for(child in node.childNodes) begin
-      visitInPreOrder(child)
-    end
-  end
+    for(child in node.childNodes) {
+      visitInPreOrder(child);
+    }
+  }
 
-  r = root(tree)
-  visitInPreOrder(r)
-  return t
-end
+  r = root(tree);
+  visitInPreOrder(r);
+  return t;
+}
 ```
 
 Note that the algorithm is inherently stack-based.
 
 ```js
-traceInPreOrder(tree) begin
-  r = root(tree)
-  next = stack()
-  next.push(r)
-  t = ()
+traceInPreOrder(tree) {
+  r = root(tree);
+  next = stack();
+  next.push(r);
+  t = ();
 
-  while (next.isEmpty() == false) begin
+  while (next.isEmpty() == false) {
     //- pop and "visit" the next node
-    n = next.pop()
+    n = next.pop();
 
     //- visit node n
-    t = t.append(n)
+    t = t.append(n);
 
     //- push the child nodes - in reversed order
-    for (co=co(n), i=co.length; (i>=1); i--) begin
-      next.push(co[i])
-    end
-  end
+    for (co=co(n), i=co.length; (i>=1); i--) {
+      next.push(co[i]);
+    }
+  }
 
-  return t
-end
+  return t;
+}
 ```
 
 Given a tree and its set of complex edges,

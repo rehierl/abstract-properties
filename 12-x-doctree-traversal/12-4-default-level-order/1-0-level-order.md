@@ -4,22 +4,22 @@
 
 ```js
 //- the default level-order traversal
-traverseInLevelOrder(root) begin
-  next = new Queue()
-  next.enqueue(root)
+traverseInLevelOrder(root) {
+  next = new Queue();
+  next.enqueue(root);
 
-  while (next.isEmpty() == false) begin
-    node = next.dequeue()
+  while (next.isEmpty() == false) {
+    node = next.dequeue();
 
     //- visit the current node
-    visit(node)
+    visit(node);
 
     //- visit the child nodes
-    for (child in next.childNodesFTL) begin
-      next.enqueue(child)
-    end
-  end
-end
+    for (child in next.childNodesFTL) {
+      next.enqueue(child);
+    }
+  }
+}
 ```
 
 Note that the level-order trace begins with the tree's root, continues with the
