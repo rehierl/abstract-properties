@@ -4,26 +4,26 @@
 
 ```js
 //- the default pre-order tree traversal
-traverseInPreOrder(node) begin
+traverseInPreOrder(node) {
   //- visit the node and enter its scope
   //- write("<%s %s>", name, attributes)
-  visit(node)
+  visit(node);
 
   //- recursively visit all child nodes
-  for(child in node.childNodes) begin
-    traverseInPreOrder(child)
-  end
+  for(child in node.childNodes) {
+    traverseInPreOrder(child);
+  }
 
   //- exit the node's scope - not a visit
   //- write("</%s>", name)
-end
+}
 ```
 
 As was shown in the discussion of the pre-order tree traversal algorithm, the
-pree-order traversal can be used to form a trace of nodes, if each node is
+pre-order traversal can be used to form a trace of nodes, if each node is
 appended to a sequence while it is being visited. Formed this way, the
-resulting trace is an ordered sequence of nodes and as such can be understood
-to define **the total pre-order node order** of a document tree.
+resulting trace of nodes is an ordered sequence of nodes and as such can be
+understood to define **the total pre-order node order** of a document tree.
 
 Note that no node will be visited while another node is still in the process
 of being visted. Because of that, **the visit of a node** must be understood
@@ -31,13 +31,13 @@ as **an indivisible atomic operation**.
 
 Since the enter-order of a document traversal coincides with the pre-order
 visit-order, one can conclude that **the visit-order** of a pre-order document
-traversal is equivalent to the the enter-order. Because of that, a node is
-visited during the corresponding enter-event only.
+tree traversal is corresponds with the enter-order. Because of that, a node
+is visited only during the corresponding enter-event.
 
 Note that, if the tag soup of a document is broken apart into a sequence of
 tags, and if all the end-tags are dropped, then the resulting sequence of
-start-tags is equivalent to the pre-order trace of the document tree.
-That is because each node can be understood to be pushed into its start-tag,
+start-tags corresponds with the pre-order trace of the document tree. That
+is because each node can be understood to be pushed into its start-tag,
 which is why **a start-tag corresponds with the visit of a node**.
 The start-tag of a node can therefore be understood such that it
 **defines the absolute position** of a node. In addition to that,

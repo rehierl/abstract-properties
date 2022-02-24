@@ -8,5 +8,5 @@ This chapter provides a brief discussion of the reversed post-order rule.
 
 Note that the resulting total node order is not order-preserving.
 
-* does not preserve the tree order
-* does not preserve the child order
+* it does not preserve the tree order
+* it does not preserve the child order
