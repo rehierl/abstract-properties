@@ -1,5 +1,5 @@
 
-- will have to produce traces using each algorithm
+- todo - produce traces using each algorithm
 - and compare them for equality
 
 <!-- ======================================================================= -->
@@ -19,21 +19,24 @@
 
 ```js
 //- the pre-order tree traversal
-traverseInPreOrder(node) begin
+traverseInPreOrder(node) {
   //- visit the node and enter its scope
   //- write("<%s %s>", name, attributes)
-  onVisit(node)
+  onVisit(node);
 
   //- recursively visit all child nodes
-  for(child in node.childNodes) begin
-    traverseInPreOrder(child)
-  end
+  for(child in node.childNodes) {
+    traverseInPreOrder(child);
+  }
 
   //- exit the node's type-1 scope
   //- write("</%s>", name)
-  onExitT1(node)
-end
+  onExitT1(node);
+}
 ```
+
+Note the reversed exit-order. That is, the type-1 scope of a node will be
+exited after all type-1 scopes of its descendants have been exited already.
 
 <!-- ======================================================================= -->
 # in regards to DTO
@@ -50,25 +53,28 @@ p -> (fs .. ps) -> n -|-> (ns .. ls)   |
 
 ```js
 //- the pre-order tree traversal
-traverseInPreOrder(node) begin
+traverseInPreOrder(node) {
   //- visit the node and enter its scope
   //- write("<%s %s>", name, attributes)
-  onVisit(node)
+  onVisit(node);
 
   //- visit all child nodes
-  if(node.firstChild) begin
-    traverseInPreOrder(node.firstChild)
-  end
+  if(node.firstChild) {
+    traverseInPreOrder(node.firstChild);
+  }
 
   //- exit the node's type-1 scope
   //- write("</%s>", name)
-  onExitT1(node)
+  onExitT1(node);
 
   //- visit all subsequent siblings
-  if(node.nextSibling) begin
-    traverseInPreOrder(node.nextSibling)
-  end
-end
+  if(node.nextSibling) {
+    traverseInPreOrder(node.nextSibling);
+  }
+
+  //- exit the node's type-2 scope
+  onExitT2(node);
+}
 ```
 
 <!-- ======================================================================= -->

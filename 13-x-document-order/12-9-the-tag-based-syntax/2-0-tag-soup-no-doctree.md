@@ -31,7 +31,7 @@ between the pair of tags of `l`.
 
 Note that, as a matter of simplification, the pair of tags of any leaf, which
 is such that its start tag is next presequent to its matching end tag (i.e.
-`<l></l>`), may be merged to a self-closing tag (i.e. `<l/>`).
+`<l></l>`), may be merged into a self-closing tag (i.e. `<l/>`).
 
 ```
 .. <n> <fc> .. </fc> .. <lc> .. <l></l> </lc> </n> ..
@@ -55,10 +55,10 @@ ex-or related (**DI-RE**). That is, there is no pair of tags such that the
 corresponding scopes overlap each other.
 
 Due to the above, **the tag soup of a document encodes a hierarchy of scopes**,
-defined based on a sequence of start-tags and end-tags. That is because none
-of the edges of a document tree are actual elements in its tag soup. That is
-because these are encoded into the relationships between the scopes. The tag
-soup of a document tree does therefore not define a document tree.
+based on a sequence of start- and end-tags. That is because none of the edges
+of a document tree are actual elements in a tag soup, which is because these
+edges are encoded into the relationships between the scopes. The tag soup of
+a document tree does therefore not define a document tree.
 
 Instead, a tag soup defines a hierarchy of scopes that corresponds with a
 document tree. One must therefore keep in mind that a tag soup effectively

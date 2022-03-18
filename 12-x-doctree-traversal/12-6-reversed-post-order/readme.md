@@ -1,5 +1,5 @@
 
-# document trees / reversed post-order (PostR)
+# document traversal / reversed post-order (PostR)
 
 This chapter provides a brief discussion of the reversed post-order rule.
 

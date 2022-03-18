@@ -1,5 +1,5 @@
 
-# document trees / order embeddings
+# document traversal / order embeddings
 
 ```
       presequent           subsequent   |  the reduced pattern    |
@@ -25,42 +25,53 @@ node is appended to the other:
 
 * `n -> (ns .. ls) -> (fc .. lc)` - in short `(n × s × c)`
 
-Further order embeddings can be defined, which will however be in conflict with
-the overall node order (i.e. the tree order and/or the child order).
+Further order embeddings can be defined. These will however be in conflict with
+the overall node order. That is, the resulting tree order will be in conflict
+with the tree order and/or the document tree's child order.
 
-**The post-order rule** is such that each sequence of former child nodes `c`
-is pushed in front of node `n`. Since the embedded edges are in conflict with
-the tree order, this order embedding is overall not order-preserving.
+**The post-order rule** is such that each node `n` is prefixed by its sequence
+of former child nodes `c`. Since the embedded edges are in conflict with the
+tree order, this order embedding is overall not order-preserving.
 
 * `(fc .. lc) -> n -> (ns .. ls)` - in short `(c × n × s)`
 
-Note that based on the tree order one can state that "n is presequent to fc".
-In contrary to that, the post-order rule can be understood to state that "fc
-is presequent to n". Strictly speaking, both statements can not be true at the
-same time, which is why the post-order rule can be said to be in conflict with
-the document tree's node order.
+Note that, based on the tree order, one can state that "a node is presequent
+to its former first child" (i.e. `(n -> fc)`). In contrary to that, the
+post-order rule can be understood to state that "a former first child is
+presequent to its parent" (i.e. `(fc -> n)`). Obviously, and strictly speaking,
+both statements can not be true at the same time, which is why the post-order
+rule can be said to be in conflict with the document tree's node order.
+
+* `(fc -> n)` is in conflict with `(n -> fc)`
 
 <!-- ======================================================================= -->
 ## remarks
 
+Note that, in a different context, both expressions may be allowed to be true
+at the same time, which is then understood to state that both nodes involved
+must be treated as being equivalent to each other. However, such circumstances
+are not allowed in the context of partial orders such as a tree order. That
+is because a partial order is not allowed to have any symmetric edges (i.e.
+**neither loops nor cycles**).
+
 Note that the pre-order and the level-order rules can both be understood to
 define how to form new sequences of sbilings, based on a node and two input
 sequences, by embedding one additional edge in between the last node of one
-sequence and the first node of the other. Based on that, one may describe
+sequence and the first node of the other. Based on that, one can describe
 the embedding of an additional edge as an **ordering rule** which may or
 may not require an **order of execution**.
 
 Note that the ordering rules (in combination with an order of execution)
 discussed here, will result in a path graph that can be described as
 **a trace of nodes**. Because of that, these rules can be understood to
-describe the underlying formal aspects of the **tree traversal** algorithms.
-Hence the names of the rules discussed in this chapter.
+cover the underlying formal aspects of the corresponding **tree traversal**
+algorithms. Hence the names of the rules discussed in this chapter.
 
 Note that the pre-order and the level-order tree traversals are the only
 **order-preserving** algorithms in the context of this discussion. In
-addition to that, the pre-order traversal corresponds with a hierarchy of
-scopes, whereas the level-order traversal is overall a sequence of disjoint
+addition to that, the pre-order traversal corresponds with a hierarchy
+of scopes, whereas the level-order trace is overall a sequence of disjoint
 child orders and therefore not hierarchical.
 
-Note that an **in-order** tree traversal will not be discussed here. That is
-because such a traversal will in general visit each node more than once.
+Note that an **in-order** tree traversal will not be discussed here. That
+is because such a traversal will in general visit each node more than once.

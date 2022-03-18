@@ -5,13 +5,17 @@ the embedding of traversal edges consists of ..
 - execution - in which order these rules must be applied
 
 if you know that you have a transitive closure
-- if the order is a partial order - i.e. no cycles
+- (i.e. some endo-relation that is transitive),
+- and the order is a partial order (i.e. no cycles),
 - then you know that (a) in (a,x) is a characteristic element
-- the union of sinks of all the edges formes the scope of (a)
-- a way to efficiently calculate the transitive reduction?
+- the union of all the reachable vertices formes the scope of (a)
+- a way to efficiently determine the transitive reduction?
 - howto distinguish a child from some other descendant?
 
 in regards to embedding sets of nodes
+- a well-defined set of edges such as the
+  edges in the child order of a doctree
+- i.e. well-defined as in pre-determined
 - the pre-order rule does not correspond
   with a well-defined set of edges since
   there is no pre-calulated set of edges

@@ -1,5 +1,5 @@
 
-# document trees / (default) post-order (PostD)
+# document traversal / (default) post-order (PostD)
 
 This chapter provides a brief discussion of the (default) post-order rule.
 

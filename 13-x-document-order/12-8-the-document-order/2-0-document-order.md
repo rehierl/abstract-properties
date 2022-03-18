@@ -15,20 +15,17 @@ is the pre-order tree traversal, one can point out that the pre-order trace
 of a tree is a hierarchical ordered sequence of nodes. That is because
 **the scope of each node is a substring** to the pre-order trace.
 
-Furthermore, and due to the order-preserving nature of the pre-order trace,
+Furthermore, and due to the order-preserving nature of a pre-order trace,
 the hierarchy of scopes embedded into it is such that two scopes are either
-disjoint ex-or related (**DI-RE**).
-
-Apart from that, a pre-order trace can be described as a sequence of
-interleaved child orders.
+disjoint ex-or related (**DI-RE**). Based on that, a pre-order trace can be
+described as a sequence of interleaved child orders.
 
 <!-- ======================================================================= -->
 ## a 90° clockwise rotation
 
 In order to visualize the general pattern of the node order of a document, the
 only transformation left is to clockwise rotate the tag soup of a document by
-90 degrees and to indent the tags according to the node level of the nodes in
-the document tree.
+90 degrees and to indent the tags according to the node level of each node.
 
 ```
 clockwise rotated | in regards    |
@@ -47,7 +44,7 @@ By looking at the scopes that are drawn to the side, one can conclude that we
 are already familiar with that node order. We see it each and every time we
 open a file system browser (i.e. a tree of files and folders), or when opening
 a the hierarchical listing of browser bookmarks (i.e. a tree of bookmarks
-organized in nested folders).
+organized as nested folders).
 
 Note that the overall difference is that such a hierarchical listing has in
 general two types of nodes: (1) folders which may contain folders (by which
@@ -60,8 +57,8 @@ is such that it may in general have any number of descendants.
 <!-- ======================================================================= -->
 ## the document order of a document
 
-Recall that **the above-of node order** (as outlined in the introduction)
-was introduced as a reference to the document order. With that in mind, the
+Recall that **the above-of node order** (as outlined in the prologue) was
+introduced as a reference to the document order. With that in mind, the
 following statements are true.
 
 * The doctree's pre-order traversal defines the doctree's pre-order node order.

@@ -23,7 +23,7 @@ the desciption of a tree as an "ordered tree":
 
 An **ordered tree** is an arborescence such that each node in it can be
 considered distinct from all the other nodes. Put differently, the elements
-the nodes in an ordered tree hold are expected/required to be **unique**.
+the nodes in an ordered tree are expected/required to be **unique**.
 
 Defined as such, an ordered tree can be said to correspond with a partial
 order over the nodes it holds. The description of a tree as an "ordered tree"
