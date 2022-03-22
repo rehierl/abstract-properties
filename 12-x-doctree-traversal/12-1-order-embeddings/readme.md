@@ -38,9 +38,9 @@ tree order, this order embedding is overall not order-preserving.
 Note that, based on the tree order, one can state that "a node is presequent
 to its former first child" (i.e. `(n -> fc)`). In contrary to that, the
 post-order rule can be understood to state that "a former first child is
-presequent to its parent" (i.e. `(fc -> n)`). Obviously, and strictly speaking,
-both statements can not be true at the same time, which is why the post-order
-rule can be said to be in conflict with the document tree's node order.
+presequent to its parent" (i.e. `(fc -> n)`). Obviously, both statements can
+not be true at the same time, which is why the post-order rule can be said
+to be in conflict with the document tree's node order.
 
 * `(fc -> n)` is in conflict with `(n -> fc)`
 

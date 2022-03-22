@@ -41,9 +41,9 @@ of all of these subsequences.
 
 However, since each sequence corresponds with a path graph, one should instead
 imagine the child order of a document tree `CO(T)` as the union graph of all
-the path graphs `CO(p)` of each child order `co(p)` in a document tree. This
-point of view allows to focus on a joint set of Edges `E` that contains all
-the edges in each child order `CO(p)`.
+the path graphs `CO(p)` of each child order `co(p)`. This point of view allows
+to focus on a joint set of edges `E` that contains all the edges in each child
+order `CO(p)`.
 
 * `CO(N,E)` where `E := { e | (e in CO(p)) and (p in N) }`
 
@@ -54,8 +54,8 @@ tree since some of the nodes will then have more than one incoming edge and
 therefore more than one parent.
 
 However, transitively reducing the extended set of edges will yield a new set
-of edges `TR(E)` which satisfy the requirements of a node tree. The resulting
-node tree will be referred to as **the ordered document tree (DTO)**.
+of edges `TR(E)` which satisfies the requirements of a tree. The resulting tree
+will be referred to as **the ordered document tree (DTO)**.
 
 * `DTO(N,E)` where `E := TR( E(DTU) + E(CO) )`
 
@@ -65,16 +65,15 @@ node tree will be referred to as **the ordered document tree (DTO)**.
 Note that embedding the edges of a child order into the unordered document
 tree does not produce a conflict in the underlying node order (i.e. there
 will not be any symmetric edges), which would break the underlying tree order.
-Furthermore, and since each tree corresponds with a (partial) order relation
-over its nodes, the subsequent transitive reduction can be described as a
-necessity.
+Furthermore, and since each tree corresponds with a (partial) order over its
+nodes, the subsequent transitive reduction can be understood as a necessity.
 
 Note that the overall transition from `DTU` to `DTO` can be described as
-**an order embedding** since the doctree's child order is then embedded into
-the doctree's tree order. Furthermore, and since the resulting tree order is
-in general no total order, the overall transition can be described as
-**a partial extension** of said tree order. This in contrary to
-**a linear extension** which always results in a total order.
+**an order embedding** since the doctree's child order is then embedded as a
+suborder into the doctree's tree order. Furthermore, and since the resulting
+tree order is in general no total order, the overall transition can be
+described as **a partial extension** of said tree order. This in contrary
+to **a linear extension**, which always results in a total order.
 
 Note that the node order of an ordered document tree is such that
 **no node in it has more than two child nodes**,

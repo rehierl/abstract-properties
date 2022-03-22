@@ -101,18 +101,20 @@ node order.
 
 Furthermore, the document order of a document tree can be understood as a
 **processing order** that defines the order in which the nodes of a document
-tree must be visited. This in order to ensure that different implementations
-will produce the same results.
+tree must be visited/processed. This in order to ensure that different
+implementations will produce identical results.
 
 Note that, in regards to providing a complete consistent "picture", there
 is **an explanatory gap** between "ordered doctree" and "document order".
-Subsequent chapters on the pre-order tree traversal will close this gap.
+That is because the former is in general a tree order, whereas the latter
+always is a total order. Subsequent chapters on the pre-order tree traversal
+will close this gap.
 
 <!-- ======================================================================= -->
 ## "ordered tree" vs. "unordered" tree - meh (!)
 
 A tree that is associated with an external child order is in general referred
-to as an ordered tree In contrary to that, a tree that has no such child order
+to as an ordered tree. In contrary to that, a tree that has no such child order
 associated with it, is commonly described as an unordered tree.
 
 * "ordered tree" => "unordered document tree"
@@ -121,7 +123,7 @@ associated with it, is commonly described as an unordered tree.
 However, even though one can in general associate some child order with a tree,
 one needs to keep in mind that, from a mathematical perspective, a tree still
 has no child order. That is because the underlying endo-relation does not embed
-such an order since its simple set of edges does not support such a notion.
+such an order since a simple set of edges does not support such a notion.
 
 With that in mind one should be able to understand the meaning of the following
 statement: **Even an "ordered tree" is just another "unordered tree".**

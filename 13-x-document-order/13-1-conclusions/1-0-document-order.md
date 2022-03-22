@@ -2,8 +2,8 @@
 <!-- ======================================================================= -->
 # the doc-order is a total pre-order
 
-Recall that the pre-order and the level-order tree traversal algorithms are
-the only **order preserving** traversal algorithms. That is, both algorithms
+Recall that the pre-order and the level-order tree traversal algorithms are the
+only **order preserving** tree traversal algorithms. That is, both algorithms
 visit the nodes in tree order and also in child order.
 
 However, since the level-order trace of a tree can be described as a sequence

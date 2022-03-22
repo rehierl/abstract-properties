@@ -30,3 +30,9 @@ and also its absolute position in the document order, and since the document
 order is in pre-order, no ancestor of a node is subsequent to any of its
 descendants. Because of that, no ancestor can belong to any property that is
 defined by any of its descendants.
+
+Note that the edges defined by the pre-order rule are not embedded into the
+document tree. That is, according to a document tree, a first child is not
+presequent to the next subsequent sibling of its parent. In other words, the
+next subsequent sibling of a node is not subsequent to any descendant of that
+node.

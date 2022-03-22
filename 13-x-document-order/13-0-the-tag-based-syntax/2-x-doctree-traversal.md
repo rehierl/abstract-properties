@@ -1,5 +1,5 @@
 
-- todo - produce traces using each algorithm
+- TODO - produce traces using each algorithm
 - and compare them for equality
 
 <!-- ======================================================================= -->

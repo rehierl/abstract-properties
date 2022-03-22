@@ -16,9 +16,12 @@ if one is available.
 ```js
 //- the default pre-order tree traversal
 traverseInPreOrder(node) {
-  visit(node)
+  //- visit the current node
+  visit(node);
+
+  //- visit the node's child nodes
   for(child in node.childNodes) {
-    traverseInPreOrder(child)
+    traverseInPreOrder(child);
   }
 }
 ```
@@ -42,10 +45,13 @@ set of elements, whereas the latter is in regards to an order relation.
 ```js
 //- the default post-order tree traversal
 traverseInPostOrder(node) {
+  //- visit the node's child nodes
   for(child in node.childNodes) {
-    traverseInPostOrder(child)
+    traverseInPostOrder(child);
   }
-  visit(node)
+
+  //- visit the current node
+  visit(node);
 }
 ```
 
@@ -65,9 +71,14 @@ traversal is **not order preserving**.
 ```js
 //- the default in-order tree traversal
 traverseInOrder(node) {
-  visit(node.leftChild)
-  visit(node)
-  visit(node.rightChild)
+  //- visit the 1st child
+  visit(node.leftChild);
+
+  //- visit the current node
+  visit(node);
+
+  //- visit the 2nd child
+  visit(node.rightChild);
 }
 ```
 
@@ -87,11 +98,15 @@ is **not order preserving**.
 traverseInOrder(node)
   for(child in node.childNodes) {
     //- before each child
-    visit(node)
+    //- visit the current node
+    visit(node);
+
     //- visit the current child
-    traverseInOrder(child)
-    //- and/or after each child
-    visit(node)
+    traverseInOrder(child);
+
+    //- after each child
+    //- visit the current node
+    visit(node);
   }
 }
 ```

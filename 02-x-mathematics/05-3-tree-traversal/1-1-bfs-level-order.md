@@ -2,22 +2,21 @@
 <!-- ======================================================================= -->
 # breadth-first search (BFS), level order
 
-A tree traversal is referred to as a breadth-first search (BFS), if the
-nodes in a tree are visited one node level at a time, and beginning with
-the specified root.
+A tree traversal is referred to as a breadth-first search (BFS), if the nodes
+in a tree are visited one node level at a time.
 
 ```js
 //- the default level-order tree traversal
 traverseBFS(root) {
-  next = new Queue()
-  next.enqueue(root)
+  next = new Queue();
+  next.enqueue(root);
 
   while (next.isEmpty() == false) {
-    node = next.dequeue()
-    visit(node)
+    node = next.dequeue();
+    visit(node);
 
     for (child in node.childNodes) {
-      next.enqueue(child)
+      next.enqueue(child);
     }
   }
 }

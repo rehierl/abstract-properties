@@ -1,6 +1,9 @@
 
+# in general
+
 the embedding of traversal edges consists of ..
 - an ordering rule and an order of execution
+- the edges that result from applying the pre-/post-/level-order rule
 - rule - how a sequence is formed - additional edges
 - execution - in which order these rules must be applied
 
@@ -12,16 +15,22 @@ if you know that you have a transitive closure
 - a way to efficiently determine the transitive reduction?
 - howto distinguish a child from some other descendant?
 
-in regards to embedding sets of nodes
+in regards to embedding sets of edges
 - a well-defined set of edges such as the
   edges in the child order of a doctree
 - i.e. well-defined as in pre-determined
 - the pre-order rule does not correspond
   with a well-defined set of edges since
   there is no pre-calulated set of edges
-- however, one can still state that the
-  document order is well-defined in terms
-  of a tag soup
+- one can still state that the document
+  order is well-defined as a tag soup
+
+# pre-order traversal
+
+an open question
+- can the pre-order traversal be expressed
+- as iteratively/repeatedly applying a child order?
+- gut feeling says yes ..
 
 # level-order traversal
 

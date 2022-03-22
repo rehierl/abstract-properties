@@ -3,34 +3,35 @@
 # the document traversal
 
 Recall that the document order is a total node order over all the nodes in a
-document tree. As such, the document order represents a processing order which
-is used to (e.g.) serialize a document tree into a sequence of characters using
-the tag-based syntax. As can be seen below, this serialization is done based
-on a combination of the pre-order and the post-order tree traversal.
+document tree (see - introduction/prologue). That is because the document
+order is a processing order which is used to (e.g.) serialize a document tree
+into a sequence of characters using the tag-based syntax. As can be seen below,
+this serialization is done based on a combination of the pre-order and the
+post-order tree traversal.
 
 ```js
 //- the basic document tree traversal
 traverseInDocOrder(node) {
-  //- can be used to write start-tags
+  //- visit the node and enter its scope
   //- write("<%s %s>", name, attributes)
   onEnter(node);
 
-  //- recursively visit all child nodes
+  //- recursively visit the child nodes
   for(child in node.childNodes) {
     traverseInDocOrder(child);
   }
 
-  //- can be used to write end-tags
+  //- exit the node's scope - no visit
   //- write("</%s>", name)
   onExit(node);
 }
 ```
 
 When trying to parse the tag-based syntax (aka. **tag soup**) of a document,
-questions arise about the semantics of a start- and an end-tag. That is because
-while parsing a tag soup, both tags can be understood to trigger events, which
-is why the process of parsing a document can be described as an event-driven
-process.
+questions arise about the semantics of a start- and an end-tag. That is
+because while parsing a tag soup, both tags can be understood to trigger
+events, which is why the process of parsing a document can be described as
+**an event-driven process**.
 
 * (1) a **start-tag** can be said to trigger an **enter-event**
 * (2) an **end-tag** can be said to trigger an **exit-event**

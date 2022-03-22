@@ -2,13 +2,13 @@
 <!-- ======================================================================= -->
 # well-formed documents
 
-Since a parser is implemented to read a partial containment order from a tag
-soup, an input document is initially assumed to be **well formed**. That is,
-tags appear as pairs of start- and end-tags, and the scopes they define are
-assumed to either be disjoint ex-or related.
+An input document is initially assumed to be **well formed**. That is, tags
+are assumed to appear as pairs of start- and end-tags, and the scopes they
+define are assumed to either be disjoint ex-or related.
 
 ```
-      a missing start-tag          a missing end-tag
+    a missing start-tag          a missing end-tag
+    i.e. a missing <c> tag       i.e. a missing </d> tag
 .., <a>, .., </c>, .., </a>, .., <b>, .., <d>, .., </b>, ..
 ```
 
@@ -22,8 +22,8 @@ which there is **no matching tag**.
 ```
       overlapping scopes
 <a>, .., <b>, .., </a>, .., </b>
-|->-a-------------->-|
-         |->-b--------------->-|
+|>-a---------------->|
+         |>-b----------------->|
 ```
 
 Likewise, an implementation must take into account that an input document might
@@ -31,8 +31,7 @@ be such that the pairs of start- and end-tags define **overlapping scopes**.
 
 Note that the scope of node `a` can be said to **reach into** the scope of node
 `b`. Likewise, the scope of node `b` can be said to **reach out of** the scope
-of node `a`. (Note the reocurring duality - i.e. matching pairs of converse
-statements).
+of node `a`.
 
 <!-- ======================================================================= -->
 ## xml - well-formed documents
@@ -46,30 +45,31 @@ can be summarized as follows:
 * (R3) a start-tag and its end-tag must have the same parent
 
 Note that authors must ensure that a document is well-formed. That is because
-implementations may output different results when parsing a malformed document.
+implementations might produce different results when parsing a non-conformant
+document.
 
 <!-- ======================================================================= -->
 ## html - implied start- and end-tags
 
-The HTML specification introduces the concept of "implied tags", which in
-allows for certain tags to be missing under certain conditions. Conforming
-implementations are required to support these cases.
+The HTML specification introduces the concept of "implied tags", which allows
+for certain tags to be missing under certain conditions. Implementations that
+conform to HTML's rules are required to support these special cases.
 
 <!-- ======================================================================= -->
-## well-formedness
+## (strict) well-formedness
 
 In order for a document to define an actual hierarchy of scopes, and therefore
 to correspond with an actual document tree, the document's sequence of tags
-must be **well-formed** by following these rules:
+must be **well-formed** by following the following rules. A document that is
+in conflict with any of these rules is understood to be **malformed**.
 
 * (R1) each start-tag `<tag>` has an end-tag `</tag>` subsequent to it
 * (R2) for each end-tag there is a start-tag presequent to it
 * (R3) a start-tag and its end-tag must have the same parent
 
-A document that is in conflict with any of these rules is understood to be
-**malformed**. As such, a parser may cancel the process of reading it. That
-is because the definition of a document tree, as defined by a malformed
-tag soup, is broken.
+Note that a parser may in principle cancel the process of processing a
+malformed input document. That is because the definition of a document tree,
+as defined by a malformed tag soup, is broken.
 
 Note that rule (R3) guarantees that no scope reaches into or out of another
 scope. Because of that, a conforming document can not define overlapping
@@ -81,4 +81,4 @@ the scope of another node `x` can only be one of the following:
 * (3) a superset - `<n> .. <x> .. </x> .. </n>`
 * (4) a subset - `<x> .. <n> .. </n> .. </x>`
 
-Note that (1) is dual to (2), and (3) dual to (4).
+Note that (1) is dual to (2), and that (3) is dual to (4).
