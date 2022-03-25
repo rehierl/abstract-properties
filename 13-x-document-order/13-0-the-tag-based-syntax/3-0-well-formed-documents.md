@@ -2,9 +2,20 @@
 <!-- ======================================================================= -->
 # well-formed documents
 
-An input document is initially assumed to be **well formed**. That is, tags
-are assumed to appear as pairs of start- and end-tags, and the scopes they
-define are assumed to either be disjoint ex-or related.
+The previous discussion can be understood to describe how computers encode
+(aka. serialize) document trees using the tag-based syntax in such a way that
+an implementation can decode (aka. deserialize) the exact same document tree.
+With that in mind, the following must be understood to point out how a user
+must look at the tag soup of a document such that the document tree the user
+defines will be decoded as intended.
+
+A parser initially assumes an input document to be **well formed**. That is,
+tags are assumed to appear as **pairs of start- and end-tags**, and that the
+substrings of nodes they define are assumed to either be disjoint ex-or
+related - i.e. **disjoint ex-or related scopes only**.
+
+<!-- ======================================================================= -->
+## malformed documents
 
 ```
     a missing start-tag          a missing end-tag
@@ -20,18 +31,22 @@ is, an input document might be such that it contains start- and end-tags for
 which there is **no matching tag**.
 
 ```
-      overlapping scopes
+   overlapping pairs of tags
 <a>, .., <b>, .., </a>, .., </b>
 |>-a---------------->|
          |>-b----------------->|
 ```
 
-Likewise, an implementation must take into account that an input document might
-be such that the pairs of start- and end-tags define **overlapping scopes**.
+Likewise, an implementation must take into account that the input document
+is such that it contains **overlapping pairs of start- and end-tags**.
 
-Note that the scope of node `a` can be said to **reach into** the scope of node
-`b`. Likewise, the scope of node `b` can be said to **reach out of** the scope
-of node `a`.
+Note that the scope of node `a` can be said to **reach into** the scope of
+node `b`. Likewise, the scope of node `b` can be said to **reach out of**
+the scope of node `a`.
+
+Note that overlapping pairs of tags define overlapping strings and therefore
+overlapping scopes. Because of that, an input document that has overlapping
+pairs of tags **does not correspond with a node tree**.
 
 <!-- ======================================================================= -->
 ## xml - well-formed documents

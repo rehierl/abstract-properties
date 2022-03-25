@@ -5,9 +5,14 @@
 ```js
 //- the default post-order traversal
 traverseInPostOrder(node) begin
+  //- enter the node's scope
+
+  //- recursively visit all child nodes
   for(child in node.childNodes) begin
     traverseInPostOrder(child)
   end
+
+  //- visit the node and exit its scope
   visit(node)
 end
 ```

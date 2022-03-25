@@ -26,16 +26,16 @@ traceInLevelOrder(tree) {
   t = ();
 
   while(next.isEmpty() == false) {
-    //- pop and "visit" the next node
+    //- visit the node and enter its scope
     n = next.dequeue();
-
-    //- visit node n
     t = t.append(n);
 
-    //- append the child nodes (in order)
+    //- visit all child nodes in child order
     for (co=co(n), i=1; (i<=co.length); i++) {
       next.enqueue(co[i]);
     }
+
+    //- exit the node's scope
   }
 
   return t;

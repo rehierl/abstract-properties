@@ -2,12 +2,12 @@
 <!-- ======================================================================= -->
 # the pre-order tree traversal
 
-As was shown in the discussion of the pre-order tree traversal algorithm
-(see - chapter 05-3), the pre-order tree traversal can be used to form a trace
-of nodes, if each node is appended to a sequence while it is being visited.
-Formed this way, the resulting trace of nodes is an ordered sequence of nodes
-and as such can be understood to represent **the total pre-order node order**
-of a document tree.
+As was shown in the discussion of the pre-order tree traversal (see - chapter
+05-3), the pre-order tree traversal of a document tree can be used to form
+a trace of nodes, if each node is appended to a sequence while it is being
+visited. Formed this way, the resulting trace of nodes is an ordered sequence
+of nodes and as such can be understood to represent the document tree's
+**total pre-order node order**.
 
 Note that each node will be visted once, and once only. Furthermore, no node
 will be visited while another node is still in the process of being visted.
@@ -26,21 +26,27 @@ traverseInPreOrder(node) {
     traverseInPreOrder(child);
   }
 
-  //- exit the node's scope - no visit
+  //- exit the node's scope
   //- write("</%s>", name)
 }
 ```
 
-Since the enter-order of a pre-order tree traversal coincides with the
-**visit-order** one can conclude that the visit-order of a document tree
-corresponds with the **enter-order** of a pre-order tree traversal.
-However, one needs to be aware that the enter- and the visit-event of a
-node are still not identical. That is because one marks the beginning of
-a scope, while the other marks the process of **processing the node**.
+Since the enter-order of a pre-order tree traversal coincides with
+**the (pre-order) visit of a node**, one can conclude that the pre-order
+visit-order of a document tree corresponds with the **enter-order** of
+a pre-order tree traversal. After all, each node can be understood to
+be pushed into its start-tag.
 
-Note that, if the tag soup of a document is broken apart into a sequence
-of tags, and if all the end-tags are dropped, then the resulting sequence
-of start-tags corresponds with the pre-order trace of a document tree.
+Note that, in contrary to the above, **the post-order visit of a node**
+corresponds with the document tree's **exit-order**.
+
+However, one needs to be aware that the enter- and the visit-event of a node
+are still not identical. That is because one marks the beginning of a scope,
+while the other marks when a node is being **processed**.
+
+Note that, if the tag soup of a document is broken apart into a sequence of
+tags, and if all the end-tags are dropped, then the resulting sequence of
+start-tags corresponds with the pre-order trace of a document tree.
 
 Since each node can be understood to be pushed into its start-tag, a start-tag
 can be said to correspond with the visit of a node. The start-tag of a node

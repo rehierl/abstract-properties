@@ -1,38 +1,85 @@
 
 # document order / the tag-based syntax
 
-tag soup
-- produced by combining the pre-order and the post-order tree traversal
-- a tag soup can be seen as a sequence of enter- and exit-events
-- each enter-event is paired with a subsequent exit-event
+```
+n -|-> ns .. ls
+   |-> <tag> fc .. lc </tag>
+```
 
-pre-order traversal
-- the enter-order corresponds with the pre-order visit order
-- each start-tag corresponds with the visit of a node
-- each start-tag denotes the absolute position of a node
-- each start-tag defines the corresponding node
-- the document order is equivalent to the pre-order node order
-- each start-tag also denotes the start of the node's scope
-- in contrary to that, an end-tag does not correspond with any node
-- an end-tag (only) denotes the end of the node's (type-1) scope
+This meta-chapter begins with **embedding tag-based nodes** into a document
+tree - i.e. the start-tag as a first child and the end-tag as a last child.
+The pre-order trace of the extended document tree can be described as a
+sequence of nodes and tags ..
 
-* start-tag <=> enter a node's scope and visit that node
-* end-tag <=> only exit the node's scope
+```
+n, <tag>, fc, .., lc, .., l, </tag>, ns, .., ls
+|-s1-------|              |-s2--------|
+```
 
-a tag soup ain't no node tree
-- a tag soup encodes the doctree's pre-order node order
-- a tag soup directly encodes a hierarchy of scopes
-- a tag soup does not define a node tree, but a containment order
-- the tree order is a partial suborder to the document order
+.. such that each node `n` is followed by its start-tag `<tag>`, which is
+followed by the node's first child `fc` - i.e. `s1 := (n, <tag>, fc)`.
+Furthermore, the last subsequent descendant leaf `l` of the node's last
+child `lc` is followed by the node's end-tag `</tag>`, which is followed
+by the node's next subsequent sibling `ns` - i.e. `s2 := (l, </tag>, ns)`.
+That is, there are no other nodes in between the node's tags and these nodes.
 
-Note that, since the start-tag of a node can be understood to define a node
-and also its absolute position in the document order, and since the document
-order is in pre-order, no ancestor of a node is subsequent to any of its
-descendants. Because of that, no ancestor can belong to any property that is
-defined by any of its descendants.
+```
+n, <tag>, fc, .., lc, .., l, </tag>, ns, .., ls
+|-->|------------------------->|
+```
 
-Note that the edges defined by the pre-order rule are not embedded into the
-document tree. That is, according to a document tree, a first child is not
-presequent to the next subsequent sibling of its parent. In other words, the
-next subsequent sibling of a node is not subsequent to any descendant of that
-node.
+This mixed sequence of nodes and tags can then be turned into a pure sequence
+of tags (i.e. the document's **tag soup**), if both tags reflect the node's
+name, and if the node's start tag is redefined to hold attributes such that
+the start-tag's attributes define all of the node's characteristics.
+
+```
+pre(n) := (<n attribute*>, fc, .., lc, .., </n>)
+           |-s(n)---------------------------->|
+```
+
+Since each node can now be understood to be **pushed into its start-tag**,
+the **start-tag** of a node corresponds with the absolute position of that
+node in the document tree's pre-order trace. That is, the start-tag of a node
+denotes **the (pre-order) visit of a node**. Furthermore, the start-tag of a
+node can be understood to denote the characteristic element (CE) of the node's
+scope (i.e. the node itself).
+
+In contrary to that, the **end-tag** of a node does not correspond with any
+node, which is why the end-tag of a node only marks the end of the node's
+scope. Because of that, no attributes can be set on the end-tag of a node.
+Hence, an end-tag is nothing more but **an end-marker**.
+
+```js
+//- the basic document tree traversal
+traverseInDocOrder(node) {
+  //- visit the node and enter its scope
+  //- write("<%s %s>", name, attributes)
+  onEnter(node);
+
+  //- recursively visit the child nodes
+  for(child in node.childNodes) {
+    traverseInDocOrder(child);
+  }
+
+  //- exit the node's scope
+  //- write("</%s>", name)
+  onExit(node);
+}
+```
+
+Note that the recursive document traversal algorithm is a combination of the
+pre-order and the post-order tree traversal algorithm. And since each tag
+corresponds with the enter- or exit-event of the corresponding scope, parsing
+the tag soup of a document tree can be described as **an event-driven process**,
+which is why the tag soup of a document tree can be understood to define
+**an order of events** (i.e. the enter- and exit-order).
+
+Note that a tag soup counts as being **well-formed**, if and only if it consists
+of pairs of start- and end-tags such that the strings of nodes they define are
+either disjoint ex-or related. Otherwise, an input document can be described
+as being **malformed**.
+
+Note that an **implementation** may in general choose to return some best-effort
+result, or choose to not return a result by throwing an error, as soon as it
+can determine that the input document is malformed.

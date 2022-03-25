@@ -21,7 +21,7 @@ traverseInDocOrder(node) {
     traverseInDocOrder(child);
   }
 
-  //- exit the node's scope - no visit
+  //- exit the node's scope
   //- write("</%s>", name)
   onExit(node);
 }
@@ -29,7 +29,7 @@ traverseInDocOrder(node) {
 
 When trying to parse the tag-based syntax (aka. **tag soup**) of a document,
 questions arise about the semantics of a start- and an end-tag. That is
-because while parsing a tag soup, both tags can be understood to trigger
+because, while parsing a tag soup, both tags can be understood to trigger
 events, which is why the process of parsing a document can be described as
 **an event-driven process**.
 

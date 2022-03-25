@@ -22,13 +22,15 @@ traceInPreOrder(tree) {
   t = ();
 
   visitInPreOrder(node) {
-    //- visit node 'n'
+    //- visit the node and enter its scope
     t.append(node);
 
-    //- recursively visilt all child nodes
+    //- recursively visit all child nodes
     for(child in node.childNodes) {
       visitInPreOrder(child);
     }
+
+    //- exit the node's scope
   }
 
   r = root(tree);
@@ -47,16 +49,16 @@ traceInPreOrder(tree) {
   t = ();
 
   while (next.isEmpty() == false) {
-    //- pop and "visit" the next node
+    //- visit the node and enter its scope
     n = next.pop();
-
-    //- visit node n
     t = t.append(n);
 
     //- push the child nodes - in reversed order
     for (co=co(n), i=co.length; (i>=1); i--) {
       next.push(co[i]);
     }
+
+    //- exit the node's scope
   }
 
   return t;

@@ -1,20 +1,31 @@
 
 <!-- ======================================================================= -->
-# parsing a malformed document
+# malformed document
 
 Despite any existing rules and regulations, implementors of parsers must always
 take into account that the core issue remains as is: Prior to actually parsing
-a tag soup to the very end, an input document can not be determined to be well
-formed.
+the tag soup of a document to the very end, an input document can not be
+determined to be well formed. However, as soon as a tag soup can be determined
+to not be well-formed, implementors have to decide what to do with such a
+document: Ignore it or return some best-effort result?
 
-Note that the following exemplifies how **a simple stack-based parser** may
-detect the malformedness of an input document.
+The following exemplifies **a simple stack-based approach** that can be used
+to detect the malformedness of an input document. In addition to that, the
+following describes how an implementation could continue to read despite the
+input errors that were detected. The latter of which can be summaries as
+follows:
+
+* (1) Close the scope of a start-tag with the end-tag of start-tag's parent,
+  if there is no subsequent end-tag within the scope of the start-tag's parent.
+* (2) Ignore an end-tag, if there is no presequent start-tag within the scope
+  of the end-tag's parent.
 
 <!-- ======================================================================= -->
+## the basic approach
 
 ```
 tags - <r> <a> <b> </a> </b> </r>        stack - ()
-      ^ cursor                         (bottom -> top)
+      ^ cursor                          (bottom -> top)
 ```
 
 At the very beginning of a document a parser can be understood to initialize
@@ -56,6 +67,7 @@ Obviously, the same applies when reaching start-tag `<b>`. That is, `b` will
 be created, pushed onto the stack, and set as the first/next child of `a`.
 
 <!-- ======================================================================= -->
+## a missing end-tag
 
 ```
 tags - <r> <a> <b> </a> </b> </r>        stack - (r)
@@ -68,7 +80,7 @@ Upon reaching end-tag `</a>`, the parser will search its stack for node `a`,
 which it will find and thus determine that its scope has ended.
 
 However, since `a` is not the stack's topmost node (i.e. end-tag `</b>` is
-missing), the parser may conclude that scope `s(b)` must have ended as well.
+missing), the parser can conclude that scope `s(b)` must have ended as well.
 After all, a scope can not reach out of the scope of another node (i.e. the
 DI-RE case). Because of that, the parser may choose to remove all of the
 nodes from the top of its stack until node `a` has been removed.
@@ -77,6 +89,7 @@ Note that a strict implementation may reject an input document as being
 **malformed**, if an end-tag does not match the stack's topmost node.
 
 <!-- ======================================================================= -->
+## a missing start-tag
 
 ```
 tags - <r> <a> <b> </a> </b> </r>        stack - (r)
@@ -91,15 +104,22 @@ to ignore that end-tag.
 Note that a strict implementation may reject an input document as being
 **malformed**, if an end-tag appears without a matching start-tag.
 
-Note that, even though the start-tag does exist, the parser will classify the
+<!-- ======================================================================= -->
+## overlapping scopes
+
+Even though the start-tag does exist, the parser will initially classify the
 seemingly missing start-tag as an input error. Because of that, the reason for
 the document's malformedness will be mis-classified (i.e. a negative but for
-the wrong reason). However, knowing that a negative case may be the cause of
+the wrong reason).
+
+However, knowing that a seemingly missing start-tag may be the cause of
 overlapping scopes still allows an implementation to verify if a start-tag
-was indeed missing, which is why an implementation can in general detect and
-distinguish between both cases.
+was indeed missing. After all, there must have been a prior case of a missing
+start-tag. That is, an implementation can in general detect and distinguish
+between both cases - i.e. overlapping or indeed missing.
 
 <!-- ======================================================================= -->
+## finish the parsing process
 
 ```
 tags - <r> <a> <b> </a> </b> </r>        stack - ()
@@ -111,5 +131,9 @@ parser's stack. Because of that, the stack will be cleared, which effectively
 allows to state that the document has been processed completely.
 
 Note that a strict implementation may reject an input document as being
-**malformed**, if the last node has been removed from the stack, and if
-the end of the document has not yet been reached.
+**malformed**, if all nodes are removed from the stack while the last
+input tag has not yet been processed (i.e. a forest of trees).
+
+Note that a strict implementation may reject an input document as being
+**malformed**, if the stack still has nodes once the implementation has
+processed all of the input tags.

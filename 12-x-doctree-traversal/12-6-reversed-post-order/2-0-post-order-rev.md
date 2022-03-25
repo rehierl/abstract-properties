@@ -5,9 +5,14 @@
 ```js
 //- the reversed post-order traversal
 traverseInPostOrderRev(node) {
+  //- enter the node's scope
+
+  //- recursively visit all child nodes
   for(child in node.childNodesRev) {
     traverseInPostOrderRev(child);
   }
+
+  //- visit the node and exit its scope
   visit(node);
 }
 ```

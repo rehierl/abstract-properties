@@ -58,7 +58,7 @@ traverseInPreOrder(node) {
   //- write("<%s %s>", name, attributes)
   onVisit(node);
 
-  //- visit all child nodes
+  //- recursively visit all child nodes
   if(node.firstChild) {
     traverseInPreOrder(node.firstChild);
   }
@@ -98,7 +98,7 @@ function (root, enter, exit) {
     }
 
     while (node) {
-      //- exit the t1 scope
+      //- exit the node's type-1 scope
       exit(node);
 
       //- done, if node is the root

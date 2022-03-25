@@ -5,11 +5,16 @@
 ```js
 //- the default pre-order traversal
 traverseInPreOrderR(node) {
+  //- visit the node and enter its scope
   visit(node);
 
+  //- recursively visit all child nodes
+  //- in reversed child order
   for(child in node.childNodesRev) {
     traverseInPreOrderR(child)
   }
+
+  //- exit the node's scope
 }
 ```
 

@@ -15,18 +15,19 @@ DTU                 + CO          = DTO
       fc   lc       | extension   |
 ```
 
-This chapter begins to describe the effects of **embedding the child order**
-(CO) of a document tree (DT) into the noder order of an unordered document tree
-(DTU). The node order that results from such **a partial order embedding** will
+This meta-chapter begins to describe the effects of **embedding the child order**
+(CO) of a document tree (DT) into the noder order of its unordered document tree
+(DTU). The node order which results from that **partial order embedding** will
 be referred to as the ordered document tree (DTO). Since the ordered document
-tree (DTO) is in general still a tree order, even more node orders can be
-embedded into document tree.
+tree is in general still a tree order, even more node orders can be embedded.
 
-This chapter discusses the tree traversal algorithms in terms of one or more
-**additional order embeddings**, each of which results in a path graph -
-i.e. the trace of nodes according to the corresponding tree traversal.
+Hence, this meta-chapter continues to discuss the tree traversal algorithms
+in terms of one or more **additional order embeddings**, each of which results
+in a path graph - i.e. the trace of nodes according to the corresponding tree
+traversal.
 
 For example, the embedding of the node order that is defined by
-**the pre-order rule** will result in the pre-order trace of a document tree.
+**the pre-order rule** will result in the pre-order trace (PRE)
+of a document tree.
 
 * `n -> (fc .. lc) -> (ns .. ls)` - in short `(n × c × s)`

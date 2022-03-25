@@ -9,15 +9,16 @@ traverseInLevelOrder(root) {
   next.enqueue(root);
 
   while (next.isEmpty() == false) {
+    //- visit the current node and enter its scope
     node = next.dequeue();
-
-    //- visit the current node
     visit(node);
 
-    //- visit the child nodes
+    //- visit all child nodes in child order
     for (child in next.childNodesFTL) {
       next.enqueue(child);
     }
+
+    //- exit the node's scope
   }
 }
 ```
