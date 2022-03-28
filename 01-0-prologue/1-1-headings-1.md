@@ -62,14 +62,14 @@ Any non-empty document has a beginning and an end, and therefore like a section
 a first and a last node. And since a document has no gaps, the nodes of a
 document appear one after another in a consecutive order.
 
-For any two nodes in a document one can state which node is first and which
-is last. Because of that, a document is a flat/linear **list of nodes** that
-can be described as **a sequence of nodes**, or as **a string of nodes**.
+For any two nodes in a document one can state which node is first and which is
+last. Because of that, a document is a flat/linear **list of nodes**, which will
+be simply referred to as **a sequence of nodes**, or as **a string of nodes**.
 
 Note that, similar to the components/slots in a sequence, a document consists
 of **distinct nodes**. Hence, any document can be described to define a simple
-set of nodes and can therefore be described as *a sequence of distinct nodes*.
-(Note that such sequences will be referred to as **ordered sequences**).
+set of nodes and can therefore be described as **a sequence of distinct nodes**,
+which can simply be described as an **ordered sequence**.
 
 ```
 n1.............. h T nX ......... nZ

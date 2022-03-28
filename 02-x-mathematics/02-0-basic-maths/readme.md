@@ -8,10 +8,10 @@ Note that there are certain **non-standard** definitions such as **E()**,
 **ordered sequences**, **presequent** and **characteristic subset css()**,
 which will be used throughout this entire repository.
 
-Note the **all-of**, **none-of** and **some-of** quantifiers, which have
-their footing in the relationships between sets of elements. These have
-subtle, but fundamental impact on definitions throughout this repository.
-After all, the some-of quantifier is inherently difficult to clarify.
+Note the **all-of**, **none-of** and **some-of** quantifiers, which have their
+footing in the relationships between sets of elements. These have subtle, but
+fundamental impact on definitions throughout this entirerepository. After all,
+the some-of quantifier is inherently difficult to clarify.
 
 Note that **intervals** do not have to be number-based intervals. It depens
 on a given context, which type of elements can be used to specify an interval.

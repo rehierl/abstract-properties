@@ -85,6 +85,11 @@ After all, a scope can not reach out of the scope of another node (i.e. the
 DI-RE case). Because of that, the parser may choose to remove all of the
 nodes from the top of its stack until node `a` has been removed.
 
+Note that, removing all the nodes from a current stack for which no end-tag
+was encountered, can be understood to implement "implied/assumed end-tags".
+That is because an implementation would in essence act as if it had
+encountered these missing tags in the appropriate order.
+
 Note that a strict implementation may reject an input document as being
 **malformed**, if an end-tag does not match the stack's topmost node.
 

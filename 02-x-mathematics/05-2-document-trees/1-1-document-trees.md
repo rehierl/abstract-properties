@@ -97,15 +97,15 @@ Recall that a document order is understood as **a total node order**. One
 should therefore neither confuse that description with the node order of the
 "unordered doctree", nor with the node order of the "ordered doctree". That
 is because the node order of a document tree is in general still a partial
-node order.
+order.
 
 Furthermore, the document order of a document tree can be understood as a
 **processing order** that defines the order in which the nodes of a document
 tree must be visited/processed. This in order to ensure that different
 implementations will produce identical results.
 
-Note that, in regards to providing a complete consistent "picture", there
-is **an explanatory gap** between "ordered doctree" and "document order".
+Note that, in regards to providing a complete consistent "picture", there is
+**an explanatory gap** between "ordered document tree" and "document order".
 That is because the former is in general a tree order, whereas the latter
 always is a total order. Subsequent chapters on the pre-order tree traversal
 will close this gap.

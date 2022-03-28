@@ -3,12 +3,12 @@
 # types of scopes
 
 ```
-.......... <n> c(n) </n> s(n) </p> .. </r>
-|-t(T)---------------------------------->|
-type-3(n)  |-t3------------------------->| - over DPR
-type-2(n)  |-t2----------------->|         - over DTO
-type-1(n)  |-t1------->|                   - over DTU
-type-0(n)  |-| t0                          - over DTR
+<r> .. <p> .. <n> fc .. lc </n> ns .. ls </p> .. </r>
+|-t(T)--------------------------------------------->|
+   type-3(n)  |-t3--------------------------------->| - over DPR
+   type-2(n)  |-t2------------------------->|         - over DTO
+   type-1(n)  |-t1----------->|                       - over DTU
+   type-0(n)  |-| t0                                  - over DTR
 ```
 
 The following introduces the types of scopes a node has, based on the induced

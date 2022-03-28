@@ -1,10 +1,15 @@
 
 <!-- ======================================================================= -->
-# the doc-order is a total pre-order
+# the document order is the total pre-order
 
-Recall that the pre-order and the level-order tree traversal algorithms are the
-only **order preserving** tree traversal algorithms. That is, both algorithms
-visit the nodes in tree order and also in child order.
+Recall that **the document order** is understood as a total node order over all
+the nodes in a document tree - see the prologue and chapter 05. More accurately,
+the document order is **a processing order** that guarantees consistent results
+across all implementations.
+
+Recall that the pre-order and the level-order tree traversal algorithms are
+the only overall **order preserving** tree traversal algorithms. That is,
+both algorithms visit the nodes in tree order and also in child order.
 
 However, since the level-order trace of a tree can be described as a sequence
 of disjoint child orders, and since it is as such non-hierarchical, one can
@@ -23,6 +28,11 @@ described as a sequence of interleaved child orders.
 <!-- ======================================================================= -->
 ## a 90° clockwise rotation
 
+```
+n -|-> <tag> fc .. lc </tag>
+   |-> ns .. ls
+```
+
 In order to visualize the general pattern of the node order of a document, the
 only transformation left is to clockwise rotate the tag soup of a document by
 90 degrees and to indent the tags according to the node level of each node.
@@ -32,11 +42,11 @@ clockwise rotated | in regards    |
 by 90 degrees     | to node <n>   | scopes
 ------------------|---------------|-------
 <p>               | presequent-to |  + s(p)
-  (fs ..)         | above-of      |  |
+  fs ..           | above-of      |  |
   <n>             |---------------|  +-+ s(n)
-    (fc .. lc)    | subsequent-to |  | |
+    fc .. lc      | subsequent-to |  | |
   </n>            | below-of      |  | |
-  (ns ..)         |               |  |
+  ns ..           |               |  |
 </p>              |               |  |
 ```
 

@@ -2,17 +2,14 @@
 <!-- ======================================================================= -->
 # well-formed documents
 
-The previous discussion can be understood to describe how computers encode
-(aka. serialize) document trees using the tag-based syntax in such a way that
-an implementation can decode (aka. deserialize) the exact same document tree.
-With that in mind, the following must be understood to point out how a user
-must look at the tag soup of a document such that the document tree the user
-defines will be decoded as intended.
-
 A parser initially assumes an input document to be **well formed**. That is,
 tags are assumed to appear as **pairs of start- and end-tags**, and that the
 substrings of nodes they define are assumed to either be disjoint ex-or
 related - i.e. **disjoint ex-or related scopes only**.
+
+Note that the following must be understood to point out how a user must look
+at the tag soup of a document such that the document tree the user defines
+will be decoded as intended.
 
 <!-- ======================================================================= -->
 ## malformed documents
