@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# a theoretical point of view (pov)
+# the tag-based syntax, a theoretical point of view
 
 ```
 reduced pattern       in short

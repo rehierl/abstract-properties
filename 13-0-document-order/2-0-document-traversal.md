@@ -43,9 +43,10 @@ a sequence of exit events). Combined, the tag soup of a document can be
 understood to define a sequence of enter- and exit events.
 
 ```
-enter ->|-s(n)--------------------------------------- exit ->|
-   ..., | <n>, <fc>, ..., </fc>, ..., <lc>, ..., </lc>, </n> |, ...
-open  ->|->- a sub-stream of nodes ----------------- close ->|
+        |-s(n)------------------------------------------------------->|
+    .., | <n attribute*>, <fc>, .., </fc>, .., <lc>, .., </lc>,  </n> |, ..
+enter ->|-ce(n)---------|-iss(n)------------------------------|-empty-|-> exit
+ open ->|-a-substream-of-nodes--------------------------------------->|-> close
 ```
 
 Note that, since each enter-event is paired with a subsequent exit-event, the
@@ -53,25 +54,26 @@ tag-based syntax can be understood to support **a stream-based point of view**.
 Hence, each pair of tags can be said to denote a sub-stream of nodes.
 
 <!-- ======================================================================= -->
-## the pre-order visit of a node
+## the (pre-order) visit of a node
 
 As was shown in the discussion of the pre-order tree traversal in chapter 05,
-the pre-order tree traversal of a document tree can be used to form a trace of
-nodes, if each node is appended to a sequence while it is being visited. Formed
-this way, the resulting trace of nodes is an ordered sequence of nodes and as
-such can be understood to represent the document tree's **pre-order node order**.
+the pre-order tree traversal of a document tree can be used to form a trace
+of nodes, if each node is appended to a sequence while it is in the process
+of being visited. Formed this way, the resulting trace is an ordered sequence
+of nodes and as such can be understood to represent the document tree's
+**pre-order node order**.
 
 Note that **the (pre-order) visit of a node** must be understood as a slice
-of processing time that is used during the traversal of a tree to **process**
-some data of a node. That is, the description is used to refer to some actions
-that are related to a particular node - e.g. write the node's start-tag. In
-contrary to that, the post-order visit of a node is used to process a node
-in post-order - e.g. write the node's end-tag - i.e. a different slice of
-processing time.
+of processing time that is used during the pre-order traversal of a tree to
+**process** some of the node's data. That is, the description is used to refer
+to a group of actions that are in regards to a particular node - e.g. write
+the node's start-tag. In contrary to that, the post-order visit of a node is
+used to process a node in post-order - e.g. write the node's end-tag - i.e.
+a different group of actions.
 
-Note that each node will be visited once, and once only. Furthermore, no node
-will be visited while another node is still in the process of being visted.
-Because of that, the visit of a node can be described as
+Note that each node is understood to be visited once only. Furthermore, no
+node will be visited while another node is still in the process of being
+visted. Because of that, the visit of a node must be understood as
 **an indivisible atomic operation**.
 
 ```js
@@ -102,8 +104,9 @@ Note that, if the tag soup of a document is broken apart into a sequence of
 tags, and if all the end-tags are dropped, then the resulting sequence of
 start-tags corresponds with the pre-order trace of a document tree.
 
-Note that **the post-order visit-order** corresponds with the document tree's
-**exit-order**. That is, the pre-order and also the post-order exit-order.
+Note that **the post-order visit-order** of the nodes in a document tree
+corresponds with the document tree's **exit-order**. That is, the pre-order
+exit-order and also the post-order exit-order.
 
 However, one needs to be aware that the enter- and the visit-event of a node
 are still not identical. After all, one marks the beginning of the node's
