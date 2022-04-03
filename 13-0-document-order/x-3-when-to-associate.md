@@ -2,17 +2,11 @@
 <!-- ======================================================================= -->
 # when to associate a node
 
-```
-    |-scope(n)------------|---------|
-.., | <n>,      | ..,     | </n>,   | ..
-    |-start-tag-|-content-|-end-tag-|
-```
+The following examines if a node in some scope `s(n)` can be counted towards
+an abstract property that is defined by some other node `x`.
 
-Recall that each start-tag corresponds with a node. Because of that, one must
-keep in mind that, when a node's **start-tag** is being processed, one has
-already entered the node's scope. In contrary to that, and since an end-tag
-does not translate into any node, one must keep in mind that, when a node's
-**end-tag** is being processed, one has already exited the node's scope.
+Recall that a property that has node `x` as its defining node can only apply
+to a node, if that node is a node in scope `s(x)`.
 
 <!-- ======================================================================= -->
 ## disjoint - no, not at all
@@ -24,30 +18,28 @@ does not translate into any node, one must keep in mind that, when a node's
 ```
 
 For obvious reasons, if node `n` is not located within the scope of `x` (i.e.
-both scopes are disjoint), then `n` can not be associated with `x`. That is
-because no such association would be valid since `s(x)` ends with `</x>`.
+both scopes are disjoint), then node `n` can not be associated with `x`. That
+is because no such association would be valid since scope `s(x)` ends with
+end-tag `</x>`.
 
 <!-- ======================================================================= -->
 ## malformed - no basis for discussion
 
 ```
-    |-s(x)----------------|
 .., <x>, .., <n>, .., </x>, .., </n>, ..
-             |-s(n)-?-|
+    |-s(x)---------------|
+             |-s(n)----------------|
 ```
 
-In the case of a malformed document such that `s(n)` reaches out of `s(x)`,
-an implementation may choose to restrict `s(n)` to a subset of `s(x)`.
-Despite that, and due to its ambiguous nature, such malformed content can
-not be used as the basis of clear definitions.
+In the case of a malformed input document such that some scope `s(n)` reaches
+out of some other scope `s(x)`, an implementation might choose to restrict
+scope `s(n)` to a subset of `s(x)`. However, such an artificial restriction
+will produce a document tree that can only approximate the input document.
+That is, the document and the resulting tree can not be understood to be
+equivalent.
 
-Note that there are two ways to look at malformed content such as the above:
-(1) it does not correspond with a proper hierarchy of scopes, or (2) reducing
-the scope of `n` to the scope of `x` can not accurately represent the input.
-
-Note that, as can be seen above, a parser has no means to "fix" malformed
-content. That is, broken content is guaranteed to yield broken or inaccurate
-results.
+Note that the artificial restriction of `s(n)` to a subset of `s(x)` will
+transform this case into the following *related case*.
 
 <!-- ======================================================================= -->
 ## related - while entering - ok
@@ -55,13 +47,12 @@ results.
 ```
 .., <x>, .., <n>, .., </n>, .., </x>, ..
     |-s(x)-------------------------|
-             |-s(n)-------|
+             |-s(n)------|
 ```
 
 Since node `n` is an element in scope `s(x)` node `n` can be associated with
 `x` **while that node is being visited**. That is, `n` can be associated while
-the **enter-event** of `n` is being processed. There is no issue with that
-since the visit-event corresponds with the node's absolute position.
+the **start-tag** of node `n` is being processed.
 
 <!-- ======================================================================= -->
 ## related - while exiting - no (!)
@@ -87,7 +78,7 @@ it. In that regards, the end-tag of a scope can be understood to state that
 there will be no further subsequent node.
 
 <!-- ======================================================================= -->
-## summary - only while visting/entering
+## conclusion - only while visting/entering
 
 Node `n` must be associated with the scope of another node `x`, while processing
 the **visit-event** of `n` (i.e. during the **enter-event** of `s(n)`), if and

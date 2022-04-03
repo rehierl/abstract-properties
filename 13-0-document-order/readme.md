@@ -1,5 +1,5 @@
 
-# document order / the tag-based syntax
+# document order
 
 ```
 n -|-> ns .. ls
@@ -32,24 +32,23 @@ n, <tag>, fc, .., lc, .., l, </tag>, ns, .., ls
 After a pair of tags has been injected for all the nodes in the document tree,
 the resulting mixed sequence of nodes and tags can then be turned into a pure
 sequence of tags (i.e. the document's **tag soup**), if both tags reflect the
-node's name, and if the node's start tag is redefined to hold attributes such
-that these attributes define all of the node's characteristics.
+node's name, and if the node's start tag is redefined to hold attributes which
+define all of the node's characteristics.
 
 ```
 <n attribute*>, fc, .., lc, .., </n>, ns, .., ls
 |-s(n)---------------------------->|
 ```
 
-Since each node can now be understood to be **pushed into its start-tag**,
-the **start-tag** of a node can be said to denote the node's absolute position
-in the document tree's pre-order trace. Because of that, the start-tag of a
-node must be understood to denote the characterisitc element (CE) of the node's
-scope.
+Since each node can now be understood to be **pushed into its start-tag**, the
+**start-tag** of a node can be understood to denote the **absolute position**
+of that node in the document tree's pre-order trace. As such, the start-tag
+of a node denotes **the characterisitc element** (CE) of its scope.
 
-In contrary to that, the **end-tag** of a node does not correspond with any
-node, which is why the end-tag of a node only marks the end of the node's
-scope. Because of that, no attributes can be set on the end-tag of a node,
-which is why an end-tag is nothing more but **an end-marker**.
+In contrary to the start-tag of a node, the **end-tag** of a node does not
+correspond with any node, which is why the end-tag of a node only marks the
+end of the node's scope, which is why an end-tag is **a mere end-marker**.
+Because of that, no attributes can be set on the end-tag of a node.
 
 ```js
 //- the basic document tree traversal
@@ -91,10 +90,13 @@ enter ->|-ce(n)---------|-iss(n)------------------------------|-empty-|-> exit
 
 Since each tag corresponds with the enter- or exit-event of the corresponding
 scope, **parsing** the tag soup of a document tree can be described as
-**an event-driven process**. Based on that, the sub-order of start-tags can
-be understood to define an **enter-order**, and the sub-order of end-tags to
-define an **exit-order**. Overall, the tag soup of a document tree can be
+**an event-driven process**. Based on that, the subsequence of start-tags can
+be understood to define an **enter-order**, and the sub-sequence of end-tags
+to define an **exit-order**. Overall, the tag soup of a document tree can be
 understood to define **an order of events**.
+
+- start-tag => enter the node's scope and visit it
+- end-tag => exit the node's scope
 
 Note that a tag soup counts as being **well-formed**, if and only if it consists
 of pairs of start- and end-tags such that the strings of nodes they define are
@@ -104,3 +106,12 @@ to be **malformed**.
 Note that an **implementation** may in general choose to return some best-effort
 result or choose to return no result by throwing an error, as soon as it can
 determine that the input document is malformed.
+
+<!-- ======================================================================= -->
+## conclusions
+
+Based on the above, the following conclusions can be drawn:
+
+- end-tags can be understood as a method to define some-of quantifiers
+- a tag soup defines a containment order, not a document tree
+- the document order is equivalent to the document tree's pre-order trace
