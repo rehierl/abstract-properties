@@ -79,11 +79,32 @@ That is because the pre-order trace of a document tree is **order preserving**.
 <!-- ======================================================================= -->
 ## the document order is the pre-order node order
 
-- the definition of document order
-- the document order is the pre-order node order
+```
+rotated clockwise | in regards    |
+by 90 degrees     | to node <n>   | scopes
+------------------|---------------|-------
+<p>               | presequent-to |  + s(p)
+  fs ..           | above-of      |  |
+  <n>             |---------------|  +-+ s(n)
+    fc .. lc      | subsequent-to |  | |
+  </n>            | below-of      |  | |
+  ns ..           |               |  |
+</p>              |               |  |
+```
+
+Since **each node is defined by its start-tag**, and since the subsequence of
+start-tags in the tag soup of a document corresponds with the document tree's
+pre-order trace, one can conclude that ..
+
+**The document order is identical to document tree's pre-order node order**.
+
+Note that the node order of a document tree is a proper partial suborder to
+that node order. That is, the document order and the document tree's node
+order are not identical. After all, a document order is a total order whereas
+a tree order is in general no total order.
 
 <!-- ======================================================================= -->
-## when to associate
+## TODO - when to associate
 
 Note that the edges defined by the pre-order rule are not embedded into the
 document tree. That is, according to a document tree, a child is not presequent
@@ -99,4 +120,4 @@ descendants. Because of that, no ancestor can belong to any property that is
 defined by any of its descendants.
 
 <!-- ======================================================================= -->
-## html elements
+## TODO - html elements

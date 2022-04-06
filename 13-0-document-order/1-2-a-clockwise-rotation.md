@@ -7,22 +7,22 @@ n -|-> <tag> fc .. lc </tag>
    |-> ns .. ls
 ```
 
-In order to visualize the general pattern of the node order of a document
-tree, one can rotate its tag soup, if seen as a horizontal sequence of tags,
-clockwise by 90 degrees and then indent all tags according to the node level
-of each node in the unordered document tree.
+In order to visualize the overall structure of a tag soup, one can rotate the
+tag soup of a document tree, if seen as a horizontal sequence of tags, clockwise
+by 90 degrees and then indent all the tags according to the node level of each
+node in the unordered document tree.
 
 ```
-rotated clockwise | in regards    |
-by 90 degrees     | to node <n>   | scopes
-------------------|---------------|-------
-<p>               | presequent-to |  + s(p)
-  fs ..           | above-of      |  |
-  <n>             |---------------|  +-+ s(n)
-    fc .. lc      | subsequent-to |  | |
-  </n>            | below-of      |  | |
-  ns ..           |               |  |
-</p>              |               |  |
+rotated clockwise |
+by 90 degrees     | scopes
+------------------|-------
+<p>               |  + s(p)
+  fs ..           |  |
+  <n>             |  +-+ s(n)
+    fc .. lc      |  | |
+  </n>            |  | |
+  ns ..           |  |
+</p>              |  |
 ```
 
 By looking at the scopes that are drawn to the side, one can state that we

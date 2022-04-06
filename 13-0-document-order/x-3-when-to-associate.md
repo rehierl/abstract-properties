@@ -34,9 +34,9 @@ end-tag `</x>`.
 In the case of a malformed input document such that some scope `s(n)` reaches
 out of some other scope `s(x)`, an implementation might choose to restrict
 scope `s(n)` to a subset of `s(x)`. However, such an artificial restriction
-will produce a document tree that can only approximate the input document.
-That is, the document and the resulting tree can not be understood to be
-equivalent.
+will produce a document tree that can not accurately represent the input, it
+can merely provide an approximation of such an input document. That is, the
+document and the resulting tree are not equivalent.
 
 Note that the artificial restriction of `s(n)` to a subset of `s(x)` will
 transform this case into the following *related case*.
@@ -51,8 +51,8 @@ transform this case into the following *related case*.
 ```
 
 Since node `n` is an element in scope `s(x)` node `n` can be associated with
-`x` **while that node is being visited**. That is, `n` can be associated while
-the **start-tag** of node `n` is being processed.
+`x` **while that node and its scope is being processed**. That is, node `n`
+can be associated while its **start-tag** is being processed.
 
 <!-- ======================================================================= -->
 ## related - while exiting - no (!)
@@ -64,13 +64,15 @@ the **start-tag** of node `n` is being processed.
 ```
 
 Due to the above one might be tempted to associate node `n` while processing
-the **exit-event** of its scope. Although, in this particular example, it will
-yield the same result, one must keep in mind that `n` has already been visited.
+its **end-tag**. Although, in this particular example, it will yield the same
+result, one must keep in mind that the start-tag of node `n` has already been
+processed. That is, the corresponding node has been created and finalized.
 
-Note that associating a node while processing the exit-event of its scope is
-**in conflict with the past-present-future principle**. That is, such an
+Note that associating a node while processing its end-tag is in principle
+**in conflict with the past-present-future principle** since such an
 association must be understood to establish **a backward-oriented dependency**
-and, because of that, in principle as an attempt to undo/redo a past event.
+and, because of that, must be understood as an attempt to undo/redo a past
+event.
 
 Recall that the scope of a property/node is strictly forwards-oriented. It
 begins with the defining node and contains every node that is subsequent to
