@@ -58,9 +58,9 @@ suborder into the document tree's pre-order trace.
 <!-- ======================================================================= -->
 ## remarks
 
-Note that the tag soup of a hand-written document must be **well-formed**. That
-is because, in the context of a document tree, a tag soup must always correspond
-with a partial containment order.
+Note that the tag soup of a hand-written document must be **well-formed**.
+That is because, in the context of a document tree, a tag soup must always
+correspond with a partial containment order.
 
 Note that, from a strict point of view, **parsers** read a hierarchy of scopes
 from a tag soup. However, and due to the order of nodes (i.e. the CE of each

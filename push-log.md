@@ -1,4 +1,5 @@
 
+- 2022-04-11 - polishing, chapter 13, almost done
 - 2022-03-18 - polishing, chapters 10-12
 - 2022-02-07 - polishing, chapters 07-09
 - 2022-02-01 - polishing, merge test

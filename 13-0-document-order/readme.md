@@ -9,15 +9,15 @@ n -|-> ns .. ls
 This meta-chapter begins with **embedding tag-based nodes** into a document
 tree - i.e. the start-tag as a first child and the end-tag as a last child.
 The pre-order trace of the modified document tree can thus be described as
-a sequence of nodes and tags ..
+a sequence of nodes and tags ...
 
 ```
 n, <tag>, fc, .., lc, .., l, </tag>, ns, .., ls
 |-s1-------|              |-s2--------|
 ```
 
-.. such that each node `n` is followed by its start-tag `<tag>`, which is
-followed by the node's first child `fc` - i.e. `s1 := (n, <tag>, fc)`.
+... such that each node `n` is followed by its start-tag `<tag>`, which
+is followed by the node's first child `fc` - i.e. `s1 := (n, <tag>, fc)`.
 Furthermore, the last subsequent descendant leaf `l` of the node's last
 child `lc` is followed by the node's end-tag `</tag>`, which is followed
 by the node's next subsequent sibling `ns` - i.e. `s2 := (l, </tag>, ns)`.
@@ -115,3 +115,4 @@ Based on the above, the following conclusions can be drawn:
 - end-tags can be understood as a method to define some-of quantifiers
 - a tag soup defines a containment order, not a document tree
 - the document order is the document tree's pre-order node order
+- each node must be associated while entering its scope

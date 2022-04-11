@@ -6,12 +6,14 @@ note to self ..
 # todos
 
 polishing
-- plish the readme files
+- polish the readme files
 - provide an "abstract" in the readme
 - update the chapter index order
 
 bigger
 - resolve the _notes.md files
+- rephrasing - use "markup" instead of "tag soup"
+- rephrasing - use "linear" instead of "total (order)"
 - flesh out "the things we know" in 05-02
 - flesh out the last chapter - the focus is on rooted paths
 - epilogue, arXiv.org - had no Order Theory category
@@ -21,4 +23,4 @@ bigger
 
 a mental image
 - to visualize non-linear orders/scopes
-- reissverschluss (de)
+- reissverschluss (de), zipper (en)
