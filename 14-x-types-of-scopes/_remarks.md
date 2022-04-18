@@ -1,4 +1,11 @@
 
+about which end-tags can be used
+- in order to restrict the scope of a node
+- can use the end-tag of any ancestor?
+- can use the end-tag of a subsequent sibling?
+- issue - there is no sub-order to define it
+- issue - no interval
+
 whatwg's "tree order" definition
 - similar to that, whatwg's oversimplified perception
   of "ordered set" - treated as equal to "ordered sequence"

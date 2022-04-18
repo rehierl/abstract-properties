@@ -1,187 +1,133 @@
 
-- TODO - needs to be fleshed out
-
 <!-- ======================================================================= -->
 # when (not) to associate a node
 
-The following examines if some node `n` can be associated with some property
-`x` that is defined by node `x`. In addition to that, and since the tags of a
-node trigger enter- and exit-events in a parser (i.e. enter and exit the scope
-of a node), the following clarifies which event must be used when a node has
-to be associated.
+The following examines, if some node `n` can be associated with some property
+`x`, that has node `x` as its defining node. In addition to that, and since
+the tags of a node can be understood to trigger enter- and exit-events (i.e.
+enter and exit the scope of a node), the following will also examine which
+events can be used to associate a node with a property.
 
-Recall that some property `x` which has node `x` as its defining node can only
-apply to the nodes in its scope `s(x)`. Furthermore, the scope of a node can
-only include its defining node `x` and those nodes subsequent to it. However,
-not all the nodes subsequent to a defining node are guaranteed to be nodes in
-`s(x)`. After all, a scope may be reduced by the defining node's end-tag.
+Note that "associate some node with a property that has some other node as its
+defining node" will be shortened to **associate a node with some other node**.
+That is, the latter node needs to be understood as the defining node of some
+property, which allows to treat that node as the property's representative.
 
 Recall that the document order (i.e. the document tree's pre-order node order)
 is order-preserving in regards to the document tree's tree order and also in
-regards to the document tree's child order.
+regards to its child order. Because of that, the edges of the corresponding
+order relations are all oriented the exact same way.
 
-Recall that it is the start-tag of a node that defines a node and its position
-within the document order. Based on that, the start-tag of a node can be said
-to define if that node is subsequent to a defining node or not.
+Recall that it is the start-tag of a node which defines a node and its position
+in the document order. Because of that, the start-tag of a node can be said to
+define if a node is subsequent to some other node. This can be understood to
+require that **each node must be associated while processing its start-tag** -
+i.e. **while entering its scope**.
 
 <!-- ======================================================================= -->
-## (n presequent-to x) in the document order
+## case 1.1: (n presequent-to x)
 
 ```
+-> document/processing order ->
 .. <n> .. <x> ..
           |-s(x)->
 ```
 
-- `n` is presequent to `x` in the document order
-- property `x` is undefined when `n` is reached
-- not if a node is presequent to the defining node of a porperty
+Since node `n` appears presequent to node `x`, property `x` is still unknown by
+the time an implementation reaches node `n`. Because of that, node `n` can not
+be associated with property/node `x`.
+
+- node `n` is presequent to node `x`
+- property `x` is unknown by the time node `n` is reached
+- node `n` **can not be associated** with node `x`
 
 <!-- ======================================================================= -->
-## (n subsequent-to x) in the document order
+## case 1.2: (n subsequent-to x)
 
 ```
 .. <x> .. <n> ..
    |-s(x)------>
 ```
 
-- thus far no issue, if `n` is subsequent to `x` in the document order
-- property `x` is known when the start-tag of `n` is reached
-- a node can only be associated with a property, if and only if
-  that node is subsequent to the property's defining node
+Since node `n` appears subsequent to node `x`, property `x` is defined by the
+time node `n` is reached. Because of that, node `n` can be associated with
+property/node `x`.
+
+- node `n` is subsequent to node `x`
+- property `x` is defined by the time node `n` is reached
+- node `n` **can be associated** with node `x`
 
 <!-- ======================================================================= -->
 ## introducing end-tags
 
-- recall that an end-tag restricts the scope of a node
-- a scope can not be assumed to always end with the document order
-- the core difference between the document order and the tree order
-- an end-tag states that there is no further subsequent node
-  which still counts towards the corresponding scope
-- an end-tag triggers the exit-event of a scope
+```
+        .. <x> .. </x> ..
+|-unknown->|-open--->|-closed->|
+           |-s(x)--->|
+```
+
+Recall that a property only applies to the nodes in its scope `s(x)`, which
+includes the property's defining node `x` and those nodes subsequent to it.
+However, not all of the nodes that are subsequent to a defining node are
+necessarily also defined to be nodes in that scope. After all, a scope may
+be **restricted by the end-tag of its defining node**.
+
+Note that an end-tag can be understood to state that no node subsequent to it
+belongs to the scope that end-tag is defined to close. After all, the scope is
+then defined to end with that end-tag, not with the last node in the document
+order. Hence, an end-tag can be understood to state that no more node will
+follow which still adds towards the corresponding scope.
 
 <!-- ======================================================================= -->
-## n presequent-to s(x)
+## case 2.1: (n presequent-to s(x))
 
 ```
 .. <n> .. <x> .. </x> ..
           |-s(x)--->|
 ```
 
-- `n` can not be associated with `x` since `n` is presequent to `x`
-- property `x` is undefined when `n` is reached
+As before, if node `n` appears presequent to node `x`, then property `x` is
+still unknown by the time node `n` is reached. Because of that, node `n` can
+not be associated with node `x`.
+
+- node `n` is presequent to node `x`
+- property `x` is undefined by the time node `n` is reached
+- node `n` **can not be associated** with node `x`
 
 <!-- ======================================================================= -->
-## n subsequent-to s(x)
+## case 2.2: (n subsequent-to s(x))
 
 ```
 .. <x> .. </x> .. <n> ..
    |-s(x)--->|
 ```
 
-- `n` can not be associated with `x` since `s(x)`
-  has ended with `</x>` when `n` is reached
-- in other words, `n` is no node in `s(x)`
+Similar to before, node `n` is subsequent to node `x`. However, node `n` is
+also subsequent to the defining node's end-tag. Because of that, scope `s(x)`
+is defined to **end before** node `n` is reached. Node `n` can therefore not
+be associated with node `x`.
+
+- node `n` is subsequent to node `x`
+- node `n` is subsequent to end-tag `</x>`
+- node `n` is subsequent to the exit-event of scope `s(x)`
+- node `n` is *not* defined to be a node in scope `s(x)`
+- node `n` **can not be associated** with node `x`
 
 <!-- ======================================================================= -->
-## malformed markup - ignored
+## case 2.3: (n subsequent-to s(x))
 
 ```
-.., <x>, .., <n>, .., </x>, .., </n>, ..
-    |-s(x)---------------|
-             |-s(n)----------------|
-     reduced |-s(n)-->|<-ignored-->|
+.. <x> .. <n> .. </x> ..
+   |-s(x)---------->|
 ```
 
-- recall that markup is required to be well-formed
-- implementations may reject to process malformed markup
-- implementations may instead choose to reduce the scope
-  of a node and dismiss/ignore its end-tag
-- malformed markup is no basis for discussion
+Similar to before, node `n` is subsequent to node `x`. However, node `n` is
+still presequent to the defining node's end-tag. Because of that, scope `s(x)`
+is defined to **end after** node `n` is reached. Node `n` can therefore be
+associated with node `x`.
 
-Note that an artificial restriction will produce a document tree that can not
-accurately represent the input, it can only provide an approximation of such
-a malformed input document. That is, the document and the resulting tree can
-not be considered equivalent.
-
-<!-- ======================================================================= -->
-## s(n) subset-of s(x)
-
-```
-.. <x> .. <n> .. </n> .. </x> ..
-   |-s(x)------------------>|
-          |-s(n)--->|
-```
-
-- it is the start-tag of a node that defines **the order of a node**
-- `n` can be associated while processing its start-tag and its end-tag
-- because scope `s(x)` is still valid during both events
-
-```
-.. <x> .. <n> .. </n> .. </x> ..
-   |-s(x)------------------>|
-           |<------| associate? - no!
-```
-
-- even though, in this case, the exit-event of node `n` could be used to
-  associate `n` with property `x`, one can state that such an association
-  is in conflict with the document order
-- after all, knowledge is applied to a node that is presequent to the event,
-  which is in conflict with the orientation of the document order
-
-in regards to the processing order
-
-- can be understood to introduce a backwards-oriented dependency
-- can be understood as an attempt to undo/redo a past event
-- the scope of a node is strictly forwards-oriented
-
-<!-- ======================================================================= -->
-## s(n) superset-of s(x)
-
-```
-.. <n> .. <x> .. </x> .. </n> ..
-          |-s(x)--->|
-```
-
-- `n` is defined by its start-tag and thus no node in `s(x)`
-- at the time start-tag `<n>` is processed, property `x` is undefined
-- at the time end-tag `</n>` is processed, scope `s(x)` has already ended
-
-```
-.. <n> .. <x> .. </x> .. </n> ..
-    |<-----| associate? - no!
-```
-
-- `n` is presequent to `x` - the association is against the document order
-- it is an error to associate a node with the property of a descendant
-- regardless of when exactly one would want to establish the association
-- e.g. while processing `<x>` or `</x>`
-
-<!-- ======================================================================= -->
-## conclusion - only while entering a scope
-
-Note that it is the start-tag of a node that defines **the order of a node**.
-Put differently, the start-tag of a node defines if a node is subsequent to
-the defining node of a property.
-
-- each node must be associated while entering its scope
-- a node must be subsequent to the defining node of a scope
-
-Recall that the document tree's tree order and also the document tree's
-child order are embedded suborders to the document order. That is, the
-document order is order preserving in regards to these suborders.
-
-- it is against the document order to associate a node in any other way
-- it is against the tree order and the child order to associate a node
-  while not processing the node's start-tag
-
-Note that a node can only be associated with a property, if and only if the
-property's scope still **counts as being open**.  A node subsequent to a
-defining node is no node in the property's scope, if that scope has already
-ended once the node's start-tag is reached.
-
-- a node is no node in a scope, if that scope has already ended
-
-Note that **implementations create and finalize node objects** as soon as they
-reach the start-tag of a node. After that, node objects may only be extended
-by references to their child nodes, while remaining done/visited/finalized
-in every other aspect.
+- node `n` is subsequent to node `x`
+- node `n` is presequent to end-tag `</x>`
+- node `n` is presequent to the exit-event of scope `s(x)`
+- node `n` is defined to be a node in scope `s(x)`
+- node `n` **can be associated** with node `x`

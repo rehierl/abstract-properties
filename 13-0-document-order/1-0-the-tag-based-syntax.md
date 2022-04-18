@@ -25,10 +25,10 @@ order `co(n)` with a start-tag `<tag>`, and by suffixing it with an end-tag
 <tag>  fc ... lc  </tag>
 ```
 
-These tag-based markers can be thought of as being injected as additional
-child nodes into the unordered document tree (DTU). The start-tag as the
-node's new first child, and the end-tag as the node's new last child, both
-of which can be described as specialized leaf nodes.
+These tag-based markers can be thought of as being injected as additional child
+nodes into the unordered document tree (DTU). The start-tag as the node's new
+first child, and the end-tag as the node's new last child, both of which can be
+described as specialized leaf nodes.
 
 ```
 n -|-> ns .. ls
@@ -97,6 +97,11 @@ and since all start-tags can be understood to define all of the nodes in
 a document tree, each node can be understood to have a **unique position**
 associated with it - a position that reflects its index in the document
 tree's pre-order trace.
+
+Note that the position of a node, in regards to the positions of all
+the other nodes, will loosely be referred to as **the order of a node**.
+That is because, the position of a node can be understood to denote
+**the placement of a node in the corresponding order**.
 
 Note that, since **end-tags** have no attributes associated with them, apart
 from the node's name, end-tags **do not correspond with any node** in the

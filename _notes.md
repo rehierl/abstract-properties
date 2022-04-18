@@ -19,8 +19,12 @@ bigger
 - epilogue, arXiv.org - had no Order Theory category
 - reduce the wiki links - i.e. the references.md files
 
-# beyond
+# notes
 
-a mental image
+the order of a node
+- its position in a node order
+- e.g. its distance from the first
+- more general than node level
+
+reissverschluss (de), zipper (en)
 - to visualize non-linear orders/scopes
-- reissverschluss (de), zipper (en)

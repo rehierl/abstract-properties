@@ -112,7 +112,7 @@ determine that the input document is malformed.
 
 Based on the above, the following conclusions can be drawn:
 
-- end-tags can be understood as a method to define some-of quantifiers
+- end-tags can be used as a method to define some-of quantifiers
 - a tag soup defines a containment order, not a document tree
 - the document order is the document tree's pre-order node order
-- each node must be associated while entering its scope
+- each node must be associated while processing its start-tag
