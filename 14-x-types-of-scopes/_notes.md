@@ -1,4 +1,10 @@
 
+apply the pre-order rule to DTO?
+- can the pre-order rule be defined
+  by repeatedly embedding a child order?
+- does a DTO have its own child order?
+- `tO(n) := n × tO(fc) × tO(ns)`
+
 about which end-tags can be used
 - in order to restrict the scope of a node
 - can use the end-tag of any ancestor?
