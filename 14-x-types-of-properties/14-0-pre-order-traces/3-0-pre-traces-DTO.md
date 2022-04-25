@@ -69,7 +69,7 @@ ordered sequences - i.e. a hierarchy of scopes/traces.
 .. × p × fs .. ps .. × n × fc .. lc .. × ns .. ls .. | ..
 ---|-----------------|-----------------|-------------|---
                      |-tU(n)---------->|
-                         |-tO(fc)----->|
+                     |-n-|-tO(fc)----->|
 ```
 
 Note that, similar as before and back in regards to TU, the trace `tU(n)`
@@ -96,7 +96,7 @@ a prefix nor a suffix to the traces of its ancestors.
 .. × p × fs .. ps .. × n × fc .. lc .. × ns .. ls .. | ..
 ---|-----------------|-----------------|-------------|---
                      |-tO(n)------------------------>|
-                         |-tO(fc)----->|-tO(ns)----->|
+                     |-n-|-tO(fc)----->|-tO(ns)----->|
 ```
 
 Based on the above, the trace of a node `tO(n)` can be described in terms of

@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-## sub-orders to a pre-order trace
+# sub-orders to a pre-order trace
 
 Recall that each pre-order trace is an ordered sequence of nodes. As such, the
 pre-order trace of a tree corresponds with a total node order. And since each
