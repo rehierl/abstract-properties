@@ -15,8 +15,9 @@
 ```
 
 Recall that the unordered document tree is such that no child order has been
-embedded into it. Because of that, an unordered document tree must be treated
-like any other node tree - i.e. with no child order associated with it.
+embedded into it. Because of that, the unordered document tree must be treated
+like any other node tree - i.e. as a tree that has no child order associated
+with it.
 
 ```
       presequent           subsequent   | the resulting tree-order
@@ -29,7 +30,7 @@ like any other node tree - i.e. with no child order associated with it.
 ```
 
 Recall that, embedding the document tree's child order into its tree order has
-the effect of reducing the amount of child nodes to no more than two. After all,
+the effect of reducing the amount of child nodes to no more than two. That is,
 each node in the ordered document tree has its former next subsequent sibling
 and its former first child as its only child nodes.
 
@@ -37,6 +38,6 @@ and its former first child as its only child nodes.
  -> n -> fc .. lc .. -> ns .. ls ..
 ```
 
-Recall that applying the pre-order rule has the effect of turning the ordered
-document tree into into the document tree's pre-order trace that can be
-visualized as a path graph.
+Recall that applying the pre-order rule to the ordered document tree has the
+effect of turning its tree order into into the document tree's pre-order trace
+that can be visualized as a path graph.

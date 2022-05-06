@@ -18,16 +18,15 @@ Recall that, unless specified otherwise, descriptions are by default
 in regards to an unordered document tree and its tree order.
 
 ```
+t(T), trace(T), pre(T):  r .. -> n -> fc .. lc .. -> ns .. ls ..
 t(n), trace(n), pre(n):       -> n -> fc .. lc ..
-t(T), pre(T), trace(T):  r .. -> n -> fc .. lc .. -> ns .. ls ..
 ```
 
 Recall that the pre-order trace `t(n)` of any node `n` is a substring to the
 trace of its tree `T(N,E)` - i.e. the trace `t(r)` of the tree's root `r`.
 Also, each trace `t(n)` is an ordered sequence of nodes such that its set of
 nodes is equal to the set of nodes in the induced subtree `T[n]`. Because of
-that, `t(n)` can also be described as the pre-order trace of the induced
-subtree `T[n]`.
+that, `t(n)` can also be described as the trace of that induced subtree.
 
 * `t(n) := n × t(fc) × .. × t(lc)`
 * `( t(n) substring-of t(a) )` is true for any `(a in A(n))`

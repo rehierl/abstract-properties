@@ -15,9 +15,9 @@
 
 As can be seen, **the scope of a property over any of the these orders**
 (i.e. DTR, DTU, DTO and DPR) is a **substring** to the document tree's
-pre-order trace. Furthermore, each such scope begins in the defining node's
-start-tag and either also ends in that start-tag, or in the end-tag of one
-of the defining node's ancestors.
+pre-order trace. Furthermore, each such scope begins in the defining
+node's start-tag and either also ends in that tag, or in the end-tag of
+one of the defining node's ancestors.
 
 <!-- ======================================================================= -->
 ## the pre-order trace over DTR
@@ -31,8 +31,8 @@ of the defining node's ancestors.
 ```
 
 The pre-order trace `tTR(n)` of a node in regards to the document tree's
-**trivial suborder** (DTR - all of the nodes, but none of the edges) is
-a 1-element substring to the document tree's pre-order trace. After all,
+**trivial suborder** (DTR - all of the nodes, none of the edges) is a
+1-element substring to the document tree's pre-order trace. After all,
 any node has an empty set of descendants in that suborder.
 
 * `TR(N,Ø)` for `T(N,E)`
@@ -83,7 +83,7 @@ Furthermore ...
 * `tU(n) := n × tO(fc)`
 * `( tO(c) suffix-of tU(n) )` if `(n parent-of c)`
 
-Which is why ...
+... which is why ...
 
 * `tO(n) := n × tO(fc) × tO(ns)`
 
@@ -104,9 +104,9 @@ However, only some-of those nodes are its descendants in DTU.
 ```
 
 Note that, since a node has no more than two child nodes in DTO, and since
-**the end-tag of a node** appears just after its last descendant in DTU, the
-end-tag of a node **separates the descendants of a node** from its additonal
-descendants in DTO.
+**the end-tag of a node** appears just after its last descendant in DTU, that
+end-tag can be understood to **separate the descendants of a node** from its
+additonal descendants in DTO - i.e. located in between both branches.
 
 <!-- ======================================================================= -->
 ## the pre-order trace over DPR
@@ -120,17 +120,17 @@ descendants in DTO.
                      |-tPR(n)----------------------------->|
 ```
 
-The pre-order trace `tPR(n)` of any node in regards to the document tree's
-pre-order trace `t(T)` (DPR) is a **suffix** to that trace. After all, the
-ordered sequence of that trace corresponds with a tree, which is why each
-node subsequent to a node is a descendant of that node.
+The pre-order trace `tPR(n)` of any node is a **suffix** to the document tree's
+pre-order trace `t(T)` (DPR). After all, the ordered sequence of that trace
+corresponds with a specialized tree, which is why each node subsequent to a
+node is a descendant of that node in that order.
 
 * `tPR(r) := (r,..,n,..,l)`
 * `tPR(n) :=      (n,..,l)`
 
 Note that the pre-order trace of any node over the document tree's pre-order
 trace is a suffix to the pre-order traces of its ancestors, including that
-of the tree's root.
+of the document tree's root.
 
 * `(tPR(n) suffix-of t(T))` for any `(n in N(T))`
 
