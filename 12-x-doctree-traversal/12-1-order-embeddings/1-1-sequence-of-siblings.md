@@ -111,7 +111,7 @@ nodes, `ns` and `fc` can both be described as heads of **sequences of siblings**
 ordered sequences of nodes. That is, descriptions such as "last subsequent
 sibling" in regards to the head of a sequence of siblings must be understood
 to refer to the last subsequent sibling that can be reached beginning with
-the corresponding node while moving into the same "direction". That is,
+the corresponding node, while moving into the same "direction". That is,
 assuming that these nodes do exist.
 
 * The last subsequent sibling of `ns*` is `ls`.

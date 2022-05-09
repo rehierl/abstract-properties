@@ -1,4 +1,6 @@
 
+- continue witn 14.2 and 14.3 ...
+
 apply the pre-order rule to DTO?
 - can the pre-order rule be defined by
   repeatedly embedding a child order?
@@ -18,3 +20,12 @@ whatwg's definition of "tree order"
   partial orders that correspond with a tree
 - not every partial order is a tree order
 - not every tree order is a total order
+
+simple sets + order embeddings
+- if seen as having a total order relation
+- i.e. each element is subsequent to every other element
+- this raises difficulties with order extensions
+- e.g. drop all of the edges that are in conflict
+  with the edges that will be embedded
+- i.e. the new edges must override existing edges
+- i.e. would have to redefine order embeddings

@@ -6,7 +6,7 @@ container types are based upon components
 - an order over the components of a container
 - the order of a simple set is ... total!
 
-point out the similarties between the operators
+point out the similarities between operators
 - defined for sets and sequences
 - i.e. subset-of, substring-of
 - lost thought - the quantififers ?!?

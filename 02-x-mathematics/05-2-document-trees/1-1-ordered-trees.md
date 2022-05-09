@@ -63,7 +63,7 @@ purpose. Because of that, describing them as "sorted binary trees" (alt.
 standard) still seems more appropriate.
 
 <!-- ======================================================================= -->
-## alternatively - linear/total sequence - meh (!)
+## alternatively - linear/total sequence - nope
 
 One might assume that describing an ordered sequence as a "linear/total
 sequence" could be an alternative description to "ordered sequence".
@@ -78,7 +78,7 @@ Because of that, one would scrap the whole point of describing an "ordered
 sequence" as an "ordered sequence".
 
 <!-- ======================================================================= -->
-## alternatively - partial tree - meh (!)
+## alternatively - partial tree - nope
 
 One might assume that describing describing a tree as a "partial tree" could
 be an alternative to "ordered tree".

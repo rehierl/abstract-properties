@@ -3,18 +3,18 @@
 # Embedding more node orders
 
 The embedding of the child order of a doctree into its node order results in
-the true node order of the ordered doctree. This node order is such that it is
-order preserving in regards to the unordered doctree and also in regards to the
-doctree's child order. In other words, both node orders are embedded suborders
-to the ordered doctree.
+the true node order of the ordered doctree. This node order is such that it
+is order preserving in regards to the unordered doctree and also in regards
+to the doctree's child order. In other words, both node orders are embedded
+suborders to the ordered doctree.
 
 In addition to that, the embedding of a doctree's child order has the effect
 of reducing the overall amount of incomparable nodes. That is, fewer nodes
 remain such that no path can be formed between both nodes.
 
-Based on that, one can assume that even more node orders can be embedded until
-no more incomparable nodes remain. That is, until the resulting node order is
-total.
+Based on that, one can assume that even more node orders can be embedded
+until no more incomparable nodes remain. That is, until the resulting node
+order is total.
 
 <!-- ======================================================================= -->
 ## topological sorting/ordering

@@ -2,9 +2,9 @@
 <!-- ======================================================================= -->
 # child order
 
-As mentioned before, any parent `p` in a tree can be understood to be associated
-with a simple set of child nodes `c(p)`, which can be derived from the set of
-edges `E` of the corresponding node tree `T(N,E)`.
+As mentioned before, any parent `p` can be understood to be associated with
+a simple set of child nodes `c(p)`, which can be derived from the set of
+edges `E` of the corresponding tree `T(N,E)`.
 
 * `c(p) := { c | pEc }`
 * `(c child-of p) := (c in c(p))`

@@ -79,7 +79,15 @@ Note that the node order of an ordered document tree is such that
 **no node in it has more than two child nodes**,
 its former next sibling (ns) and its former first child (fs).
 
-Note that the ordered document tree itself itself, even though the child order
-of the document tree is embedded into it, still **has no child order**. That
-is because even in DTO, no path can be formed from one child to its sibling
+Note that the ordered document tree itself, even though the child order of the
+document tree is embedded into it, has (strictly speaking) **no child order**.
+That is because even in DTO, no path can be formed from one child to its sibling
 (i.e. between a node's former next sibling and its former first child).
+
+Note that, since embedding a child order into a tree is guaranteed to reduce
+the amount of child nodes of its root to one child only (see "alternative
+reasoning"), one can not **iteratively embed** more and more child orders
+indefinitely without producing a conflict. That is because such a process
+is guaranteed to eventually end in a linear order, at the latest with the
+embedding of the `#N`-th child order. After all, with each step at least one
+node will be reduced to one child only, which subsequent steps can not undo.

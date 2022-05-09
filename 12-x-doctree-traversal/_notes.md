@@ -3,8 +3,8 @@
 
 the embedding of traversal edges consists of ..
 - an ordering rule and an order of execution
-- the edges that result from applying the pre-/post-/level-order rule
 - rule - how a sequence is formed - additional edges
+- edges - the edges that result from applying a rule
 - execution - in which order these rules must be applied
 
 if you know that you have a transitive closure

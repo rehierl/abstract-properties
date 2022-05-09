@@ -14,7 +14,6 @@ bigger
 - resolve the _notes.md files
 - rephrasing - use "markup" instead of "tag soup"
 - rephrasing - use "linear" instead of "total (order)"
-- flesh out "the things we know" in 05-02
 - flesh out the last chapter - the focus is on rooted paths
 - epilogue, arXiv.org - had no Order Theory category
 - reduce the wiki links - i.e. the references.md files
