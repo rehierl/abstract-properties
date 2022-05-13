@@ -8,12 +8,13 @@ a path graph            a child order        a rooted tree: r ->
 r -> c -> .. -> l       c1 -> .. -> cN       -> c1 -> ... -> cN
 ```
 
-Recall that an ordered sequence of nodes defines a total order of nodes, which
-is why each ordered sequence corresponds with a path graph. As such, an ordered
-sequence of nodes can be understood to begin with a root `r`, continue with a
-child `c` and end in a leaf `l`. Consequently, an ordered sequence can be seen
-as defining a rooted path `rp`, which is why this **path-based perspective**
-can be understood to represent **a vertical point of view**.
+Recall that an ordered sequence of nodes defines a total order of nodes,
+which is why each ordered sequence corresponds with a path graph. Because
+of that, any ordered sequence of nodes can be understood to begin with a
+root `r`, continue with a child `c` and end in a leaf `l`. Consequently,
+an ordered sequence can be seen as defining a rooted path `rp`, which is
+why this **path-based perspective** can be understood to represent
+**a vertical point of view**.
 
 * `s := (s1,..,sN)` <=> `rp := (r,c,..,l)`
 
@@ -28,9 +29,9 @@ therefore be understood to represent **a horizontal point of view**.
 Note that, in the context of this discussion, the description as "a sequence
 of siblings" must be understood with **a more general point of view** in mind.
 That is, a sequence of siblings is not necessarily a sequence such that each
-node in it is a sibling according to the node order in question. Instead, that
-description focusses more on some common characteristic of the nodes contained
-within such an ordered sequence.
+node in it is a sibling according to some node order. Instead, that description
+must be understood to focus on some common characteristic of the corresponding
+nodes.
 
 Based on the above, a rooted path can also be described as the concatenation
 of one or more child orders.
@@ -38,25 +39,23 @@ of one or more child orders.
 * `s := (s1,..,sN)` <=> `rp := (r) × (c) × .. × (l)`
 
 Also note that embedding a child order into a tree which only has one parent
-node (i.e. its root), will turn the tree into a path graph that corresponds
-with an ordered sequence.
+node (i.e. its root), will turn the tree into a path graph.
 
 * `{(r,c1),..,(r1,cN)}` + `{(c1,c2),..,(cN-1,cN)}` => `{(r,c1),(c1,c2),..}`
 * `s := (s1,..,sN)` <=> `s := (r,c1,..,cN)`
 
-Note that subsequent discussions will treat the child/sibling-based perspective
-as **the default point of view**. That is, ordered sequences will be treated as
+Note that subsequent discussions will treat the sibling-based perspective as
+**the default point of view**. That is, ordered sequences will be treated as
 sequences of siblings.
 
 <!-- ======================================================================= -->
 ## tree traversal
 
-In the end, the purpose of embedding even more nod orders into a tree order
-is to turn a tree into a path graph. As such the tree will correspond with
+In the end, the purpose of embedding even more node orders into a tree order
+is to turn that tree into a path graph. As such the tree will correspond with
 an ordered sequence of nodes. Because of that, the resulting ordered sequence
 of nodes will represent **a (traversal) trace of nodes** such that it can be
-understood to be defined based on the node orders that were embedded one after
-another.
+understood to be defined based on the node orders that were embedded into it.
 
 Note that the transformation of a tree into a trace of nodes is, regardless
 of any immediate practical use, a theoretical approach which focusses on
@@ -92,8 +91,8 @@ r -|-> | .. |    =>    r -> | .. |
 ```
 
 The subsequent embedding of more and more node orders can be understood to
-flatten the height of a tree until what remains can essentially be referred
-to as **a child order** and thus as a sequence of siblings.
+flatten the height of a tree until what remains can essentially be described
+as **a sequence of siblings**.
 
 <!-- ======================================================================= -->
 ## sequences of (subsequent) siblings

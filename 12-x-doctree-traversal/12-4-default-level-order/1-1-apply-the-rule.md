@@ -7,12 +7,12 @@ n.s = (n.s × n.c)
 n.c = null
 ```
 
-The effect of the level-order rule is such that a node can be treated as
-having no more child nodes after the rule has been applied, which is why the
-level-order rule can also be understood to remove all child nodes by turning
-them into subsequent siblings of their parent. Because of that, the level-order
-rule can also be said to push  the child nodes of a node, including all of
-their descendants, one level closer towards the root.
+The effect of the level-order rule is such that a node can be treated as having
+no more child nodes after the rule has been applied, which is why this rule can
+also be understood to remove all child nodes by turning them into subsequent
+siblings of their parent. Because of that, the level-order rule can also be
+said to push  the child nodes of a node, including all of their descendants,
+one level closer towards the root - i.e. "flatten the tree's height".
 
 Note that, if a node is a leaf, then even the level-order rule will have no
 effect on it. Likewise, a node that had subsequent siblings, but no child nodes
@@ -22,6 +22,10 @@ new sequence of subsequent siblings.
 
 <!-- ======================================================================= -->
 ## applied to all the nodes => a path graph
+
+Note that, as with the pre-order rule, the following is in regards to applying
+the level-order rule to all the nodes with no particular order of execution in
+mind.
 
 Since the former first child `fc` of node `n` is appended to its former last
 sibling `ls`, node `fc` is set as the new next sibling of `ls`. Because of
@@ -34,8 +38,8 @@ n -> (ns .. ls) -> (fc .. lc)
 
 If `ls` has no child in the unordered doctree (i.e. a leaf), then `ls` is also
 a leaf in the ordered doctree (i.e. no subsequent sibling and no child). The
-level-order rule has therefore the effect of turning a leaf node into one that
-is no last sibling to any node and therefore also **no longer a leaf**.
+level-order rule has therefore the effect of turning a leaf into one that is
+no last sibling to any node and therefore also **no longer a leaf**.
 
 If `ls` has a child in the unordered doctree (i.e. a parent), then it remains
 to be a parent that has `fc` as its next sibling. The level-order rule therefore
@@ -50,7 +54,7 @@ root -> (fc .. lc)
 
 Since an unordered doctree is in general assumed to have two or more nodes,
 the level-order rule will turn the root's first child `fc` into its next, and
-the root's last child `lc` into its last sibling `ls`.
+the root's last child `lc` into its last subsequent sibling `ls`.
 
 ```
 root -> (ns .. ls) -> (fc .. lc)?
@@ -74,7 +78,13 @@ but may be the former last child of another node instead. Because of that,
 an order of execution must be defined.
 
 Applying the level-order rule to all the nodes in an ordered tree will turn
-an ordered doctree into **a path graph** that has the last child node of a
-child order as its one and only leaf.
+an ordered doctree into **a path graph** that has the last child of a child
+order as its one and only leaf.
 
 * tree-order + child-order + level-order => level-order trace
+
+Note that the short explanation, as to why applying the level-order rule to
+an ordered doctree will result in a path graph, is that the rule is applied
+to all the nodes and that the rule will reduce the number of child nodes of
+any parent in the ordered doctree to one child only, while turning all of
+the leaf nodes (except for one) into a parent of one child.

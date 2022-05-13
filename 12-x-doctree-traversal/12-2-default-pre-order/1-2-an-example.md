@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# example: pre-order (D)
+# example: (default) pre-order
 
 ```
 unordered doctree    unordered doctree     ordered doctree
@@ -38,9 +38,9 @@ n1 -|- n2 -|- n3      n1 -|- n2 - n5 - n3      (n0,n1,n4,n2,n5,n3)
 
 Since the resulting pre-order traces are the same, regardless to which node
 the rule is applied first, these two examples can be understood to suggest
-that the pre-order rule does not require a specific order of execution.
+that the pre-order rule does not require an order of execution.
 
 Note that the default pre-order trace corresponds with the reversed post-order
-trace. That is, both traces are reversed to each other.
+trace. That is because both traces are reversed to each other.
 
 * `preD(n0,n1,n4,n2,n5,n3)` is reversed to `postR(n3,n5,n2,n4,n1,n0)`

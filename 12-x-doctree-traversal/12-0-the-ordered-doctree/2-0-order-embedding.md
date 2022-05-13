@@ -6,10 +6,10 @@ For as long as a doctree is considered to be associated with an external child
 order (i.e. an unordered doctree), nothing needs to be done since the formal
 definition remains as-is without a child order embedded into it.
 
-However, it is needlessly difficult to derive any conclusion since one still
+However, it is needlessly difficult to derive any conclusion since one then
 has to deal with two separate node orders (i.e. the tree order and its child
 order). Because of that, it is essential to embed the child order of a doctree
-into its node order in order to determine **the doctree's true node order**.
+into its node order in order to determine **the doctree's overall node order**.
 
 <!-- ======================================================================= -->
 ## a set of complex edges
@@ -17,7 +17,7 @@ into its node order in order to determine **the doctree's true node order**.
 One way to embed the child order into a node tree is to redefine its set of
 edges as **a set of complex edges**, each of which has a parent as its source
 and an ordered sequence of siblings as its sink. That is, the sink of an edge
-no longer is a single node, but an ordered sequence of nodes.
+no longer is a single node, but an ordered sequence of child nodes.
 
 * `T(N,E)` where `E := { (p,co(p)) | (p in PN) }`
 * e.g. `E := { (1, (2,3) ) }`
@@ -37,25 +37,25 @@ E := {(1,(2,3))}        -------------
 
 Defined as such, each complex edge corresponds with one or more simple edges
 of two distinct semantics: "parent-of" and "previous-sibling-of". Because of
-that, the edges of such a tree can be understood to consist of two disjoint
-sets of simple edges such that both sets have homogenous semantics.
+that, the set of simple edges of such a tree can be understood to consist of
+two disjoint sets of edges such that both sets have homogenous semantics.
 
 * `T(N,E)` where `E := (E1 + E2)`
 * `E1 := {(1,2),(1,3)}` where `sem(E1) := (a parent-of b)`
 * `E2 := {(2,3)}` where `sem(E2) := (a previous-sibling-of b)`
 
 The definition of a set of complex edges is therefore only superficial since
-it does not truly embed the child order of a document tree into its node order.
+it does not truly embed the child order into the document tree.
 
 <!-- ======================================================================= -->
 ## embedding a child order (1)
 
 Recall that a **parent** is defined as a node that is the source of an edge,
 and that a **child** is defined as a node that is the sink of an edge. Also,
-a **tree** is defined as a graph that is required to have one root and a
-unique rooted path for each node in it. Defined as such, each child in a tree
-always has one parent only since otherwise not all nodes would have a unique
-rooted path.
+a **tree** is defined as a graph that is required to have one root and a unique
+rooted path for each node in it. Defined as such, each child in a tree always
+has one parent only since otherwise not all nodes would have a unique rooted
+path.
 
 ```
 graph T1        associated expressions
@@ -68,7 +68,7 @@ graph T1        associated expressions
 ```
 
 As can be seen, adding the set of edges of a child order to the set of edges
-of an undordered document tree **will (initially) result in a non-tree graph**.
+of an undordered document tree will (initially) result in **a non-tree graph**.
 
 Note that `2`, the former presequent sibling of `3`, now acts as an additional
 parent to `3`. Because of that, `3` is now such that it has two distinct rooted
@@ -85,22 +85,26 @@ the transitive reduction of a (strict) partial order.
 
 * transitive if `aEb` and `bEc`, then also `aEc`
 
-This rule effectively states that, if a path `aPc` of two or more edges can be
-formed, then an edge `aEc` must exist that connects both of the endpoints of
-that path. Because of that, the rule can be generalized as follows:
+This effectively states that, if a path `aPc` of two or more edges can be
+formed, then an edge `aEc` must exist that connects both of the endpoints
+of that path. Because of that, the rule can be generalized as follows:
 
 * transitive if `aPb`, then also `aEb`
 
-Note that a "transitive closure" operation will add an edge `aEb` for each path
-`aPb` that can be formed. In words: the transitive closure iteratively connects
-the endpoints of each path that can be formed over the existing edges.
+Note that a "transitive closure" will add an edge `aEb` for each path `aPb`
+that can be formed. Hence, the transitive closure iteratively connects the
+endpoints of each path that can be formed over the existing edges. Because of
+that, each edge in the transitive closure of a relation can be understood to
+state that a path of one or more edges can be formed in the source relation.
+
+* `aEb` in the transitive closure of `R` => a path can be formed over `R`
 
 With the above in mind, one can generalize the transitive reduction such that,
 if a path `aPb` of two or more edges exists, then an edge `aEb` (if it exists)
 will be dropped. Because of that, the order in which **implicit edges** such
-as `aEb` are removed during a transitive reduction is **non-relevant**.
+as `aEb` are removed during a transitive reduction is non-relevant.
 
-* reduction: drop `aEb`, if a path `p(a,b)` exists such that `(p != (a,b))`
+* reduction := drop `aEb`, if a path `p(a,b)` exists such that `(p != (a,b))`
 
 <!-- ======================================================================= -->
 ## embedding a child order (2)
@@ -118,36 +122,35 @@ graph T1         drop (1,3)       drop (1,4)       cover graph T3
 
 With the above in mind, edges `(1,2)` and `(2,3)` can both be described as
 **explicit edges**, and edge `(1,3)` as an implicit edge since it can be
-derived from the previous two edges. That is because the former two edges
-allow to form path `(1,2,3)`.
+derived from the previous two. That is because the former two edges allow
+to form path `(1,2,3)`.
 
-Because of that, adding a child order to a tree will result in a graph that is
-**no longer the cover relation** of an order relation since it will in general
-contain edges that can be derived from other existing edges. The modified graph
-can therefore not be described as being "tranistively reduced", which is why
-the edge `(1,3)` must be dropped (T1 -> T2).
+Because of that, adding a child order to a tree will result in a graph that
+is **no longer the cover relation** of an order relation since it will in
+general contain edges that can be derived from other existing edges. The
+modified graph can therefore not be described as being "tranistively reduced",
+which is why edge `(1,3)` must be dropped (T1 -> T2).
 
-Note that `3` in T2 is no longer a child of root `1`, but a child of its former
+Note that `3` in T2 is no longer a child to root `1`, but a child to its former
 previous sibling `2` instead. As can be seen in the final cover graph T3, `3`
-will become the single child of `2`, and `4` in T3 the single child of `3`.
+will be the single child of `2`, and `4` the single child of `3`.
 
-Note that the transitive order relation of T3 will still contain an edge in
-between `1` and `3`. That is, `aEb` over the transitive closure of T3 is true
-for both nodes, which is why the order between both nodes is maintained.
+Note that the transitive order relation of T3 will still contain the edge
+`(1,3)`. That is, `aEb` over the transitive closure of T3 is true for both
+nodes, which is why the order between both nodes is maintained.
 
 <!-- ======================================================================= -->
 ## restricted amount of affected edges
 
-Apart from their ancestors (e.g. `1`) any other non-ancestor node that may
-exist (i.e. siblings to `1`) remain to be incomparable to the child nodes
-(e.g. `2`). That is, the child order of `1` will not affect any of these
-nodes. Likewise, the child order of `1` will not establish a path between
-`1` and the descendants of its child nodes.
+Apart from their ancestors (e.g. `1`) any other non-ancestor that may exist
+(e.g. siblings to `1`) remain to be incomparable to the child nodes (e.g.
+`2`). That is, the child order of `1` will not affect any of these nodes.
+Likewise, the child order of `1` will not establish a path between `1` and
+the descendants of its child nodes.
 
 Since a child order will only establish new edges in between the child nodes
-of a parent, and after a transitive reduction as exemplified above, no further
-reduction can apply. That is, only the edges from a parent to its non-first
-child nodes will be dropped.
+of a parent, no further reduction can apply. That is, only the edges from a
+parent to its non-first child nodes will be dropped.
 
 The embedding of the child order of a parent of `N` child nodes will add
 `(N-1)` edges. After that, `(N-1)` edges will be dropped. Consequently,
@@ -155,6 +158,6 @@ The embedding of the child order of a parent of `N` child nodes will add
 
 * `#E` => `+(N-1)` => `-(N-1)` => `#E`
 
-Due to the above, one might already suspect that the graph, that results from
-the transitive reduction, will satisy the requirements of a node tree, and will
-represent the true node order of the ordered doctree.
+Based on that, one might already suspect that the graph, that results from
+the transitive reduction, will once again satisy the requirements of a node
+tree, and will represent the true node order of the ordered doctree.

@@ -35,7 +35,9 @@ trace(T) := (.., .., fc, .., .., lc, n, ..)
                  |-fc--| ... |-lc--|
 ```
 
-Note that recursive characteristic remains.
+Note that the recursive characteristic remains the same as with the pre-order
+traversal. That is, the scope of a node is still a sbustring to the document
+tree's (default) post-order trace.
 
 * `t(n), trace(n) := trace(fc) × ... × trace(lc) × n`
 * `trace(T) := trace(r)`
@@ -60,3 +62,5 @@ tags(n) := (<n>, .., fc, .., lc, </n attrib*>)
 Note that, since a node is next subsequent to its last child, the visit of
 a node corresponds with its end-tag, instead of its start-tag. Because of
 that, the attributes of a node must be added to its end-tag.
+
+* the end-tags define the nodes

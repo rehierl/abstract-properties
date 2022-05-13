@@ -101,12 +101,12 @@ Also, the following string-based operations are assumed to be available:
 * `prefix(s,i) := substr(s,1,i)` and `suffix(s,i) := substr(s,i,#s)`
 * e.g. `prefix((1,2),1) = (1)`, `suffix((1,2),2) = (2)`
 
-The substring of a trace can therefore be formed by removing a prefix (i.e.
-`t[1..i-1]`) and/or a suffix (i.e. `t[j+1..#t]`) from the corresponding trace.
-That is, `(s substring-of t)` is true, if `i` and `j` exist in `[1,#t]` such
-that `(t == (t[1..i-1] × s × t[j+1..#t]))` is true.
+The substring of a trace can be formed by removing a prefix (i.e. `t[1..i-1]`)
+and/or a suffix (i.e. `t[j+1..#t]`). That is, `(s substring-of t)` is true, if
+`i` and `j` exist in `[1,#t]` such that `(t == (t[1..i-1] × s × t[j+1..#t]))`
+is true.
 
 Recall that a sub-sequence is formed by removing any number of nodes at any
-possible index. That is, the term "sub-sequence" only requires to maintain the
-order between the remaining nodes. In contrary to that, the term "sub-string"
-in general also requires to keep the next neighbor of a node.
+index. That is, the term "sub-sequence" only requires to maintain the order
+between the remaining nodes. In contrary to that, the term "sub-string" in
+general also requires to keep the next neighbor of a node.

@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# the default post-order tree traversal (D)
+# the default post-order tree traversal (postD)
 
 ```js
 //- the default post-order traversal
@@ -8,7 +8,7 @@ traverseInPostOrder(node) begin
   //- enter the node's scope
 
   //- recursively visit all child nodes
-  for(child in node.childNodes) begin
+  for(child in node.childNodesFTL) begin
     traverseInPostOrder(child)
   end
 
@@ -32,16 +32,13 @@ and therefore **not order-preserving**.
                            child nodes  |                         |
 ```
 
-Based on the above algorithm, the post-order traversal requires to replace a
-node and all the nodes subsequent to it with its child order `c(n)`, followed
-by the node `n`, followed by its sequence of subsequent siblings `s(n)`.
+Based on the above algorithm, the post-order traversal requires to prepend a
+node `n` and its subsequent siblings `s(n)` by its child order `c(n)`.
 
 ```
 n -|-> (ns .. ls)     =>     -> (.. fc .. lc) × n × (.. ns .. ls)
    |-> (fc .. lc)            -> (c × n × s)
 ```
-
-* the (default) post-order rule := `(c × n × s)`
 
 <!-- ======================================================================= -->
 ## order of execution
@@ -49,13 +46,3 @@ n -|-> (ns .. ls)     =>     -> (.. fc .. lc) × n × (.. ns .. ls)
 Since the post-order rule is such that a node and its descendants form a
 substring to the trace of a tree, **no particular order of execution**
 is required.
-
-<!-- ======================================================================= -->
-## the (preR <=> postD) correspondence
-
-Note that the reversed pre-order trace does correspond wqith the default
-post-order trace such that both traces are reversed to each other.
-
-* `preR(n) := n × (lc .. fc ..)`
-* `postD(n) := (.. fc .. lc) × n `
-* `preR(T)` is reversed to `postD(T)`

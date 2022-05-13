@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-## an alternative reasoning/explanation
+# an order-based point-of-view
 
 Since each tree is isomorphic to a hierarchy of scopes, one can examine the
 embedding of a child order in terms of its effects on its hierarchy of scopes.

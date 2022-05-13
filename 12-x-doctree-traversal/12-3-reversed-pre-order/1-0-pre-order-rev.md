@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# the reversed pre-order tree traversal (R)
+# the reversed pre-order tree traversal (preR)
 
 ```js
 //- the default pre-order traversal
@@ -24,9 +24,9 @@ its second child its second to last child, and so on) before embedding it into
 the node order of the unordered document tree.
 
 Note that the reversed pre-order trace will contain the nodes in tree order
-(i.e. ancestors before descendands), but not in child order. Because of that,
-the reversed pre-order trace is inconsistent with the child order and therefore
-overall **not order-preserving**.
+(i.e. ancestors before descendands), but not also in child order. Because of
+that, the reversed pre-order trace is inconsistent with the child order and
+therefore **not overall order-preserving**.
 
 ```
       subsequent           presequent   |  the reduced pattern    |
@@ -47,8 +47,6 @@ n -|-> (ps .. fs)     =>     -> n × (lc .. fc ..) × (ps .. fs ..)
    |-> (lc .. fc)            -> (n × cR × sR)
 ```
 
-* the reversed pre-order rule := `(n × cR × sR)`
-
 Recall that "reversed" denotes that the child order of a tree is turned upside
 down. That is, each child order begins with the (former) last child and ends
 with the (former) first child. Consequently, the node order of the ordered
@@ -58,18 +56,8 @@ former last child `lc` as its child nodes in the ordered doctree.
 <!-- ======================================================================= -->
 ## order of execution
 
-Since the reversed pre-order rule is such that a node and its descendants
-form a substring to the trace of a tree, **no particular order of execution**
-is required. That is because there is no significant change to the pre-order
-rule itself since a node's next subsequent sibling `ps` will still be prefixed
-by its former descendants in the unordered doctree.
-
-<!-- ======================================================================= -->
-## the (preR <=> postD) correspondence
-
-Note that the reversed pre-order trace corresponds with the default post-order
-trace such that both traces are reversed to each other.
-
-* `preR(n) := n × (lc .. fc ..)`
-* `postD(n) := (.. fc .. lc) × n `
-* `preR(T)` is reversed to `postD(T)`
+Since the reversed pre-order rule is such that a node and its descendants form
+a substring to the trace of a tree, **no particular order of execution** is
+required. That is because there is no significant change to the pre-order rule
+itself since a node's next subsequent sibling `ps` will still be prefixed by
+its former descendants in the unordered doctree.

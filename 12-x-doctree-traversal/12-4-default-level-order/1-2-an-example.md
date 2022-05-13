@@ -31,7 +31,7 @@ sibling of `n1` and also of `n2` and `n3`. After that, applying the rule to
 
 Note that the node order of this level-order trace reflects the default
 level-order trace of a tree. That is, the nodes of a tree appear one node
-level at a time, and in the order of all child orders.
+level at a time, and overall in child order.
 
 ```
 ordered tree          first n2, then n1        level-order trace

@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# example: post-order (D)
+# example: (default) post-order
 
 ```
 unordered doctree    unordered doctree     ordered doctree
@@ -41,6 +41,6 @@ the rule is applied first, these two examples can be understood to suggest
 that the post-order rule does not require a specific order of execution.
 
 Note that the default post-order trace correspond with the reversed pre-order
-trace such that both traces are reversed to each other.
+trace. That is because both traces are reversed to each other.
 
 * `postD(n4,n1,n5,n2,n3,n0)` is reversed to `preR(n0,n3,n2,n5,n1,n4)`

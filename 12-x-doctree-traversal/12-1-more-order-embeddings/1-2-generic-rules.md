@@ -11,7 +11,7 @@ p -> (fs .. ps) -> n -|-> (ns .. ls)   |  n -|-> s(n)
 
 The focus of the following will be on the last siblings of ordered sequences.
 That is because each leaf in an ordered doctree is such a node and because no
-more than one leaf node may eventually remain. After all, the objective is to
+more than one leaf may eventually remain. After all, the objective is to
 form a total order beginning with the unordered doctree.
 
 Since the last node of a sequence of siblings may still be a parent node, a
@@ -36,7 +36,21 @@ vs. level-order).
 
 Note that a defining rule must in general not yield a result that is in conflict
 with the tree order of an ordered tree (e.g. post-order). That is, a defining
-rule must in general be order preserving.
+rule must be order preserving.
+
+<!-- ======================================================================= -->
+## a well-defined embedding
+
+The embedding of an order can be described as **well-defined**, if its set
+of **edges can be pre-determined** (aka. pre-calculated), before applying
+the defining rule to the very first node.
+
+Note that a well-defined embedding does not require an order of execution.
+
+Note that embedding the edges of the unordered document tree into the trivial
+suborder is well-defined. Likewise, the embedding of the child order, and the
+the pre-order rule are well-defined. In contrary to that, the level-order rule
+does require an order of execution.
 
 <!-- ======================================================================= -->
 ## interleaved sequences
@@ -80,7 +94,7 @@ n -|-> s                n -> (c × s)     n -> (s × c)
 ```
 
 Based on that, a **concatenation** operation can be understood as a special
-case of interleaving two sequences.
+simple-and-straight-forward case of interleaving two sequences.
 
 Note that, if implemented as such, one will have to keep track of which child
 represents the former next subsequent sibling, and which its former first

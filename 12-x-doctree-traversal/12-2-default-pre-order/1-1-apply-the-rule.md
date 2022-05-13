@@ -10,13 +10,13 @@ n.c = null
 Since the pre-order rule will effectively prefix a node's current sequence of
 subsequent siblings by its child order, a node can be treated afterwards as
 having no more child nodes, which is why the pre-order rule can be said to
-remove all child nodes by turning them into subsequent siblings of their former
-parent. Based on that, the pre-order rule can be understood to push the child
-nodes of a node, including all of their descendants, one level upwards closer
-to the tree's root.
+remove all child nodes by turning them into subsequent siblings. Based on
+that, the pre-order rule can be understood to push the child nodes of a node,
+including all of their descendants, one level upwards closer to the tree's
+root - i.e. "flatten the tree's height".
 
-Note that, in this context, a missing sequence can be treated as being
-equivalent to an empty sequence (i.e. no null-reference errors).
+Note that a missing sequence can be treated as being equivalent to an empty
+sequence - i.e. no null-reference errors.
 
 Note that, if a node is a leaf, then the rule will have no effect. Likewise, a
 node that had subsequent siblings but no child nodes will remain unchanged. In
@@ -41,10 +41,10 @@ n -> (fc .. lc) -> (ns .. ls)
 
 If `lc` has no child in the unordered doctree (i.e. a leaf), then `lc` is also
 a leaf in the ordered doctree (i.e. no subsequent sibling and no child). The
-pre-order rule therefore has the effect of turning a leaf node into a node
-that is a parent and therefore **no longer a leaf**.
+pre-order rule therefore has the effect of turning a leaf into a node that is
+a parent and therefore **no longer a leaf**.
 
-If `lc` has a child in the unordered doctree (i.e. a parent), then it remains
+If `lc` has a child in the unordered doctree (i.e. a parent), then `lc` remains
 to be a parent that has `ns` as its next sibling. The pre-order rule therefore
 also applies to `lc`, which will insert its child nodes as siblings in between
 `lc` and `ns`. Because of that, the first child of `lc` will become the node's
@@ -59,7 +59,7 @@ root -> (fc .. lc)
 
 Since an unordered doctree is in general assumed to have two or more nodes,
 the pre-order rule will turn the root's first child `fc` into its next, and
-the root's last child `lc` into its last sibling `ls`.
+the root's last child `lc` into its last subsequent sibling `ls`.
 
 ```
 root -> (ns .. ls) -> (fc .. lc)?
@@ -81,3 +81,9 @@ an ordered doctree into **a path graph** that has its **last subsequent leaf**
 as its one and only leaf.
 
 * tree-order + child-order + pre-order => pre-order trace
+
+Note that the short explanation, as to why applying the pre-order rule to an
+ordered doctree will result in a path graph, is that the rule is applied to
+all the nodes and that the rule will reduce the number of child nodes of any
+parent in the ordered doctree to one child only, while turning all of the
+leaf nodes (except for one) into a parent of one child.

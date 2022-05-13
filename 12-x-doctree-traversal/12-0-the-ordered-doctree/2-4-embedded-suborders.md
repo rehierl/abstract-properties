@@ -12,11 +12,12 @@ p -> (fs .. ps) -> n -|-> (ns .. ls)    |
                            child nodes  |
 ```
 
-Since node `n` in an ordered doctree is still subsequent to its former ancestors,
-and also presequent to its former descendants, the tree order of the unordered
-doctree can be said to be a sub-order to the tree order of the ordered doctree.
-Because of that, the ordered doctree can be said to preserve the node order of
-an unordered doctree.
+Since node `n` in an ordered doctree (DTO) is still subsequent to its former
+ancestors, and also presequent to its former descendants, the tree order of
+the unordered doctree (DTU) can be said to be a sub-order to the tree order
+of the ordered doctree. Because of that, the ordered doctree can be said to
+preserve the node order of an unordered doctree - i.e. DTO is order-preserving
+in regards to DTU.
 
 * `n` is subsequent to its (former) ancestors
 * `n` is presequent to its (former) child nodes
@@ -43,10 +44,11 @@ node `n` are now descendants to node `n`.
 * `(fs..ls)` is a total suborder to `rp(n)` (over the ordered doctree).
 
 Note that `(fs..ls)` is not just some total suborder, but in fact an actual
-substring to `rp(n)`. That is, the former presequent siblings of a node appear
-as a sequence of consecutive nodes in its rooted path. Put differently, the
-rooted path of a node in the ordered doctree is such that its former ancestors
-are interlaved by substrings of presequent siblings.
+substring to the rooted path `rp(n)` over the ordered doctree. That is, the
+former presequent siblings of a node appear as a sequence of consecutive
+nodes in its rooted path. Put differently, the rooted path of a node in the
+ordered doctree is such that its former ancestors are interlaved by substrings
+of presequent siblings.
 
 Note that a node's former next sibling remains to be incomparable to its former
 child nodes and its descendants. That is, one can still not form a path between

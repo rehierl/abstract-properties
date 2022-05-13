@@ -15,7 +15,7 @@ edges        graph T      \(n,lc)      cover graph T*
 In general, embedding the child order of a doctree into its node order will
 first turn the doctree into a non-tree graph such that each non-first child
 has two parent nodes. A subsequent transitive reduction will then drop the
-edges between a former non-first child and its former parent node.
+edges between a former non-first child and its former parent.
 
 ```
          p           | tree-order:
@@ -30,12 +30,12 @@ edges between a former non-first child and its former parent node.
 ```
 
 That is, node `n` has `ps` as its previous sibling, `ns` as its next sibling,
-`fc` as its first child and `lc` as its last child. Based on that, node `p` has
-`fs` as its first child (i.e. the "first sibling" of `n`) and `ls` as its last
-child (i.e. the "last sibling" of `n`).
+`fc` as its first child and `lc` as its last child. Because of that, node `p`
+has `fs` as its first child (i.e. the "first sibling" of `n`) and `ls` as its
+last child (i.e. the "last sibling" of `n`).
 
-With the above tree order in mind, one can perform the same steps in regards
-to the child order of parent `p`. What remains is a cover graph whose general
+With that tree order in mind, one can perform the same steps in regards to
+the child order of parent `p`. What remains is a cover graph whose general
 structure is as follows:
 
 ```
@@ -48,17 +48,19 @@ p -> (fs .. ps) -> n -|-> (ns .. ls)    |
                            child nodes  |
 ```
 
-Note that `(fs .. ps)`, `(ns .. ls)` and `(fc .. lc)` denote sequences of nodes
-such that each node in it may still be connected to their former first child.
+Note that `(fs .. ps)`, `(ns .. ls)` and `(fc .. lc)` denote sequences of
+nodes (aka. **sequences of siblings**) such that each node in it may still
+be connected to their former first child.
 
-Depending on the relationship between node `n` and its neighbors, the resulting
-graph, after the embedding of a child order, has the following patterns.
+Depending on the relationship between node `n` and its neighbors, the
+resulting graph, after the embedding of a child order, has the following
+patterns.
 
 ```
-root       1-st child of p    n-th child of p  |  base pattern
-=======    ===============    ===============  |  ============
-n -> fc    p -> n -|-> ns     ps -> n -|-> ns  |  n -|-> s
-                   |-> fc              |-> fc  |     |-> c
+root       1-st child of p    n-th child of p    last child
+=======    ===============    ===============    =============
+n -> fc    p -> n -|-> ns     ps -> n -|-> ns    ps -> n -> fc
+                   |-> fc              |-> fc
 ```
 
 Consequently, a child in the cover graph of an unordered doctree has one
@@ -69,15 +71,14 @@ former parent `p` ex-or the node's former previous sibling `ps`.
 
 In addition to that, a parent in the ordered doctree has two outgoing edges
 such that one sink is its former next sibling `ns` and the other its former
-first child `fs`, regardless of how many child nodes that parent had in the
+first child `fs, regardless of how many child nodes that parent had in the
 unordered doctree.
 
 * Each node in the resulting graph has **no more than two child nodes**.
 
 Note that for each parent in the cover graph, one or both of its child nodes
-may not exist. That is, a node may be a leaf, a parent that is missing `ns`,
-a parent that is missing `fc`, or a parent that has both of these nodes as
-its child nodes.
+may not exist. That is because a node may be a leaf (i.e. `fc` may be missing),
+or a node that has no next subsequent sibling (i.e. `ns` may be missing).
 
 <!-- ======================================================================= -->
 ## an ordered doctree is a node tree
@@ -94,13 +95,9 @@ that root will have **one child only** in the resulting graph. That is, the
 root's former first child is the root's only child in the resulting graph.
 
 Since the transitive reduction will only replace the parent of a non-first
-child with its former next presequent sibling, the resulting graph has no
-further root. That is, no child in the unordered doctree will become a root
-in the resulting graph.
-
-That is, each child in the unordered doctree remains to be a child in the
-resulting graph. No child in the unordered doctree therefore become a root
-in the resulting graph.
+child with its former next presequent sibling, each child in the unordered
+doctree remains to be a child in the resulting graph. Because of that, no
+child in the unordered doctree can become a root in the resulting graph.
 
 * The resulting graph has the root of the unordered doctree as its only root.
 * The resulting graph has **one root only**.
@@ -131,4 +128,4 @@ order ensures that the resulting graph is once again a proper node tree.
 
 Note that, since there is no edge that connects the former next sibling of
 a node with its former first child, the tree order of an ordered doctree has
-**no child order**.
+still **no child order**.

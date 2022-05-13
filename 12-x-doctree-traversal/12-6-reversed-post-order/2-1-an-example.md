@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# example: post-order (R)
+# example: reversed post-order
 
 ```
 unordered doctree    unordered doctree     ordered doctree
@@ -40,7 +40,7 @@ Since the resulting pre-order traces are the same, regardless to which node
 the rule is applied first, these two examples can be understood to suggest
 that the pre-order rule does not require a specific order of execution.
 
-Note that the reversed post-order trace corresponds with the pre-order trace
-such that both traces are reversed to each other.
+Note that the reversed post-order trace corresponds with the default pre-order
+trace. That is because both traces are reversed to each other.
 
 * `postR(n3,n5,n2,n4,n1,n0)` is reversed to `preD(n0,n1,n4,n2,n5,n3)`

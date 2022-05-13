@@ -26,9 +26,9 @@ over `T` is preserved in `s`.
 
 * `aPb -> (idx(a) < idx(b))`
 
-Note that more than one such ordering may be possible. One and only one such
-ordering is however possible, if the node tree is a path graph. In that case,
-the ordering is equal to the rooted path of its only leaf.
+Note that more than one such ordering may in general be possible. One and
+only one such ordering is however possible, if the node tree is a path graph.
+In that case, the ordering is equal to the rooted path of its only leaf.
 
 * `T(N,E)` where `E := {(1,2),(1,3)}`
 * `(1,2,3)` and `(1,3,2)` are both valid orderings
@@ -44,16 +44,16 @@ order over the tree's set of nodes.
 With that in mind, the embedding of the child order of a doctree into the
 unordered doctree (DTU) can be described as **a partial extension** since
 the resulting ordered doctree (DTO) will in general not correspond with a
-total node order (i.e. no path graph). Despite that, the resulting node
+total node order (i.e. not a path graph). Despite that, the resulting node
 tree is order preserving.
 
 * `aPb -> aQb` for `(P over DTU)` and `(Q over DTO)`
 * In words: There is a path `aQb` for any path `aPb`.
 
-Since the embedding of the child order has the effect of only reducing the
-amount of incomparable nodes, one can embed even more node orders. Such an
-embedding can be described as **a linear extension**, if the resulting node
-order is total. Put differently, if the resulting node tree is a path graph.
+Since the embedding of the child order has the effect of reducing the amount
+of incomparable nodes, one can embed even more node orders. Such an embedding
+can be described as **a linear extension**, if the resulting node order is
+total. Put differently, if the resulting node tree is a path graph.
 
 Note that the difference between "topological ordering" and "linear extension"
 is the overall context of both descriptions. That is, "topological ordering"
@@ -97,7 +97,7 @@ disconnected in `T`. Put differently, the endpoints of each edge in `R`
 Note that any edge in the to-be-embedded order relation `R`, which is already
 included in the tree's order relation (i.e. the transitive closure), can be
 ignored since such an edge does not produce a conflict and also does not add
-any new information to the tree order.
+anything new to the tree order.
 
 <!-- ======================================================================= -->
 ## remarks
@@ -105,7 +105,7 @@ any new information to the tree order.
 Note that, from a less strict point of view, one can state that
 **the embedding of an edge must not contradict pre-existing edges**.
 
-* (`aEb` contradicts `bPa`) or (`aEb` is in conflict with `bPa`)
+* `aEb` must be understood to contradict `bPa`
 
 Note that, once there are no incomparable nodes left, one can not add even
 one more edge without producing a conflict with pre-existing edges. That is,
@@ -121,8 +121,8 @@ can therefore be defined in terms of such a sequence of order embeddings.
 
 Since each node in a tree has a unique rooted path (e.g. `rPa` and `rPd`),
 an additional extension can not add any edge (e.g. `dEa`) that connects an
-ancestor with a descendant. That is because a path `aPd` can then be formed
-that connects an ancestor with its descendant.
+ancestor with a descendant. Because of that, valid embeddings will be order
+mainting in regards to the tree order.
 
 Note that, since the embedding of a child order will turn any presequent
 sibling of a node into an ancestor of that node, and thus into an element
@@ -131,7 +131,8 @@ maintaining in regards to the embedded child order.
 
 Because of that, if an order embedding is reduced to connecting incomparable
 nodes only (which it obviously must be), then the resulting node order will
-preserve any pre-existing suborder.
+be order-preserving in regards to any pre-existing suborder and in regards
+to the order being embedded.
 
 <!-- ======================================================================= -->
 ## available options
@@ -161,6 +162,6 @@ resulting tree order.
 Note that turning a **last child leaf node** into a parent node by connecting
 it with a parent node as its child will establish a path between the leaf and
 all the descendants of the target parent. Consequently, such connections will
-turn multiple pairs of incomparable nodes into comparable ones. Because of that,
-adding connections between a last child leaf and a parent will be the focus of
-furter embeddings.
+turn multiple pairs of incomparable nodes into comparable ones. Because of
+that, adding connections between a last child leaf and a parent will be the
+focus of further order embeddings.

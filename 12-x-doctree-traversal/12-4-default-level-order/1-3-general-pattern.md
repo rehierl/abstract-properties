@@ -1,6 +1,6 @@
 
 <!-- ======================================================================= -->
-# the general level-order pattern
+# the (default) level-order pattern
 
 * the (default) level-order rule := `(n × s × c)`
 
@@ -37,10 +37,10 @@ trace(T) := (r, fc, .., lc, ........................, l)
 
 Since child orders will be appended as a whole, the level-order rule guarantees
 that the next sibling of a node remains to be its next sibling. That is, child
-orders will not be interleaved by other nodes. Because of that, each child order
-is **a substring** to the level-order trace. Consequently, a level-order trace
-is in essence a sequence of child orders, which is why child orders are the
-**building blocks** of a level-order trace.
+orders will not be interleaved by any nodes. Because of that, each child order
+is **a substring** to the level-order trace, which is why a level-order trace
+is in essence a sequence of child orders. The child orders can therefore be
+described as the **building blocks** of a level-order trace.
 
 Since the node levels of subsequent nodes in a level-order trace is required
 to be monotone increasing, all child orders of a certain node level appear as

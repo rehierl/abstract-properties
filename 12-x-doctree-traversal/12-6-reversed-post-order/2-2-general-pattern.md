@@ -34,7 +34,7 @@ trace(T) := (.., .., lc, .., .., fc, n, ..)
                  |-lc--| ... |-fc--|
 ```
 
-Note that recursive characteristic remains.
+Note that the recursive characteristic remains.
 
 * `t(n), trace(n) := trace(lc) × ... × trace(fc) × n`
 * `trace(T) := trace(r)`
@@ -47,7 +47,8 @@ trace(T) := (.., .., lc, .., fc, n, ..)
                  |-s(n)-----------|
 ```
 
-Note that even a post-order trace is a sequence of interleaved child orders.
+Note that even a reversed post-order trace can be described as a sequence of
+interleaved child orders.
 
 <!-- ======================================================================= -->
 ## a tag-based syntax
@@ -59,3 +60,5 @@ tags(n) := (<n>, .., lc, .., fc, </n attrib*>)
 Note that, except for the reversed inner child order, the tag-based syntax
 of the reversed post-order corresponds with the syntax of the post-order
 trace. That is, the attributes of a node must be added to its end-tag.
+
+* the end-tags define the nodes

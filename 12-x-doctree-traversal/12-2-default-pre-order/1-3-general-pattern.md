@@ -21,12 +21,13 @@ child as its next subsequent sibling in the resulting pre-order trace.
 <!-- ======================================================================= -->
 ## node levels
 
-The node level of a next subsequent node in the pre-order trace may be equal
-to the level of its predecessor (x=n, a sibling), one greater (n+1, a first
-child), or less than that (n-x, a sibling to an ancestor).
+The node level (in the unordered doctree) of a next subsequent node in the
+pre-order trace may be equal to the level of its predecessor (x=n, a sibling),
+one greater (n+1, a first child), or less than that (n-x, a sibling to an
+ancestor).
 
-Recall that descriptions such as "node level" and "first child" always are by
-default in regards to the node order of the unordered document tree. Because
+Recall that descriptions such as "node level" and "first child" are by default
+always in regards to the node order of the unordered document tree. Because
 of that, clarifications such as "former node level" may be omitted.
 
 <!-- ======================================================================= -->
@@ -40,7 +41,7 @@ trace(T) := (.., n, fc, .., .., lc, .., ..)
 
 Note that the following assumes that each node defines an abstract property
 whose scope `s(n) := [n,*]` is in regards to the node order of the unordered
-doctree. Based on that one can speak of **the scope of a node s(n)**.
+doctree. Based on that, one can speak of **the scope of a node s(n)**.
 
 The scope `s(n)` is restricted to its defining node `n` and all of its
 descendants. As such, the scope of a node is **a substring** to the pre-order
@@ -52,7 +53,7 @@ trace, it can be described as **the (pre-order) trace of that node t(n)**.
 More accurately, the description may be used to refer to the substring of
 a doctree's pre-order trace that is induced by the scope of a given node.
 
-The pre-order rule can therefore be understood to form the trace of a scope
+The pre-order rule can therefore be understood to form the trace of a node
 **recursively** in an upwards-oriented fashion. That is because the trace of
 each node begins with the corresponding node and contains the traces of its
 (former) child nodes in sequence one after another.
@@ -64,9 +65,9 @@ Because of that, the trace of a tree `T` is the trace of its root `r`.
 
 * `trace(T) := trace(r)`
 
-Note that the traces of siblings can be formed **concurrently** before joining
+Note that the traces of siblings can be formed **concurrently**, before joining
 them into the traces of their ancestors. That is because these traces are
-disjoint ordered sequences.
+disjoint.
 
 <!-- ======================================================================= -->
 ## interleaved child orders
@@ -82,8 +83,8 @@ to its descendants.
 
 Further applications of the pre-order rule will then insert the child nodes
 of a node's last child `lc` in between `lc` and its former next sibling `ns`.
-That is, `ns` will in general not be the next sibling to `lc` since there is
-a possibly infinite number of nodes in between.
+That is, `ns` will in general not be the next sibling of `lc` since there
+will be a possibly infinite number of nodes in between.
 
 The last child of a tree's root is therefore in general not the last node in
 the pre-order trace of a tree. That is because the last node of such a trace
@@ -93,11 +94,11 @@ last child.
 However, the pre-order rule guarantees that all of the descendants of node `n`
 will be located in between `n` and `ns`. In other words, no node that is not
 a descendant of `n`, will appear in between `n` and `ns`, or the next sibling
-of an ancestor of `n` - whichever next sibling is available.
+of an ancestor of `n` - whichever next sibling exists.
 
-Based on the above, the pre-order trace of a tree can therefore be described
-as **a sequence of interleaved child orders**. That is, the child order of a
-node is interleaved by the child orders of its descendants.
+Based on the above, the pre-order trace of a tree can be described as
+**a sequence of interleaved child orders**. That is, the child order
+of a node is interleaved by the child orders of its descendants.
 
 Note that the child orders of a doctree are still sub-sequences to the tree's
 pre-order trace. However, a child order is, unlike the pre-order trace of a
