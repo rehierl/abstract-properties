@@ -1,4 +1,7 @@
 
+- variable, max number of iterations
+- an ordered tree is a binary tree
+
 # in general
 
 if you know that you have a transitive closure
@@ -12,13 +15,6 @@ if you know that you have a transitive closure
 - a distant descendant is subsequent to a child
 - i.e. drop all the descendants of a descendant,
   then only the child nodes will remain
-
-# pre-order traversal
-
-an open question
-- can the pre-order traversal be expressed
-- as iteratively/repeatedly applying a child order?
-- gut feeling says yes ..
 
 # level-order traversal
 

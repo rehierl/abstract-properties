@@ -17,11 +17,11 @@ embedding of a child order in terms of its effects on its hierarchy of scopes.
       fc   lc
 ```
 
-Assumed one would first add the child order of node `n`, one can state that
-the edges in that order transform the subsequent siblings of `fc` such that
-they are subsequent to `fc`. Because of that, these nodes and all of their
-descendants appear as descendants in the scope of `fc`, in addition to the
-descendants it already had (i.e. its child nodes and their descendants).
+Assumed one would first embed the child order of node `n`, one can state that
+the edges in that child order transform the subsequent siblings of `fc` such
+that they are descendants to `fc`. Because of that, these nodes and all of
+their descendants appear as nodes within the scope of `fc`, in addition to
+the descendants it already had (i.e. its child nodes and their descendants).
 
 ```
          r
@@ -83,9 +83,10 @@ but *not also* in the scope of any of the child nodes of `ps`.
 |---------------------------------------|
 ```
 
-Note that tree's root `r` is guaranteed to end up with one child only. That
-is because it had no subsequent sibling that could turn into its second child.
-Based on that, and if one were to embed a second child order, the root's former
-first child `fc` would turn into a node with one child only. One can therefore
-conclude that **iteratively embedding** more and more child orders will result
-in a linear order (i.e. a trace of nodes) after a finite amount of iterations.
+Note that the tree's root `r` is guaranteed to end up with one child only.
+That is because it had no subsequent sibling that could become a second child.
+Based on that, and if one were to embed a second child order, the root's
+former first child `fc` would turn into a node with one child only. Based on
+that one might assume that **iteratively embedding even more child orders**
+will result in a linear order (i.e. a trace of nodes) after a finite amount
+of iterations.
