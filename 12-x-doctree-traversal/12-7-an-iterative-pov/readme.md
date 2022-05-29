@@ -1,6 +1,16 @@
 
 # document traversal / an iterative process
 
+```
+DTO              1) in-order        2) reversed
+=========   =>   ===========   or   ===========
+    n                 n                  n
+    |                 |                  |
+---------         ---------          ---------
+|       |         |       |          |       |
+fc     ns         fc --> ns          fc <-- ns
+```
+
 <!-- ======================================================================= -->
 ## option-1: (fc -> ns)
 
@@ -17,8 +27,13 @@ c1 c2 s1 s2 | c2 s1  | c2 ns  | ns
 ```
 
 Note that, based on this basic example, iteratively applying option-1 to the
-ordered document tree **seems to produce the pre-order trace (PRED)** of the
+ordered document tree **will produce the pre-order trace (PRED)** of the
 source tree.
+
+Note that, since any parent will eventually turn into a parent of one and
+remain as such, and since any leaf except for one will turn into a parent,
+the iterative process is guaranteed to end in a trace of nodes after a
+finite amount of iterations.
 
 <!-- ======================================================================= -->
 ## option-2: (ns -> fs)
@@ -41,6 +56,6 @@ a trace that matches the document tree's default level-order trace - i.e.
 **can not produce the default level-order trace** - i.e. not a sequence of
 child orders that is overall in child order.
 
-Note that the nodes in the resulting trace seem to still appear one level at
+Note that the nodes in the resulting trace still seem to appear one level at
 a time - i.e. monotone increasing node levels. However, whether these traces
 are indeed in level-order, is not in the focus of this discussion.

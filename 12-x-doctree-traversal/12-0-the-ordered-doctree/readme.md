@@ -77,8 +77,15 @@ can be described as **a partial extension** of said tree order. This in
 contrary to **a linear extension**, which always results in a total order.
 
 Note that the node order of an ordered document tree is such that
-**no node has more than two child nodes**, its former next sibling (ns)
-and its former first child (fs).
+**no node has more than two child nodes**, its former next sibling `ns`
+and its former first child `fs`.
+
+Note that the unordered document tree can be described as **an arbitrary tree**
+since any parent may hold any number of child nodes. In contrary to that, the
+ordered document tree can be described as **a binary tree** since any parent
+may only hold up to two child nodes. Finally, a path graph may be described
+as **an unary tree**. After all, no node in such a path may have more than
+one child.
 
 Note that the ordered document tree itself, even though the child order of the
 document tree is embedded into it, has (strictly speaking) **no child order**.

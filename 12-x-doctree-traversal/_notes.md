@@ -1,6 +1,8 @@
 
-- variable, max number of iterations
-- an ordered tree is a binary tree
+a variable max number of iterations
+- certainly less than N iterations
+- is there a better upper boundary?
+- one that depends on the tree's height?
 
 # in general
 
@@ -16,11 +18,17 @@ if you know that you have a transitive closure
 - i.e. drop all the descendants of a descendant,
   then only the child nodes will remain
 
+# pre-order traversal
+
+iterative pov, option-1
+- no twist, why?
+- see level-order
+
 # level-order traversal
 
 iterative pov, option-2
 - seems to produce traces that are in level-order
-- however, not the default level-order trace
+- however, not in the default level-order
 
 the level-order rule is somewhat incomplete
 - one must define in which order the child orders must be appended

@@ -36,8 +36,13 @@ Since the tree's root `p` will be such that it has its former first child
 might assume that **iteratively embedding more child orders** will result
 in a linear order (i.e. a trace of nodes) after a finite amount of steps.
 
+Note that each iterative step will reduce the number of nodes with more than
+one child by more than one node - i.e. at least the tree's root. After that,
+one can imagine the resulting tree to be reduced to those induced subtrees
+that cover all of the nodes with more than one child.
+
 <!-- ======================================================================= -->
-## only two options available
+## only two options
 
 ```
 DTO              1) in-order        2) reversed
@@ -49,17 +54,17 @@ DTO              1) in-order        2) reversed
 fc     ns         fc --> ns          fc <-- ns
 ```
 
-Since each node in a document tree has no more than two child nodes, there
-are only two options available that can be used to define subsequent child
-orders:
+Since each node in an ordered document tree has no more than two child
+nodes, there are only two options available that can be used to define
+subsequent child orders:
 
 Option-1 (fc -> ns) - The child order of each node has the former first
-child as a first and the former next sibling as a second/last child -
+child as a first, and the former next sibling as a second/last child -
 i.e. **in-order**.
 
 Option-2 (ns -> fc) - The child order of each node has the former next
-sibling as a first and the former first child a second/last child -
-i.e. **reversed order**.
+sibling as a first, and the former first child a second/last child -
+i.e. **in reversed order**.
 
 <!-- ======================================================================= -->
 ## remarks
@@ -70,6 +75,6 @@ document tree's tree order or its child order.
 
 Note that, since the resulting trace will be order-preserving, both options
 **can not be used to produce a post-order trace**. After all, a post-order
-trace is in conflict with the tree order of the ordered document tree -
-i.e. ancestors appear subsequent to their descendants - i.e. overall not
+trace is in conflict with the tree order of the ordered document tree, in
+which ancestors appear subsequent to their descendants - i.e. overall not
 order-preserving.
