@@ -18,24 +18,14 @@ if you know that you have a transitive closure
 - i.e. drop all the descendants of a descendant,
   then only the child nodes will remain
 
-# pre-order traversal
-
-iterative pov, option-1
-- no twist, why?
-- see level-order
-
 # level-order traversal
 
-iterative pov, option-2
-- seems to produce traces that are in level-order
-- however, not in the default level-order
-
 the level-order rule is somewhat incomplete
-- one must define in which order the child orders must be appended
+- one must define in which order subsequent child orders must be appended
 - the level-order rule must therefore be missing some edges
 - which edges? why exactly is that the case?
 
-a level-order sequence-based encoding
+a level-order, sequence-based encoding
 - a level-order trace is a specialized encoding
 - the parent reference of each node
   can be understood as a shared property

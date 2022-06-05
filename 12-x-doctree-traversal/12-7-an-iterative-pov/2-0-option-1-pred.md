@@ -12,27 +12,20 @@ DTO              in-order
 fc     ns        fc --> ns
 ```
 
-Based on the definition of the additional child orders of **option-1** one
-might assume that the iterative process will maintain the tree order of the
-document tree and also its child order. After all, the additional child
-orders will not be in conflict with any of these orders.
+Based on the definition of the additional child orders one might already assume
+that the resulting trace can not correspond with the level-order traversal.
+That is because this option will push the first child of each node in between
+a node and its next subsequent sibling. Because of that, the child order of a
+node can in general not be a substring to the final  race - i.e. the nodes can
+not appear one level at a time - i.e. not in level-order.
 
-* will be overall order-preserving
-
-One might then conclude that the resulting trace can not correspond with
-the level-order traversal. That is because this option will push the
-first child of each node in between a node and its next subsequent sibling.
-Because of that, the child order of a node can in general not be a substring
-to the final trace - i.e. the nodes can not appear one level at a time -
-i.e. not in level-order.
-
-* can not correspond with the level-order traversal.
+* can not produce a level-order trace
 
 Based on the above, one might assume that this option could be used to
 produce the document tree's pre-order trace. After all, the first child
 of each node will remain next subsequent to its parent.
 
-* a first child will remain next subsequent to its parent
+* might be able to produce the tree's pre-order trace
 
 Note that, as can be seen below, this option **does seem to allow** to
 iteratively produce the pre-order trace of a document tree.

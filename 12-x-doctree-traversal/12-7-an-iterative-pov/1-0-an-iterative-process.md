@@ -15,11 +15,11 @@ fs  ps  n  ns  ls   |   fs  ps |-n-------------------|
      fc   lc        |          |---------------------|
 ```
 
-Recall that the process of embedding of a child order can be explained with
-an order-based point of view in mind. After all, each tree is isomorphic to
-a hierarchy of scopes, which is why the ordered document tree is such that
-each node has no more than two child nodes, its former first child `fc`
-and its former next subsequent sibling `ns`.
+Recall that the process of embedding a child order can be explained with an
+order-based point of view in mind. After all, each tree is isomorphic to a
+hierarchy of scopes, which is why the ordered document tree is such that
+each node has no more than two child nodes (i.e. a binary tree), its former
+first child `fc` and its former next subsequent sibling `ns`.
 
 ```
       presequent           subsequent   |  the resulting tree-order
@@ -31,15 +31,16 @@ p -> (fs .. ps) -> n -|-> (ns .. ls)    |
                            child nodes  |
 ```
 
-Since the tree's root `p` will be such that it has its former first child
-`fs` as its one and only child (i.e. it has no subsequent sibling), one
-might assume that **iteratively embedding more child orders** will result
-in a linear order (i.e. a trace of nodes) after a finite amount of steps.
+Since the tree's root (e.g. `p`) has no sibling it will be such that it has
+its former first child (e.g. `fs`) as its one and only child. One might thus
+assume that **iteratively embedding more child orders** will result in a
+linear order (i.e. a trace of nodes) after a finite amount of steps.
 
-Note that each iterative step will reduce the number of nodes with more than
-one child by more than one node - i.e. at least the tree's root. After that,
-one can imagine the resulting tree to be reduced to those induced subtrees
-that cover all of the nodes with more than one child.
+Note that, one way to imagine such an iterative process would be to think of
+**a zipper** that, while being closed, has a linear prefix (a rooted path)
+which ends with the topmost parent that has a child order with two or more
+nodes. The iterative process would then extend that rooted path by one or
+more nodes with each step, until the resulting order is linear.
 
 <!-- ======================================================================= -->
 ## only two options
@@ -64,17 +65,16 @@ i.e. **in-order**.
 
 Option-2 (ns -> fc) - The child order of each node has the former next
 sibling as a first, and the former first child a second/last child -
-i.e. **in reversed order**.
+i.e. **reversed order**.
 
 <!-- ======================================================================= -->
 ## remarks
 
 Note that both options will result in a trace that is **order-preserving**.
-After all, none of the subsequent child orders will be in conflict with the
-document tree's tree order or its child order.
+After all, none of the additional child orders will be in conflict with the
+ordered document tree - i.e. its tree order and its child order.
 
 Note that, since the resulting trace will be order-preserving, both options
 **can not be used to produce a post-order trace**. After all, a post-order
-trace is in conflict with the tree order of the ordered document tree, in
-which ancestors appear subsequent to their descendants - i.e. overall not
-order-preserving.
+trace is in conflict with the tree order since ancestors will be subsequent
+to their descendants - i.e. overall not order-preserving.
