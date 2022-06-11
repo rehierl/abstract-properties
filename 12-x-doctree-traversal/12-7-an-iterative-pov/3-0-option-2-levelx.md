@@ -13,11 +13,11 @@ fc     ns        fc <-- ns
 ```
 
 Based on the definition of the additional child orders one might already assume
-that the resulting trace can not correspond with the pre-order traversal. That
-is because this definition will push the next subsequent sibling of each node
-in between a node and its former first child. Because of that, the scope of a
-node over the unordered document tree will not be a substring to the final
-trace - i.e. not in pre-order.
+that the resulting trace can not correspond with the pre-order traversal. After
+all, this option will push the next subsequent sibling of each node in between
+a node and its former first child. Because of that, the scope of a node over
+the unordered document tree will not be a substring to the final trace - i.e.
+not in pre-order.
 
 * can not produce the pre-order trace
 
@@ -142,9 +142,9 @@ step-0           step-1   step-2   ...   step-6   levels
 p              | p      | p      |     | p      | 1
 |---->|        | n      | n      |     | n      | 2
 n     ns       | |<--|  | ns     |     | ns     | 2
-|-->| |-->|    | c1 ns  | |<--|  | ... | s1     | 3
-c1 c2 s1 s2    | c2 s1  | c1 s1  |     | s2     | 3
-         |-->| |    s2  | c2 s2  |     | d1     | 4 (!)
+|-->| |-->|    | c1 ns  | |<--|  | ... | s1     | 3   no
+c1 c2 s1 s2    | c2 s1  | c1 s1  |     | s2     | 3   level
+         |-->| |    s2  | c2 s2  |     | d1     | 4   order
          d1 d2 |    d1  |    d1  |     | d2     | 4
                |    d2  |    d2  |     | c1     | 3
                |        |        |     | c2     | 3

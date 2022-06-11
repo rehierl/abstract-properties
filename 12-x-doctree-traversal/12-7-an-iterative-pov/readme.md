@@ -38,18 +38,19 @@ i.e. **in-order**.
 sibling as a first, and the former first child a second/last child -
 i.e. **reversed order**.
 
-Note that, since any parent will eventually turn into a parent of one child,
-and since any leaf except for one will turn into a parent, the iterative
-process is guaranteed to end after **a finite amount of steps**.
-
 Note that neither option is in conflict with the document tree's tree order,
 nor with the document tree's child order. After all, the subsequent child
 orders do not contradict either order, which is why all of the intermediate
 orders and the resulting trace are **order-preserving** in regards to the
 document tree.
 
+Note that, since any parent will eventually turn into a parent of one child,
+and since any leaf except for one will turn into a parent (see the state-based
+point of view), the iterative process can be guaranteed to end after
+**a finite amount of steps**.
+
 <!-- ======================================================================= -->
-## option 1: (fc -> ns)
+## option-1: (fc -> ns)
 
 ```
 doctree                         trace
@@ -57,15 +58,20 @@ step-0        step-1   step-2   step-3
 =========== | ====== | ====== | ======
 p           | p      | p      | p
 |---->|     | n      | n      | n
-n     ns    | |-->|  | c1     | c1   default
+n     ns    | |-->|  | c1     | c1   in
 |-->| |-->| | c1 ns  | |-->|  | c2   pre-order
 c1 c2 s1 s2 | c2 s1  | c2 ns  | ns
             |    s2  |    s1  | s1
             |        |    s2  | s2
 ```
 
-As can be seen, this option provides an iterative definition for the
-**pre-order trace**.
+Option-1 can be guaranteed to produce the document tree's **pre-order trace**.
+Because of that, this option serves as **an iterative definition** of the
+pre-order tree traversal.
+
+Note that **the pre-order trace of the source tree**, including the trace of
+each intermediate tree, is equal to the final trace. After all, the iterative
+process is order-preserving.
 
 <!-- ======================================================================= -->
 ## option-2: (ns -> fc)
@@ -76,19 +82,19 @@ step-0           step-1   step-2   step-3   step-4   step-5   levels
 ============== | ====== | ====== | ====== | ====== | ====== | ======
 p              | p      | p      | p      | p      | p      | 1
 |---->|        | n      | n      | n      | n      | n      | 2
-n     ns       | |<--|  | ns     | ns     | ns     | ns     | 2   some  ?
-|-->| |-->|    | c1 ns  | |<--|  | c1     | c1     | c1     | 3   level ?
-c1 c2 s1 s2    | c2 s1  | s1 c1  | |<--|  | s1     | s1 (!) | 3   order ?
-         |-->| |    s2  | s2 c2  | c2 s1  | |<--|  | c2     | 3
+n     ns       | |<--|  | ns     | ns     | ns     | ns     | 2
+|-->| |-->|    | c1 ns  | |<--|  | c1     | c1     | c1     | 3   some  ?
+c1 c2 s1 s2    | c2 s1  | s1 c1  | |<--|  | s1     | s1 (!) | 3   level ?
+         |-->| |    s2  | s2 c2  | c2 s1  | |<--|  | c2     | 3   order ?
          d1 d2 |    d1  | d1     |    s2  | s2 c2  | s2     | 3
                |    d2  | d2     |    d1  | d1     | d1     | 4
                |        |        |    d2  | d2     | d2     | 4
 ```
 
-As can be seen, this option can not produce the default level-order trace.
-However, it seems as if it may still be used to produce a sequence of
-**interleaved child orders** which even seems to be **in level-order** -
-i.e. monotone increasing node levels.
+Option-2 can not produce the default level-order trace. However, it seems as
+if it may still be used to produce a sequence of **interleaved child orders**
+which even seems to be **in level-order** - i.e. monotone increasing node
+levels.
 
 Note that, even though this option provides a dual iterative definition for
 an order, with no name for it (i.e. not in pre-order, not in post-order, not

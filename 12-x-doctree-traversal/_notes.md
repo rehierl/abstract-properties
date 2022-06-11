@@ -2,7 +2,9 @@
 a variable max number of iterations
 - certainly less than N iterations
 - is there a better upper boundary?
-- one that depends on the tree's height?
+- e.g. in regards to the longest child order?
+- e.g. in regards to the tree's height?
+- e.g. in regards to the tree's width?
 
 # in general
 

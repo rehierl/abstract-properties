@@ -36,12 +36,6 @@ its former first child (e.g. `fs`) as its one and only child. One might thus
 assume that **iteratively embedding more child orders** will result in a
 linear order (i.e. a trace of nodes) after a finite amount of steps.
 
-Note that, one way to imagine such an iterative process would be to think of
-**a zipper** that, while being closed, has a linear prefix (a rooted path)
-which ends with the topmost parent that has a child order with two or more
-nodes. The iterative process would then extend that rooted path by one or
-more nodes with each step, until the resulting order is linear.
-
 <!-- ======================================================================= -->
 ## only two options
 
